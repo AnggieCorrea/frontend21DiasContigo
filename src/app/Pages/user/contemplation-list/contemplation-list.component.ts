@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavbarComponent } from 'src/app/layouts/navbar/navbar.component';
 
 @Component({
   selector: 'app-contemplation-list',

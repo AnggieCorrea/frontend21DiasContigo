@@ -5,8 +5,8 @@ import { LoginComponent } from './public/login/login.component';
 import { CreateAccountComponent } from './user/create-account/create-account.component';
 import { ContemplationListComponent } from './user/contemplation-list/contemplation-list.component';
 import { PauseListComponent } from './user/pause-list/pause-list.component';
-import { NavbarComponent } from './shared-components/navbar/navbar.component';
-import { ConsiderationComponent } from './user/consideration/consideration.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { SettingsComponent } from './user/settings/settings.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full' , redirectTo: '/home'},
@@ -14,9 +14,9 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'createAccount', component: CreateAccountComponent},
   {path: 'contemplationsMap', component: ContemplationListComponent},
-  {path: 'pauseList', component: PauseListComponent},
-  {path: 'navbar', component: NavbarComponent},
-  {path: 'consideration', component: ConsiderationComponent}
+  {path: 'pauseMap', component: PauseListComponent},
+  {path: 'profile', component:ProfileComponent},
+  {path: 'settings', component:SettingsComponent}
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { ContemplationListComponent } from './contemplation-list/contemplation-list.component';
@@ -7,7 +7,7 @@ import { SpiritualExerciseComponent } from './spiritual-exercise/spiritual-exerc
 import { ConsiderationComponent } from './consideration/consideration.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
-import { LayoutsModule} from 'src/app/layouts/layouts.module';
+import { SharedComponentsModule } from '../shared-components/shared-components.module';
 
 @NgModule({
   declarations: [
@@ -19,9 +19,22 @@ import { LayoutsModule} from 'src/app/layouts/layouts.module';
     ProfileComponent,
     SettingsComponent
   ],
+  schemas: [
+    NO_ERRORS_SCHEMA,
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
   imports: [
     CommonModule,
-    LayoutsModule
+    SharedComponentsModule
+  ],
+  exports: [
+    CreateAccountComponent,
+    ContemplationListComponent,
+    PauseListComponent,
+    SpiritualExerciseComponent,
+    ConsiderationComponent,
+    ProfileComponent,
+    SettingsComponent
   ]
 })
 export class UserModule { }

@@ -4,6 +4,8 @@ import { GridComponent } from './grid/grid.component';
 import { TabComponent } from './tab/tab.component';
 import { AudioPlayerComponent } from './audio-player/audio-player.component';
 import { MicrophoneRecorderComponent } from './microphone-recorder/microphone-recorder.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -12,10 +14,20 @@ import { MicrophoneRecorderComponent } from './microphone-recorder/microphone-re
     GridComponent,
     TabComponent,
     AudioPlayerComponent,
-    MicrophoneRecorderComponent
+    MicrophoneRecorderComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule
+  ],
+  exports:[
+    GridComponent,
+    TabComponent,
+    AudioPlayerComponent,
+    MicrophoneRecorderComponent,
+    NavbarComponent,
+    FooterComponent
   ]
 })
 export class SharedComponentsModule { }

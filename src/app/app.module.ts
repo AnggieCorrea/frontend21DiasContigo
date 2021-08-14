@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PublicModule } from './Pages/public/public.module';
+import { PublicModule } from './public/public.module';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { PublicModule } from './Pages/public/public.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PublicModule
+    PublicModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

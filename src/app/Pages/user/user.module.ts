@@ -7,8 +7,7 @@ import { SpiritualExerciseComponent } from './spiritual-exercise/spiritual-exerc
 import { ConsiderationComponent } from './consideration/consideration.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
-
-
+import { LayoutsModule} from 'src/app/layouts/layouts.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,8 @@ import { SettingsComponent } from './settings/settings.component';
     SettingsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    LayoutsModule
   ]
 })
 export class UserModule { }

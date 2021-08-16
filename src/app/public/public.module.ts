@@ -6,7 +6,6 @@ import { LogoutComponent } from './logout/logout.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
-
 @NgModule({
   declarations: [
     HomeComponent,

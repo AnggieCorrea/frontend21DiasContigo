@@ -8,6 +8,8 @@ import { ConsiderationComponent } from './consideration/consideration.component'
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SharedComponentsModule } from '../shared-components/shared-components.module';
+import { UserContemplationListComponent } from './profile/contemplation-list/contemplation-list.component';
+import { UserPauseListComponent } from './profile/pause-list/pause-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { SharedComponentsModule } from '../shared-components/shared-components.m
     SpiritualExerciseComponent,
     ConsiderationComponent,
     ProfileComponent,
-    SettingsComponent
+    SettingsComponent,
+    UserPauseListComponent,
+    UserContemplationListComponent
   ],
   schemas: [
     NO_ERRORS_SCHEMA,

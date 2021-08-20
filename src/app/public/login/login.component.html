@@ -1,19 +1,47 @@
-<div class="container">
-    <div class="card">
-      <div class="card-body">
-        <form>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Correo electrónico: </label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="form-group"><button class="btn btn-primary btn-block" type="submit" (click)="checkUser()">Entrar</button></div>
-          <a class="forgot" href="#">Forgot your email or password?</a>
-        </form>
-      </div>
+<img class="loginImagen" src="https://www.meteorologiaenred.com/wp-content/uploads/2017/01/cielo.jpg">
+<div class="container-fluid" style="padding-top: 6rem; padding-bottom: 2.5rem; ">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <header class="card-header">
+          <!------<a href="public/login" class="float-right btn btn-dark mt-1">Iniciar Sesión</a>---------->
+          <h1  style="text-align: center;">21 días contigo</h1>
+          <h3>
+            Inicia sesión
+          </h3>
+        </header>
+        <article class="card-body">
+          <form>
+            <div class="form-group">
+              <label>Correo Electrónico: </label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                placeholder="Correo Electrónico"
+              />
+            </div>
+            <div class="form-group" style="padding-bottom: 10px">
+              <label>Contraseña: </label>
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                placeholder="Contraseña"
+              />
+            </div>
+            <br />
+            <div style="text-align: center;">
+              <button style="margin-right: 10px" class="btn" (click)="checkUser()">
+                Iniciar sesión
+              </button>
+              <button style="margin-right: 10px" class="btn" (click)="return()">
+                Atrás
+              </button>
+            </div>
+          </form>
+        </article>
+        </div>
     </div>
+  </div>
 </div>
-<button class="btn btn-primary btn-block" (click)="return()">Atras</button>

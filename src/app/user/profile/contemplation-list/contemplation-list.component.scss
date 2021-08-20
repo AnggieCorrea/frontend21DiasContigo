@@ -1,0 +1,226 @@
+@media screen and (min-width:321px) and (max-width: 800px) {
+    .contemplationCard{
+        margin-top: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;    
+        width: 100%;
+        height: 100%;
+        border-style: solid;
+        border-color: rgb(128, 128, 128, 0.3);
+        border-radius: 20px;
+        display: inline-block;
+        justify-content: space-around;
+        align-items: center;
+        transition: .2s;
+    }
+    
+    .pauseCard{
+        margin-top: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;    
+        width: 100%;
+        height: 100%;
+        border-style: solid;
+        border-color: rgb(128, 128, 128, 0.3);
+        border-radius: 20px;
+        display: inline-block;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .cardTitle{
+        color: #3680ee;
+        font-size:small;
+        text-align: left;
+        padding-left: 5%;
+    }
+    
+    .cardDetails{
+        color: rgb(128, 128, 128);
+        font-size: smaller;
+        font-weight:lighter;
+        display: flex;
+        padding-left: 5%;
+        padding-right: 5%;
+        flex-direction: row;
+        justify-content:space-between;
+        align-items: center;
+    }
+    
+    .pauseTitle{
+        color: #3680ee;
+        font-size:small;
+        display: inline-flex;
+        justify-content:space-around;
+    }
+    
+    .pauseDetails{
+        color: rgb(128, 128, 128);
+        font-size: small;
+        width: 100%;
+        font-weight:lighter;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+    .emotionLiker{
+        font-size:large;
+    }
+    .emotionLiker input{
+        margin-left: 3%;
+    }
+}
+
+@media screen and (min-width:801px) and (max-width: 1280px) {
+    .contemplationCard{
+        margin-top: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;    
+        width: 100%;
+        height: 100%;
+        border-style: solid;
+        border-color: rgb(128, 128, 128, 0.3);
+        border-radius: 20px;
+        display: inline-block;
+        justify-content: space-around;
+        align-items: center;
+        transition: .2s;
+    }
+    
+    .pauseCard{
+        margin-top: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;    
+        width: 100%;
+        height: 100%;
+        border-style: solid;
+        border-color: rgb(128, 128, 128, 0.3);
+        border-radius: 20px;
+        display: inline-block;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .cardTitle{
+        color: #3680ee;
+        font-size:large;
+        text-align: left;
+        padding-left: 5%;
+    }
+    
+    .cardDetails{
+        color: rgb(128, 128, 128);
+        font-size: small;
+        font-weight:lighter;
+        display: flex;
+        padding-left: 5%;
+        padding-right: 5%;
+        flex-direction: row;
+        justify-content:space-between;
+        align-items: center;
+    }
+    
+    .pauseTitle{
+        color: #3680ee;
+        width: 100%;
+        font-size:large;
+        text-align: left;
+        display: inline-flex;
+        justify-content:space-around;
+    }
+    
+    .pauseDetails{
+        color: rgb(128, 128, 128);
+        font-size: small;
+        font-weight:lighter;
+        display: flex;
+        width: 100%;
+        flex-direction:row;
+        justify-content:space-evenly;
+        align-items: center;
+    }
+    
+    .emotionLiker{
+        font-size: large;
+    }
+    .emotionLiker input{
+        margin-left: 3%;
+    }
+}
+
+@media screen and (min-width:1281px){
+    .contemplationCard{
+        margin-top: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;    
+        width: 100%;
+        height: 100%;
+        border-style: solid;
+        border-color: rgb(128, 128, 128, 0.3);
+        border-radius: 20px;
+        display: inline-block;
+        justify-content: space-around;
+        align-items: center;
+        transition: .2s;
+    }
+    
+    .pauseCard{
+        margin-top: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;    
+        width: 100%;
+        height: 100%;
+        border-style: solid;
+        border-color: rgb(128, 128, 128, 0.3);
+        border-radius: 20px;
+        display: inline-block;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .cardTitle{
+        color: #3680ee;
+        font-size:large;
+        text-align: left;
+        padding-left: 5%;
+    }
+    
+    .cardDetails{
+        color: rgb(128, 128, 128);
+        font-size: small;
+        font-weight:lighter;
+        display: flex;
+        padding-left: 5%;
+        padding-right: 5%;
+        flex-direction: row;
+        justify-content:space-between;
+        align-items: center;
+    }
+    
+    .pauseTitle{
+        color: #3680ee;
+        width: 100%;
+        font-size:large;
+        text-align: left;
+        display: inline-flex;
+        justify-content:space-around;
+    }
+    
+    .pauseDetails{
+        color: rgb(128, 128, 128);
+        font-size: small;
+        font-weight:lighter;
+        display: flex;
+        width: 30%;
+        flex-direction:row;
+        justify-content:space-between;
+        align-items: center;
+    }
+    
+    .emotionLiker{
+        font-size: xx-large;
+    }
+    .emotionLiker input{
+        margin-left: 3%;
+    }
+}

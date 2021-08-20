@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  showContemplation=true;
+  showPause=false;
+
+  constructor() {
+   }
 
   ngOnInit(): void {
+  }
+
+  showContemplations(){
+    this.showContemplation = true;
+    this.showPause = false;
+  }
+
+  showPauses(){
+    this.showContemplation = false;
+    this.showPause = true;
   }
 
 }

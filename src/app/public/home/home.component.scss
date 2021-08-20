@@ -11,18 +11,27 @@ $big: 910px;
 }
 
 h1{
-    color: rgb(161, 207, 214);
-    text-shadow: 2px 2px 5px white;
-    font-size: 8vw;
-    box-sizing: border-box;
-    position: relative;
-    top: 20%;
-    left: 50%;
-    text-align: center;
-    transform: translate(-50%, -320%);
+   color: rgb(161, 207, 214);
+   text-shadow: 2px 2px 5px white;
+   font-size: 8vw;
+   box-sizing: border-box;
+   text-align: center;
+   transform: translate(0%, -320%);
 }
 
 .containerHome{
-    position: relative;
-    display: inline-block;
+   position: relative;
+   display: inline-block;
+}
+
+.buttonLogin{
+   text-align: center;
+   box-shadow: 5px 5px 5px black;
+   transform: translate(400%, -1500%);
+}
+
+ .buttonCreateAccount{
+    text-align: center;
+    box-shadow: 5px 5px 5px black;
+    transform: translate(800%, -1500%);
 }

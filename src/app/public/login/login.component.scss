@@ -1,0 +1,38 @@
+$small: 100px;
+$big: 910px;
+
+@media screen and (max-width: $big) {
+
+}
+@media screen and (min-width: $small) {
+    img{
+        width: 100%;
+    }
+}
+
+.container-fluid{
+    transform: translate(0%, -130%);
+}
+
+.card{
+    background-color: rgb(255, 255, 255, 0);
+}
+
+h1{
+    color: white;
+    text-shadow: 2px 2px 5px rgb(74, 208, 241);
+}
+
+h3{
+    color: white;
+    text-shadow: 1px 1px 5px rgb(74, 208, 241);
+}
+
+label{
+    color: white;
+}
+
+.btn{
+    color: white;
+    background-color: rgb(74, 208, 241);
+}

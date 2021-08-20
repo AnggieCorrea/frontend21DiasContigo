@@ -1,0 +1,28 @@
+$small: 100px;
+$big: 910px;
+
+@media screen and (max-width: $big) {
+
+}
+@media screen and (min-width: $small) {
+    img{
+        width: 100%;
+    }
+}
+
+h1{
+    color: rgb(161, 207, 214);
+    text-shadow: 2px 2px 5px white;
+    font-size: 8vw;
+    box-sizing: border-box;
+    position: relative;
+    top: 20%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -320%);
+}
+
+.containerHome{
+    position: relative;
+    display: inline-block;
+}

@@ -49,6 +49,8 @@
     padding-top: 10px;
     text-align: center;
     align-items: center;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
     border-style: none;
     transition: .3s;
 }
@@ -64,6 +66,8 @@
     width:50%;
     padding-top: 10px;
     text-align: center;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
     border-style: none;
     transition: .2s;
 }

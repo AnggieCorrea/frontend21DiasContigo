@@ -12,4 +12,8 @@ export class PauseListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  navSpiritualExcercise(dia:string){
+    
+  }
+
 }

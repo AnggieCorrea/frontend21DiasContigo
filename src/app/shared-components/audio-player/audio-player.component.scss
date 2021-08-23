@@ -1,0 +1,249 @@
+@media screen and (min-width:321px) and (max-width:800px){
+    .audioContainer{
+        padding: 40px;
+        margin-top: 20px;
+        padding-top: 10px;
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 90%;
+        height: 100%;
+        border-style: solid;
+        border-color: rgb(128, 128, 128, 0.3);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .audioControl{
+        display:flex;
+        flex-direction:row;
+        list-style: none;
+        width: 30%;
+        justify-content: space-evenly;
+        
+    }
+
+    .playButton{
+        width: 50px;
+        height: 50px;
+        padding-top: 60px;
+        background-color: #ffffff;
+        border-style: none;
+        background-image: url(/assets/playButton.png);
+        background-size: 60px;
+        background-repeat: no-repeat;
+        transition: 0.3s;
+    }
+
+    .playButton:hover{
+        transform:scale(1.10);
+        background-color: #888a8d;
+        border-radius: 20px;
+        
+    }
+
+    .pauseButton{
+        width: 50px;
+        height: 50px;
+        padding-top: 60px;
+        background-color: #ffffff;
+        border-style: none;
+        background-image: url(/assets/pauseButton.png);
+        background-repeat: round;
+        transition: 0.3s;
+    }
+
+    .pauseButton:hover{
+        transform:scale(1.10);
+        background-color: #888a8d;
+        border-radius: 20px;
+    }
+
+    .stopButton{
+        width: 60px;
+        height: 60px;
+        padding-top: 60px;
+        background-color: #ffffff;
+        border-style: none;
+        background-image: url(/assets/stopButton.png);
+        background-repeat: round;
+        transition: 0.3s;
+    }
+
+    .audioList{
+        list-style: none;
+        transition: 0.3s;
+    }
+    .audioList:hover{
+        font-size: large;
+        color: #3680ee;
+    }
+}
+@media screen and (min-width:801px) and (max-width: 1280px){
+    .audioContainer{
+        padding: 40px;
+        margin-top: 20px;
+        padding-top: 10px;
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 90%;
+        height: 100%;
+        border-style: solid;
+        border-color: rgb(128, 128, 128, 0.3);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .audioControl{
+        display:flex;
+        flex-direction:row;
+        list-style: none;
+        width: 30%;
+        justify-content: space-evenly;
+        
+    }
+
+    .playButton{
+        width: 50px;
+        height: 50px;
+        padding-top: 60px;
+        background-color: #ffffff;
+        border-style: none;
+        background-image: url(/assets/playButton.png);
+        background-size: 60px;
+        background-repeat: no-repeat;
+        transition: 0.3s;
+    }
+
+    .playButton:hover{
+        transform:scale(1.10);
+        background-color: #888a8d;
+        border-radius: 20px;
+        
+    }
+
+    .pauseButton{
+        width: 50px;
+        height: 50px;
+        padding-top: 60px;
+        background-color: #ffffff;
+        border-style: none;
+        background-image: url(/assets/pauseButton.png);
+        background-repeat: round;
+        transition: 0.3s;
+    }
+
+    .pauseButton:hover{
+        transform:scale(1.10);
+        background-color: #888a8d;
+        border-radius: 20px;
+    }
+
+    .stopButton{
+        width: 60px;
+        height: 60px;
+        padding-top: 60px;
+        background-color: #ffffff;
+        border-style: none;
+        background-image: url(/assets/stopButton.png);
+        background-repeat: round;
+        transition: 0.3s;
+    }
+
+    .audioList{
+        list-style: none;
+        transition: 0.3s;
+    }
+    .audioList:hover{
+        font-size: large;
+        color: #3680ee;
+    }
+}
+@media screen and (min-width:1281px){
+    .audioContainer{
+        padding: 40px;
+        margin-top: 20px;
+        padding-top: 10px;
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 90%;
+        height: 100%;
+        border-style: solid;
+        border-color: rgb(128, 128, 128, 0.3);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .audioControl{
+        display:flex;
+        flex-direction:row;
+        list-style: none;
+        width: 30%;
+        justify-content: space-evenly;
+        
+    }
+
+    .playButton{
+        width: 50px;
+        height: 50px;
+        padding-top: 60px;
+        background-color: #ffffff;
+        border-style: none;
+        background-image: url(/assets/playButton.png);
+        background-size: 60px;
+        background-repeat: no-repeat;
+        transition: 0.3s;
+    }
+
+    .playButton:hover{
+        transform:scale(1.10);
+        background-color: #888a8d;
+        border-radius: 20px;
+        
+    }
+
+    .pauseButton{
+        width: 50px;
+        height: 50px;
+        padding-top: 60px;
+        background-color: #ffffff;
+        border-style: none;
+        background-image: url(/assets/pauseButton.png);
+        background-repeat: round;
+        transition: 0.3s;
+    }
+
+    .pauseButton:hover{
+        transform:scale(1.10);
+        background-color: #888a8d;
+        border-radius: 20px;
+    }
+
+    .stopButton{
+        width: 60px;
+        height: 60px;
+        padding-top: 60px;
+        background-color: #ffffff;
+        border-style: none;
+        background-image: url(/assets/stopButton.png);
+        background-repeat: round;
+        transition: 0.3s;
+    }
+
+    .audioList{
+        list-style: none;
+        transition: 0.3s;
+    }
+    .audioList:hover{
+        font-size: large;
+        color: #3680ee;
+    }
+}

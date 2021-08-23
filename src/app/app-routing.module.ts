@@ -7,6 +7,7 @@ import { ContemplationListComponent } from './user/contemplation-list/contemplat
 import { PauseListComponent } from './user/pause-list/pause-list.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { SettingsComponent } from './user/settings/settings.component';
+import { SpiritualExerciseComponent } from './user/spiritual-exercise/spiritual-exercise.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full' , redirectTo: '/home'},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'contemplationsMap', component: ContemplationListComponent},
   {path: 'pauseMap', component: PauseListComponent},
   {path: 'profile', component:ProfileComponent},
-  {path: 'settings', component:SettingsComponent}
+  {path: 'settings', component:SettingsComponent},
+  {path: 'spiritualExcercise', component: SpiritualExerciseComponent}
 ];
 
 @NgModule({

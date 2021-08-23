@@ -1,23 +1,27 @@
+
 <div class="audioContainer">
-    <h1>Audio reflexiones</h1>
     <ul>
         <li class="audioList" *ngFor="let file of files" (click)="openFile(file.url)">{{file.name}}</li>
     </ul>
     <div class="audioControl">
-        <button *ngIf="showPlay==true" class="playButton" (click)="play()" ></button>
-        <button *ngIf="showPause==true" class="pauseButton" (click)="pause()"></button>
+        <div>
+            <button *ngIf="showPlay==true" class="playButton" (click)="play()" ></button>
+            <button *ngIf="showPause==true" class="pauseButton" (click)="pause()"></button>
+        </div>
+        <div class="volumeConfig">
+            <span></span>
+            <input class="volumeSlide" type="range" min="0" max="1" step="0.01" value="0.5" (input)="setVolume($event)">
+        </div>
         <button class="stopButton"(click)="stop()"></button>
     </div>
     <div class="audioDetails">
         <span>Time</span>
         <span>Duration</span>
     </div>
-    <div class="volumeConfig">
-        <span>Volume</span>
-        <input type="range" min="0" max="1" step="0.01" value="0.5" (input)="setVolume($event)">
-    </div>
-    <div *ngIf="showSpam==true">
+    <div class="considerationNavButtons"*ngIf="showSpam==true">
+        <button class="recordNavButton">¡Graba tu experiencia!</button>
+        <button class="writeNavButton">¡Escribe tu experiencia!</button>
+        <button class="skipNavButton">No puede realizarce por el momento</button>
     </div>
 </div>
-
 

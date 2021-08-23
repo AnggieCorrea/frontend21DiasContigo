@@ -1,3 +1,140 @@
+@media screen and (max-width:320px){
+    .audioContainer{
+        padding: 40px;
+        margin-top: 20px;
+        padding-top: 10px;
+        width: 100%;
+        height: 100%;
+        border-style: solid;
+        border-color: rgb(128, 128, 128, 0.3);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        overflow: hidden;
+        background-color: rgba(255, 255, 255, 0.568);
+     }
+
+     .audioControl{
+        display:flex;
+        flex-direction:row;
+        list-style: none;
+        color: rgb(63, 123, 235);
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .playButton{
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        border-style: none;
+        background-image: url(/assets/playButton.png);
+        background-size: 40px;
+        background-repeat: no-repeat;
+        transition: 0.3s;
+    }
+
+    .pauseButton{
+        width: 40px;
+        height: 40px;
+        padding-top: 1rem;
+        background-color: transparent;
+        border-style: none;
+        background-image: url(/assets/pauseButton.png);
+        background-size: 40px;
+        background-repeat: round;
+        transition: 0.3s;
+    }
+
+    .stopButton{
+        width: 40px;
+        height: 40px;
+        background-color:transparent;
+        border-style: none;
+        background-image: url(/assets/stopButton.png);
+        background-repeat: round;
+        background-size: 40px;
+        transition: 0.3s;
+    }
+
+    .audioList{
+        list-style: none;
+        color: rgb(255, 255, 255);
+        transition: 0.3s;
+    }
+    .audioList:hover{
+        color: #3680ee;
+        cursor: pointer;
+    }
+
+    .volumeConfig{
+        display: flex;
+    }
+
+    .volumeConfig span{
+        margin-right: 1rem;
+    }
+
+    input[type='range'] {
+        display: block;
+        width: 3rem;
+        background-color: transparent;
+      }
+      input[type='range']:focus {
+        outline: none;
+      }
+      input[type='range'],
+      input[type='range']::-webkit-slider-runnable-track,
+      input[type='range']::-webkit-slider-thumb {
+        -webkit-appearance: none;
+      }
+      input[type=range]::-webkit-slider-thumb {
+        background-color: #777;
+        width: 1.2rem;
+        height: 1.2rem;
+        border: 0.2rem solid #333;
+        border-radius: 50%;
+        margin-top: -0.5rem;
+      }
+      input[type=range]::-moz-range-thumb {
+        background-color: #777;
+        width: 1.2rem;
+        height: 1.2rem;
+        border: 0.5rem solid #333;
+        border-radius: 50%;
+      }
+      input[type=range]::-ms-thumb {
+        background-color: #777;
+        width: 1rem;
+        height: 1rem;
+        border: 0.2rem solid #333;
+        border-radius: 50%;
+      }
+      input[type=range]::-webkit-slider-runnable-track {
+        background-color: #777;
+        height: 0.2rem;
+      }
+      
+      input[type=range]:focus::-webkit-slider-runnable-track {
+        outline: none;
+      }
+      
+      input[type=range]::-moz-range-track {
+        background-color: #777;
+        height: 0.2rem;
+      }
+      input[type=range]::-ms-track {
+        background-color: #777;
+        height: 0.2rem;
+      }
+      input[type=range]::-ms-fill-upper {
+        background-color: black;
+      } 
+}
+
+
 @media screen and (min-width:321px) and (max-width:800px){
     .audioContainer{
         padding: 40px;
@@ -14,22 +151,23 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-    }
+        overflow: hidden;
+        background-color: rgba(255, 255, 255, 0.568);
+     }
 
-    .audioControl{
+     .audioControl{
         display:flex;
         flex-direction:row;
         list-style: none;
-        width: 30%;
+        color: rgb(63, 123, 235);
+        width: 100%;
         justify-content: space-evenly;
-        
     }
 
     .playButton{
-        width: 50px;
-        height: 50px;
-        padding-top: 60px;
-        background-color: #ffffff;
+        width: 3rem;
+        height: 3rem;
+        background-color: transparent;
         border-style: none;
         background-image: url(/assets/playButton.png);
         background-size: 60px;
@@ -37,35 +175,21 @@
         transition: 0.3s;
     }
 
-    .playButton:hover{
-        transform:scale(1.10);
-        background-color: #888a8d;
-        border-radius: 20px;
-        
-    }
-
     .pauseButton{
-        width: 50px;
-        height: 50px;
-        padding-top: 60px;
-        background-color: #ffffff;
+        width: 3rem;
+        height: 3rem;
+        padding-top: 1rem;
+        background-color: transparent;
         border-style: none;
         background-image: url(/assets/pauseButton.png);
         background-repeat: round;
         transition: 0.3s;
     }
 
-    .pauseButton:hover{
-        transform:scale(1.10);
-        background-color: #888a8d;
-        border-radius: 20px;
-    }
-
     .stopButton{
-        width: 60px;
-        height: 60px;
-        padding-top: 60px;
-        background-color: #ffffff;
+        width: 3rem;
+        height: 3rem;
+        background-color:transparent;
         border-style: none;
         background-image: url(/assets/stopButton.png);
         background-repeat: round;
@@ -74,12 +198,77 @@
 
     .audioList{
         list-style: none;
+        color: rgb(255, 255, 255);
         transition: 0.3s;
     }
     .audioList:hover{
-        font-size: large;
         color: #3680ee;
+        cursor: pointer;
     }
+
+    .volumeConfig{
+        display: flex;
+    }
+
+    .volumeConfig span{
+        margin-right: 1rem;
+    }
+
+    input[type='range'] {
+        display: block;
+        width: 5rem;
+        background-color: transparent;
+      }
+      input[type='range']:focus {
+        outline: none;
+      }
+      input[type='range'],
+      input[type='range']::-webkit-slider-runnable-track,
+      input[type='range']::-webkit-slider-thumb {
+        -webkit-appearance: none;
+      }
+      input[type=range]::-webkit-slider-thumb {
+        background-color: #777;
+        width: 1.2rem;
+        height: 1.2rem;
+        border: 0.2rem solid #333;
+        border-radius: 50%;
+        margin-top: -0.5rem;
+      }
+      input[type=range]::-moz-range-thumb {
+        background-color: #777;
+        width: 1.2rem;
+        height: 1.2rem;
+        border: 0.5rem solid #333;
+        border-radius: 50%;
+      }
+      input[type=range]::-ms-thumb {
+        background-color: #777;
+        width: 1rem;
+        height: 1rem;
+        border: 0.2rem solid #333;
+        border-radius: 50%;
+      }
+      input[type=range]::-webkit-slider-runnable-track {
+        background-color: #777;
+        height: 0.2rem;
+      }
+      
+      input[type=range]:focus::-webkit-slider-runnable-track {
+        outline: none;
+      }
+      
+      input[type=range]::-moz-range-track {
+        background-color: #777;
+        height: 0.2rem;
+      }
+      input[type=range]::-ms-track {
+        background-color: #777;
+        height: 0.2rem;
+      }
+      input[type=range]::-ms-fill-upper {
+        background-color: black;
+      } 
 }
 @media screen and (min-width:801px) and (max-width: 1280px){
     .audioContainer{
@@ -97,22 +286,22 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+        background-color: rgba(255, 255, 255, 0.568);
     }
 
     .audioControl{
         display:flex;
         flex-direction:row;
         list-style: none;
-        width: 30%;
+        width: 80%;
         justify-content: space-evenly;
-        
     }
 
     .playButton{
-        width: 50px;
-        height: 50px;
-        padding-top: 60px;
-        background-color: #ffffff;
+        width: 4rem;
+        height: 4rem;
+        padding-top: 4rem;
+        background-color: transparent;
         border-style: none;
         background-image: url(/assets/playButton.png);
         background-size: 60px;
@@ -121,17 +310,15 @@
     }
 
     .playButton:hover{
-        transform:scale(1.10);
         background-color: #888a8d;
         border-radius: 20px;
-        
     }
 
     .pauseButton{
-        width: 50px;
-        height: 50px;
-        padding-top: 60px;
-        background-color: #ffffff;
+        width: 4rem;
+        height: 4rem;
+        padding-top: 4rem;
+        background-color: transparent;
         border-style: none;
         background-image: url(/assets/pauseButton.png);
         background-repeat: round;
@@ -139,16 +326,15 @@
     }
 
     .pauseButton:hover{
-        transform:scale(1.10);
         background-color: #888a8d;
         border-radius: 20px;
     }
 
     .stopButton{
-        width: 60px;
-        height: 60px;
-        padding-top: 60px;
-        background-color: #ffffff;
+        width: 4rem;
+        height: 4rem;
+        padding-top: 4rem;
+        background-color:transparent;
         border-style: none;
         background-image: url(/assets/stopButton.png);
         background-repeat: round;
@@ -157,12 +343,78 @@
 
     .audioList{
         list-style: none;
+        color: rgb(255, 255, 255);
         transition: 0.3s;
     }
     .audioList:hover{
-        font-size: large;
         color: #3680ee;
+        cursor: pointer;
     }
+
+    .volumeConfig{
+        display: flex;
+    }
+
+    .volumeConfig span{
+        margin-right: 1rem;
+    }
+
+    input[type='range'] {
+        display: block;
+        width: 20rem;
+        background-color: transparent;
+      }
+      input[type='range']:focus {
+        outline: none;
+      }
+      input[type='range'],
+      input[type='range']::-webkit-slider-runnable-track,
+      input[type='range']::-webkit-slider-thumb {
+        -webkit-appearance: none;
+      }
+      input[type=range]::-webkit-slider-thumb {
+        background-color: #777;
+        width: 1.2rem;
+        height: 1.2rem;
+        border: 0.2rem solid #333;
+        border-radius: 50%;
+        margin-top: -0.5rem;
+      }
+      input[type=range]::-moz-range-thumb {
+        background-color: #777;
+        width: 1.2rem;
+        height: 1.2rem;
+        border: 0.5rem solid #333;
+        border-radius: 50%;
+      }
+      input[type=range]::-ms-thumb {
+        background-color: #777;
+        width: 1rem;
+        height: 1rem;
+        border: 0.2rem solid #333;
+        border-radius: 50%;
+      }
+      input[type=range]::-webkit-slider-runnable-track {
+        background-color: #777;
+        height: 0.2rem;
+      }
+      
+      input[type=range]:focus::-webkit-slider-runnable-track {
+        outline: none;
+      }
+      
+      input[type=range]::-moz-range-track {
+        background-color: #777;
+        height: 0.2rem;
+      }
+      input[type=range]::-ms-track {
+        background-color: #777;
+        height: 0.2rem;
+      }
+      input[type=range]::-ms-fill-upper {
+        background-color: black;
+      } 
+
 }
 @media screen and (min-width:1281px){
     .audioContainer{
@@ -180,22 +432,22 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+        background-color: rgba(255, 255, 255, 0.568);
     }
 
     .audioControl{
         display:flex;
         flex-direction:row;
         list-style: none;
-        width: 30%;
+        width: 80%;
         justify-content: space-evenly;
-        
     }
 
     .playButton{
-        width: 50px;
-        height: 50px;
-        padding-top: 60px;
-        background-color: #ffffff;
+        width: 4rem;
+        height: 4rem;
+        padding-top: 4rem;
+        background-color: transparent;
         border-style: none;
         background-image: url(/assets/playButton.png);
         background-size: 60px;
@@ -204,17 +456,15 @@
     }
 
     .playButton:hover{
-        transform:scale(1.10);
         background-color: #888a8d;
         border-radius: 20px;
-        
     }
 
     .pauseButton{
-        width: 50px;
-        height: 50px;
-        padding-top: 60px;
-        background-color: #ffffff;
+        width: 4rem;
+        height: 4rem;
+        padding-top: 4rem;
+        background-color: transparent;
         border-style: none;
         background-image: url(/assets/pauseButton.png);
         background-repeat: round;
@@ -222,16 +472,15 @@
     }
 
     .pauseButton:hover{
-        transform:scale(1.10);
         background-color: #888a8d;
         border-radius: 20px;
     }
 
     .stopButton{
-        width: 60px;
-        height: 60px;
-        padding-top: 60px;
-        background-color: #ffffff;
+        width: 4rem;
+        height: 4rem;
+        padding-top: 4rem;
+        background-color:transparent;
         border-style: none;
         background-image: url(/assets/stopButton.png);
         background-repeat: round;
@@ -240,10 +489,120 @@
 
     .audioList{
         list-style: none;
+        font-size: larger;
+        color: rgb(255, 255, 255);
         transition: 0.3s;
     }
     .audioList:hover{
-        font-size: large;
         color: #3680ee;
+        cursor: pointer;
     }
+
+    .volumeConfig{
+        display: flex;
+    }
+
+    .volumeConfig span{
+        margin-right: 1rem;
+    }
+
+    input[type='range'] {
+        display: block;
+        width: 20rem;
+        background-color: transparent;
+      }
+      input[type='range']:focus {
+        outline: none;
+      }
+      input[type='range'],
+      input[type='range']::-webkit-slider-runnable-track,
+      input[type='range']::-webkit-slider-thumb {
+        -webkit-appearance: none;
+      }
+      input[type=range]::-webkit-slider-thumb {
+        background-color: #777;
+        width: 1.2rem;
+        height: 1.2rem;
+        border: 0.2rem solid #333;
+        border-radius: 50%;
+        margin-top: -0.5rem;
+      }
+      input[type=range]::-moz-range-thumb {
+        background-color: #777;
+        width: 1.2rem;
+        height: 1.2rem;
+        border: 0.5rem solid #333;
+        border-radius: 50%;
+      }
+      input[type=range]::-ms-thumb {
+        background-color: #777;
+        width: 1rem;
+        height: 1rem;
+        border: 0.2rem solid #333;
+        border-radius: 50%;
+      }
+      input[type=range]::-webkit-slider-runnable-track {
+        background-color: #777;
+        height: 0.2rem;
+      }
+      
+      input[type=range]:focus::-webkit-slider-runnable-track {
+        outline: none;
+      }
+      
+      input[type=range]::-moz-range-track {
+        background-color: #777;
+        height: 0.2rem;
+      }
+      input[type=range]::-ms-track {
+        background-color: #777;
+        height: 0.2rem;
+      }
+      input[type=range]::-ms-fill-upper {
+        background-color: black;
+      } 
+
+      .considerationNavButtons{
+        width: 110%;    
+        margin-top: 20px;
+        padding-top: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .recordNavButton{
+        width: 40%;
+        padding-top: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        text-align: center;
+        border-radius: 2rem;
+        border-style: none;
+        transition: .2s;
+      }
+
+      .writeNavButton{
+        width: 40%;
+        padding-top: 1rem;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        text-align: center;
+        border-radius: 2rem;
+        border-style: none;
+        transition: .2s;
+      }
+
+      .skipNavButton{
+        width: 40%;
+        padding-top: 1rem;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        text-align: center;
+        border-radius: 2rem;
+        border-style: none;
+        transition: .2s;
+      }
 }

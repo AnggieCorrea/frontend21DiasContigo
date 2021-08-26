@@ -1,3 +1,79 @@
+<!-- BARRA DE NAVEGACION -->
+<header class="barraNavegacion">
+	<nav class="barraNavegacion">
+	<!-- Logo, chat, mis chefs -->
+	<ul class="barraNavegacionLista">
+		<li class="barraNavegacionItem"></li>
+
+		<li class="barraNavegacionItemLogo">
+		<!-- Logo de la app -->
+		<a class="barraNavegacionLogo">
+			<img src="/assets/HorizontalLogo.png" alt="Logo" />
+		</a>
+		</li>
+		<li class="barraNavegacionItem barraNavegacionItemAnimation">
+      <a (click)='navContemplationMap()'>
+        Contemplaciones
+      </a>
+		</li>
+    <li class="barraNavegacionItem barraNavegacionItemAnimation">
+      <a (click)='navPauseMap()'>
+        Pausas
+      </a>
+      </li>
+	</ul>
+
+	<!-- Perfil, home, cerrar sesión -->
+	<ul class="barraNavegacionLista">
+		<li class="barraNavegacionItem barraNavegacionItemAnimation">
+		<a (click)="navProfile()">
+			<img
+			class="barraNavegacionIconos"
+			src="/assets/IconProfile.png"
+			alt=""
+			/>
+			Usuario
+		</a>
+		</li>
+		<li class="barraNavegacionItem barraNavegacionItemAnimation">
+		<a (click)='navHome()'>
+			<img class="barraNavegacionIconos" src="/assets/IconHome.png" alt="" />
+			Inicio
+		</a>
+		</li>
+    <li class="barraNavegacionItem barraNavegacionItemAnimation">
+      <a (click)='navSettings()'>
+        <img class="barraNavegacionIconos" src="/assets/IconSettings.png" alt="" />
+        Configuración
+      </a>
+      </li>
+		<li class="barraNavegacionItem barraNavegacionItemAnimation">
+		<a (click)="navLogout()">
+			<img
+			class="barraNavegacionIconos"
+			src="/assets/IconLogout.png"
+			alt="Cerrar Sesion"
+			/>
+			Cerrar Sesión
+		</a>
+		</li>
+	</ul>
+	</nav>
+</header>
+
+<!-- MENU DESLIZANTE -->
+<div class="contenedorMenuDeslizante">
+
+  <!-- Boton del menu deslizante -->
+  <input class="botonHamburguesa" type="checkbox">
+  <div class="iconoHamburguesa">
+      <img src="/assets/IconMenu.png" alt="#">
+  </div>
+</div>
+
+
+<!--
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" disabled>21 días con tigo</a>
@@ -30,4 +106,4 @@
       </div>
     </div>
   </nav>
-  
+  -->

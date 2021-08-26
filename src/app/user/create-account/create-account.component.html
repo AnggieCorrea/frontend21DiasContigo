@@ -1,116 +1,118 @@
-<img class="loginImagen" src="https://p1.pxfuel.com/preview/894/335/677/relaxing-calm-meditation-resting.jpg">
-<div class="container-fluid" style="padding-top: 6rem; padding-bottom: 2.5rem">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card">
-        <header class="card-header">
-          <h3 class="card-title mt-2" style="text-align: center;">Registro</h3>
-        </header>
-        <article class="card-body">
-          <form (ngSubmit)="createAccount()">
-            <div class="form-row">
-              <div class="col form-group">
-                <label>Nombres</label>
+<div id="createAccountCardContainer">
+  <div class="container-fluid" style="padding-top: 6rem; padding-bottom: 2.5rem">
+    <div class="row justify-content-center">
+      <img class="loginImagen">
+      <div class="col-md-6">
+        <div class="card">
+          <header class="card-header">
+            <h3 class="card-title mt-2" style="text-align: center;">Registro</h3>
+          </header>
+          <article class="card-body">
+            <form (ngSubmit)="createAccount()">
+              <div class="form-row">
+                <div class="col form-group">
+                  <label>Nombres</label>
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control border-dark"
+                    placeholder="Pon tus nombres aqui"
+                  />
+                </div>
+                <div class="col form-group">
+                  <label>Apellidos</label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    class="form-control border-dark"
+                    placeholder="Pon tus apellidos aqui "
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Correo Electrónico</label>
                 <input
-                  type="text"
-                  name="name"
+                  type="email"
+                  name="email"
                   class="form-control border-dark"
-                  placeholder="Pon tus nombres aqui"
+                  placeholder="Pon tu correo electrónico aqui"
                 />
               </div>
-              <div class="col form-group">
-                <label>Apellidos</label>
-                <input
-                  type="text"
-                  name="lastName"
-                  class="form-control border-dark"
-                  placeholder="Pon tus apellidos aqui "
-                />
+              <div class="form-group">
+                <label class="form-check form-check-inline">
+                  <input
+                    class="form-check-input border-dark"
+                    type="radio"
+                    name="gender"
+                    value="male"
+                  />
+                  <span class="form-check-label">Hombre</span>
+                </label>
+                <label class="form-check form-check-inline">
+                  <input
+                    class="form-check-input border-dark"
+                    type="radio"
+                    name="gender"
+                    value="female"
+                  />
+                  <span class="form-check-label">Mujer</span>
+                </label>
               </div>
-            </div>
-            <div class="form-group">
-              <label>Correo Electrónico</label>
-              <input
-                type="email"
-                name="email"
-                class="form-control border-dark"
-                placeholder="Pon tu correo electrónico aqui"
-              />
-            </div>
-            <div class="form-group">
-              <label class="form-check form-check-inline">
-                <input
-                  class="form-check-input border-dark"
-                  type="radio"
-                  name="gender"
-                  value="male"
-                />
-                <span class="form-check-label">Hombre</span>
-              </label>
-              <label class="form-check form-check-inline">
-                <input
-                  class="form-check-input border-dark"
-                  type="radio"
-                  name="gender"
-                  value="female"
-                />
-                <span class="form-check-label">Mujer</span>
-              </label>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label>Ciudad</label>
-                <input
-                  type="text"
-                  name="city"
-                  class="form-control border-dark"
-                  placeholder="Pon tu ciudad aqui"
-                />
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Ciudad</label>
+                  <input
+                    type="text"
+                    name="city"
+                    class="form-control border-dark"
+                    placeholder="Pon tu ciudad aqui"
+                  />
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Pais</label>
+                  <select
+                    id="inputState"
+                    class="form-control border-dark"
+                    readonly
+                    disabled
+                    name="country"
+                  >
+                    <option>Colombia</option>
+                  </select>
+                </div>
               </div>
-              <div class="form-group col-md-6">
-                <label>Pais</label>
-                <select
-                  id="inputState"
-                  class="form-control border-dark"
-                  readonly
-                  disabled
-                  name="country"
-                >
-                  <option>Colombia</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Pon tu contraseña</label>
-              <input
-                class="form-control border-dark"
-                type="password"
-                name="password"
-                placeholder="Pon tu contraseña aqui"
-              />
-            </div>
-            <div class="form-group">
-                <label>Confirma tu contraseña</label>
+              <div class="form-group">
+                <label>Pon tu contraseña</label>
                 <input
                   class="form-control border-dark"
                   type="password"
                   name="password"
-                  placeholder="Confirma tu contraseña aqui"
+                  placeholder="Pon tu contraseña aqui"
                 />
               </div>
-            <small class="form-text text-muted" style="color: white;">No compartiremos tu información con nadie más</small>  
-            <div class="form-group text-center">
-                <br/>
-                <button type="submit" class="btn btn-dark btn-block">Registrarse</button>
-            </div>
-          </form>
-        </article>
-        <div class="card-body text-center" style="color: white">
-          ¿Tienes una cuenta?
-          <br/>
-          <button class="buttonLogin btn btn-primary btn-block" (click)="login()">Ingresar</button>
+              <div class="form-group">
+                  <label>Confirma tu contraseña</label>
+                  <input
+                    class="form-control border-dark"
+                    type="password"
+                    name="password"
+                    placeholder="Confirma tu contraseña aqui"
+                  />
+                </div>
+              <small class="form-text text-muted" style="color: white;">No compartiremos tu información con nadie más</small>  
+              <div class="form-group text-center">
+                  <br/>
+                  <button type="submit" class="btn btn-dark btn-block">Registrarse</button>
+              </div>
+            </form>
+          </article>
+          <div class="card-body text-center" style="color: white">
+            ¿Tienes una cuenta?
+            <br/>
+            <button class="buttonLogin btn btn-primary btn-block" (click)="login()">Ingresar</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </div>  
 </div>

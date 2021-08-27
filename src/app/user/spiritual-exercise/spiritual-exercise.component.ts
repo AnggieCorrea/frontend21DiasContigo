@@ -3,13 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-spiritual-exercise',
   templateUrl: './spiritual-exercise.component.html',
-  styleUrls: ['./spiritual-exercise.component.scss']
+  styleUrls: ['./spiritual-exercise.component.scss'],
 })
 export class SpiritualExerciseComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

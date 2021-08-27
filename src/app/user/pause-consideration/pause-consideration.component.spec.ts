@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConsiderationComponent } from './consideration.component';
+import { PauseConsiderationComponent } from './pause-consideration.component';
 
-describe('ConsiderationComponent', () => {
-  let component: ConsiderationComponent;
-  let fixture: ComponentFixture<ConsiderationComponent>;
+describe('PauseConsiderationComponent', () => {
+  let component: PauseConsiderationComponent;
+  let fixture: ComponentFixture<PauseConsiderationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConsiderationComponent ]
+      declarations: [ PauseConsiderationComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConsiderationComponent);
+    fixture = TestBed.createComponent(PauseConsiderationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

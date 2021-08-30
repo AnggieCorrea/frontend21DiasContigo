@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'user-contemplation-list',
-  templateUrl: './contemplation-list.component.html',
-  styleUrls: ['./contemplation-list.component.scss'],
+  selector: 'app-contemplation-consideration-list',
+  templateUrl: './contemplation-consideration-list.component.html',
+  styleUrls: ['./contemplation-consideration-list.component.scss'],
 })
-export class UserContemplationListComponent implements OnInit {
+export class ContemplationConsiderationListComponent implements OnInit {
   /* */
   contemplaciones: any[] = [];
 

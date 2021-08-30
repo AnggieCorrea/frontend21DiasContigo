@@ -1,27 +1,100 @@
-.mainBody{
-    width: 100%;
-    height:100%;
-    padding-top: 30%;
-    background-image: url("https://cdn.pixabay.com/photo/2020/05/18/13/14/mandala-art-5186220_1280.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+.mainBody {
+  width: 100%;
+  height: 100%;
+  padding-top: 30%;
+  background-image: url("https://cdn.pixabay.com/photo/2020/05/18/13/14/mandala-art-5186220_1280.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.buttonsContainer{
-    width: 100%;
-    height:100%;
+.buttonsContainer {
+  width: 100%;
+  height: 100%;
 }
 
-.excerciseButton{
-    padding-top: 1rem;
-    margin-top: 1rem;
-    padding-bottom: 1rem;
-    background-color: royalblue;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    border-radius: 2rem;
-    border-style: none;
-    transition: .2s;
+.excerciseButton {
+  padding-top: 1rem;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: royalblue;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 2rem;
+  border-style: none;
+  transition: 0.2s;
+}
+
+/*
+Espiral estática
+*/
+#ejemplo {
+  width: 120px;
+  height: 220px;
+  margin: 0 auto;
+}
+
+.espiral,
+.espiral div {
+  position: absolute;
+  right: -1em;
+  top: -1px;
+  width: 1em;
+  height: 1em;
+  font-size: 0.8em;
+  border-top: 1px solid #666690;
+  border-left: 1px solid #666690;
+  border-radius: 100% 0 0 0;
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  box-sizing: border-box;
+}
+
+.espiral {
+  font-size: 120px;
+  position: relative;
+  right: 0;
+}
+/********************
+  Espiral hipnóptica
+  *********************/
+#ejemplo3 {
+  width: 120px;
+  margin: 150px auto 0;
+  height: 150px;
+}
+
+.espiral3 div,
+.espiral3 {
+  position: absolute;
+  right: -1em;
+  top: -3px;
+  width: 1em;
+  height: 1em;
+  font-size: 1.15em;
+  border-top: 3px solid #ff0;
+  border-left: 3px solid #f00;
+  border-radius: 100% 0 0 0;
+  transform: rotate(90deg);
+  box-sizing: border-box;
+}
+.espiral3 {
+  font-size: 10px;
+  position: relative;
+  right: 0;
+  animation: girar 360000s infinite linear;
+}
+
+@keyframes girar {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(72000000deg);
+  }
 }

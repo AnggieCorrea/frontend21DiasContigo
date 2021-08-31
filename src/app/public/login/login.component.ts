@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -8,8 +9,13 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  public email = '';
+  public password = '';
+  public userFound = true;
+
   constructor(
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -20,8 +26,21 @@ export class LoginComponent implements OnInit {
   }
 
   checkUser(): void {
-    //implementar logica
-    this.router.navigate(['/contemplationsMap'])
+    const user = this.userService.getUserByMail(this.email);
+    if (user.password !== this.password){
+      this.userFound = false;
+      return;
+    }
+    else{
+      user.password = '';
+      localStorage.setItem('activeUser', JSON.stringify(user));
+      if (user.role === 'admin'){
+        //Mostrar pantallas de administración
+      }
+      else{
+        this.router.navigate(['/contemplationsMap'])
+      }
+    }
   }
 
 }

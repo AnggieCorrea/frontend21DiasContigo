@@ -10,6 +10,7 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
   navContemplationMap(): void {
     this.router.navigate(['/contemplationsMap']);
   }

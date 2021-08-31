@@ -5,42 +5,34 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
   public email = '';
   public password = '';
   public userFound = true;
 
-  constructor(
-    private router: Router,
-    private userService: UserService
-  ) { }
+  constructor(private router: Router, private userService: UserService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   return(): void {
-    this.router.navigate(['/home'])
+    this.router.navigate(['/home']);
   }
 
   checkUser(): void {
     const user = this.userService.getUserByMail(this.email);
-    if (user.password !== this.password){
+    if (user.password !== this.password) {
       this.userFound = false;
       return;
-    }
-    else{
+    } else {
       user.password = '';
       localStorage.setItem('activeUser', JSON.stringify(user));
-      if (user.role === 'admin'){
-        //Mostrar pantallas de administración
-      }
-      else{
-        this.router.navigate(['/contemplationsMap'])
+      if (user.role === 'admin') {
+        this.router.navigate(['/contemplationsAdministration']);
+      } else {
+        this.router.navigate(['/contemplationsMap']);
       }
     }
   }
-
 }

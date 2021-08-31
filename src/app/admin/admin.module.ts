@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
+import { ContemplationsAdministrationComponent } from './contemplations-administration/contemplations-administration.component';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [NavbarAdminComponent, ContemplationsAdministrationComponent],
+  imports: [CommonModule],
+  exports: [ContemplationsAdministrationComponent],
 })
-export class AdminModule { }
+export class AdminModule {}

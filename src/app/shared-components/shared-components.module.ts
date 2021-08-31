@@ -4,10 +4,7 @@ import { GridComponent } from './grid/grid.component';
 import { TabComponent } from './tab/tab.component';
 import { AudioPlayerComponent } from './audio-player/audio-player.component';
 import { MicrophoneRecorderComponent } from './microphone-recorder/microphone-recorder.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-
-
 
 @NgModule({
   declarations: [
@@ -15,19 +12,15 @@ import { FooterComponent } from './footer/footer.component';
     TabComponent,
     AudioPlayerComponent,
     MicrophoneRecorderComponent,
-    NavbarComponent,
-    FooterComponent
+    FooterComponent,
   ],
-  imports: [
-    CommonModule
-  ],
-  exports:[
+  imports: [CommonModule],
+  exports: [
     GridComponent,
     TabComponent,
     AudioPlayerComponent,
     MicrophoneRecorderComponent,
-    NavbarComponent,
-    FooterComponent
-  ]
+    FooterComponent,
+  ],
 })
-export class SharedComponentsModule { }
+export class SharedComponentsModule {}

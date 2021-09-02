@@ -27,7 +27,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     ContemplationConsiderationListComponent,
     PauseConsiderationListComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, SharedComponentsModule],
   exports: [
     CreateAccountComponent,
     ContemplationListComponent,

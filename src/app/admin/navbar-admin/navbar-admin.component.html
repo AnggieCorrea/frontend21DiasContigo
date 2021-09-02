@@ -11,10 +11,16 @@
           <img src="/assets/HorizontalLogo.png" alt="Logo" />
         </a>
       </li>
-      <li class="barraNavegacionItem barraNavegacionItemAnimation">
-        <a> Administrar contemplaciones </a>
+      <li
+        class="barraNavegacionItem barraNavegacionItemAnimation"
+        (click)="contemplationsAdministration()"
+      >
+        <a> Administrar contemplaciones</a>
       </li>
-      <li class="barraNavegacionItem barraNavegacionItemAnimation">
+      <li
+        class="barraNavegacionItem barraNavegacionItemAnimation"
+        (click)="pausesAdministration()"
+      >
         <a> Administrar pausas </a>
       </li>
       <li class="barraNavegacionItem barraNavegacionItemAnimation">

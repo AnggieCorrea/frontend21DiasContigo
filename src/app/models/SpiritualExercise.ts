@@ -1,13 +1,30 @@
 export class SpiritualExercise {
+  idExercise: number;
+  type: string;
+  dayIndex: number;
+  title: string;
+  sentence1: string;
+  sentence2: string;
+  urlAudio: string;
+  urlImage: string;
+
   constructor(
-    public idExercise: number,
-    public type: string,
-    public dayIndex: number,
-    public title: string,
-    public sentence1: string,
-    public sentence2: string,
+    idExercise: number,
+    type: string,
+    dayIndex: number,
+    title: string,
+    sentence1: string,
+    sentence2: string
     /*public numLike: number,*/
-    public urlAudio: string,
-    public urlImage: string /*public visible : boolean*/
-  ) {}
+    /*urlAudio: string,*/
+    /*urlImage: string */
+    /*public visible : boolean*/
+  ) {
+    this.idExercise = idExercise;
+    this.type = type;
+    this.dayIndex = dayIndex;
+    this.title = title;
+    this.sentence1 = sentence1;
+    this.sentence2 = sentence2;
+  }
 }

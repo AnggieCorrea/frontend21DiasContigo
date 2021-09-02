@@ -9,6 +9,7 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { SettingsComponent } from './user/settings/settings.component';
 import { SpiritualExerciseComponent } from './user/spiritual-exercise/spiritual-exercise.component';
 import { ContemplationsAdministrationComponent } from './admin/contemplations-administration/contemplations-administration.component';
+import { PausesAdministrationComponent } from './admin/pauses-administration/pauses-administration.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: 'contemplationsAdministration',
     component: ContemplationsAdministrationComponent,
+  },
+  {
+    path: 'pausesAdministration',
+    component: PausesAdministrationComponent,
   },
 ];
 

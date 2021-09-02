@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SpiritualExercise } from 'src/app/models/SpiritualExercise';
 import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.service';
 
@@ -24,7 +24,6 @@ export class ContemplationsAdministrationComponent implements OnInit {
   }
   getContemplations() {
     let contemplations1 = [];
-    console.log(this.spiritualExercises);
     for (let spiritualExercise of this.spiritualExercises) {
       if (spiritualExercise.type == 'contemplation')
         contemplations1.push(spiritualExercise);

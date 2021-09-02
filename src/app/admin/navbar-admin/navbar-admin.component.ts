@@ -10,4 +10,12 @@ export class NavbarAdminComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  contemplationsAdministration(): void {
+    this.router.navigate(['/contemplationsAdministration']);
+  }
+
+  pausesAdministration(): void {
+    this.router.navigate(['/pausesAdministration']);
+  }
 }

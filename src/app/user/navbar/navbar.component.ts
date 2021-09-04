@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,7 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+  @Output() public sidenavToggle = new EventEmitter();
+
   constructor(private router: Router) {}
+  mobile: boolean = false;
 
   ngOnInit(): void {}
 
@@ -29,4 +32,8 @@ export class NavbarComponent implements OnInit {
   navHome(): void {
     this.router.navigate(['/contemplationsMap']);
   }
+
+  public onToggleSidenav = () => {
+    this.sidenavToggle.emit();
+  };
 }

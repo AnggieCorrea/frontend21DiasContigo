@@ -6,8 +6,7 @@ import { AudioPlayerComponent } from './audio-player/audio-player.component';
 import { MicrophoneRecorderComponent } from './microphone-recorder/microphone-recorder.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,18 +15,16 @@ import { FooterComponent } from './footer/footer.component';
     AudioPlayerComponent,
     MicrophoneRecorderComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
   ],
-  imports: [
-    CommonModule
-  ],
-  exports:[
+  imports: [CommonModule, NgbModule],
+  exports: [
     GridComponent,
     TabComponent,
     AudioPlayerComponent,
     MicrophoneRecorderComponent,
     NavbarComponent,
-    FooterComponent
-  ]
+    FooterComponent,
+  ],
 })
-export class SharedComponentsModule { }
+export class SharedComponentsModule {}

@@ -1,73 +1,35 @@
-
-<!-- BARRA DE NAVEGACION -->
-<header class="barraNavegacion">
-	<nav class="barraNavegacion">
-	<!-- Logo, chat, mis chefs -->
-	<ul class="barraNavegacionLista">
-		<li class="barraNavegacionItem"></li>
-
-		<li class="barraNavegacionItemLogo">
-		<!-- Logo de la app -->
-		<a class="barraNavegacionLogo">
-			<img src="/assets/HorizontalLogo.png" alt="Logo" />
-		</a>
-		</li>
-		<li class="barraNavegacionItem barraNavegacionItemAnimation">
-      <a (click)='navContemplationMap()'>
-        Contemplaciones
-      </a>
-		</li>
-    <li class="barraNavegacionItem barraNavegacionItemAnimation">
-      <a (click)='navPauseMap()'>
-        Pausas
-      </a>
+<header>
+  <input type="checkbox" id="btn-menu" />
+  <label for="btn-menu"><img src="/assets/IconMenu.png" /></label>
+  <nav class="menu">
+    <ul>
+      <span>
+        <img class="logoIcon" src="/assets/HorizontalLogo.png" />
+      </span>
+      <li>
+        <a (click)="navHome()"><img src="/assets/IconHome.png" />Inicio</a>
       </li>
-	</ul>
-
-	<!-- Perfil, home, cerrar sesión -->
-	<ul class="barraNavegacionLista">
-		<li class="barraNavegacionItem barraNavegacionItemAnimation">
-		<a (click)="navProfile()">
-			<img
-			class="barraNavegacionIconos"
-			src="/assets/IconProfile.png"
-			alt=""
-			/>
-			Usuario
-		</a>
-		</li>
-		<li class="barraNavegacionItem barraNavegacionItemAnimation">
-		<a (click)='navHome()'>
-			<img class="barraNavegacionIconos" src="/assets/IconHome.png" alt="" />
-			Inicio
-		</a>
-		</li>
-    <li class="barraNavegacionItem barraNavegacionItemAnimation">
-      <a (click)='navSettings()'>
-        <img class="barraNavegacionIconos" src="/assets/IconSettings.png" alt="" />
-        Configuración
-      </a>
+      <li>
+        <a (click)="navContemplationMap()">Contemplaciones</a>
       </li>
-		<li class="barraNavegacionItem barraNavegacionItemAnimation">
-		<a (click)="navLogout()">
-			<img
-			class="barraNavegacionIconos"
-			src="/assets/IconLogout.png"
-			alt="Cerrar Sesion"
-			/>
-			Cerrar Sesión
-		</a>
-		</li>
-	</ul>
-	</nav>
+      <li>
+        <a (click)="navPauseMap()">Pausas</a>
+      </li>
+      <li>
+        <a (click)="navProfile()">
+          <img src="/assets/IconProfile.png" />Perfil
+        </a>
+      </li>
+      <li>
+        <a (click)="navSettings()">
+          <img src="/assets/IconSettings.png" />Configuración
+        </a>
+      </li>
+      <li>
+        <a (click)="navLogout()">
+          <img src="/assets/IconLogout.png" />Cerrar sesión
+        </a>
+      </li>
+    </ul>
+  </nav>
 </header>
-
-<!-- MENU DESLIZANTE -->
-<div class="contenedorMenuDeslizante">
-
-  <!-- Boton del menu deslizante -->
-  <input class="botonHamburguesa" type="checkbox">
-  <div class="iconoHamburguesa">
-      <img src="/assets/IconMenu.png" alt="#">
-  </div>
-</div>

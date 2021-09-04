@@ -1,8 +1,4 @@
-import {
-  NgModule,
-  NO_ERRORS_SCHEMA,
-  CUSTOM_ELEMENTS_SCHEMA,
-} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { ContemplationListComponent } from './contemplation-list/contemplation-list.component';
@@ -15,10 +11,12 @@ import { PauseConsiderationComponent } from './pause-consideration/pause-conside
 import { ContemplationConsiderationComponent } from './contemplation-consideration/contemplation-consideration.component';
 import { ContemplationConsiderationListComponent } from './profile/contemplation-consideration-list/contemplation-consideration-list.component';
 import { PauseConsiderationListComponent } from './profile/pause-consideration-list/pause-consideration-list.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     CreateAccountComponent,
+    NavbarComponent,
     ContemplationListComponent,
     PauseListComponent,
     SpiritualExerciseComponent,
@@ -29,7 +27,6 @@ import { PauseConsiderationListComponent } from './profile/pause-consideration-l
     ContemplationConsiderationListComponent,
     PauseConsiderationListComponent,
   ],
-  schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
   imports: [CommonModule, SharedComponentsModule],
   exports: [
     CreateAccountComponent,

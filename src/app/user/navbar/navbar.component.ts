@@ -12,12 +12,8 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router) {}
   mobile: boolean = false;
 
-  ngOnInit(): void {
-    if (document.body.offsetWidth <= 380) {
-      // 768px portrait
-      this.mobile = true;
-    }
-  }
+  ngOnInit(): void {}
+
   navContemplationMap(): void {
     this.router.navigate(['/contemplationsMap']);
   }

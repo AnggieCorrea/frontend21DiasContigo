@@ -6,8 +6,7 @@ import { AppComponent } from './app.component';
 import { PublicModule } from './public/public.module';
 import { UserModule } from './user/user.module';
 import { SharedComponentsModule } from './shared-components/shared-components.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { AdminModule } from './admin/admin.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -16,8 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     PublicModule,
     UserModule,
+    AdminModule,
     SharedComponentsModule,
-    BrowserAnimationsModule,
   ],
   exports: [],
   providers: [],

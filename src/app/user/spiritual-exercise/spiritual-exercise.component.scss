@@ -1,50 +1,50 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
 }
 
-.mainBody{
-    //background: url('/assets/candle.gif');
-    background-image: url('https://www.consumer.es/wp-content/uploads/2019/07/img_velas-640x480.jpg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    text-align: center;
+.mainBody {
+  //background: url('/assets/candle.gif');
+  background-image: url("https://www.consumer.es/wp-content/uploads/2019/07/img_velas-640x480.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  text-align: center;
 }
 
-h1{
-    padding:1.5rem;
-    color: #e5e5e9;   
-    font-style: italic;
-    margin-bottom: 1rem;
+h1 {
+  padding: 1.5rem;
+  color: #e5e5e9;
+  font-style: italic;
+  margin-bottom: 1rem;
 }
 
-h2{
-    color: #247cff;   
-    margin-bottom: 2rem;
+h2 {
+  color: #247cff;
+  margin-bottom: 2rem;
 }
 
-h4{
-    color: #a5a5a5; 
-    margin-bottom: 3rem;  
+h4 {
+  color: #a5a5a5;
+  margin-bottom: 3rem;
 }
 
-.content{
-    margin-top: 3rem;
-    padding-top: 1rem;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-bottom: 5%;
-    padding-bottom: 2rem;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.3);
+.content {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+  padding-bottom: 2rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.3);
 }

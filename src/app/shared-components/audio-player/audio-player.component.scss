@@ -1,608 +1,743 @@
-@media screen and (max-width:320px){
-    .audioContainer{
-        padding: 40px;
-        margin-top: 20px;
-        padding-top: 10px;
-        width: 100%;
-        height: 100%;
-        border-style: solid;
-        border-color: rgb(128, 128, 128, 0.3);
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        overflow: hidden;
-        background-color: rgba(255, 255, 255, 0.568);
-     }
-
-     .audioControl{
-        display:flex;
-        flex-direction:row;
-        list-style: none;
-        color: rgb(63, 123, 235);
-        width: 100%;
-        justify-content: space-evenly;
-    }
-
-    .playButton{
-        width: 40px;
-        height: 40px;
-        background-color: transparent;
-        border-style: none;
-        background-image: url(/assets/playButton.png);
-        background-size: 40px;
-        background-repeat: no-repeat;
-        transition: 0.3s;
-    }
-
-    .pauseButton{
-        width: 40px;
-        height: 40px;
-        padding-top: 1rem;
-        background-color: transparent;
-        border-style: none;
-        background-image: url(/assets/pauseButton.png);
-        background-size: 40px;
-        background-repeat: round;
-        transition: 0.3s;
-    }
-
-    .stopButton{
-        width: 40px;
-        height: 40px;
-        background-color:transparent;
-        border-style: none;
-        background-image: url(/assets/stopButton.png);
-        background-repeat: round;
-        background-size: 40px;
-        transition: 0.3s;
-    }
-
-    .audioList{
-        list-style: none;
-        color: rgb(255, 255, 255);
-        transition: 0.3s;
-    }
-    .audioList:hover{
-        color: #3680ee;
-        cursor: pointer;
-    }
-
-    .volumeConfig{
-        display: flex;
-    }
-
-    .volumeConfig span{
-        margin-right: 1rem;
-    }
-
-    input[type='range'] {
-        display: block;
-        width: 3rem;
-        background-color: transparent;
-      }
-      input[type='range']:focus {
-        outline: none;
-      }
-      input[type='range'],
-      input[type='range']::-webkit-slider-runnable-track,
-      input[type='range']::-webkit-slider-thumb {
-        -webkit-appearance: none;
-      }
-      input[type=range]::-webkit-slider-thumb {
-        background-color: #777;
-        width: 1.2rem;
-        height: 1.2rem;
-        border: 0.2rem solid #333;
-        border-radius: 50%;
-        margin-top: -0.5rem;
-      }
-      input[type=range]::-moz-range-thumb {
-        background-color: #777;
-        width: 1.2rem;
-        height: 1.2rem;
-        border: 0.5rem solid #333;
-        border-radius: 50%;
-      }
-      input[type=range]::-ms-thumb {
-        background-color: #777;
-        width: 1rem;
-        height: 1rem;
-        border: 0.2rem solid #333;
-        border-radius: 50%;
-      }
-      input[type=range]::-webkit-slider-runnable-track {
-        background-color: #777;
-        height: 0.2rem;
-      }
-      
-      input[type=range]:focus::-webkit-slider-runnable-track {
-        outline: none;
-      }
-      
-      input[type=range]::-moz-range-track {
-        background-color: #777;
-        height: 0.2rem;
-      }
-      input[type=range]::-ms-track {
-        background-color: #777;
-        height: 0.2rem;
-      }
-      input[type=range]::-ms-fill-upper {
-        background-color: black;
-      } 
+.sliderContainer {
+  width: 100%;
+  height: 100%;
+  margin-top: 3rem;
+  background-color: transparent;
+  transition: 2s;
 }
 
-
-@media screen and (min-width:321px) and (max-width:800px){
-    .audioContainer{
-        padding: 40px;
-        margin-top: 20px;
-        padding-top: 10px;
-        margin-left: 5%;
-        margin-right: 5%;
-        width: 90%;
-        height: 100%;
-        border-style: solid;
-        border-color: rgb(128, 128, 128, 0.3);
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        overflow: hidden;
-        background-color: rgba(255, 255, 255, 0.568);
-     }
-
-     .audioControl{
-        display:flex;
-        flex-direction:row;
-        list-style: none;
-        color: rgb(63, 123, 235);
-        width: 100%;
-        justify-content: space-evenly;
-    }
-
-    .playButton{
-        width: 3rem;
-        height: 3rem;
-        background-color: transparent;
-        border-style: none;
-        background-image: url(/assets/playButton.png);
-        background-size: 60px;
-        background-repeat: no-repeat;
-        transition: 0.3s;
-    }
-
-    .pauseButton{
-        width: 3rem;
-        height: 3rem;
-        padding-top: 1rem;
-        background-color: transparent;
-        border-style: none;
-        background-image: url(/assets/pauseButton.png);
-        background-repeat: round;
-        transition: 0.3s;
-    }
-
-    .stopButton{
-        width: 3rem;
-        height: 3rem;
-        background-color:transparent;
-        border-style: none;
-        background-image: url(/assets/stopButton.png);
-        background-repeat: round;
-        transition: 0.3s;
-    }
-
-    .audioList{
-        list-style: none;
-        color: rgb(255, 255, 255);
-        transition: 0.3s;
-    }
-    .audioList:hover{
-        color: #3680ee;
-        cursor: pointer;
-    }
-
-    .volumeConfig{
-        display: flex;
-    }
-
-    .volumeConfig span{
-        margin-right: 1rem;
-    }
-
-    input[type='range'] {
-        display: block;
-        width: 5rem;
-        background-color: transparent;
-      }
-      input[type='range']:focus {
-        outline: none;
-      }
-      input[type='range'],
-      input[type='range']::-webkit-slider-runnable-track,
-      input[type='range']::-webkit-slider-thumb {
-        -webkit-appearance: none;
-      }
-      input[type=range]::-webkit-slider-thumb {
-        background-color: #777;
-        width: 1.2rem;
-        height: 1.2rem;
-        border: 0.2rem solid #333;
-        border-radius: 50%;
-        margin-top: -0.5rem;
-      }
-      input[type=range]::-moz-range-thumb {
-        background-color: #777;
-        width: 1.2rem;
-        height: 1.2rem;
-        border: 0.5rem solid #333;
-        border-radius: 50%;
-      }
-      input[type=range]::-ms-thumb {
-        background-color: #777;
-        width: 1rem;
-        height: 1rem;
-        border: 0.2rem solid #333;
-        border-radius: 50%;
-      }
-      input[type=range]::-webkit-slider-runnable-track {
-        background-color: #777;
-        height: 0.2rem;
-      }
-      
-      input[type=range]:focus::-webkit-slider-runnable-track {
-        outline: none;
-      }
-      
-      input[type=range]::-moz-range-track {
-        background-color: #777;
-        height: 0.2rem;
-      }
-      input[type=range]::-ms-track {
-        background-color: #777;
-        height: 0.2rem;
-      }
-      input[type=range]::-ms-fill-upper {
-        background-color: black;
-      } 
+textarea {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  padding: 1rem;
+  max-width: 100%;
+  line-height: 1.5;
+  border-radius: 1rem;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #999;
 }
-@media screen and (min-width:801px) and (max-width: 1280px){
-    .audioContainer{
-        padding: 40px;
-        margin-top: 20px;
-        padding-top: 10px;
-        margin-left: 5%;
-        margin-right: 5%;
-        width: 90%;
-        height: 100%;
-        border-style: solid;
-        border-color: rgb(128, 128, 128, 0.3);
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        background-color: rgba(255, 255, 255, 0.568);
-    }
 
-    .audioControl{
-        display:flex;
-        flex-direction:row;
-        list-style: none;
-        width: 80%;
-        justify-content: space-evenly;
-    }
-
-    .playButton{
-        width: 4rem;
-        height: 4rem;
-        padding-top: 4rem;
-        background-color: transparent;
-        border-style: none;
-        background-image: url(/assets/playButton.png);
-        background-size: 60px;
-        background-repeat: no-repeat;
-        transition: 0.3s;
-    }
-
-    .playButton:hover{
-        background-color: #888a8d;
-        border-radius: 20px;
-    }
-
-    .pauseButton{
-        width: 4rem;
-        height: 4rem;
-        padding-top: 4rem;
-        background-color: transparent;
-        border-style: none;
-        background-image: url(/assets/pauseButton.png);
-        background-repeat: round;
-        transition: 0.3s;
-    }
-
-    .pauseButton:hover{
-        background-color: #888a8d;
-        border-radius: 20px;
-    }
-
-    .stopButton{
-        width: 4rem;
-        height: 4rem;
-        padding-top: 4rem;
-        background-color:transparent;
-        border-style: none;
-        background-image: url(/assets/stopButton.png);
-        background-repeat: round;
-        transition: 0.3s;
-    }
-
-    .audioList{
-        list-style: none;
-        color: rgb(255, 255, 255);
-        transition: 0.3s;
-    }
-    .audioList:hover{
-        color: #3680ee;
-        cursor: pointer;
-    }
-
-    .volumeConfig{
-        display: flex;
-    }
-
-    .volumeConfig span{
-        margin-right: 1rem;
-    }
-
-    input[type='range'] {
-        display: block;
-        width: 20rem;
-        background-color: transparent;
-      }
-      input[type='range']:focus {
-        outline: none;
-      }
-      input[type='range'],
-      input[type='range']::-webkit-slider-runnable-track,
-      input[type='range']::-webkit-slider-thumb {
-        -webkit-appearance: none;
-      }
-      input[type=range]::-webkit-slider-thumb {
-        background-color: #777;
-        width: 1.2rem;
-        height: 1.2rem;
-        border: 0.2rem solid #333;
-        border-radius: 50%;
-        margin-top: -0.5rem;
-      }
-      input[type=range]::-moz-range-thumb {
-        background-color: #777;
-        width: 1.2rem;
-        height: 1.2rem;
-        border: 0.5rem solid #333;
-        border-radius: 50%;
-      }
-      input[type=range]::-ms-thumb {
-        background-color: #777;
-        width: 1rem;
-        height: 1rem;
-        border: 0.2rem solid #333;
-        border-radius: 50%;
-      }
-      input[type=range]::-webkit-slider-runnable-track {
-        background-color: #777;
-        height: 0.2rem;
-      }
-      
-      input[type=range]:focus::-webkit-slider-runnable-track {
-        outline: none;
-      }
-      
-      input[type=range]::-moz-range-track {
-        background-color: #777;
-        height: 0.2rem;
-      }
-      input[type=range]::-ms-track {
-        background-color: #777;
-        height: 0.2rem;
-      }
-      input[type=range]::-ms-fill-upper {
-        background-color: black;
-      } 
-
+.sendButton {
+  width: 40%;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  background-color: #40ff50;
+  border-radius: 2rem;
+  border-style: none;
+  transition: 0.2s;
 }
-@media screen and (min-width:1281px){
-    .audioContainer{
-        padding: 40px;
-        margin-top: 20px;
-        padding-top: 10px;
-        margin-left: 5%;
-        margin-right: 5%;
-        width: 90%;
-        height: 100%;
-        border-style: solid;
-        border-color: rgb(128, 128, 128, 0.3);
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        background-color: rgba(255, 255, 255, 0.568);
-    }
+.sendButton:hover,
+.sendButton:active {
+  background-color: #86ff90;
+  animation: animate 3s linear infinite;
+}
 
-    .audioControl{
-        display:flex;
-        flex-direction:row;
-        list-style: none;
-        width: 80%;
-        justify-content: space-evenly;
-    }
+@keyframes animate {
+  0% {
+    width: 40%;
+    height: 100%;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    width: 40%;
+    height: 100%;
+    opacity: 0.5;
+  }
+}
 
-    .playButton{
-        width: 4rem;
-        height: 4rem;
-        padding-top: 4rem;
-        background-color: transparent;
-        border-style: none;
-        background-image: url(/assets/playButton.png);
-        background-size: 60px;
-        background-repeat: no-repeat;
-        transition: 0.3s;
-    }
+@media screen and (max-width: 320px) {
+  .audioContainer {
+    padding: 40px;
+    margin-top: 20px;
+    padding-top: 10px;
+    width: 100%;
+    height: 100%;
+    border-style: solid;
+    border-color: rgb(128, 128, 128, 0.3);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.568);
+  }
 
-    .playButton:hover{
-        background-color: #888a8d;
-        border-radius: 20px;
-    }
+  .audioControl {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    color: rgb(63, 123, 235);
+    width: 100%;
+    justify-content: space-evenly;
+  }
 
-    .pauseButton{
-        width: 4rem;
-        height: 4rem;
-        padding-top: 4rem;
-        background-color: transparent;
-        border-style: none;
-        background-image: url(/assets/pauseButton.png);
-        background-repeat: round;
-        transition: 0.3s;
-    }
+  .playButton {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border-style: none;
+    background-image: url(/assets/playButton.png);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    transition: 0.3s;
+  }
 
-    .pauseButton:hover{
-        background-color: #888a8d;
-        border-radius: 20px;
-    }
+  .pauseButton {
+    width: 40px;
+    height: 40px;
+    padding-top: 1rem;
+    background-color: transparent;
+    border-style: none;
+    background-image: url(/assets/pauseButton.png);
+    background-size: 40px;
+    background-repeat: round;
+    transition: 0.3s;
+  }
 
-    .stopButton{
-        width: 4rem;
-        height: 4rem;
-        padding-top: 4rem;
-        background-color:transparent;
-        border-style: none;
-        background-image: url(/assets/stopButton.png);
-        background-repeat: round;
-        transition: 0.3s;
-    }
+  .stopButton {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border-style: none;
+    background-image: url(/assets/stopButton.png);
+    background-repeat: round;
+    background-size: 40px;
+    transition: 0.3s;
+  }
 
-    .audioList{
-        list-style: none;
-        font-size: larger;
-        color: rgb(255, 255, 255);
-        transition: 0.3s;
-    }
-    .audioList:hover{
-        color: #3680ee;
-        cursor: pointer;
-    }
+  .audioList {
+    list-style: none;
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+  }
+  .audioList:hover {
+    color: #3680ee;
+    cursor: pointer;
+  }
 
-    .volumeConfig{
-        display: flex;
-    }
+  .volumeConfig {
+    display: flex;
+  }
 
-    .volumeConfig span{
-        margin-right: 1rem;
-    }
+  .volumeConfig span {
+    margin-right: 1rem;
+  }
 
-    input[type='range'] {
-        display: block;
-        width: 20rem;
-        background-color: transparent;
-      }
-      input[type='range']:focus {
-        outline: none;
-      }
-      input[type='range'],
-      input[type='range']::-webkit-slider-runnable-track,
-      input[type='range']::-webkit-slider-thumb {
-        -webkit-appearance: none;
-      }
-      input[type=range]::-webkit-slider-thumb {
-        background-color: #777;
-        width: 1.2rem;
-        height: 1.2rem;
-        border: 0.2rem solid #333;
-        border-radius: 50%;
-        margin-top: -0.5rem;
-      }
-      input[type=range]::-moz-range-thumb {
-        background-color: #777;
-        width: 1.2rem;
-        height: 1.2rem;
-        border: 0.5rem solid #333;
-        border-radius: 50%;
-      }
-      input[type=range]::-ms-thumb {
-        background-color: #777;
-        width: 1rem;
-        height: 1rem;
-        border: 0.2rem solid #333;
-        border-radius: 50%;
-      }
-      input[type=range]::-webkit-slider-runnable-track {
-        background-color: #777;
-        height: 0.2rem;
-      }
-      
-      input[type=range]:focus::-webkit-slider-runnable-track {
-        outline: none;
-      }
-      
-      input[type=range]::-moz-range-track {
-        background-color: #777;
-        height: 0.2rem;
-      }
-      input[type=range]::-ms-track {
-        background-color: #777;
-        height: 0.2rem;
-      }
-      input[type=range]::-ms-fill-upper {
-        background-color: black;
-      } 
+  input[type="range"] {
+    display: block;
+    width: 3rem;
+    background-color: transparent;
+  }
+  input[type="range"]:focus {
+    outline: none;
+  }
+  input[type="range"],
+  input[type="range"]::-webkit-slider-runnable-track,
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    background-color: #777;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 0.2rem solid #333;
+    border-radius: 50%;
+    margin-top: -0.5rem;
+  }
+  input[type="range"]::-moz-range-thumb {
+    background-color: #777;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 0.5rem solid #333;
+    border-radius: 50%;
+  }
+  input[type="range"]::-ms-thumb {
+    background-color: #777;
+    width: 1rem;
+    height: 1rem;
+    border: 0.2rem solid #333;
+    border-radius: 50%;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #777;
+    height: 0.2rem;
+  }
 
-      .considerationNavButtons{
-        width: 110%;    
-        margin-top: 20px;
-        padding-top: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-      }
+  input[type="range"]:focus::-webkit-slider-runnable-track {
+    outline: none;
+  }
 
-      .recordNavButton{
-        width: 40%;
-        padding-top: 1rem;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        padding-bottom: 1rem;
-        text-align: center;
-        border-radius: 2rem;
-        border-style: none;
-        transition: .2s;
-      }
+  input[type="range"]::-moz-range-track {
+    background-color: #777;
+    height: 0.2rem;
+  }
+  input[type="range"]::-ms-track {
+    background-color: #777;
+    height: 0.2rem;
+  }
+  input[type="range"]::-ms-fill-upper {
+    background-color: black;
+  }
+}
 
-      .writeNavButton{
-        width: 40%;
-        padding-top: 1rem;
-        margin-bottom: 1rem;
-        padding-bottom: 1rem;
-        text-align: center;
-        border-radius: 2rem;
-        border-style: none;
-        transition: .2s;
-      }
+@media screen and (min-width: 321px) and (max-width: 800px) {
+  .audioContainer {
+    padding: 40px;
+    margin-top: 20px;
+    padding-top: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    height: 100%;
+    border-style: solid;
+    border-color: rgb(128, 128, 128, 0.3);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.568);
+  }
 
-      .skipNavButton{
-        width: 40%;
-        padding-top: 1rem;
-        margin-bottom: 1rem;
-        padding-bottom: 1rem;
-        text-align: center;
-        border-radius: 2rem;
-        border-style: none;
-        transition: .2s;
-      }
+  .audioControl {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    color: rgb(63, 123, 235);
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .playButton {
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    border-style: none;
+    background-image: url(/assets/playButton.png);
+    background-size: 60px;
+    background-repeat: no-repeat;
+    transition: 0.3s;
+  }
+
+  .pauseButton {
+    width: 3rem;
+    height: 3rem;
+    padding-top: 1rem;
+    background-color: transparent;
+    border-style: none;
+    background-image: url(/assets/pauseButton.png);
+    background-repeat: round;
+    transition: 0.3s;
+  }
+
+  .stopButton {
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    border-style: none;
+    background-image: url(/assets/stopButton.png);
+    background-repeat: round;
+    transition: 0.3s;
+  }
+
+  .audioList {
+    list-style: none;
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+  }
+  .audioList:hover {
+    color: #3680ee;
+    cursor: pointer;
+  }
+
+  .volumeConfig {
+    display: flex;
+  }
+
+  .volumeConfig span {
+    margin-right: 1rem;
+  }
+
+  input[type="range"] {
+    display: block;
+    width: 5rem;
+    background-color: transparent;
+  }
+  input[type="range"]:focus {
+    outline: none;
+  }
+  input[type="range"],
+  input[type="range"]::-webkit-slider-runnable-track,
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    background-color: #777;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 0.2rem solid #333;
+    border-radius: 50%;
+    margin-top: -0.5rem;
+  }
+  input[type="range"]::-moz-range-thumb {
+    background-color: #777;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 0.5rem solid #333;
+    border-radius: 50%;
+  }
+  input[type="range"]::-ms-thumb {
+    background-color: #777;
+    width: 1rem;
+    height: 1rem;
+    border: 0.2rem solid #333;
+    border-radius: 50%;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #777;
+    height: 0.2rem;
+  }
+
+  input[type="range"]:focus::-webkit-slider-runnable-track {
+    outline: none;
+  }
+
+  input[type="range"]::-moz-range-track {
+    background-color: #777;
+    height: 0.2rem;
+  }
+  input[type="range"]::-ms-track {
+    background-color: #777;
+    height: 0.2rem;
+  }
+  input[type="range"]::-ms-fill-upper {
+    background-color: black;
+  }
+  .considerationNavButtons {
+    width: 110%;
+    margin-top: 20px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .recordNavButton {
+    width: 40%;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    border-radius: 2rem;
+    border-style: none;
+    transition: 0.2s;
+  }
+
+  .writeNavButton {
+    width: 40%;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    border-radius: 2rem;
+    border-style: none;
+    transition: 0.2s;
+  }
+
+  .skipNavButton {
+    width: 40%;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    border-radius: 2rem;
+    border-style: none;
+    transition: 0.2s;
+  }
+}
+@media screen and (min-width: 801px) and (max-width: 1280px) {
+  .audioContainer {
+    padding: 40px;
+    margin-top: 20px;
+    padding-top: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    height: 100%;
+    border-style: solid;
+    border-color: rgb(128, 128, 128, 0.3);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.568);
+  }
+
+  .audioControl {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    width: 80%;
+    justify-content: space-evenly;
+  }
+
+  .playButton {
+    width: 4rem;
+    height: 4rem;
+    padding-top: 4rem;
+    background-color: transparent;
+    border-style: none;
+    background-image: url(/assets/playButton.png);
+    background-size: 60px;
+    background-repeat: no-repeat;
+    transition: 0.3s;
+  }
+
+  .playButton:hover {
+    background-color: #888a8d;
+    border-radius: 20px;
+  }
+
+  .pauseButton {
+    width: 4rem;
+    height: 4rem;
+    padding-top: 4rem;
+    background-color: transparent;
+    border-style: none;
+    background-image: url(/assets/pauseButton.png);
+    background-repeat: round;
+    transition: 0.3s;
+  }
+
+  .pauseButton:hover {
+    background-color: #888a8d;
+    border-radius: 20px;
+  }
+
+  .stopButton {
+    width: 4rem;
+    height: 4rem;
+    padding-top: 4rem;
+    background-color: transparent;
+    border-style: none;
+    background-image: url(/assets/stopButton.png);
+    background-repeat: round;
+    transition: 0.3s;
+  }
+
+  .audioList {
+    list-style: none;
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+  }
+  .audioList:hover {
+    color: #3680ee;
+    cursor: pointer;
+  }
+
+  .volumeConfig {
+    display: flex;
+  }
+
+  .volumeConfig span {
+    margin-right: 1rem;
+  }
+
+  input[type="range"] {
+    display: block;
+    width: 20rem;
+    background-color: transparent;
+  }
+  input[type="range"]:focus {
+    outline: none;
+  }
+  input[type="range"],
+  input[type="range"]::-webkit-slider-runnable-track,
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    background-color: #777;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 0.2rem solid #333;
+    border-radius: 50%;
+    margin-top: -0.5rem;
+  }
+  input[type="range"]::-moz-range-thumb {
+    background-color: #777;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 0.5rem solid #333;
+    border-radius: 50%;
+  }
+  input[type="range"]::-ms-thumb {
+    background-color: #777;
+    width: 1rem;
+    height: 1rem;
+    border: 0.2rem solid #333;
+    border-radius: 50%;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #777;
+    height: 0.2rem;
+  }
+
+  input[type="range"]:focus::-webkit-slider-runnable-track {
+    outline: none;
+  }
+
+  input[type="range"]::-moz-range-track {
+    background-color: #777;
+    height: 0.2rem;
+  }
+  input[type="range"]::-ms-track {
+    background-color: #777;
+    height: 0.2rem;
+  }
+  input[type="range"]::-ms-fill-upper {
+    background-color: black;
+  }
+  .considerationNavButtons {
+    width: 110%;
+    margin-top: 20px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .recordNavButton {
+    width: 40%;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    border-radius: 2rem;
+    border-style: none;
+    transition: 0.2s;
+  }
+
+  .writeNavButton {
+    width: 40%;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    border-radius: 2rem;
+    border-style: none;
+    transition: 0.2s;
+  }
+
+  .skipNavButton {
+    width: 40%;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    border-radius: 2rem;
+    border-style: none;
+    transition: 0.2s;
+  }
+}
+@media screen and (min-width: 1281px) {
+  .audioContainer {
+    padding: 40px;
+    margin-top: 20px;
+    padding-top: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    height: 100%;
+    border-style: solid;
+    border-color: rgb(128, 128, 128, 0.3);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.568);
+  }
+
+  .audioControl {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    width: 80%;
+    justify-content: space-evenly;
+  }
+
+  .playButton {
+    width: 4rem;
+    height: 4rem;
+    padding-top: 4rem;
+    background-color: transparent;
+    border-style: none;
+    background-image: url(/assets/playButton.png);
+    background-size: 60px;
+    background-repeat: no-repeat;
+    transition: 0.3s;
+  }
+
+  .playButton:hover {
+    background-color: #888a8d;
+    border-radius: 20px;
+  }
+
+  .pauseButton {
+    width: 4rem;
+    height: 4rem;
+    padding-top: 4rem;
+    background-color: transparent;
+    border-style: none;
+    background-image: url(/assets/pauseButton.png);
+    background-repeat: round;
+    transition: 0.3s;
+  }
+
+  .pauseButton:hover {
+    background-color: #888a8d;
+    border-radius: 20px;
+  }
+
+  .stopButton {
+    width: 4rem;
+    height: 4rem;
+    padding-top: 4rem;
+    background-color: transparent;
+    border-style: none;
+    background-image: url(/assets/stopButton.png);
+    background-repeat: round;
+    transition: 0.3s;
+  }
+
+  .audioList {
+    list-style: none;
+    font-size: larger;
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+  }
+  .audioList:hover {
+    color: #3680ee;
+    cursor: pointer;
+  }
+
+  .volumeConfig {
+    display: flex;
+  }
+
+  .volumeConfig span {
+    margin-right: 1rem;
+  }
+
+  input[type="range"] {
+    display: block;
+    width: 20rem;
+    background-color: transparent;
+  }
+  input[type="range"]:focus {
+    outline: none;
+  }
+  input[type="range"],
+  input[type="range"]::-webkit-slider-runnable-track,
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    background-color: #777;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 0.2rem solid #333;
+    border-radius: 50%;
+    margin-top: -0.5rem;
+  }
+  input[type="range"]::-moz-range-thumb {
+    background-color: #777;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 0.5rem solid #333;
+    border-radius: 50%;
+  }
+  input[type="range"]::-ms-thumb {
+    background-color: #777;
+    width: 1rem;
+    height: 1rem;
+    border: 0.2rem solid #333;
+    border-radius: 50%;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #777;
+    height: 0.2rem;
+  }
+
+  input[type="range"]:focus::-webkit-slider-runnable-track {
+    outline: none;
+  }
+
+  input[type="range"]::-moz-range-track {
+    background-color: #777;
+    height: 0.2rem;
+  }
+  input[type="range"]::-ms-track {
+    background-color: #777;
+    height: 0.2rem;
+  }
+  input[type="range"]::-ms-fill-upper {
+    background-color: black;
+  }
+
+  .considerationNavButtons {
+    width: 110%;
+    margin-top: 20px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .recordNavButton {
+    width: 40%;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    border-radius: 2rem;
+    border-style: none;
+    transition: 0.2s;
+  }
+
+  .writeNavButton {
+    width: 40%;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    border-radius: 2rem;
+    border-style: none;
+    transition: 0.2s;
+  }
+
+  .skipNavButton {
+    width: 40%;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    border-radius: 2rem;
+    border-style: none;
+    transition: 0.2s;
+  }
 }

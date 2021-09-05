@@ -1,27 +1,32 @@
-.mainBody{
-    width: 100%;
-    height:100%;
-    padding-top: 30%;
-    background-image: url("https://cdn.pixabay.com/photo/2014/04/03/11/57/lotus-312694_1280.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+.mainBody {
+  width: 100%;
+  height: 100%;
+  background-image: url("https://cdn.pixabay.com/photo/2014/04/03/11/57/lotus-312694_1280.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
 }
 
-.buttonsContainer{
-    width: 100%;
-    height:100%;
+.buttonsContainer {
+  width: 100%;
+  margin-top: 5rem;
+  height: 2rem;
+  list-style: none;
+  display: inline-flexbox;
+  justify-items: space-evenly;
 }
 
-.excerciseButton{
-    padding-top: 1rem;
-    margin-top: 1rem;
-    padding-bottom: 1rem;
-    background-color: royalblue;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    border-radius: 2rem;
-    border-style: none;
-    transition: .2s;
+.excerciseButton {
+  padding-top: 1rem;
+  margin-top: 5rem;
+  padding-bottom: 1rem;
+  margin-bottom: 5rem;
+  background-color: royalblue;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 2rem;
+  border-style: none;
+  transition: 0.2s;
 }

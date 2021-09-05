@@ -13,6 +13,8 @@ export class AudioPlayerComponent implements OnInit {
   showPlay = true;
   showPause = false;
   showSpam = true;
+  showRec = false;
+  showTex = false;
   audioObj = new Audio();
   @Output() valueResponse: EventEmitter<boolean> = new EventEmitter();
   files = [
@@ -63,5 +65,13 @@ export class AudioPlayerComponent implements OnInit {
     console.log('Clicked stop');
     this.showPlay = true;
     this.showPause = false;
+  }
+  showRecorder() {
+    this.showRec = true;
+    this.showSpam = false;
+  }
+  showTextArea() {
+    this.showTex = true;
+    this.showSpam = false;
   }
 }

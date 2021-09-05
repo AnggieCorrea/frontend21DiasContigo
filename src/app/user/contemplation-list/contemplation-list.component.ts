@@ -8,11 +8,24 @@ import { MapService } from 'src/app/services/map.service';
   styleUrls: ['./contemplation-list.component.scss'],
 })
 export class ContemplationListComponent implements OnInit {
+  contemplaciones: any[] = [];
+  rows: any[] = [];
+
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router
-  ) /*private contemplationMap: MapService*/
-  {}
+    private router: Router /*private contemplationMap: MapService*/
+  ) {
+    this.contemplaciones = Array.from(Array(3).keys()).map((numeroDia) => {
+      return {
+        nombre: `${numeroDia + 1}`,
+      };
+    });
+    this.rows = Array.from(Array(7).keys()).map((numeroDia) => {
+      return {
+        nombre: `${numeroDia + 1}`,
+      };
+    });
+  }
 
   ngOnInit(): void {}
 

@@ -1,9 +1,45 @@
-<div style="text-align:center;margin-top: 200px;" >
-    <button (click)="Recording()" class="btn btn-primary" *ngIf="!recording" style="cursor: pointer;background-color: green;color: white;font-size: 40px;"> Start Recording </button>
-      <button (click)="Stop()" class="btn btn-danger" *ngIf="recording" style="cursor: pointer;background-color: red;color: white;font-size: 40px;"> Stop Recording </button>
-      <button (click)="Reset()" class="btn btn-secondary" style="cursor:pointer; background-color:blue;color:white;font-size: 40px;">Rstar</button>
-      <div class="clearfix"></div>
-      <audio controls="" *ngIf="url">
-          <source [src]="sanitize(url)" type="audio/wav">
-      </audio>
+<div>
+  <button
+    (click)="Recording()"
+    class="btn btn-primary"
+    *ngIf="!recording"
+    style="
+      cursor: pointer;
+      background-color: green;
+      color: white;
+      font-size: 40px;
+    "
+  >
+    Start Recording
+  </button>
+  <button
+    (click)="Stop()"
+    class="btn btn-danger"
+    *ngIf="recording"
+    style="
+      cursor: pointer;
+      background-color: red;
+      color: white;
+      font-size: 40px;
+    "
+  >
+    Stop Recording
+  </button>
+  <button
+    (click)="Reset()"
+    class="btn btn-secondary"
+    style="
+      cursor: pointer;
+      background-color: blue;
+      color: white;
+      font-size: 40px;
+    "
+  >
+    Rstar
+  </button>
+  <div class="clearfix"></div>
+  <audio controls="" *ngIf="url">
+    <source [src]="sanitize(url)" type="audio/mpeg" />
+  </audio>
+  <button>Guardar</button>
 </div>

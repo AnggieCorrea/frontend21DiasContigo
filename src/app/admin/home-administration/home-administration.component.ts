@@ -3,12 +3,13 @@ import { Router } from '@angular/router';
 import { communicationTypeOfSpiritualExercise } from 'src/app/services/communicationTypeOfSpiritualExercise.service';
 
 @Component({
-  selector: 'app-navbar-admin',
-  templateUrl: './navbar-admin.component.html',
-  styleUrls: ['./navbar-admin.component.scss'],
+  selector: 'app-home-administration',
+  templateUrl: './home-administration.component.html',
+  styleUrls: ['./home-administration.component.scss'],
 })
-export class NavbarAdminComponent implements OnInit {
+export class HomeAdministrationComponent implements OnInit {
   typeExercise: string;
+
   constructor(
     private router: Router,
     private communicationService: communicationTypeOfSpiritualExercise

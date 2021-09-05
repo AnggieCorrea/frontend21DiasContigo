@@ -1,8 +1,10 @@
 <app-navbar></app-navbar>
 <div class="mainBody">
-    <div class="buttonsContainer">
-        <button class="excerciseButton" (click)="navSpiritualExcercise('dia1')">Ejemplo Pausa 1</button>
-        <button class="excerciseButton" (click)="navSpiritualExcercise('dia2')">Ejemplo Pausa 2</button>
-    </div>
+  <ul class="buttonsContainer" *ngFor="let row of rows">
+    <li *ngFor="let pausa of pausas">
+      <button class="excerciseButton" (click)="navSpiritualExcercise('dia1')">
+        Pausa {{ pausa.nombre }}
+      </button>
+    </li>
+  </ul>
 </div>
-<app-footer></app-footer>

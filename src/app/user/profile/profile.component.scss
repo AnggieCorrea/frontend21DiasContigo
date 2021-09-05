@@ -1,8 +1,125 @@
-@media screen and (min-width: 321px) and (max-width: 800px) {
-  .infoProfile {
-    padding-top: 5rem;
-  }
+.infoProfile {
+  padding: 40px;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  height: 100%;
+  border-style: solid;
+  border-color: rgb(128, 128, 128, 0.3);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
 
+.infoProfilePhoto {
+  display: inline-block;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.profilePhoto {
+  width: 240px;
+  padding-top: 240px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  border-style: none;
+  background-image: url(/assets/UserIcon-Icons8.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.profileNickname {
+  font-size: large;
+  font-weight: bold;
+}
+
+.profileNickname p {
+  color: #3680ee;
+}
+
+.wrap {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 20px;
+  width: 100%;
+  height: 100%;
+  border-style: solid;
+  border-color: rgb(128, 128, 128, 0.3);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tabSplit {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  width: 90%;
+  justify-content: center;
+  border-color: rgb(128, 128, 128, 0.3);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-style: solid;
+}
+
+.contemplationTab {
+  width: 50%;
+  padding-top: 10px;
+  text-align: center;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  border-style: none;
+  transition: 0.3s;
+}
+
+.contemplationTab:focus {
+  transform: scale(1.1);
+  background-color: #3680ee;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.pauseTab {
+  width: 50%;
+  padding-top: 10px;
+  text-align: center;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  border-style: none;
+  transition: 0.2s;
+}
+
+.pauseTab:focus {
+  transform: scale(1.1);
+  background-color: #3680ee;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.lists {
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media (max-width: 1045px) {
   .infoProfilePhoto {
     width: 100%;
     height: 50%;
@@ -23,253 +140,8 @@
   }
 
   .profilePhoto {
-    width: 50%;
-    padding-top: 50%;
-    background-color: #ffffff;
-    border-radius: 50%;
-    border-style: none;
-    background-image: url(/assets/UserIcon-Icons8.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  .profileNickname {
-    font-size: large;
-    font-weight: bold;
-  }
-
-  .profileNickname p {
-    color: #3680ee;
-  }
-
-  .wrap {
-    margin-top: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: 100%;
-    height: 100%;
-    border-style: solid;
-    border-color: rgb(128, 128, 128, 0.3);
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  .tabSplit {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    width: 90%;
-    justify-content: center;
-    border-color: rgb(128, 128, 128, 0.3);
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-style: solid;
-  }
-
-  .contemplationTab {
-    width: 50%;
-    padding-top: 10px;
-    text-align: center;
-    align-items: center;
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
-    border-style: none;
-    transition: 0.3s;
-  }
-
-  .contemplationTab:focus {
-    transform: scale(1.1);
-    background-color: #3680ee;
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
-  }
-
-  .pauseTab {
-    width: 50%;
-    padding-top: 10px;
-    text-align: center;
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 20px;
-    border-style: none;
-    transition: 0.2s;
-  }
-
-  .pauseTab:focus {
-    transform: scale(1.1);
-    background-color: #3680ee;
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 20px;
-  }
-
-  .lists {
-    margin-top: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 100%;
-    height: 100%;
-    display: inline-block;
-    justify-content: space-around;
-    align-items: center;
-  }
-}
-
-@media screen and (min-width: 801px) and (max-width: 1280px) {
-  .infoProfile {
-    padding-top: 5rem;
-  }
-  .infoProfilePhoto {
-    width: 100%;
-    height: 50%;
-    display: flex;
-    padding: 10px;
-    align-items: center;
-    flex-direction: column;
-    vertical-align: middle;
-    border-style: solid;
-    border-color: rgb(128, 128, 128, 0.3);
-    border-radius: 20px;
-    justify-content: space-around;
-  }
-
-  .infoProfilePhoto {
-    display: column;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  .profilePhoto {
-    width: 25%;
-    padding-top: 25%;
-    background-color: #ffffff;
-    border-radius: 50%;
-    border-style: none;
-    background-image: url(/assets/UserIcon-Icons8.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  .profileNickname {
-    font-size: large;
-    font-weight: bold;
-  }
-
-  .profileNickname p {
-    color: #3680ee;
-  }
-
-  .wrap {
-    margin-top: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: 100%;
-    height: 100%;
-    border-style: solid;
-    border-color: rgb(128, 128, 128, 0.3);
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  .tabSplit {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    width: 90%;
-    justify-content: center;
-    border-color: rgb(128, 128, 128, 0.3);
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-style: solid;
-  }
-
-  .contemplationTab {
-    width: 50%;
-    padding-top: 10px;
-    text-align: center;
-    align-items: center;
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
-    border-style: none;
-    transition: 0.3s;
-  }
-
-  .contemplationTab:focus {
-    transform: scale(1.1);
-    background-color: #3680ee;
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
-  }
-
-  .pauseTab {
-    width: 50%;
-    padding-top: 10px;
-    text-align: center;
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 20px;
-    border-style: none;
-    transition: 0.2s;
-  }
-
-  .pauseTab:focus {
-    transform: scale(1.1);
-    background-color: #3680ee;
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 20px;
-  }
-
-  .lists {
-    margin-top: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 100%;
-    height: 100%;
-    display: inline-block;
-    justify-content: space-around;
-    align-items: center;
-  }
-}
-
-@media screen and (min-width: 1281px) {
-  .infoProfile {
-    padding: 40px;
-    margin-top: 3rem;
-    padding-top: 10px;
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 90%;
-    height: 100%;
-    border-style: solid;
-    border-color: rgb(128, 128, 128, 0.3);
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  .infoProfilePhoto {
-    display: inline-block;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-  }
-
-  .profilePhoto {
-    width: 240px;
-    padding-top: 240px;
+    width: 180px;
+    padding-top: 180px;
     background-color: #ffffff;
     border-radius: 50%;
     border-style: none;

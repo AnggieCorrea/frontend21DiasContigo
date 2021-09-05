@@ -13,12 +13,11 @@
     </div>-->
 
 <div class="mainBody">
-  <div class="buttonsContainer">
-    <button class="excerciseButton" (click)="navSpiritualExcercise('dia1')">
-      Ejemplo Contemplación 1
-    </button>
-    <button class="excerciseButton" (click)="navSpiritualExcercise('dia2')">
-      Ejemplo Contemplación 2
-    </button>
-  </div>
+  <ul class="buttonsContainer" *ngFor="let row of rows">
+    <li *ngFor="let contemplacion of contemplaciones">
+      <button class="excerciseButton" (click)="navSpiritualExcercise('dia1')">
+        Contemplación {{ contemplacion.nombre }}
+      </button>
+    </li>
+  </ul>
 </div>

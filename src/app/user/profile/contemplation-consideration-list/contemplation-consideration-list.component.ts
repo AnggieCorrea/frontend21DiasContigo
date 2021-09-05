@@ -12,9 +12,9 @@ export class ContemplationConsiderationListComponent implements OnInit {
   constructor() {
     this.contemplaciones = Array.from(Array(21).keys()).map((numeroDia) => {
       return {
-        nombre: `Día ${numeroDia}`,
+        nombre: `Día ${numeroDia + 1}`,
         titulo: `Título`,
-        fecha: `${numeroDia}/sept/2021`,
+        fecha: `${numeroDia + 1}/sept/2021`,
       };
     });
   }

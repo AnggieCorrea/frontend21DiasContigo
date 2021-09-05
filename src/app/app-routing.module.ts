@@ -8,8 +8,8 @@ import { PauseListComponent } from './user/pause-list/pause-list.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { SettingsComponent } from './user/settings/settings.component';
 import { SpiritualExerciseComponent } from './user/spiritual-exercise/spiritual-exercise.component';
-import { ContemplationsAdministrationComponent } from './admin/contemplations-administration/contemplations-administration.component';
-import { PausesAdministrationComponent } from './admin/pauses-administration/pauses-administration.component';
+import { HomeAdministrationComponent } from './admin/home-administration/home-administration.component';
+import { SpiritualExercisesAdministrationComponent } from './admin/spiritual-exercises-administration/spiritual-exercises-administration.component';
 
 const routes: Routes = [
   {
@@ -52,12 +52,12 @@ const routes: Routes = [
   },
   //admin routing
   {
-    path: 'contemplationsAdministration',
-    component: ContemplationsAdministrationComponent,
+    path: 'homeAdministration',
+    component: HomeAdministrationComponent,
   },
   {
-    path: 'pausesAdministration',
-    component: PausesAdministrationComponent,
+    path: 'spiritualExerciseAdministration',
+    component: SpiritualExercisesAdministrationComponent,
   },
 ];
 

@@ -26,4 +26,12 @@ export class SpiritualExercisesAdministrationComponent implements OnInit {
         this.typeExercise
       );
   }
+
+  recibiRespuesta(mensaje: string) {
+    this.typeExercise = mensaje;
+    this.spiritualExercises =
+      this.spiritualExerciseService.getSpiritualExercisesByType(
+        this.typeExercise
+      );
+  }
 }

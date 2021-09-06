@@ -1,37 +1,26 @@
 <!-- BARRA DE NAVEGACIÓN ADMINISTRACIÓN-->
 <header class="barraNavegacion">
-  <nav class="barraNavegacion">
-    <!-- Logo, chat, mis chefs -->
-    <ul class="barraNavegacionLista">
-      <li class="barraNavegacionItem"></li>
+  <input type="checkbox" id="btn-menu" />
+  <label for="btn-menu"><img src="/assets/IconMenu.png" /></label>
 
-      <li class="barraNavegacionItemLogo">
-        <!-- Logo de la app -->
-        <a class="barraNavegacionLogo">
-          <img src="/assets/HorizontalLogo.png" alt="Logo" />
-        </a>
+  <nav class="menu">
+    <ul>
+      <span>
+        <img class="logoIcon" src="/assets/HorizontalLogo.png" />
+      </span>
+      <li>
+        <a (click)="contemplationsAdministration()">
+          Administrar contemplaciones</a
+        >
       </li>
-      <li
-        class="barraNavegacionItem barraNavegacionItemAnimation"
-        (click)="contemplationsAdministration()"
-      >
-        <a> Administrar contemplaciones</a>
+      <li>
+        <a (click)="pausesAdministration()"> Administrar pausas </a>
       </li>
-      <li
-        class="barraNavegacionItem barraNavegacionItemAnimation"
-        (click)="pausesAdministration()"
-      >
-        <a> Administrar pausas </a>
-      </li>
-      <li class="barraNavegacionItem barraNavegacionItemAnimation">
+      <li>
         <a> Estadísticas </a>
       </li>
-    </ul>
-
-    <!-- Perfil, home, cerrar sesión -->
-    <ul class="barraNavegacionLista">
-      <li class="barraNavegacionItem barraNavegacionItemAnimation">
-        <a>
+      <li>
+        <a (click)="goHome()">
           <img
             class="barraNavegacionIconos"
             src="/assets/IconHome.png"
@@ -40,7 +29,7 @@
           Inicio
         </a>
       </li>
-      <li class="barraNavegacionItem barraNavegacionItemAnimation">
+      <li>
         <a>
           <img
             class="barraNavegacionIconos"
@@ -53,12 +42,3 @@
     </ul>
   </nav>
 </header>
-
-<!-- MENU DESLIZANTE -->
-<div class="contenedorMenuDeslizante">
-  <!-- Boton del menu deslizante -->
-  <input class="botonHamburguesa" type="checkbox" />
-  <div class="iconoHamburguesa">
-    <img src="/assets/IconMenu.png" alt="#" />
-  </div>
-</div>

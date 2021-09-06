@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { communicationTypeOfSpiritualExercise } from 'src/app/services/communicationTypeOfSpiritualExercise.service';
 
@@ -9,6 +9,7 @@ import { communicationTypeOfSpiritualExercise } from 'src/app/services/communica
 })
 export class NavbarAdminComponent implements OnInit {
   typeExercise: string;
+  @Output() valueResponse: EventEmitter<string> = new EventEmitter();
   constructor(
     private router: Router,
     private communicationService: communicationTypeOfSpiritualExercise
@@ -25,12 +26,16 @@ export class NavbarAdminComponent implements OnInit {
   contemplationsAdministration(): void {
     this.communicationService.setTypeExercise('contemplation');
     this.typeExercise = this.communicationService.typeExercise;
-    this.router.navigate(['/spiritualExerciseAdministration']);
+    this.valueResponse.emit(this.typeExercise);
   }
 
   pausesAdministration(): void {
     this.communicationService.setTypeExercise('pause');
     this.typeExercise = this.communicationService.typeExercise;
-    this.router.navigate(['/spiritualExerciseAdministration']);
+    this.valueResponse.emit(this.typeExercise);
+  }
+
+  goHome(): void {
+    this.router.navigate(['/homeAdministration']);
   }
 }

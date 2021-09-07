@@ -1,0 +1,40 @@
+<div class="container-fluid" style="padding-top: 6rem; padding-bottom: 2.5rem">
+  <div class="row justify-content-center">
+    <div class="card">
+      <header class="card-header">
+        <h1>Edita aquí el ejercicio espiritual</h1>
+        <hr />
+        <h5>Identificador: {{ selectedSpiritualExercise.idExercise }}</h5>
+        <h5>Día: {{ selectedSpiritualExercise.dayIndex }}</h5>
+        <h5>
+          Tipo de ejercicio espiritual:
+          {{ selectedSpiritualExercise.type }}
+        </h5>
+      </header>
+      <article class="card-body">
+        <div class="form-row">
+          <div class="col form-group">
+            <label>Título</label>
+            <input type="text" name="title" placeholder="Nuevo título" />
+          </div>
+          <div class="col form-group">
+            <label>Frase 1</label>
+            <input
+              type="text"
+              name="sentence1"
+              placeholder="Nueva frase1 del ejercicio espiritual"
+            />
+          </div>
+          <div class="col form-group">
+            <label>Frase 2</label>
+            <input
+              type="text"
+              name="sentence2"
+              placeholder="Nueva frase1 del ejercicio espiritual"
+            />
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>

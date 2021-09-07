@@ -14,8 +14,20 @@
       <tr *ngFor="let exercise of spiritualExercises">
         <td>{{ exercise.idExercise }}</td>
         <td>{{ exercise.title }}</td>
-        <td><img src="/assets/iconoVer.png" class="iconoWatch" /></td>
-        <td><img src="/assets/iconoEditar.png" class="iconoEdit" /></td>
+        <td>
+          <img
+            src="/assets/iconoVer.png"
+            class="iconoWatch"
+            (click)="seeSpiritualExercise(exercise.idExercise)"
+          />
+        </td>
+        <td>
+          <img
+            src="/assets/iconoEditar.png"
+            class="iconoEdit"
+            (click)="editSpiritualExercise(exercise.idExercise)"
+          />
+        </td>
         <td><img src="/assets/iconoEliminar.png" class="iconoRemove" /></td>
       </tr>
     </tbody>

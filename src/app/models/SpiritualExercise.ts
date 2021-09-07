@@ -1,3 +1,14 @@
+export interface SpiritualExercise {
+  idExercise: number;
+  type: string;
+  dayIndex: number;
+  title: string;
+  sentence1: string;
+  sentence2: string;
+  urlAudio: string;
+  urlImage: string;
+}
+
 export class SpiritualExercise {
   idExercise: number;
   type: string;

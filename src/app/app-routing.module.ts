@@ -10,6 +10,8 @@ import { SettingsComponent } from './user/settings/settings.component';
 import { SpiritualExerciseComponent } from './user/spiritual-exercise/spiritual-exercise.component';
 import { HomeAdministrationComponent } from './admin/home-administration/home-administration.component';
 import { SpiritualExercisesAdministrationComponent } from './admin/spiritual-exercises-administration/spiritual-exercises-administration.component';
+import { SeeSpiritualExerciseComponent } from './admin/see-spiritual-exercise/see-spiritual-exercise.component';
+import { EditSpiritualExerciseComponent } from './admin/edit-spiritual-exercise/edit-spiritual-exercise.component';
 
 const routes: Routes = [
   {
@@ -58,6 +60,14 @@ const routes: Routes = [
   {
     path: 'spiritualExerciseAdministration',
     component: SpiritualExercisesAdministrationComponent,
+  },
+  {
+    path: 'seeSpiritualExercise/:id',
+    component: SeeSpiritualExerciseComponent,
+  },
+  {
+    path: 'editSpiritualExercise/:id',
+    component: EditSpiritualExerciseComponent,
   },
 ];
 

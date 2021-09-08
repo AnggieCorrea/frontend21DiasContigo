@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 declare var $: any;
 import * as RecordRTC from 'recordrtc';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-microphone-recorder',
@@ -18,7 +19,7 @@ export class MicrophoneRecorderComponent implements OnInit {
   //URL of Blob
   url: any;
   error: any;
-  constructor(private domSanitizer: DomSanitizer) {}
+  constructor(private domSanitizer: DomSanitizer, private router: Router) {}
   sanitize(url: string) {
     return this.domSanitizer.bypassSecurityTrustUrl(url);
   }
@@ -56,11 +57,14 @@ export class MicrophoneRecorderComponent implements OnInit {
     this.recording = false;
     this.record.stop(this.processRecording.bind(this));
   }
-  Reset() {}
+  Reset() {
+    this.recording = false;
+  }
   /**
    * processRecording Do what ever you want with blob
    * @param  {any} blob Blog
    */
+
   processRecording(blob: any) {
     this.url = URL.createObjectURL(blob);
     console.log('blob', blob);
@@ -73,4 +77,8 @@ export class MicrophoneRecorderComponent implements OnInit {
     this.error = 'Can not play audio in your browser';
   }
   ngOnInit() {}
+
+  navContemplationMap() {
+    this.router.navigate(['/contemplationsMap']);
+  }
 }

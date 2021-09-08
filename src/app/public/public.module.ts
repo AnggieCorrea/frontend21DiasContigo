@@ -1,22 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { FormsModule } from '@angular/forms';
-
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   declarations: [
-    HomeComponent,
     LoginComponent,
     LogoutComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    LandingComponent,
   ],
-  imports: [
-    FormsModule,
-    CommonModule
-  ]
+  imports: [FormsModule, CommonModule],
 })
-export class PublicModule { }
+export class PublicModule {}

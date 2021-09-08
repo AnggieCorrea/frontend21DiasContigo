@@ -1,23 +1,35 @@
 <app-navbar></app-navbar>
-<!--<div id="ejemplo">
-    <div class="espiral"><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div>
-    
-    </div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
-    </div>
-    <hr />
-    <hr />
-    <div id="ejemplo3">
-    <div class="espiral3"><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div>
-    
-    </div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
-    </div>-->
 
 <div class="mainBody">
-  <ul class="buttonsContainer" *ngFor="let row of rows">
-    <li *ngFor="let contemplacion of contemplaciones">
-      <button class="excerciseButton" (click)="navSpiritualExcercise('dia1')">
+  <table class="buttonsContainer">
+    <tr *ngFor="let contemplacion of contemplaciones">
+      <td
+        *ngIf="contemplacion.deshabilitado == contemplacion.completado"
+        class="excerciseButton"
+        (click)="navSpiritualExcercise('dia1')"
+      >
         Contemplación {{ contemplacion.nombre }}
-      </button>
-    </li>
-  </ul>
+      </td>
+      <td
+        *ngIf="
+          contemplacion.deshabilitado != contemplacion.completado &&
+          contemplacion.deshabilitado == 'true'
+        "
+        class="excerciseButtonDisable"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Contemplación {{ contemplacion.nombre }}
+      </td>
+      <td
+        *ngIf="
+          contemplacion.deshabilitado != contemplacion.completado &&
+          contemplacion.completado == 'true'
+        "
+        class="excerciseButtonCompleted"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Contemplación {{ contemplacion.nombre }}
+      </td>
+    </tr>
+  </table>
 </div>

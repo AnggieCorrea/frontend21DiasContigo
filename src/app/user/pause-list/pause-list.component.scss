@@ -5,6 +5,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
+  overflow: hidden;
 }
 
 .buttonsContainer {
@@ -29,4 +30,31 @@
   border-radius: 2rem;
   border-style: none;
   transition: 0.2s;
+}
+
+@media (max-width: 1045px) {
+  .buttonsContainer {
+    width: 80%;
+    margin-top: 1.5rem;
+    height: 2rem;
+    list-style: none;
+    display: inline-flexbox;
+    justify-items: space-evenly;
+  }
+
+  .excerciseButton {
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: smaller;
+    background-color: royalblue;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 2rem;
+    border-style: none;
+    transition: 0.2s;
+  }
 }

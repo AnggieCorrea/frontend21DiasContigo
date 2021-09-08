@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       if (user.role === 'admin') {
         this.router.navigate(['/contemplationsAdministration']);
       } else {
-        this.router.navigate(['/contemplationsMap']);
+        this.router.navigate(['/home']);
       }
     }
   }

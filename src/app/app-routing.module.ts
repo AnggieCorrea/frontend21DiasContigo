@@ -11,6 +11,9 @@ import { ContemplationsAdministrationComponent } from './admin/contemplations-ad
 import { PausesAdministrationComponent } from './admin/pauses-administration/pauses-administration.component';
 import { LandingComponent } from './public/landing/landing.component';
 import { HomeComponent } from './user/home/home.component';
+import { HomeAdministrationComponent } from './admin/home-administration/home-administration.component';
+import { SpiritualExercisesAdministrationComponent } from './admin/spiritual-exercises-administration/spiritual-exercises-administration.component';
+
 
 const routes: Routes = [
   {
@@ -57,12 +60,12 @@ const routes: Routes = [
   },
   //admin routing
   {
-    path: 'contemplationsAdministration',
-    component: ContemplationsAdministrationComponent,
+    path: 'homeAdministration',
+    component: HomeAdministrationComponent,
   },
   {
-    path: 'pausesAdministration',
-    component: PausesAdministrationComponent,
+    path: 'spiritualExerciseAdministration',
+    component: SpiritualExercisesAdministrationComponent,
   },
 ];
 

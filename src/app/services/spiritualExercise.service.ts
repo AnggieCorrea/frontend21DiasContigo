@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 import { SpiritualExercise } from '../models/SpiritualExercise';
 
 @Injectable({
@@ -94,7 +95,24 @@ export class SpiritualExerciseService {
     ];
   }
 
+  //Métodos
+
   getSpiritualExercises(): SpiritualExercise[] {
     return this.spiritualExerciseList;
+  }
+
+  getSpiritualExerciseById(id: number): SpiritualExercise {
+    return this.spiritualExerciseList.find(
+      (spiritualExercise) => spiritualExercise.idExercise === id
+    );
+  }
+
+  getSpiritualExercisesByType(type: string): SpiritualExercise[] {
+    let spiritualExercises1 = [];
+    for (let spiritualExercise of this.spiritualExerciseList) {
+      if (spiritualExercise.type == type)
+        spiritualExercises1.push(spiritualExercise);
+    }
+    return spiritualExercises1;
   }
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MapService } from 'src/app/services/map.service';
 
 @Component({
   selector: 'app-pause-list',
@@ -15,16 +14,29 @@ export class PauseListComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router /*private contemplationMap: MapService*/
   ) {
-    this.pausas = Array.from(Array(3).keys()).map((numeroDia) => {
-      return {
-        nombre: `${numeroDia + 1}`,
-      };
-    });
-    this.rows = Array.from(Array(7).keys()).map((numeroDia) => {
-      return {
-        nombre: `${numeroDia + 1}`,
-      };
-    });
+    if (window.matchMedia('(max-width:1045px)').matches) {
+      this.pausas = Array.from(Array(7).keys()).map((numeroDia) => {
+        return {
+          nombre: `${numeroDia + 1}`,
+        };
+      });
+      this.rows = Array.from(Array(3).keys()).map((numeroDia) => {
+        return {
+          nombre: `${numeroDia + 1}`,
+        };
+      });
+    } else {
+      this.pausas = Array.from(Array(3).keys()).map((numeroDia) => {
+        return {
+          nombre: `${numeroDia + 1}`,
+        };
+      });
+      this.rows = Array.from(Array(7).keys()).map((numeroDia) => {
+        return {
+          nombre: `${numeroDia + 1}`,
+        };
+      });
+    }
   }
 
   ngOnInit(): void {}

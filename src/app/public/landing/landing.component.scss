@@ -1,0 +1,126 @@
+h1 {
+  color: rgb(161, 207, 214);
+  text-shadow: 2px 2px 5px white;
+  font-size: 8vw;
+  box-sizing: border-box;
+  text-align: center;
+  transform: translate(0%, -320%);
+}
+
+.containerHome {
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/Bosque.jpg");
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  justify-items: center;
+  align-content: space-around;
+  align-items: center;
+}
+
+.traslucidContainer {
+  width: 80%;
+  height: 80%;
+  background-color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  border-radius: 5rem;
+}
+
+.traslucidContainer img {
+  width: 15rem;
+}
+
+.traslucidContainer p {
+  margin: 5% 0rem;
+  text-align: justify;
+}
+
+.buttonContainer {
+  margin-top: 5%;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.buttonLogin {
+  text-align: center;
+  background-color: #3787ff;
+  color: white;
+  border-radius: 5rem;
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.buttonLogin img {
+  width: 2rem;
+}
+
+.buttonCreateAccount {
+  text-align: center;
+  background-color: #9d35ff;
+  color: white;
+  border-radius: 5rem;
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buttonCreateAccount img {
+  width: 2rem;
+}
+
+@media (max-width: "1045px") {
+  .buttonContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .buttonLogin {
+    margin-top: 5%;
+    text-align: center;
+    background-color: #3787ff;
+    color: white;
+    border-radius: 5rem;
+    width: 50%;
+    height: 80%;
+    padding: 3%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .buttonLogin img {
+    width: 2rem;
+  }
+
+  .buttonCreateAccount {
+    margin-top: 5%;
+    text-align: center;
+    background-color: #9d35ff;
+    color: white;
+    border-radius: 5rem;
+    width: 50%;
+    height: 80%;
+    padding: 3%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .buttonCreateAccount img {
+    width: 2rem;
+  }
+}

@@ -12,6 +12,7 @@ import { ContemplationConsiderationComponent } from './contemplation-considerati
 import { ContemplationConsiderationListComponent } from './profile/contemplation-consideration-list/contemplation-consideration-list.component';
 import { PauseConsiderationListComponent } from './profile/pause-consideration-list/pause-consideration-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     ContemplationConsiderationComponent,
     ContemplationConsiderationListComponent,
     PauseConsiderationListComponent,
+    HomeComponent,
   ],
   imports: [CommonModule, SharedComponentsModule],
   exports: [

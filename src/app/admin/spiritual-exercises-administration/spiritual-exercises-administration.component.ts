@@ -12,6 +12,7 @@ import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.ser
 export class SpiritualExercisesAdministrationComponent implements OnInit {
   typeExercise: string;
   spiritualExercises: SpiritualExercise[];
+  selectedSpiritualExercise: SpiritualExercise;
 
   constructor(
     private router: Router,
@@ -27,11 +28,22 @@ export class SpiritualExercisesAdministrationComponent implements OnInit {
       );
   }
 
-  recibiRespuesta(mensaje: string) {
+  recibiRespuesta(mensaje: string): void {
     this.typeExercise = mensaje;
     this.spiritualExercises =
       this.spiritualExerciseService.getSpiritualExercisesByType(
         this.typeExercise
       );
+  }
+  seeSpiritualExercise(id: number): void {
+    this.selectedSpiritualExercise =
+      this.spiritualExerciseService.getSpiritualExerciseById(id);
+    this.router.navigate(['/seeSpiritualExercise/' + id]);
+  }
+
+  editSpiritualExercise(id: number): void {
+    this.selectedSpiritualExercise =
+      this.spiritualExerciseService.getSpiritualExerciseById(id);
+    this.router.navigate(['/editSpiritualExercise/' + id]);
   }
 }

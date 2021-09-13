@@ -5,26 +5,19 @@
   table {
     overflow-x: auto;
     border-collapse: collapse;
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     border: 1px solid #ddd;
+    align-items: center;
   }
   th {
     background-color: #79d9f1;
     color: white;
   }
-  .iconoWatch {
-    width: 60px;
-    height: 40px;
-  }
-
-  .iconoEdit {
-    width: 50px;
-    height: 40px;
-  }
-
-  .iconoRemove {
-    width: 50px;
-    height: 40px;
+  .options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
   }
 }

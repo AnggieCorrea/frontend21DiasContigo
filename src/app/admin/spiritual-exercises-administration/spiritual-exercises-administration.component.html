@@ -6,17 +6,23 @@
     <thead>
       <th>ID</th>
       <th>Título ejercicio espiritual</th>
-      <th>Visualizar</th>
-      <th>Editar</th>
-      <th>Eliminar contenido</th>
+      <th>Opciones</th>
     </thead>
     <tbody>
       <tr *ngFor="let exercise of spiritualExercises">
         <td>{{ exercise.idExercise }}</td>
         <td>{{ exercise.title }}</td>
-        <td><img src="/assets/iconoVer.png" class="iconoWatch" /></td>
-        <td><img src="/assets/iconoEditar.png" class="iconoEdit" /></td>
-        <td><img src="/assets/iconoEliminar.png" class="iconoRemove" /></td>
+        <td class="options">
+          <i
+            class="far fa-eye"
+            (click)="seeSpiritualExercise(exercise.idExercise)"
+          ></i>
+          <i
+            class="fas fa-pencil-alt"
+            (click)="editSpiritualExercise(exercise.idExercise)"
+          ></i>
+          <i class="fas fa-trash-alt"></i>
+        </td>
       </tr>
     </tbody>
   </table>

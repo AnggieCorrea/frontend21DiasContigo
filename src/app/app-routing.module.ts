@@ -7,15 +7,12 @@ import { PauseListComponent } from './user/pause-list/pause-list.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { SettingsComponent } from './user/settings/settings.component';
 import { SpiritualExerciseComponent } from './user/spiritual-exercise/spiritual-exercise.component';
-import { ContemplationsAdministrationComponent } from './admin/contemplations-administration/contemplations-administration.component';
-import { PausesAdministrationComponent } from './admin/pauses-administration/pauses-administration.component';
 import { LandingComponent } from './public/landing/landing.component';
 import { HomeComponent } from './user/home/home.component';
 import { HomeAdministrationComponent } from './admin/home-administration/home-administration.component';
 import { SpiritualExercisesAdministrationComponent } from './admin/spiritual-exercises-administration/spiritual-exercises-administration.component';
 import { SeeSpiritualExerciseComponent } from './admin/see-spiritual-exercise/see-spiritual-exercise.component';
 import { EditSpiritualExerciseComponent } from './admin/edit-spiritual-exercise/edit-spiritual-exercise.component';
-
 
 const routes: Routes = [
   {

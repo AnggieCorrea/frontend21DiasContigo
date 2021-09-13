@@ -1,11 +1,11 @@
 <div id="pauseCardContainer">
-  <button class="pauseCard">
+  <button class="pauseCard" *ngFor="let pause of pauses; let numeroDia = index">
     <div class="pauseTitle">
-      <p>Nombre: título día</p>
+      <p>{{ pause.nombre }}</p>
     </div>
     <div class="pauseDetails">
-      <p>Día: - día</p>
-      <p>Fecha: dd/mm/yyyy</p>
+      <p>Día: {{ numeroDia + 1 }}</p>
+      <p>Fecha: {{ pause.fecha }}</p>
     </div>
     <div class="emotionLiker">
       <input type="range" list="tickmarks" />

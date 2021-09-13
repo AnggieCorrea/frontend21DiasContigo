@@ -27,13 +27,9 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/settings']);
   }
   navLogout(): void {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/landing']);
   }
   navHome(): void {
-    this.router.navigate(['/contemplationsMap']);
+    this.router.navigate(['/home']);
   }
-
-  public onToggleSidenav = () => {
-    this.sidenavToggle.emit();
-  };
 }

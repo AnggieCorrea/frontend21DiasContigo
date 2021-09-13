@@ -1,12 +1,15 @@
 <div id="contemplationCardContainer">
-    <button class="contemplationCard" *ngFor='let contemplacion of contemplaciones; let numeroDia = index'>
-        <div class="cardTitle">
-            <h4>{{contemplacion.nombre}}</h4>
-        </div>
-        <div class="cardDetails">
-            <p>Día: {{numeroDia}}</p>
-            <p>Tipo: audio </p>
-            <p>Fecha: {{contemplacion.fecha}}</p>
-        </div>
-    </button>
+  <button
+    class="contemplationCard"
+    *ngFor="let contemplacion of contemplaciones; let numeroDia = index"
+  >
+    <div class="cardTitle">
+      <h4>{{ contemplacion.nombre }}</h4>
+    </div>
+    <div class="cardDetails">
+      <p>Día: {{ numeroDia + 1 }}</p>
+      <p>Tipo: audio</p>
+      <p>Fecha: {{ contemplacion.fecha + 1 }}</p>
+    </div>
+  </button>
 </div>

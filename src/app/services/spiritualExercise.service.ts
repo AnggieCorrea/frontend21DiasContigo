@@ -17,7 +17,9 @@ export class SpiritualExerciseService {
         1,
         'contemplación 1',
         'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
-        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.'
+        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
+        '/assets/ChopinNocturne.mp3',
+        'https://www.consumer.es/wp-content/uploads/2019/07/img_velas-640x480.jpg'
       ),
       new SpiritualExercise(
         1,
@@ -25,7 +27,9 @@ export class SpiritualExerciseService {
         2,
         'contemplación 2',
         'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
-        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.'
+        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
+        '/assets/ChopinNocturne.mp3',
+        'https://www.consumer.es/wp-content/uploads/2019/07/img_velas-640x480.jpg'
       ),
       new SpiritualExercise(
         2,
@@ -33,7 +37,9 @@ export class SpiritualExerciseService {
         3,
         'contemplación 3',
         'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
-        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.'
+        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
+        '/assets/ChopinNocturne.mp3',
+        'https://www.consumer.es/wp-content/uploads/2019/07/img_velas-640x480.jpg'
       ),
       new SpiritualExercise(
         3,
@@ -41,7 +47,9 @@ export class SpiritualExerciseService {
         4,
         'contemplación 4',
         'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
-        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.'
+        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
+        '/assets/ChopinNocturne.mp3',
+        'https://www.consumer.es/wp-content/uploads/2019/07/img_velas-640x480.jpg'
       ),
       new SpiritualExercise(
         4,
@@ -49,7 +57,9 @@ export class SpiritualExerciseService {
         5,
         'contemplación 5',
         'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
-        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.'
+        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
+        '/assets/ChopinNocturne.mp3',
+        'https://www.consumer.es/wp-content/uploads/2019/07/img_velas-640x480.jpg'
       ),
       //Pausas
       new SpiritualExercise(
@@ -58,7 +68,9 @@ export class SpiritualExerciseService {
         1,
         'pausa 1',
         'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
-        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.'
+        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
+        '/assets/ChopinNocturne.mp3',
+        'https://www.consumer.es/wp-content/uploads/2019/07/img_velas-640x480.jpg'
       ),
       new SpiritualExercise(
         6,
@@ -66,7 +78,9 @@ export class SpiritualExerciseService {
         2,
         'pausa 2',
         'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
-        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.'
+        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
+        '/assets/ChopinNocturne.mp3',
+        'https://www.consumer.es/wp-content/uploads/2019/07/img_velas-640x480.jpg'
       ),
       new SpiritualExercise(
         7,
@@ -74,7 +88,9 @@ export class SpiritualExerciseService {
         3,
         'pausa 3',
         'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
-        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.'
+        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
+        '/assets/ChopinNocturne.mp3',
+        'https://www.consumer.es/wp-content/uploads/2019/07/img_velas-640x480.jpg'
       ),
       new SpiritualExercise(
         8,
@@ -82,7 +98,9 @@ export class SpiritualExerciseService {
         4,
         'pausa 4',
         'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
-        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.'
+        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
+        '/assets/ChopinNocturne.mp3',
+        'https://www.consumer.es/wp-content/uploads/2019/07/img_velas-640x480.jpg'
       ),
       new SpiritualExercise(
         9,
@@ -90,7 +108,9 @@ export class SpiritualExerciseService {
         5,
         'pausa 5',
         'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
-        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.'
+        'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.',
+        '/assets/ChopinNocturne.mp3',
+        'https://www.consumer.es/wp-content/uploads/2019/07/img_velas-640x480.jpg'
       ),
     ];
   }

@@ -1,23 +1,31 @@
-/*=========================*/
-/* SE APLICA A TODO */
-/*=========================*/
-
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
   font-family: "fuentePagina";
-  font-size: 13px;
   font-weight: bold;
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
   width: 100%;
-  background: #df902a;
+  height: auto;
+  background-color: rgb(217, 232, 238);
 }
 
 #btn-menu {
   display: none;
+}
+
+.logoIcon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  align-items: center;
+  width: 150px;
+  height: 32px;
 }
 
 header label {
@@ -42,57 +50,50 @@ header label:hover {
   background: rgba($color: #ffffff, $alpha: 0.1);
 }
 
-.logoIcon {
-  margin: 0rem 2rem;
-  width: 15rem;
-  height: 3rem;
-}
-
 .menu ul {
-  margin: 0;
   list-style: none;
-  padding: 0;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  margin: 0.5em 0.5em;
+  text-align: center;
 }
 
 .menu li {
-  border-right: 1px solid #fff;
-  text-align: center;
   flex-grow: 1;
+  display: inline-block;
+  text-align: center;
 }
 
 .menu li a {
-  display: flex;
-  height: 50px;
-  padding: 15px 20px;
-  text-decoration: none;
+  padding: 2px 5px;
   align-items: center;
-  color: #ffffff;
 }
 
 .menu li:hover {
   background: rgba($color: #ffffff, $alpha: 0.1);
 }
 
-.menu li a img {
-  display: block;
-  width: 40px;
-  height: 40px;
-  padding-right: 5px;
-  padding-bottom: 5px;
+.menuIcon {
+  font-size: 40px;
+}
+
+.homeIcon .logoutIcon .statisticsIcon {
+  font-size: 30px;
 }
 
 @media (max-width: 1045px) {
   header label {
-    display: block;
+    display: flex;
+    justify-content: space-between;
   }
 
   .menu {
     position: absolute;
+    top: 50px;
     width: 100%;
-    background: #df902a;
+    height: auto;
+    background: rgb(217, 232, 238);
     margin-left: -100%;
     transition: 0.5s;
   }
@@ -103,9 +104,13 @@ header label:hover {
   }
 
   .logoIcon {
-    width: 15rem;
-    height: 3rem;
-    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-items: center;
+    width: 150px;
+    height: 32px;
   }
 
   .menu li {

@@ -1,19 +1,24 @@
-<div class="container-fluid" style="padding-top: 6rem; padding-bottom: 2.5rem">
-  <div class="row justify-content-center">
-    <div class="card">
-      <header class="card-header">
-        <h1>{{ selectedSpiritualExercise.title }}</h1>
-      </header>
-      <article class="card-body">
-        <div class="content">
-          <h5>
-            Día Correspondiente a ejercicio espiritual:
-            {{ selectedSpiritualExercise.dayIndex }}
-          </h5>
-          <h5>{{ selectedSpiritualExercise.sentence1 }}</h5>
-          <h5>{{ selectedSpiritualExercise.sentence2 }}</h5>
-        </div>
-      </article>
+<app-navbar-admin (valueResponse)="recibiRespuesta($event)"></app-navbar-admin>
+<div
+  class="seeSpiritualExercise"
+  [ngStyle]="{
+    'background-image': 'url(' + selectedSpiritualExercise.urlImage + ')'
+  }"
+>
+  <div class="content">
+    <div class="title">
+      <h1>Día:</h1>
+      <h1>{{ selectedSpiritualExercise.dayIndex }}</h1>
+    </div>
+    <div class="title">
+      <h1>{{ selectedSpiritualExercise.title }}</h1>
+    </div>
+    <div class="generalContent">
+      <h3>{{ selectedSpiritualExercise.sentence1 }}</h3>
+      <h3>{{ selectedSpiritualExercise.sentence2 }}</h3>
+      <div class="contentAudio">
+        <app-audio-player></app-audio-player>
+      </div>
     </div>
   </div>
 </div>

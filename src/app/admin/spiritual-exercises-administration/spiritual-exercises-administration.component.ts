@@ -3,6 +3,11 @@ import { Router } from '@angular/router';
 import { SpiritualExercise } from 'src/app/models/SpiritualExercise';
 import { communicationTypeOfSpiritualExercise } from 'src/app/services/communicationTypeOfSpiritualExercise.service';
 import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.service';
+import {
+  faEye,
+  faPencilAlt,
+  faTrashAlt,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-spiritual-exercises-administration',
@@ -13,6 +18,10 @@ export class SpiritualExercisesAdministrationComponent implements OnInit {
   typeExercise: string;
   spiritualExercises: SpiritualExercise[];
   selectedSpiritualExercise: SpiritualExercise;
+
+  faEye = faEye;
+  faPencilAlt = faPencilAlt;
+  faTrashAlt = faTrashAlt;
 
   constructor(
     private router: Router,

@@ -1,6 +1,12 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { communicationTypeOfSpiritualExercise } from 'src/app/services/communicationTypeOfSpiritualExercise.service';
+import {
+  faHome,
+  faChartLine,
+  faSignOutAlt,
+  faBars,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar-admin',
@@ -9,6 +15,12 @@ import { communicationTypeOfSpiritualExercise } from 'src/app/services/communica
 })
 export class NavbarAdminComponent implements OnInit {
   typeExercise: string;
+
+  faHome = faHome;
+  faChartLine = faChartLine;
+  faSignOutAlt = faSignOutAlt;
+  faBars = faBars;
+
   @Output() valueResponse: EventEmitter<string> = new EventEmitter();
   constructor(
     private router: Router,

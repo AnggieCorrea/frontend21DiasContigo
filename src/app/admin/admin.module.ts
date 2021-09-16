@@ -6,6 +6,7 @@ import { SeeSpiritualExerciseComponent } from './see-spiritual-exercise/see-spir
 import { EditSpiritualExerciseComponent } from './edit-spiritual-exercise/edit-spiritual-exercise.component';
 import { SharedComponentsModule } from '../shared-components/shared-components.module';
 import { FooterAdminComponent } from './footer-admin/footer-admin.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { FooterAdminComponent } from './footer-admin/footer-admin.component';
     EditSpiritualExerciseComponent,
     FooterAdminComponent,
   ],
-  imports: [CommonModule, SharedComponentsModule],
+  imports: [CommonModule, SharedComponentsModule, FontAwesomeModule],
   exports: [],
 })
 export class AdminModule {}

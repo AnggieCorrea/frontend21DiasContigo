@@ -1,14 +1,16 @@
 <!-- BARRA DE NAVEGACIÓN ADMINISTRACIÓN-->
 <header class="barraNavegacion">
   <input type="checkbox" id="btn-menu" />
-  <label for="btn-menu"><i class="menuIcon fas fa-bars"></i></label>
+  <label for="btn-menu"
+    ><fa-icon [icon]="faBars" class="icons"></fa-icon
+  ></label>
 
   <img class="logoIcon" src="/assets/HorizontalLogo.png" />
 
   <nav class="menu">
     <ul>
       <li (click)="goHome()">
-        <i class="homeIcon fas fa-home"></i>
+        <fa-icon [icon]="faHome" class="icons"></fa-icon>
       </li>
       <li>
         <a (click)="contemplationsAdministration()"> Contemplaciones</a>
@@ -17,10 +19,10 @@
         <a (click)="pausesAdministration()"> Pausas </a>
       </li>
       <li>
-        <i class="statisticsIcon fas fa-chart-line"></i>
+        <fa-icon [icon]="faChartLine" class="icons"></fa-icon>
       </li>
       <li>
-        <i class="logoutIcon fas fa-sign-out-alt"></i>
+        <fa-icon [icon]="faSignOutAlt" class="icons"></fa-icon>
       </li>
     </ul>
   </nav>

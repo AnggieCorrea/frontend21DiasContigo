@@ -11,6 +11,7 @@ import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.ser
 export class EditSpiritualExerciseComponent implements OnInit {
   id: string;
   selectedSpiritualExercise: SpiritualExercise;
+  typeExercise: string;
 
   constructor(
     private router: Router,
@@ -22,5 +23,8 @@ export class EditSpiritualExerciseComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     this.selectedSpiritualExercise =
       this.spiritualExerciseService.getSpiritualExerciseById(+this.id);
+  }
+  recibiRespuesta(mensaje: string): void {
+    this.typeExercise = mensaje;
   }
 }

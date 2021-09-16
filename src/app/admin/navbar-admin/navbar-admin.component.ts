@@ -39,12 +39,14 @@ export class NavbarAdminComponent implements OnInit {
     this.communicationService.setTypeExercise('contemplation');
     this.typeExercise = this.communicationService.typeExercise;
     this.valueResponse.emit(this.typeExercise);
+    this.router.navigate(['/spiritualExerciseAdministration']);
   }
 
   pausesAdministration(): void {
     this.communicationService.setTypeExercise('pause');
     this.typeExercise = this.communicationService.typeExercise;
     this.valueResponse.emit(this.typeExercise);
+    this.router.navigate(['/spiritualExerciseAdministration']);
   }
 
   goHome(): void {

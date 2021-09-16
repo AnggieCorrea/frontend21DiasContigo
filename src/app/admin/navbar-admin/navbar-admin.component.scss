@@ -11,7 +11,7 @@ header {
   text-align: center;
   width: 100%;
   height: auto;
-  background-color: rgb(217, 232, 238);
+  background-color: rgb(169, 218, 240);
 }
 
 #btn-menu {
@@ -74,12 +74,11 @@ header label:hover {
   background: rgba($color: #ffffff, $alpha: 0.1);
 }
 
-.menuIcon {
-  font-size: 40px;
-}
-
-.homeIcon .logoutIcon .statisticsIcon {
+.icons {
   font-size: 30px;
+  color: rgb(68, 64, 64);
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 @media (max-width: 1045px) {

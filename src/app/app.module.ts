@@ -6,6 +6,7 @@ import { PublicModule } from './public/public.module';
 import { UserModule } from './user/user.module';
 import { SharedComponentsModule } from './shared-components/shared-components.module';
 import { AdminModule } from './admin/admin.module';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [

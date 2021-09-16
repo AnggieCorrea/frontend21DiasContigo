@@ -1,10 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "fuentePagina";
+  font-weight: bold;
+}
+
 .logo {
   width: 300px;
   height: 60px;
   text-align: center;
+  margin-bottom: 5px;
 }
 .home {
-  background-color: rgb(148, 255, 219);
+  background-color: rgb(199, 216, 228);
   width: 100%;
   height: 100%;
   background-size: cover;

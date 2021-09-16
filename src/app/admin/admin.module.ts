@@ -4,6 +4,8 @@ import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 import { SpiritualExercisesAdministrationComponent } from './spiritual-exercises-administration/spiritual-exercises-administration.component';
 import { SeeSpiritualExerciseComponent } from './see-spiritual-exercise/see-spiritual-exercise.component';
 import { EditSpiritualExerciseComponent } from './edit-spiritual-exercise/edit-spiritual-exercise.component';
+import { SharedComponentsModule } from '../shared-components/shared-components.module';
+import { FooterAdminComponent } from './footer-admin/footer-admin.component';
 
 @NgModule({
   declarations: [
@@ -11,8 +13,9 @@ import { EditSpiritualExerciseComponent } from './edit-spiritual-exercise/edit-s
     SpiritualExercisesAdministrationComponent,
     SeeSpiritualExerciseComponent,
     EditSpiritualExerciseComponent,
+    FooterAdminComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, SharedComponentsModule],
   exports: [],
 })
 export class AdminModule {}

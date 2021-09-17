@@ -34,4 +34,7 @@ export class HomeAdministrationComponent implements OnInit {
     this.typeExercise = this.communicationService.typeExercise;
     this.router.navigate(['/spiritualExerciseAdministration']);
   }
+  stadistics(): void {
+    this.router.navigate(['/stadistics']);
+  }
 }

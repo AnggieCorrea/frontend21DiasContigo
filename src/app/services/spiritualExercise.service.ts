@@ -61,9 +61,25 @@ export class SpiritualExerciseService {
         '/assets/ChopinNocturne.mp3',
         'https://www.consumer.es/wp-content/uploads/2019/07/img_velas-640x480.jpg'
       ),
+      /* new SpiritualExercise(5, 'contemplation', 6, '', '', '', '', ''),
+      new SpiritualExercise(6, 'contemplation', 7, '', '', '', '', ''),
+      new SpiritualExercise(7, 'contemplation', 8, '', '', '', '', ''),
+      new SpiritualExercise(8, 'contemplation', 9, '', '', '', '', ''),
+      new SpiritualExercise(9, 'contemplation', 10, '', '', '', '', ''),
+      new SpiritualExercise(10, 'contemplation', 11, '', '', '', '', ''),
+      new SpiritualExercise(11, 'contemplation', 12, '', '', '', '', ''),
+      new SpiritualExercise(12, 'contemplation', 13, '', '', '', '', ''),
+      new SpiritualExercise(13, 'contemplation', 14, '', '', '', '', ''),
+      new SpiritualExercise(14, 'contemplation', 15, '', '', '', '', ''),
+      new SpiritualExercise(15, 'contemplation', 16, '', '', '', '', ''),
+      new SpiritualExercise(16, 'contemplation', 17, '', '', '', '', ''),
+      new SpiritualExercise(17, 'contemplation', 18, '', '', '', '', ''),
+      new SpiritualExercise(18, 'contemplation', 19, '', '', '', '', ''),
+      new SpiritualExercise(19, 'contemplation', 20, '', '', '', '', ''),
+      new SpiritualExercise(20, 'contemplation', 21, '', '', '', '', ''), */
       //Pausas
       new SpiritualExercise(
-        5,
+        21,
         'pause',
         1,
         'pausa 1',
@@ -73,7 +89,7 @@ export class SpiritualExerciseService {
         'https://www.consumer.es/wp-content/uploads/2019/07/img_velas-640x480.jpg'
       ),
       new SpiritualExercise(
-        6,
+        22,
         'pause',
         2,
         'pausa 2',
@@ -83,7 +99,7 @@ export class SpiritualExerciseService {
         'https://www.consumer.es/wp-content/uploads/2019/07/img_velas-640x480.jpg'
       ),
       new SpiritualExercise(
-        7,
+        23,
         'pause',
         3,
         'pausa 3',
@@ -93,7 +109,7 @@ export class SpiritualExerciseService {
         'https://www.consumer.es/wp-content/uploads/2019/07/img_velas-640x480.jpg'
       ),
       new SpiritualExercise(
-        8,
+        24,
         'pause',
         4,
         'pausa 4',
@@ -103,7 +119,7 @@ export class SpiritualExerciseService {
         'https://www.consumer.es/wp-content/uploads/2019/07/img_velas-640x480.jpg'
       ),
       new SpiritualExercise(
-        9,
+        25,
         'pause',
         5,
         'pausa 5',
@@ -112,6 +128,22 @@ export class SpiritualExerciseService {
         '/assets/ChopinNocturne.mp3',
         'https://www.consumer.es/wp-content/uploads/2019/07/img_velas-640x480.jpg'
       ),
+      /* new SpiritualExercise(26, 'pause', 6, '', '', '', '', ''),
+      new SpiritualExercise(27, 'pause', 7, '', '', '', '', ''),
+      new SpiritualExercise(28, 'pause', 8, '', '', '', '', ''),
+      new SpiritualExercise(29, 'pause', 9, '', '', '', '', ''),
+      new SpiritualExercise(30, 'pause', 10, '', '', '', '', ''),
+      new SpiritualExercise(31, 'pause', 11, '', '', '', '', ''),
+      new SpiritualExercise(32, 'pause', 12, '', '', '', '', ''),
+      new SpiritualExercise(33, 'pause', 13, '', '', '', '', ''),
+      new SpiritualExercise(34, 'pause', 14, '', '', '', '', ''),
+      new SpiritualExercise(35, 'pause', 15, '', '', '', '', ''),
+      new SpiritualExercise(36, 'pause', 16, '', '', '', '', ''),
+      new SpiritualExercise(37, 'pause', 17, '', '', '', '', ''),
+      new SpiritualExercise(38, 'pause', 18, '', '', '', '', ''),
+      new SpiritualExercise(39, 'pause', 19, '', '', '', '', ''),
+      new SpiritualExercise(40, 'pause', 20, '', '', '', '', ''),
+      new SpiritualExercise(41, 'pause', 21, '', '', '', '', ''), */
     ];
   }
 

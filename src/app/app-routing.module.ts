@@ -13,6 +13,7 @@ import { HomeAdministrationComponent } from './admin/home-administration/home-ad
 import { SpiritualExercisesAdministrationComponent } from './admin/spiritual-exercises-administration/spiritual-exercises-administration.component';
 import { SeeSpiritualExerciseComponent } from './admin/see-spiritual-exercise/see-spiritual-exercise.component';
 import { EditSpiritualExerciseComponent } from './admin/edit-spiritual-exercise/edit-spiritual-exercise.component';
+import { StadisticsComponent } from './admin/stadistics/stadistics.component';
 
 const routes: Routes = [
   {
@@ -73,6 +74,10 @@ const routes: Routes = [
   {
     path: 'editSpiritualExercise/:id',
     component: EditSpiritualExerciseComponent,
+  },
+  {
+    path: 'stadistics',
+    component: StadisticsComponent,
   },
 ];
 

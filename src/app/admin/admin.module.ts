@@ -7,6 +7,7 @@ import { EditSpiritualExerciseComponent } from './edit-spiritual-exercise/edit-s
 import { SharedComponentsModule } from '../shared-components/shared-components.module';
 import { FooterAdminComponent } from './footer-admin/footer-admin.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { StadisticsComponent } from './stadistics/stadistics.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SeeSpiritualExerciseComponent,
     EditSpiritualExerciseComponent,
     FooterAdminComponent,
+    StadisticsComponent,
   ],
   imports: [CommonModule, SharedComponentsModule, FontAwesomeModule],
   exports: [],

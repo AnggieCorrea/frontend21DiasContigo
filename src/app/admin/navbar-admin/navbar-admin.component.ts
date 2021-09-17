@@ -52,4 +52,8 @@ export class NavbarAdminComponent implements OnInit {
   goHome(): void {
     this.router.navigate(['/homeAdministration']);
   }
+
+  stadistics(): void {
+    this.router.navigate(['/stadistics']);
+  }
 }

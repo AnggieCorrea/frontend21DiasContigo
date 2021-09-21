@@ -14,6 +14,7 @@ import { SpiritualExercisesAdministrationComponent } from './admin/spiritual-exe
 import { SeeSpiritualExerciseComponent } from './admin/see-spiritual-exercise/see-spiritual-exercise.component';
 import { EditSpiritualExerciseComponent } from './admin/edit-spiritual-exercise/edit-spiritual-exercise.component';
 import { StadisticsComponent } from './admin/stadistics/stadistics.component';
+import { MostUsedExerciseComponent } from './admin/most-used-exercise/most-used-exercise.component';
 
 const routes: Routes = [
   {
@@ -78,6 +79,10 @@ const routes: Routes = [
   {
     path: 'stadistics',
     component: StadisticsComponent,
+  },
+  {
+    path: 'mostUsedExercise',
+    component: MostUsedExerciseComponent,
   },
 ];
 

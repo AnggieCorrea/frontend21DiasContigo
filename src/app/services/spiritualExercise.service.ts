@@ -167,4 +167,15 @@ export class SpiritualExerciseService {
     }
     return spiritualExercises1;
   }
+
+  getSpiritualExercisesOfUser(ids: number[]): SpiritualExercise[] {
+    let spiritualExercises1 = [];
+    for (let spiritualExercise of this.spiritualExerciseList) {
+      for (let id of ids) {
+        if (spiritualExercise.idExercise == id)
+          spiritualExercises1.push(spiritualExercise);
+      }
+    }
+    return spiritualExercises1;
+  }
 }

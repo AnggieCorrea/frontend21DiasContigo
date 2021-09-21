@@ -8,6 +8,8 @@ import { SharedComponentsModule } from '../shared-components/shared-components.m
 import { FooterAdminComponent } from './footer-admin/footer-admin.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { StadisticsComponent } from './stadistics/stadistics.component';
+import { ChartsModule } from 'ng2-charts';
+import { MostUsedExerciseComponent } from './most-used-exercise/most-used-exercise.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,14 @@ import { StadisticsComponent } from './stadistics/stadistics.component';
     EditSpiritualExerciseComponent,
     FooterAdminComponent,
     StadisticsComponent,
+    MostUsedExerciseComponent,
   ],
-  imports: [CommonModule, SharedComponentsModule, FontAwesomeModule],
+  imports: [
+    CommonModule,
+    SharedComponentsModule,
+    FontAwesomeModule,
+    ChartsModule,
+  ],
   exports: [],
 })
 export class AdminModule {}

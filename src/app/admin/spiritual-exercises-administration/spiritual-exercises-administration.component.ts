@@ -44,6 +44,7 @@ export class SpiritualExercisesAdministrationComponent implements OnInit {
         this.typeExercise
       );
   }
+
   seeSpiritualExercise(id: number): void {
     this.selectedSpiritualExercise =
       this.spiritualExerciseService.getSpiritualExerciseById(id);

@@ -6,6 +6,7 @@ import {
   faChartLine,
   faSignOutAlt,
   faBars,
+  faCaretDown,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -20,6 +21,7 @@ export class NavbarAdminComponent implements OnInit {
   faChartLine = faChartLine;
   faSignOutAlt = faSignOutAlt;
   faBars = faBars;
+  faCaretDown = faCaretDown;
 
   @Output() valueResponse: EventEmitter<string> = new EventEmitter();
   constructor(

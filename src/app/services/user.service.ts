@@ -10,8 +10,16 @@ export class UserService {
 
   constructor() {
     this.usersList = [
-      new User(0, 'usuario0', '0000', 'usuario0@user.com', 'admin', 0, 0),
-      new User(1, 'usuario1', '1111', 'usuario1@user.com', 'user', 0, 0),
+      new User(0, 'usuario0', '0000', 'usuario0@user.com', 'admin', [], []),
+      new User(
+        1,
+        'usuario1',
+        '1111',
+        'usuario1@user.com',
+        'user',
+        [0, 1, 21, 22, 23],
+        [10, 11]
+      ),
     ];
   }
 

@@ -1,18 +1,17 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { SpiritualExercise } from 'src/app/models/SpiritualExercise';
-import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.service';
 import { User } from 'src/app/models/User';
+import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-stadistics',
-  templateUrl: './stadistics.component.html',
-  styleUrls: ['./stadistics.component.scss'],
+  selector: 'app-most-used-exercise',
+  templateUrl: './most-used-exercise.component.html',
+  styleUrls: ['./most-used-exercise.component.scss'],
 })
-export class StadisticsComponent implements OnInit {
+export class MostUsedExerciseComponent implements OnInit {
   typeExercise: string;
   spiritualExercises: SpiritualExercise[];
   usersByTypeExercise: User[];
@@ -68,7 +67,6 @@ export class StadisticsComponent implements OnInit {
   public pieChartLegend = true;
 
   constructor(
-    private router: Router,
     private spiritualExerciseService: SpiritualExerciseService,
     private userService: UserService
   ) {}

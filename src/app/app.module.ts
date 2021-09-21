@@ -6,6 +6,7 @@ import { PublicModule } from './public/public.module';
 import { UserModule } from './user/user.module';
 import { SharedComponentsModule } from './shared-components/shared-components.module';
 import { AdminModule } from './admin/admin.module';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { AdminModule } from './admin/admin.module';
     UserModule,
     AdminModule,
     SharedComponentsModule,
+    ChartsModule,
   ],
   exports: [],
   providers: [],

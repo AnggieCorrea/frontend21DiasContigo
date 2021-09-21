@@ -8,8 +8,8 @@ export interface UserInterface {
   password: string;
   email: string;
   role: string;
-  pauseIndex: number;
-  contemplationIndex: number;
+  listIdsCompletedExercises: number[];
+  listIdsMissingExercises: number[];
 }
 
 export class User implements UserInterface {
@@ -18,8 +18,8 @@ export class User implements UserInterface {
   password: string;
   email: string;
   role: string;
-  pauseIndex: number;
-  contemplationIndex: number;
+  listIdsCompletedExercises: number[];
+  listIdsMissingExercises: number[];
 
   constructor(
     idUser: number,
@@ -28,12 +28,10 @@ export class User implements UserInterface {
     /*public urlPicture: string,*/
     email: string,
     role: string,
-    pauseIndex: number,
-    contemplationIndex: number
     /*public activeTime : number,*/
-    /*public pauseMap: Map,
-    public contemplationMap: Map,
-    public pauseConsiderationList: PauseConsideration[],
+    listIdsCompletedExercises: number[],
+    listIdsMissingExercises: number[]
+    /*public pauseConsiderationList: PauseConsideration[],
     public contemplationConsiderationList: ContemplationConsideration[]*/
   ) {
     this.idUser = idUser;
@@ -41,7 +39,53 @@ export class User implements UserInterface {
     this.password = password;
     this.email = email;
     this.role = role;
-    this.pauseIndex = pauseIndex;
-    this.contemplationIndex = contemplationIndex;
+    this.listIdsCompletedExercises = listIdsCompletedExercises;
+    this.listIdsMissingExercises = listIdsMissingExercises;
+  }
+
+  //gets
+  getIdUser(): number {
+    return this.idUser;
+  }
+  getUserName(): string {
+    return this.userName;
+  }
+  /* getPassword(): string {
+    return this.password;
+  } */
+  getEmail(): string {
+    return this.email;
+  }
+  getRole(): string {
+    return this.role;
+  }
+  getListIdsCompletedExercises(): number[] {
+    return this.listIdsCompletedExercises;
+  }
+  getListIdsMissingExercises(): number[] {
+    return this.listIdsMissingExercises;
+  }
+
+  //sets
+  /* setIdUser(idUser: number) {
+    this.idUser = idUser;
+  } */
+  setUserName(userName: string) {
+    this.userName = userName;
+  }
+  setPassword(password: string) {
+    this.password = password;
+  }
+  setEmail(email: string) {
+    this.email = email;
+  }
+  setRole(role: string) {
+    this.role = role;
+  }
+  setListIdsCompletedExercises(listIdsCompletedExercises: number[]) {
+    this.listIdsCompletedExercises = listIdsCompletedExercises;
+  }
+  setListIdsMissingExercises(listIdsMissingExercises: number[]) {
+    this.listIdsMissingExercises = listIdsMissingExercises;
   }
 }

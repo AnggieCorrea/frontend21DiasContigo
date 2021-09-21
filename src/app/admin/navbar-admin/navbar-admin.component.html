@@ -18,8 +18,14 @@
       <li (click)="pausesAdministration()">
         <a> Pausas </a>
       </li>
-      <li (click)="stadistics()">
+      <li class="submenu">
         <fa-icon [icon]="faChartLine" class="icons"></fa-icon>
+        <fa-icon [icon]="faCaretDown" class="icons"></fa-icon>
+        <ul class="children">
+          <li><a>Ejercicio más usado</a></li>
+          <li><a>Tipo reflexión más usado</a></li>
+          <li><a>SubElement #3</a></li>
+        </ul>
       </li>
       <li>
         <fa-icon [icon]="faSignOutAlt" class="icons"></fa-icon>

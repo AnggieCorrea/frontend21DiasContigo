@@ -1,5 +1,4 @@
 import { ContemplationConsideration } from './ContemplationConsideration';
-import { Map } from './Map';
 import { PauseConsideration } from './PauseConsideration';
 
 export interface UserInterface {
@@ -9,7 +8,6 @@ export interface UserInterface {
   email: string;
   role: string;
   listIdsCompletedExercises: number[];
-  listIdsMissingExercises: number[];
 }
 
 export class User implements UserInterface {
@@ -19,7 +17,8 @@ export class User implements UserInterface {
   email: string;
   role: string;
   listIdsCompletedExercises: number[];
-  listIdsMissingExercises: number[];
+  pauseConsiderationList: PauseConsideration[];
+  contemplationConsiderationList: ContemplationConsideration[];
 
   constructor(
     idUser: number,
@@ -30,9 +29,8 @@ export class User implements UserInterface {
     role: string,
     /*public activeTime : number,*/
     listIdsCompletedExercises: number[],
-    listIdsMissingExercises: number[]
-    /*public pauseConsiderationList: PauseConsideration[],
-    public contemplationConsiderationList: ContemplationConsideration[]*/
+    pauseConsiderationList: PauseConsideration[],
+    contemplationConsiderationList: ContemplationConsideration[]
   ) {
     this.idUser = idUser;
     this.userName = userName;
@@ -40,7 +38,8 @@ export class User implements UserInterface {
     this.email = email;
     this.role = role;
     this.listIdsCompletedExercises = listIdsCompletedExercises;
-    this.listIdsMissingExercises = listIdsMissingExercises;
+    this.pauseConsiderationList = pauseConsiderationList;
+    this.contemplationConsiderationList = contemplationConsiderationList;
   }
 
   //gets
@@ -62,30 +61,40 @@ export class User implements UserInterface {
   getListIdsCompletedExercises(): number[] {
     return this.listIdsCompletedExercises;
   }
-  getListIdsMissingExercises(): number[] {
-    return this.listIdsMissingExercises;
+  getPauseConsiderationList(): PauseConsideration[] {
+    return this.pauseConsiderationList;
+  }
+  getContemplationConsiderationList(): ContemplationConsideration[] {
+    return this.contemplationConsiderationList;
   }
 
   //sets
   /* setIdUser(idUser: number) {
     this.idUser = idUser;
   } */
-  setUserName(userName: string) {
+  setUserName(userName: string): void {
     this.userName = userName;
   }
-  setPassword(password: string) {
+  setPassword(password: string): void {
     this.password = password;
   }
-  setEmail(email: string) {
+  setEmail(email: string): void {
     this.email = email;
   }
-  setRole(role: string) {
+  setRole(role: string): void {
     this.role = role;
   }
-  setListIdsCompletedExercises(listIdsCompletedExercises: number[]) {
+  setListIdsCompletedExercises(listIdsCompletedExercises: number[]): void {
     this.listIdsCompletedExercises = listIdsCompletedExercises;
   }
-  setListIdsMissingExercises(listIdsMissingExercises: number[]) {
-    this.listIdsMissingExercises = listIdsMissingExercises;
+  setPauseConsiderationList(
+    pauseConsiderationList: PauseConsideration[]
+  ): void {
+    this.pauseConsiderationList = pauseConsiderationList;
+  }
+  setContemplationConsiderationList(
+    contemplationConsiderationList: ContemplationConsideration[]
+  ): void {
+    this.contemplationConsiderationList = contemplationConsiderationList;
   }
 }

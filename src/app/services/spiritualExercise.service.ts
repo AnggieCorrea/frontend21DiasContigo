@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
 import { SpiritualExercise } from '../models/SpiritualExercise';
 
 @Injectable({

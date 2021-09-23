@@ -7,22 +7,19 @@ import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.ser
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-most-used-exercise',
-  templateUrl: './most-used-exercise.component.html',
-  styleUrls: ['./most-used-exercise.component.scss'],
+  selector: 'app-most-used-consideration',
+  templateUrl: './most-used-consideration.component.html',
+  styleUrls: ['./most-used-consideration.component.scss'],
 })
-export class MostUsedExerciseComponent implements OnInit {
+export class MostUsedConsiderationComponent implements OnInit {
   typeExercise: string;
   spiritualExercises: SpiritualExercise[];
   usersByTypeExercise: User[];
-  totalContemplations = 0;
-  totalPauses = 0;
+  totalRecordings = 0;
+  totalTexts = 0;
 
   // Trozos del pastel - Etiquetas
-  public pieChartLabels: Label[] = [
-    'Contemplaciones ignacianas',
-    'Pausas ignacianas',
-  ];
+  public pieChartLabels: Label[] = ['Reflexión grabada', 'Reflexión escrita'];
 
   // Trozos del pastel - Cantidades
   public pieChartData: number[] = [];
@@ -78,7 +75,7 @@ export class MostUsedExerciseComponent implements OnInit {
       this.spiritualExerciseService.getSpiritualExercisesByType(
         this.typeExercise
       );
-    this.findUsersByTypeExercise();
+    this.findTypesContemplationConsideration();
   }
 
   recibiRespuesta(mensaje: string): void {
@@ -89,20 +86,19 @@ export class MostUsedExerciseComponent implements OnInit {
       );
   }
 
-  findUsersByTypeExercise(): void {
+  findTypesContemplationConsideration(): void {
     const users = this.userService.getUsers();
     for (let i in users) {
-      const exercisesOfUser =
-        this.spiritualExerciseService.getSpiritualExercisesOfUser(
-          users[i].getListIdsCompletedExercises()
-        );
-      for (let j in exercisesOfUser) {
-        if (exercisesOfUser[j].type == 'contemplation')
-          this.totalContemplations++;
-        else if (exercisesOfUser[j].type == 'pause') this.totalPauses++;
+      const contemplationConsideration1 =
+        users[i].getContemplationConsiderationList();
+      for (let j in contemplationConsideration1) {
+        if (contemplationConsideration1[j].type == 'recording')
+          this.totalRecordings++;
+        else if (contemplationConsideration1[j].type == 'text')
+          this.totalTexts++;
       }
     }
-    this.pieChartData.push(this.totalContemplations);
-    this.pieChartData.push(this.totalPauses);
+    this.pieChartData.push(this.totalRecordings);
+    this.pieChartData.push(this.totalTexts);
   }
 }

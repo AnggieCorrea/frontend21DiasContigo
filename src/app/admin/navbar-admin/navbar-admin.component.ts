@@ -55,7 +55,11 @@ export class NavbarAdminComponent implements OnInit {
     this.router.navigate(['/homeAdministration']);
   }
 
-  stadistics(): void {
-    this.router.navigate(['/stadistics']);
+  stadisticsMostUsedExercise(): void {
+    this.router.navigate(['/mostUsedExercise']);
+  }
+
+  stadisticsMostUsedContemplation(): void {
+    this.router.navigate(['/mostUsedConsideration']);
   }
 }

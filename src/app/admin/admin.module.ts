@@ -10,6 +10,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { StadisticsComponent } from './stadistics/stadistics.component';
 import { ChartsModule } from 'ng2-charts';
 import { MostUsedExerciseComponent } from './most-used-exercise/most-used-exercise.component';
+import { MostUsedConsiderationComponent } from './most-used-consideration/most-used-consideration.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MostUsedExerciseComponent } from './most-used-exercise/most-used-exerci
     FooterAdminComponent,
     StadisticsComponent,
     MostUsedExerciseComponent,
+    MostUsedConsiderationComponent,
   ],
   imports: [
     CommonModule,

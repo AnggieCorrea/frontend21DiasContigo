@@ -22,8 +22,12 @@
         <fa-icon [icon]="faChartLine" class="icons"></fa-icon>
         <fa-icon [icon]="faCaretDown" class="icons"></fa-icon>
         <ul class="children">
-          <li><a>Ejercicio más usado</a></li>
-          <li><a>Tipo reflexión más usado</a></li>
+          <li (click)="stadisticsMostUsedExercise()">
+            <a>Ejercicio más usado</a>
+          </li>
+          <li (click)="stadisticsMostUsedContemplation()">
+            <a>Tipo reflexión más usado</a>
+          </li>
           <li><a>SubElement #3</a></li>
         </ul>
       </li>

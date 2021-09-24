@@ -7,19 +7,19 @@ import { EditSpiritualExerciseComponent } from './edit-spiritual-exercise/edit-s
 import { SharedComponentsModule } from '../shared-components/shared-components.module';
 import { FooterAdminComponent } from './footer-admin/footer-admin.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { StadisticsComponent } from './stadistics/stadistics.component';
 import { ChartsModule } from 'ng2-charts';
 import { MostUsedExerciseComponent } from './most-used-exercise/most-used-exercise.component';
 import { MostUsedConsiderationComponent } from './most-used-consideration/most-used-consideration.component';
+import { HomeAdministrationComponent } from './home-administration/home-administration.component';
 
 @NgModule({
   declarations: [
+    HomeAdministrationComponent,
     NavbarAdminComponent,
     SpiritualExercisesAdministrationComponent,
     SeeSpiritualExerciseComponent,
     EditSpiritualExerciseComponent,
     FooterAdminComponent,
-    StadisticsComponent,
     MostUsedExerciseComponent,
     MostUsedConsiderationComponent,
   ],

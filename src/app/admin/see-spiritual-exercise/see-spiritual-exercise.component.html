@@ -2,9 +2,13 @@
 <div
   class="seeSpiritualExercise"
   [ngStyle]="{
-    'background-image': 'url(' + selectedSpiritualExercise.urlImage + ')'
+    'background-image': 'url(' + selectedSpiritualExercise.urlImage + ')',
+    'background-size': '100%'
   }"
 >
+  <div>
+    <button (click)="returnToSpiritualExercises()">Atrás</button>
+  </div>
   <div class="content">
     <h1>Día: {{ selectedSpiritualExercise.dayIndex }}</h1>
     <h1>{{ selectedSpiritualExercise.title }}</h1>

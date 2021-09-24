@@ -5,17 +5,20 @@
 
 .seeSpiritualExercise {
   width: 100%;
+  min-height: calc(100vh - 40px - 190px);
+  height: 90%;
   background-position: center;
   background-size: cover;
 }
 
 .content {
-  padding-top: 1rem;
+  padding-top: 10px;
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 5%;
   padding-bottom: 2rem;
   width: 90%;
+  height: 80%;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -38,4 +41,13 @@ h1 {
 h3 {
   color: #e5e5e9;
   font-style: italic;
+}
+
+button {
+  background-color: rgb(246, 87, 110);
+  border-radius: 10px;
+  color: white;
+  width: 100px;
+  border: none;
+  margin: 20px;
 }

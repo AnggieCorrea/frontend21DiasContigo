@@ -5,6 +5,7 @@
 .page {
   background-position: center;
   background-size: cover;
+  min-height: calc(100vh - 40px - 190px);
 }
 
 h1 {

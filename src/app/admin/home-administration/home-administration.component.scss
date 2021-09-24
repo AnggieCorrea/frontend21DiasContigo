@@ -2,7 +2,17 @@
   margin: 0;
   padding: 0;
   font-family: "fuentePagina";
-  font-weight: bold;
+}
+head {
+  display: flex;
+  flex-direction: row;
+}
+
+.icon {
+  text-align: right;
+  position: absolute;
+  right: 0;
+  margin-right: 30px;
 }
 
 .logo {
@@ -14,9 +24,7 @@
 .home {
   background-color: rgb(199, 216, 228);
   width: 100%;
-  height: 100%;
   background-size: cover;
-  overflow: scroll;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,27 +41,79 @@
   justify-content: space-around;
 }
 .buttonContemplationAdministration {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  width: 300px;
+  height: 200px;
   margin: 10px;
 }
 .buttonPauseAdministration {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  width: 300px;
+  height: 200px;
   margin: 10px;
 }
 
 .buttonStadistics {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  width: 300px;
+  height: 200px;
   margin: 10px;
 }
-
-.imageContemplationHomeAdmin {
+.buttonMostUsedExercise {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
   width: 300px;
   height: 200px;
+  margin: 10px;
+}
+.buttonMostUsedConsideration {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+}
+.letterBackground {
+  width: 90%;
+  height: auto;
+  border-radius: 20px;
+  background-color: rgba(108, 118, 121, 0.3);
 }
 
-.imagePauseHomeAdmin {
-  width: 300px;
-  height: 200px;
+h3 {
+  -webkit-text-stroke: 0.3px white;
+  -webkit-text-fill-color: black;
+  font-weight: bold;
+  text-align: center;
 }
 
-.imageStadistics {
-  width: 300px;
-  height: 200px;
+@media (max-width: 1045px) {
+  .options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
 }

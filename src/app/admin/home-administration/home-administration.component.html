@@ -1,27 +1,58 @@
 <div class="home">
   <div class="head">
     <img src="/assets/HorizontalLogo.png" class="logo" />
+    <fa-icon [icon]="faSignOutAlt" class="icon"></fa-icon>
     <hr />
     <br />
   </div>
   <div class="content">
-    <h1>Administración</h1>
+    <h2>Administración</h2>
+    <br />
     <div class="options">
       <div
         class="buttonContemplationAdministration"
         (click)="contemplationsAdministration()"
+        [ngStyle]="{
+          'background-image': 'url(/assets/contemplaciones.jpg)',
+          'background-size': '100%'
+        }"
       >
-        <img
-          src="/assets/contemplacionHomeAdmin.png"
-          class="imageContemplationHomeAdmin"
-        />
+        <h3 class="letterBackground">Contemplaciones ignacianas</h3>
       </div>
-      <div class="buttonPauseAdministration" (click)="pausesAdministration()">
-        <img src="/assets/pausaHomeAdmin.png" class="imagePauseHomeAdmin" />
+      <div
+        class="buttonPauseAdministration"
+        (click)="pausesAdministration()"
+        [ngStyle]="{
+          'background-image': 'url(/assets/pausas.jpg)',
+          'background-size': '120%'
+        }"
+      >
+        <h3 class="letterBackground">Pausas ignacianas</h3>
       </div>
-      <div class="buttonStadistics" (click)="stadistics()">
-        <img src="/assets/estadisticas.jpg" class="imageStadistics" />
+      <div
+        class="buttonMostUsedExercise"
+        (click)="mostUsedExercise()"
+        [ngStyle]="{
+          'background-image': 'url(/assets/EjercicioMasUsado.jpg)',
+          'background-size': '110%'
+        }"
+      >
+        <h3 class="letterBackground">Ejercicio más usado</h3>
+      </div>
+    </div>
+    <div class="options">
+      <div
+        class="buttonMostUsedConsideration"
+        (click)="mostUsedConsideration()"
+        [ngStyle]="{
+          'background-image': 'url(/assets/ReflexionMasUsada.jpg)',
+          'background-size': '100%'
+        }"
+      >
+        <h3 class="letterBackground">Reflexión más usada</h3>
       </div>
     </div>
   </div>
+  <br />
 </div>
+<app-footer-admin></app-footer-admin>

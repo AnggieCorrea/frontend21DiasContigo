@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { communicationTypeOfSpiritualExercise } from 'src/app/services/communicationTypeOfSpiritualExercise.service';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home-administration',
@@ -9,6 +10,7 @@ import { communicationTypeOfSpiritualExercise } from 'src/app/services/communica
 })
 export class HomeAdministrationComponent implements OnInit {
   typeExercise: string;
+  faSignOutAlt = faSignOutAlt;
 
   constructor(
     private router: Router,
@@ -36,5 +38,11 @@ export class HomeAdministrationComponent implements OnInit {
   }
   stadistics(): void {
     this.router.navigate(['/stadistics']);
+  }
+  mostUsedExercise(): void {
+    this.router.navigate(['/mostUsedExercise']);
+  }
+  mostUsedConsideration(): void {
+    this.router.navigate(['/mostUsedConsideration']);
   }
 }

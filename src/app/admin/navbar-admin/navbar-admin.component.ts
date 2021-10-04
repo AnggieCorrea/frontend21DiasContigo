@@ -62,4 +62,7 @@ export class NavbarAdminComponent implements OnInit {
   stadisticsMostUsedContemplation(): void {
     this.router.navigate(['/mostUsedConsideration']);
   }
+  signOff(): void {
+    this.router.navigate(['/login']);
+  }
 }

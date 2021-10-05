@@ -1,49 +1,39 @@
-<img class="loginImagen" src="https://www.meteorologiaenred.com/wp-content/uploads/2017/01/cielo.jpg">
-<div class="container-fluid" style="padding-top: 6rem; padding-bottom: 2.5rem; ">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
+<div class="containerLogin">
+  <div
+    class="container-fluid"
+    style="padding-top: 6rem; padding-bottom: 2.5rem"
+  >
+    <div class="row justify-content-center">
       <div class="card">
         <header class="card-header">
-          <!------<a href="public/login" class="float-right btn btn-dark mt-1">Iniciar Sesión</a>---------->
-          <h1  style="text-align: center;">21 días contigo</h1>
-          <h3>
-            Inicia sesión
-          </h3>
+          <img src="/assets/HorizontalLogo.png" class="logo" />
+          <h3>Inicia sesión</h3>
         </header>
+        <br />
         <article class="card-body">
-          <form>
-            <div class="form-group">
-              <label>Correo Electrónico: </label>
-              <input
-                type="email"
-                class="form-control"
-                name="email"
-                placeholder="Correo Electrónico"
-                [(ngModel)]="email"
-              />
-            </div>
-            <div class="form-group" style="padding-bottom: 10px">
-              <label>Contraseña: </label>
-              <input
-                type="password"
-                class="form-control"
-                name="password"
-                placeholder="Contraseña"
-                [(ngModel)]="password"
-              />
-            </div>
-            <br />
-            <div style="text-align: center;">
-              <button style="margin-right: 10px" class="btn" (click)="checkUser()">
-                Iniciar sesión
-              </button>
-              <button style="margin-right: 10px" class="btn" (click)="return()">
-                Atrás
-              </button>
-            </div>
-          </form>
+          <label>Correo Electrónico: </label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            placeholder="Correo Electrónico"
+            [(ngModel)]="email"
+          />
+          <label>Contraseña: </label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            placeholder="Contraseña"
+            [(ngModel)]="password"
+          />
+          <br />
+          <div class="buttons">
+            <button class="btn" (click)="checkUser()">Iniciar sesión</button>
+            <button class="btn" (click)="return()">Atrás</button>
+          </div>
         </article>
-        </div>
+      </div>
     </div>
   </div>
 </div>

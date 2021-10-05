@@ -31,7 +31,11 @@
         </ul>
       </li>
       <li>
-        <fa-icon [icon]="faSignOutAlt" class="icons"></fa-icon>
+        <fa-icon
+          [icon]="faSignOutAlt"
+          class="icons"
+          (click)="signOff()"
+        ></fa-icon>
       </li>
     </ul>
   </nav>

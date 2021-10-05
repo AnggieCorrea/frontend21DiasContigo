@@ -45,4 +45,7 @@ export class HomeAdministrationComponent implements OnInit {
   mostUsedConsideration(): void {
     this.router.navigate(['/mostUsedConsideration']);
   }
+  signOff(): void {
+    this.router.navigate(['/login']);
+  }
 }

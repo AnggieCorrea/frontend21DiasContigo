@@ -98,4 +98,10 @@
     align-items: center;
     border-radius: 2rem;
   }
+  .circular {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    transform: scale(1);
+  }
 }

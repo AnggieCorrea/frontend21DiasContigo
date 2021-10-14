@@ -1,27 +1,43 @@
 .mainBody {
   width: 100%;
   height: 100%;
-  background-image: url("https://cdn.pixabay.com/photo/2020/05/18/13/14/mandala-art-5186220_1280.png");
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
+  position: absolute;
+  flex-direction: column;
   justify-content: center;
-  overflow: auto;
+  justify-items: center;
+  background-image: url(/assets/Bosque.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  color: #94cbffcc;
+  background-color: transparent;
+  margin: 0%;
+  position: initial;
+  text-align: center;
 }
 
 .buttonsContainer {
-  width: 50%;
-  height: 1.5rem;
+  width: 70%;
+  height: 100%;
   list-style: none;
-  display: inline-flexbox;
+  position: relative;
+  display: flex;
+  top: -150px;
+  left: 200px;
+  flex-direction: row;
   justify-items: space-evenly;
+  align-items: center;
+  overflow-x: hidden;
 }
 
 .excerciseButton {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem;
   width: wrap;
   height: wrap;
   font-size: smaller;
@@ -35,11 +51,45 @@
   transition: 0.2s;
 }
 
+.firstEvenButton {
+  position: relative;
+  left: 40px;
+}
+
+.firstOddButton {
+  position: relative;
+  top: 40px;
+  left: 40px;
+}
+
+.secondEvenButton {
+  position: relative;
+  left: -825px;
+  top: 150px;
+}
+
+.secondOddButton {
+  position: relative;
+  top: 190px;
+  left: -825px;
+}
+
+.thirdEvenButton {
+  position: relative;
+  left: -1700px;
+  top: 300px;
+}
+
+.thirdOddButton {
+  position: relative;
+  left: -1700px;
+  top: 380px;
+}
+
 .excerciseButtonDisable {
   padding-top: 1rem;
-  margin-top: 1rem;
   padding-bottom: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem;
   width: wrap;
   height: wrap;
   font-size: smaller;
@@ -57,7 +107,7 @@
   padding-top: 1rem;
   margin-top: 1rem;
   padding-bottom: 1rem;
-  margin-bottom: 2rem;
+  margin: 1rem;
   width: wrap;
   height: wrap;
   font-size: smaller;
@@ -73,12 +123,11 @@
 
 @media (max-width: 1045px) {
   .buttonsContainer {
-    width: 80%;
-    margin-top: 0.5rem;
-    height: 2rem;
-    list-style: none;
-    display: inline-flexbox;
-    justify-items: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
   }
 
   .excerciseButton {

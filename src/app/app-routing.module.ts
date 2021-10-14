@@ -11,6 +11,7 @@ import { ContemplationsAdministrationComponent } from './admin/contemplations-ad
 import { PausesAdministrationComponent } from './admin/pauses-administration/pauses-administration.component';
 import { LandingComponent } from './public/landing/landing.component';
 import { HomeComponent } from './user/home/home.component';
+import { PauseExerciseComponent } from './user/pause-exercise/pause-exercise.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,10 @@ const routes: Routes = [
   {
     path: 'spiritualExcercise',
     component: SpiritualExerciseComponent,
+  },
+  {
+    path: 'pauseExcercise',
+    component: PauseExerciseComponent,
   },
   //admin routing
   {

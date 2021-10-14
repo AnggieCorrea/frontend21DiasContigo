@@ -9,6 +9,7 @@
   font-family: "fuentePagina";
   font-size: 13px;
   font-weight: bold;
+  z-index: 2;
 }
 
 header {
@@ -103,9 +104,9 @@ header label:hover {
   }
 
   .logoIcon {
-    width: 15rem;
-    height: 3rem;
-    margin-bottom: 1rem;
+    width: 10rem;
+    height: 2rem;
+    margin-bottom: 0.5rem;
   }
 
   .menu li {
@@ -114,6 +115,23 @@ header label:hover {
     width: 100%;
     border-right: none;
     text-align: center;
+  }
+
+  .menu li a {
+    display: flex;
+    height: 30px;
+    padding: 15px 20px;
+    text-decoration: none;
+    align-items: center;
+    color: #ffffff;
+  }
+
+  .menu li a img {
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding-right: 5px;
+    padding-bottom: 5px;
   }
 
   #btn-menu:checked ~ .menu {

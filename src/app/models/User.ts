@@ -1,5 +1,4 @@
 import { ContemplationConsideration } from './ContemplationConsideration';
-import { Map } from './Map';
 import { PauseConsideration } from './PauseConsideration';
 
 export interface UserInterface {
@@ -8,8 +7,7 @@ export interface UserInterface {
   password: string;
   email: string;
   role: string;
-  pauseIndex: number;
-  contemplationIndex: number;
+  listIdsCompletedExercises: number[];
 }
 
 export class User implements UserInterface {
@@ -18,8 +16,9 @@ export class User implements UserInterface {
   password: string;
   email: string;
   role: string;
-  pauseIndex: number;
-  contemplationIndex: number;
+  listIdsCompletedExercises: number[];
+  pauseConsiderationList: PauseConsideration[];
+  contemplationConsiderationList: ContemplationConsideration[];
 
   constructor(
     idUser: number,
@@ -28,20 +27,74 @@ export class User implements UserInterface {
     /*public urlPicture: string,*/
     email: string,
     role: string,
-    pauseIndex: number,
-    contemplationIndex: number
     /*public activeTime : number,*/
-    /*public pauseMap: Map,
-    public contemplationMap: Map,
-    public pauseConsiderationList: PauseConsideration[],
-    public contemplationConsiderationList: ContemplationConsideration[]*/
+    listIdsCompletedExercises: number[],
+    pauseConsiderationList: PauseConsideration[],
+    contemplationConsiderationList: ContemplationConsideration[]
   ) {
     this.idUser = idUser;
     this.userName = userName;
     this.password = password;
     this.email = email;
     this.role = role;
-    this.pauseIndex = pauseIndex;
-    this.contemplationIndex = contemplationIndex;
+    this.listIdsCompletedExercises = listIdsCompletedExercises;
+    this.pauseConsiderationList = pauseConsiderationList;
+    this.contemplationConsiderationList = contemplationConsiderationList;
+  }
+
+  //gets
+  getIdUser(): number {
+    return this.idUser;
+  }
+  getUserName(): string {
+    return this.userName;
+  }
+  /* getPassword(): string {
+    return this.password;
+  } */
+  getEmail(): string {
+    return this.email;
+  }
+  getRole(): string {
+    return this.role;
+  }
+  getListIdsCompletedExercises(): number[] {
+    return this.listIdsCompletedExercises;
+  }
+  getPauseConsiderationList(): PauseConsideration[] {
+    return this.pauseConsiderationList;
+  }
+  getContemplationConsiderationList(): ContemplationConsideration[] {
+    return this.contemplationConsiderationList;
+  }
+
+  //sets
+  /* setIdUser(idUser: number) {
+    this.idUser = idUser;
+  } */
+  setUserName(userName: string): void {
+    this.userName = userName;
+  }
+  setPassword(password: string): void {
+    this.password = password;
+  }
+  setEmail(email: string): void {
+    this.email = email;
+  }
+  setRole(role: string): void {
+    this.role = role;
+  }
+  setListIdsCompletedExercises(listIdsCompletedExercises: number[]): void {
+    this.listIdsCompletedExercises = listIdsCompletedExercises;
+  }
+  setPauseConsiderationList(
+    pauseConsiderationList: PauseConsideration[]
+  ): void {
+    this.pauseConsiderationList = pauseConsiderationList;
+  }
+  setContemplationConsiderationList(
+    contemplationConsiderationList: ContemplationConsideration[]
+  ): void {
+    this.contemplationConsiderationList = contemplationConsiderationList;
   }
 }

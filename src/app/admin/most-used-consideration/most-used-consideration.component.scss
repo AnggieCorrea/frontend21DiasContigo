@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+.pageMostUsedConsideration {
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+}
+
+.principalTitle {
+  font-weight: bold;
+}
+
+.content {
+  padding-top: 1rem;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+  padding-bottom: 2rem;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  background-color: rgb(204, 233, 241);
+  text-align: center;
+}
+
+.stadistics {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+}
+
+.title {
+  display: inline-flex;
+  color: rgb(246, 87, 110);
+}
+
+table {
+  overflow-x: auto;
+  border-collapse: collapse;
+  width: 40%;
+  margin: 0 auto;
+  border: 1px solid rgb(31, 176, 195);
+  align-items: center;
+}
+th {
+  background-color: rgb(31, 176, 195);
+  color: black;
+}
+
+.chart {
+  width: 40%;
+  height: auto;
+  padding-right: 20px;
+}

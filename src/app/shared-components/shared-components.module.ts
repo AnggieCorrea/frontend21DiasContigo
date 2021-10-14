@@ -4,7 +4,6 @@ import { GridComponent } from './grid/grid.component';
 import { TabComponent } from './tab/tab.component';
 import { AudioPlayerComponent } from './audio-player/audio-player.component';
 import { MicrophoneRecorderComponent } from './microphone-recorder/microphone-recorder.component';
-import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -12,7 +11,6 @@ import { FooterComponent } from './footer/footer.component';
     TabComponent,
     AudioPlayerComponent,
     MicrophoneRecorderComponent,
-    FooterComponent,
   ],
   imports: [CommonModule],
   exports: [
@@ -20,7 +18,6 @@ import { FooterComponent } from './footer/footer.component';
     TabComponent,
     AudioPlayerComponent,
     MicrophoneRecorderComponent,
-    FooterComponent,
   ],
 })
 export class SharedComponentsModule {}

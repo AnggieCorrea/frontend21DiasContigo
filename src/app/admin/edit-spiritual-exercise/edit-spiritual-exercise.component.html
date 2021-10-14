@@ -1,0 +1,54 @@
+<app-navbar-admin (valueResponse)="recibiRespuesta($event)"></app-navbar-admin>
+<div class="editSpiritualExercise">
+  <h1>Edita aquí el ejercicio espiritual</h1>
+  <div class="content">
+    <div class="principalInformation">
+      <h3>Día: {{ selectedSpiritualExercise.dayIndex }}</h3>
+      <h3>
+        | Tipo de ejercicio espiritual:
+        {{ selectedSpiritualExercise.type }}
+      </h3>
+    </div>
+    <div class="information">
+      <div class="colum1">
+        <label>Título:</label>
+        <label>Frase 1:</label>
+        <label>Frase 2:</label>
+        <label>URL imagen:</label>
+        <label>URL audio:</label>
+      </div>
+      <div class="colum1">
+        <input
+          type="text"
+          name="title"
+          placeholder="{{ selectedSpiritualExercise.title }}"
+        />
+        <input
+          type="text"
+          name="sentence1:"
+          placeholder="{{ selectedSpiritualExercise.sentence1 }}"
+        />
+        <input
+          type="text"
+          name="sentence2:"
+          placeholder="{{ selectedSpiritualExercise.sentence2 }}"
+        />
+        <input
+          type="text"
+          name="urlImage:"
+          placeholder="{{ selectedSpiritualExercise.urlImage }}"
+        />
+        <input
+          type="text"
+          name="urlAudio:"
+          placeholder="{{ selectedSpiritualExercise.urlAudio }}"
+        />
+      </div>
+    </div>
+    <div class="Buttons">
+      <button (click)="returnToSpiritualExercises()">Cancelar</button>
+      <button>Guardar</button>
+    </div>
+  </div>
+</div>
+<app-footer-admin></app-footer-admin>

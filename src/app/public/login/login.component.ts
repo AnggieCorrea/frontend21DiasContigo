@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   return(): void {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/landing']);
   }
 
   checkUser(): void {
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       user.password = '';
       localStorage.setItem('activeUser', JSON.stringify(user));
       if (user.role === 'admin') {
-        this.router.navigate(['/contemplationsAdministration']);
+        this.router.navigate(['/homeAdministration']);
       } else {
         this.router.navigate(['/home']);
       }

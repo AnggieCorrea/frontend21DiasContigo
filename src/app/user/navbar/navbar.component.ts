@@ -7,8 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  @Output() public sidenavToggle = new EventEmitter();
-
   constructor(private router: Router) {}
   mobile: boolean = false;
 

@@ -16,6 +16,8 @@ import { EditSpiritualExerciseComponent } from './admin/edit-spiritual-exercise/
 import { MostUsedExerciseComponent } from './admin/most-used-exercise/most-used-exercise.component';
 import { MostUsedConsiderationComponent } from './admin/most-used-consideration/most-used-consideration.component';
 import { FooterAdminComponent } from './admin/footer-admin/footer-admin.component';
+import { PauseExerciseComponent } from './user/pause-exercise/pause-exercise.component';
+import { FooterUserComponent } from './user/footer-user/footer-user.component';
 
 const routes: Routes = [
   {
@@ -32,6 +34,10 @@ const routes: Routes = [
     component: LoginComponent,
   },
   //user routing
+  {
+    path: 'footerUser',
+    component: FooterUserComponent,
+  },
   {
     path: 'home',
     component: HomeComponent,

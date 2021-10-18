@@ -1,34 +1,43 @@
-<header>
+<!-- BARRA DE NAVEGACIÓN USUARIO-->
+<header class="barraNavegacion">
   <input type="checkbox" id="btn-menu" />
-  <label for="btn-menu"><img src="/assets/IconMenu.png" /></label>
+  <label for="btn-menu"
+    ><fa-icon [icon]="faBars" class="icons"></fa-icon
+  ></label>
+
+  <img class="logoIcon" src="/assets/HorizontalLogo.png" />
+
   <nav class="menu">
     <ul>
-      <span>
-        <img class="logoIcon" src="/assets/HorizontalLogo.png" />
-      </span>
-      <li>
-        <a (click)="navHome()"><img src="/assets/IconHome.png" />Inicio</a>
+      <li (click)="goHome()">
+        <fa-icon [icon]="faHome" class="icons"></fa-icon>
+      </li>
+      <li (click)="goContemplations()">
+        <a> Contemplaciones</a>
+      </li>
+      <li (click)="goPauses()">
+        <a> Pausas </a>
       </li>
       <li>
-        <a (click)="navContemplationMap()">Contemplaciones</a>
+        <fa-icon
+          [icon]="faUser"
+          class="icons"
+          (click)="goProfile()"
+        ></fa-icon>
       </li>
       <li>
-        <a (click)="navPauseMap()">Pausas</a>
+        <fa-icon
+          [icon]="faCogs"
+          class="icons"
+          (click)="goConfig()"
+        ></fa-icon>
       </li>
       <li>
-        <a (click)="navProfile()">
-          <img src="/assets/IconProfile.png" />Perfil
-        </a>
-      </li>
-      <li>
-        <a (click)="navSettings()">
-          <img src="/assets/IconSettings.png" />Configuración
-        </a>
-      </li>
-      <li>
-        <a (click)="navLogout()">
-          <img src="/assets/IconLogout.png" />Cerrar sesión
-        </a>
+        <fa-icon
+          [icon]="faSignOutAlt"
+          class="icons"
+          (click)="signOff()"
+        ></fa-icon>
       </li>
     </ul>
   </nav>

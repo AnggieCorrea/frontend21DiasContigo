@@ -1,10 +1,36 @@
 <app-navbar></app-navbar>
+
 <div class="mainBody">
-  <ul class="buttonsContainer" *ngFor="let row of rows">
-    <li *ngFor="let pausa of pausas">
-      <button class="excerciseButton" (click)="navSpiritualExcercise('dia1')">
+  <h1>Tomate una pausa</h1>
+  <canvas class="canvasContemplation"></canvas>
+  <table class="buttonsContainer">
+    <tr *ngFor="let pausa of pausas">
+      <td
+        *ngIf="pausa.deshabilitado == pausa.completado"
+        class="excerciseButton"
+        (click)="navSpiritualExcercise('dia1')"
+      >
         Pausa {{ pausa.nombre }}
-      </button>
-    </li>
-  </ul>
+      </td>
+      <td
+        *ngIf="
+          pausa.deshabilitado != pausa.completado &&
+          pausa.deshabilitado == 'true'
+        "
+        class="excerciseButtonDisable"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Pausa {{ pausa.nombre }}
+      </td>
+      <td
+        *ngIf="
+          pausa.deshabilitado != pausa.completado && pausa.completado == 'true'
+        "
+        class="excerciseButtonCompleted"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Pausa {{ pausa.nombre }}
+      </td>
+    </tr>
+  </table>
 </div>

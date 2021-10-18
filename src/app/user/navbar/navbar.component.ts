@@ -1,5 +1,16 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import {
+  faHome,
+  faChartLine,
+  faSignOutAlt,
+  faBars,
+  faCaretDown,
+  faUser,
+  faCogs,
+} from '@fortawesome/free-solid-svg-icons';
+
+
 
 @Component({
   selector: 'app-navbar',
@@ -7,29 +18,48 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  @Output() public sidenavToggle = new EventEmitter();
+  typeExercise: string;
 
-  constructor(private router: Router) {}
-  mobile: boolean = false;
+  faHome = faHome;
+  faChartLine = faChartLine;
+  faSignOutAlt = faSignOutAlt;
+  faBars = faBars;
+  faCaretDown = faCaretDown;
+  faCogs = faCogs;
+  faUser = faUser;
 
-  ngOnInit(): void {}
+  @Output() valueResponse: EventEmitter<string> = new EventEmitter();
+  constructor(
+    private router: Router
+  ) {}
 
-  navContemplationMap(): void {
+  ngOnInit(): void {
+    ;
+  }
+
+  goContemplations(): void {
+    this.valueResponse.emit(this.typeExercise);
     this.router.navigate(['/contemplationsMap']);
   }
-  navPauseMap(): void {
+
+  goPauses(): void {
+    this.valueResponse.emit(this.typeExercise);
     this.router.navigate(['/pauseMap']);
   }
-  navProfile(): void {
+
+  goHome(): void {
+    this.router.navigate(['/home']);
+  }
+
+  goProfile(): void {
     this.router.navigate(['/profile']);
   }
-  navSettings(): void {
+
+  goConfig(): void {
     this.router.navigate(['/settings']);
   }
-  navLogout(): void {
-    this.router.navigate(['/landing']);
-  }
-  navHome(): void {
-    this.router.navigate(['/home']);
+  
+  signOff(): void {
+    this.router.navigate(['/login']);
   }
 }

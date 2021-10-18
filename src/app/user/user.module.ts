@@ -13,7 +13,9 @@ import { ContemplationConsiderationListComponent } from './profile/contemplation
 import { PauseConsiderationListComponent } from './profile/pause-consideration-list/pause-consideration-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-
+import { PauseExerciseComponent } from './pause-exercise/pause-exercise.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FooterUserComponent } from './footer-user/footer-user.component';
 @NgModule({
   declarations: [
     CreateAccountComponent,
@@ -28,15 +30,25 @@ import { HomeComponent } from './home/home.component';
     ContemplationConsiderationListComponent,
     PauseConsiderationListComponent,
     HomeComponent,
+    PauseExerciseComponent,
+    FooterUserComponent,
   ],
-  imports: [CommonModule, SharedComponentsModule],
+  imports: [CommonModule, SharedComponentsModule, FontAwesomeModule],
   exports: [
     CreateAccountComponent,
+    NavbarComponent,
     ContemplationListComponent,
     PauseListComponent,
     SpiritualExerciseComponent,
     ProfileComponent,
     SettingsComponent,
+    PauseConsiderationComponent,
+    ContemplationConsiderationComponent,
+    ContemplationConsiderationListComponent,
+    PauseConsiderationListComponent,
+    HomeComponent,
+    PauseExerciseComponent,
+    FooterUserComponent,
   ],
 })
 export class UserModule {}

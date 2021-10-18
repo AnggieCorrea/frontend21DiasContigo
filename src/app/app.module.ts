@@ -6,6 +6,8 @@ import { PublicModule } from './public/public.module';
 import { UserModule } from './user/user.module';
 import { SharedComponentsModule } from './shared-components/shared-components.module';
 import { AdminModule } from './admin/admin.module';
+
+import { ContTileMapService } from './services/cont-tile-map.service';
 import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
@@ -20,7 +22,7 @@ import { ChartsModule } from 'ng2-charts';
     ChartsModule,
   ],
   exports: [],
-  providers: [],
+  providers: [ContTileMapService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

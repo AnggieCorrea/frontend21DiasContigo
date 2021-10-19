@@ -1,3 +1,12 @@
+*{
+  box-sizing: border-box;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: bold;
+  font-size: smaller;
+  margin: 0px;
+  padding: 0px;
+}
+
 h1 {
   color: rgb(161, 207, 214);
   text-shadow: 2px 2px 5px white;
@@ -82,6 +91,24 @@ h1 {
 }
 
 @media (max-width: "1045px") {
+  *{
+    font-size: 0.9em;
+  }
+
+  .traslucidContainer {
+    height: 80%;
+  }
+
+  .traslucidContainer img {
+    height: 3rem;
+    width: 6rem;
+    margin-bottom: 2rem;
+  }
+
+  .traslucidContainer p {
+    margin-bottom: 2rem;
+  }
+  
   .buttonContainer {
     width: 100%;
     display: flex;
@@ -102,10 +129,6 @@ h1 {
     justify-content: space-around;
     align-items: center;
   }
-  .buttonLogin img {
-    width: 2rem;
-  }
-
   .buttonCreateAccount {
     margin-top: 5%;
     text-align: center;
@@ -120,7 +143,4 @@ h1 {
     align-items: center;
   }
 
-  .buttonCreateAccount img {
-    width: 2rem;
-  }
 }

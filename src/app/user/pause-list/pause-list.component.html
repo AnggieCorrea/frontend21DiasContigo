@@ -2,35 +2,237 @@
 
 <div class="mainBody">
   <h1>Tomate una pausa</h1>
-  <canvas class="canvasContemplation"></canvas>
   <table class="buttonsContainer">
     <tr *ngFor="let pausa of pausas">
       <td
-        *ngIf="pausa.deshabilitado == pausa.completado"
-        class="excerciseButton"
+        *ngIf="
+          pausa.deshabilitado == pausa.completado &&
+          pausa.even == 'top' &&
+          pausa.column == '1'
+        "
+        class="excerciseButton DesTopButton"
         (click)="navSpiritualExcercise('dia1')"
       >
         Pausa {{ pausa.nombre }}
       </td>
+
+      <td
+        *ngIf="
+          pausa.deshabilitado == pausa.completado &&
+          pausa.even == 'mid' &&
+          pausa.column == '1'
+        "
+        class="excerciseButton DesMidButton"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Pausa {{ pausa.nombre }}
+      </td>
+
+      <td
+        *ngIf="
+          pausa.deshabilitado == pausa.completado &&
+          pausa.even == 'bot' &&
+          pausa.column == '1'
+        "
+        class="excerciseButton DesBotButton"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Pausa {{ pausa.nombre }}
+      </td>
+
       <td
         *ngIf="
           pausa.deshabilitado != pausa.completado &&
-          pausa.deshabilitado == 'true'
+          pausa.deshabilitado == 'true' &&
+          pausa.even == 'top' &&
+          pausa.column == '1'
         "
-        class="excerciseButtonDisable"
+        class="excerciseButtonDisable DesTopButton"
         (click)="navSpiritualExcercise('dia1')"
       >
         Pausa {{ pausa.nombre }}
       </td>
+
       <td
         *ngIf="
-          pausa.deshabilitado != pausa.completado && pausa.completado == 'true'
+          pausa.deshabilitado != pausa.completado &&
+          pausa.deshabilitado == 'true' &&
+          pausa.even == 'mid' &&
+          pausa.column == '1'
         "
-        class="excerciseButtonCompleted"
+        class="excerciseButtonDisable DesMidButton"
         (click)="navSpiritualExcercise('dia1')"
       >
         Pausa {{ pausa.nombre }}
       </td>
+
+      <td
+        *ngIf="
+          pausa.deshabilitado != pausa.completado &&
+          pausa.deshabilitado == 'true' &&
+          pausa.even == 'bot' &&
+          pausa.column == '1'
+        "
+        class="excerciseButtonDisable DesBotButton"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Pausa {{ pausa.nombre }}
+      </td>
+
+      <td
+        *ngIf="
+          pausa.deshabilitado != pausa.completado &&
+          pausa.completado == 'true' &&
+          pausa.even == 'top' &&
+          pausa.column == '1'
+        "
+        class="excerciseButtonCompleted DesTopButton"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Pausa {{ pausa.nombre }}
+      </td>
+
+      <td
+        *ngIf="
+          pausa.deshabilitado != pausa.completado &&
+          pausa.completado == 'true' &&
+          pausa.even == 'mid' &&
+          pausa.column == '1'
+        "
+        class="excerciseButtonCompleted DesMidButton"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Pausa {{ pausa.nombre }}
+      </td>
+
+      <td
+        *ngIf="
+          pausa.deshabilitado != pausa.completado &&
+          pausa.completado == 'true' &&
+          pausa.even == 'bot' &&
+          pausa.column == '1'
+        "
+        class="excerciseButtonCompleted DesBotButton"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Pausa {{ pausa.nombre }}
+      </td>
+
+      <td
+        *ngIf="
+          pausa.deshabilitado == pausa.completado &&
+          pausa.even == 'top' &&
+          pausa.column == '2'
+        "
+        class="excerciseButton AscTopButton"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Pausa {{ pausa.nombre }}
+      </td>
+
+      <td
+        *ngIf="
+          pausa.deshabilitado == pausa.completado &&
+          pausa.even == 'mid' &&
+          pausa.column == '2'
+        "
+        class="excerciseButton AscMidButton"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Pausa {{ pausa.nombre }}
+      </td>
+
+      <td
+        *ngIf="
+          pausa.deshabilitado == pausa.completado &&
+          pausa.even == 'bot' &&
+          pausa.column == '2'
+        "
+        class="excerciseButton AscBotButton"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Pausa {{ pausa.nombre }}
+      </td>
+
+      <td
+        *ngIf="
+          pausa.deshabilitado != pausa.completado &&
+          pausa.deshabilitado == 'true' &&
+          pausa.even == 'top' &&
+          pausa.column == '2'
+        "
+        class="excerciseButtonDisable AscTopButton"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Pausa {{ pausa.nombre }}
+      </td>
+
+      <td
+        *ngIf="
+          pausa.deshabilitado != pausa.completado &&
+          pausa.deshabilitado == 'true' &&
+          pausa.even == 'mid' &&
+          pausa.column == '2'
+        "
+        class="excerciseButtonDisable AscMidButton"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Pausa {{ pausa.nombre }}
+      </td>
+
+      <td
+        *ngIf="
+          pausa.deshabilitado != pausa.completado &&
+          pausa.deshabilitado == 'true' &&
+          pausa.even == 'bot' &&
+          pausa.column == '2'
+        "
+        class="excerciseButtonDisable AscBotButton"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Pausa {{ pausa.nombre }}
+      </td>
+
+      <td
+        *ngIf="
+          pausa.deshabilitado != pausa.completado &&
+          pausa.completado == 'true' &&
+          pausa.even == 'top' &&
+          pausa.column == '2'
+        "
+        class="excerciseButtonCompleted AscTopButton"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Pausa {{ pausa.nombre }}
+      </td>
+
+      <td
+        *ngIf="
+          pausa.deshabilitado != pausa.completado &&
+          pausa.completado == 'true' &&
+          pausa.even == 'mid' &&
+          pausa.column == '2'
+        "
+        class="excerciseButtonCompleted AscMidButton"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Pausa {{ pausa.nombre }}
+      </td>
+
+      <td
+        *ngIf="
+          pausa.deshabilitado != pausa.completado &&
+          pausa.completado == 'true' &&
+          pausa.even == 'bot' &&
+          pausa.column == '2'
+        "
+        class="excerciseButtonCompleted AscBotButton"
+        (click)="navSpiritualExcercise('dia1')"
+      >
+        Pausa {{ pausa.nombre }}
+      </td>
+
+           
     </tr>
   </table>
 </div>

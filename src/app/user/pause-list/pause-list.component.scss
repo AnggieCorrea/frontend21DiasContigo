@@ -1,10 +1,24 @@
+*{
+  box-sizing: border-box;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: bold;
+  font-size: small;
+  margin: 0px;
+  padding: 0px;
+}
+
 .mainBody {
   width: 100%;
   height: 100%;
   display: flex;
+  position: absolute;
   flex-direction: column;
   justify-content: center;
   justify-items: center;
+  background-image: url(/assets/Bosque.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 h1 {
@@ -15,17 +29,14 @@ h1 {
   text-align: center;
 }
 
-canvas {
-  width: 100%;
-  height: 100%;
-}
-
 .buttonsContainer {
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 80%;
   list-style: none;
-  position: absolute;
+  position: relative;
   display: flex;
+  padding-bottom: 10%; 
+  left: 200px;
   flex-direction: row;
   justify-items: space-evenly;
   align-items: center;
@@ -36,32 +47,61 @@ canvas {
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin: 1rem;
-  width: 5rem;
-  height: wrap;
+  width: 4rem;
+  height: 4rem;
   font-size: smaller;
   background-color: royalblue;
   color: white;
   display: flex;
   flex-direction: column;
   text-align: center;
-  border-radius: 2rem;
+  border-radius: 100%;
   border-style: none;
   transition: 0.2s;
+}
+
+.DesTopButton {
+  position: relative;
+  left: 40px;
+}
+
+.DesMidButton {
+  position: relative;
+  top: 140px;
+}
+
+.DesBotButton {
+  position: relative;
+  top: 240px;
+}
+
+.AscTopButton {
+  position: relative;
+}
+
+.AscMidButton {
+  position: relative;
+  top: 140px;
+}
+
+.AscBotButton {
+  position: relative;
+  top: 240px;
 }
 
 .excerciseButtonDisable {
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin: 1rem;
-  width: 5rem;
-  height: wrap;
+  width: 4rem;
+  height: 4rem;
   font-size: smaller;
   background-color: rgb(150, 150, 150);
   color: black;
   display: flex;
   flex-direction: column;
   text-align: center;
-  border-radius: 2rem;
+  border-radius: 100%;
   border-style: none;
   transition: 0.2s;
 }
@@ -71,15 +111,15 @@ canvas {
   margin-top: 1rem;
   padding-bottom: 1rem;
   margin: 1rem;
-  width: 5rem;
-  height: wrap;
+  width: 4rem;
+  height: 4rem;
   font-size: smaller;
   background-color: rgb(102, 255, 64);
   color: black;
   display: flex;
   flex-direction: column;
   text-align: center;
-  border-radius: 2rem;
+  border-radius: 100%;
   border-style: none;
   transition: 0.2s;
 }
@@ -88,7 +128,10 @@ canvas {
   .buttonsContainer {
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: 65%;
+    margin-top: 100px;
+    left: 0;
+    bottom: 20%;
     display: flex;
     flex-direction: row;
   }

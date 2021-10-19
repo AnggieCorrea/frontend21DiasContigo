@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {
+  faSignInAlt,
+  faUserPlus,
+} from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-landing',
@@ -7,6 +12,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements OnInit {
+  
+
+  faSignInAlt = faSignInAlt;
+  faUserPlus = faUserPlus;
+  
   constructor(private router: Router) {}
 
   ngOnInit(): void {}

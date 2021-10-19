@@ -9,13 +9,19 @@
     </p>
     <div class="buttonContainer">
       <button class="buttonLogin btn btn-primary btn-block" (click)="login()">
-        <img src="/assets/IconLogin.png" />Ingresar
+          <fa-icon
+        [icon]="faSignInAlt"
+        class="icons"
+        ></fa-icon>Ingresar
       </button>
       <button
         class="buttonCreateAccount btn btn-primary btn-block"
         (click)="createAccount()"
       >
-        <img src="/assets/IconLogin.png" />Crear cuenta
+      <fa-icon
+      [icon]="faUserPlus"
+      class="icons"
+      ></fa-icon>Crear cuenta
       </button>
     </div>
   </div>

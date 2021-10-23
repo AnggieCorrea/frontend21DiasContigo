@@ -2,7 +2,24 @@
 <div class="infoProfile">
   <!-- Sección superior (foto y nickname) -->
   <div class="infoProfilePhoto">
-    <button class="profilePhoto"></button>
+    <button class="transparentButton"(click)="snapshot()" *ngIf="!showAvatars">
+      <img class="profilePhoto" [src]="imageSrc" id="perfil"/>
+    </button>
+    <div *ngIf="showAvatars">
+      <div class="avatars">
+        <p>Elige un avatar</p>
+        <div class="showAvatar">
+        <button class="avatar1"  (click)="changeAvatar1()">
+        </button>
+        <button class="avatar2"  (click)="changeAvatar2()">
+        </button>
+        <button class="avatar3"  (click)="changeAvatar3()">
+        </button>
+        <button class="avatar4"  (click)="changeAvatar4()">
+        </button>
+        </div>
+      </div>
+    </div>
     <div class="profileNickname">
       <p>Nombre de Usuario</p>
     </div>

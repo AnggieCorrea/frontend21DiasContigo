@@ -1,8 +1,11 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  overflow: auto;
+    box-sizing: border-box;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: bold;
+    font-size: smaller;
+    margin: 0px;
+    padding: 0px;
+    overflow: auto;
 }
 
 .mainBody {
@@ -174,6 +177,16 @@ textarea {
 }
 
 @media (max-width: 1045px) {
+  * {
+    box-sizing: border-box;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: bold;
+    font-size: small;
+    margin: 0px;
+    padding: 0px;
+    overflow: auto;
+}
+
   .considerationNavButtons {
     width: 100%;
     margin-top: 20px;

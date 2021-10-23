@@ -18,6 +18,8 @@ import { MostUsedConsiderationComponent } from './admin/most-used-consideration/
 import { FooterAdminComponent } from './admin/footer-admin/footer-admin.component';
 import { PauseExerciseComponent } from './user/pause-exercise/pause-exercise.component';
 import { FooterUserComponent } from './user/footer-user/footer-user.component';
+import { ContemplationConsiderationComponent } from './user/contemplation-consideration/contemplation-consideration.component';
+import { PauseConsiderationComponent } from './user/pause-consideration/pause-consideration.component';
 
 const routes: Routes = [
   {
@@ -69,6 +71,14 @@ const routes: Routes = [
   {
     path: 'pauseExcercise',
     component: PauseExerciseComponent,
+  },
+  {
+    path: 'contemplationConsideration',
+    component: ContemplationConsiderationComponent,
+  },
+  {
+    path: 'pauseConsideration',
+    component: PauseConsiderationComponent,
   },
   //admin routing
   {

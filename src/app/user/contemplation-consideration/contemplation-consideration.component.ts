@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ContemplationConsiderationService } from 'src/app/services/contemplationConsideration.service';
+import { EventEmitter } from '@angular/core';
+import { CommunicationTypeOfConsiderationContemService } from 'src/app/services/communication-type-of-consideration-contem.service';
 
 @Component({
   selector: 'app-contemplation-consideration',
@@ -9,9 +11,33 @@ import { ContemplationConsiderationService } from 'src/app/services/contemplatio
 export class ContemplationConsiderationComponent implements OnInit {
   public showRecorder: boolean = false;
   public showTextArea: boolean = false;
+  showPlay = true;
+  showPause = false;
+  url = '/assets/ChopinNocturne.mp3';
+  typeConsideration:string;
 
-  constructor() /*private contemplationConsideration: ContemplationConsiderationService
-   */ {}
+  audioObj = new Audio();
+  @Output() valueResponse: EventEmitter<Boolean> = new EventEmitter();
+  
+  constructor(private communicationServiceConsideration: CommunicationTypeOfConsiderationContemService) /*private contemplationConsideration: ContemplationConsiderationService
+   */ {
+   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.typeConsideration=this.communicationServiceConsideration.typeConsideration;
+  }
+  
+  
+  openFile(url: any) {
+    this.audioObj.src = url;
+    this.audioObj.load();
+    console.log(url);
+    this.showPlay = true;
+    this.showPause = false;
+    this.url = url;
+    let player = <HTMLAudioElement>document.getElementById('audio');
+    player.src = url;
+    player.load();
+  }
+
 }

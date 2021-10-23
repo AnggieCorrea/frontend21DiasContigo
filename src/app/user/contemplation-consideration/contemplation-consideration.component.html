@@ -1,1 +1,33 @@
+<body class="mainBody">
+    <app-navbar></app-navbar>
+    <div class="content">
+      <h2>Mi contemplación de Título de contemplación</h2>
+      <div class="content">
+            <div class="audioContainer" *ngIf="typeConsideration=='audio'">
+                <button class="refresh" (click)="openFile(url)">Recargar audio</button>  
+                <audio *ngIf="this.url != ''" controls id="audio">
+                    <source type="audio/mp3" />
+                  </audio>
+              </div>
+            <div class="textArea" *ngIf="typeConsideration=='texto'">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Dicta harum soluta expedita in mollitia quod, commodi qui
+                eaque officia magni adipisci reiciendis quasi neque rem 
+                itaque! Cum assumenda totam facere.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Dicta harum soluta expedita in mollitia quod, commodi qui
+                eaque officia magni adipisci reiciendis quasi neque rem 
+                itaque! Cum assumenda totam facere.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Dicta harum soluta expedita in mollitia quod, commodi qui
+                eaque officia magni adipisci reiciendis quasi neque rem 
+                itaque! Cum assumenda totam facere.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Dicta harum soluta expedita in mollitia quod, commodi qui
+                eaque officia magni adipisci reiciendis quasi neque rem 
+                itaque! Cum assumenda totam facere.</p>
+            </div>
 
+        </div> 
+      </div>
+  </body>

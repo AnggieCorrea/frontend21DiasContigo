@@ -131,6 +131,16 @@ header label:hover {
 }
 
 @media (max-width: 1045px) {
+  * {
+    box-sizing: border-box;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: bold;
+    font-size: small;
+    margin: 0px;
+    padding: 0px;
+    overflow: auto;
+  }
+  
   header label {
     display: flex;
     justify-content: space-between;

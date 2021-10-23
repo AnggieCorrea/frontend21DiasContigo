@@ -1,9 +1,28 @@
+*{
+  box-sizing: border-box;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: bold;
+  font-size: smaller;
+  margin: 0px;
+  padding: 0px;
+}
+
 #contemplationCardContainer {
   height: 10rem;
   overflow: auto;
 }
 
 @media screen and (min-width: 321px) and (max-width: 800px) {
+  * {
+    box-sizing: border-box;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: bold;
+    font-size: small;
+    margin: 0px;
+    padding: 0px;
+    overflow: auto;
+}
+
   .contemplationCard {
     margin-top: 20px;
     padding-top: 20px;
@@ -77,6 +96,16 @@
 }
 
 @media screen and (min-width: 801px) and (max-width: 1280px) {
+  * {
+    box-sizing: border-box;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: bold;
+    font-size: smaller;
+    margin: 0px;
+    padding: 0px;
+    overflow: auto;
+}
+
   .contemplationCard {
     margin-top: 20px;
     padding-top: 20px;

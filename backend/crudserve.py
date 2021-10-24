@@ -38,6 +38,26 @@ def obtener_usuarios():
             status=500,
             mimetype="application/json"
         )
+########################################OBTENERUSUARIOPOREMAIL##################################
+@app.route('/usuarios/<email>',methods=['GET'])
+def obtener_usuario_por_email(email):
+    try:
+        #datos=db.usuarios.find_one({"_id":ObjectId(id)},{"_id":0})
+        datos=db.usuarios.find_one({"email":email},{"_id":0})
+        print(datos)
+        #datos["email"]=str(datos["email"])
+        return Response(
+            response=json.dumps(datos),
+            status=200,
+            mimetype="application/json"
+        )
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message":"can not obtain userses"}),
+            status=500,
+            mimetype="application/json"
+        )
 
 ###############################CREARUSUSARIO####################################################
 
@@ -45,10 +65,21 @@ def obtener_usuarios():
 def crear_usuario():
     try:
         print("inicio")
-        usuario={'name': request.form["name"]
-        ,'lastname':request.form["lastname"],
-        'mail':request.form["mail"],
-        'photo': request.form["photo"]
+
+        usuario={
+            'name': request.form ["name"],
+            'lastName': request.form["lastName"],
+            'password':request.form["password"],
+            'email':request.form["email"],
+            'gender':request.form["gender"],
+            'city':request.form["city"],
+            'country':request.form["country"],
+            'role': request.form["role"],
+            'urlImage':request.form["urlImage"],
+            'listIdsCompletedExercises':request.form.getlist('listIdsCompletedExercises'),
+            'pauseConsiderationList':request.form.getlist('pauseConsiderationList'),
+            'contemplationConsiderationList':request.form.getlist('contemplationConsiderationList')
+
         }
         print("cree el usuario")
         dbResponse=db.usuarios.insert_one(usuario)
@@ -74,7 +105,16 @@ def actualizar_usuario(id):
     try:
         dbResponse=db.usuarios.update_one(
             {"_id":ObjectId(id)},
-            {"$set":{"name":request.form["name"]}}
+            {"$set":{
+                'userName': request.form ["userName"],
+                'password':request.form["password"],
+                'email':request.form["email"],
+                'role': request.form["role"],
+                'urlImage':request.form["urlImage"],
+                'listIdsCompletedExercises':request.form['listIdsCompletedExercises'],
+                'pauseConsiderationList':request.form['pauseConsiderationList'],
+                'contemplationConsiderationList':request.form['contemplationConsiderationList']
+            }}
         )
         #for atributos in dir(dbResponse):
             #print("**********{}***********".format(atributos))
@@ -293,6 +333,209 @@ def eliminar_contemplacion(dia):
             status=500,
             mimetype="application/json"
         )
+####################################Ejercicios Espirirtuales#####################################################
+@app.route('/SpiritualExercises', methods=['POST'])
+def crear_ejercicio_espiritual():
+    try:
+        print("inicio")
+        ejercicio_spiritual={
+         'type': request.form["type"],
+         'dayIndex':request.form["dayIndex"],
+         'title':request.form["title"],
+         'sentenceone': request.form["sentenceone"],
+         'sentencetwo': request.form["sentencetwo"],
+         'urlAudio':request.form["urlAudio"],
+         'urlImage':request.form["urlImage"]
+        }
+        print("cree el usuario")
+        dbResponse=db.spiritualexercises.insert_one(ejercicio_spiritual)
+        print("entre")
+        print(dbResponse.inserted_id)
+        #for atributos in dir(dbResponse):
+           # print(atributos)
+        
+        return Response(
+            response=json.dumps({"message":"exercise created","id": "{}".format(dbResponse.inserted_id)}),
+            status=200,
+            mimetype="application/json"
+        )
+        
+    except Exception as ex:
+        print("***********")
+        print(ex)
+        print("***********")
+######################################Obtener ejercicio espirirtual###########################################
+@app.route('/SpiritualExercises',methods=['GET'])
+def obtener_ejercicios():
+    try:
+        ejercicios=list(db.spiritualexercises.find())
+        for ejercicio in ejercicios:
+            ejercicio["_id"]=str(ejercicio["_id"])
+        return Response(
+            response=json.dumps(ejercicios),
+            status=500,
+            mimetype="application/json"
+        )
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message":"can not obtain exercises"}),
+            status=500,
+            mimetype="application/json"
+        )
+###################################### Actualizar ejercicio espiritual por id ##########################################
+@app.route('/SpiritualExercises/<id>',methods=["PATCH"])
+def actualizar_ejercicio_espiritual(id):
+    try:
+    
+        dbResponse=db.spiritualexercises.update_one(
+            {"_id":ObjectId(id)},
+            {"$set":{"dayIndex":request.form["dayIndex"],
+                "title":request.form["title"],
+                "sentenceone":request.form["sentenceone"],
+                "sentencetwo":request.form["sentencetwo"],
+                "urlAudio":request.form["urlAudio"],
+                "urlImage":request.form["urlImage"]}}
+        )
+        if dbResponse.modified_count==1:
+            return Response(
+                response=json.dumps({"message":"exercise updated"}),
+                status=200,
+                mimetype="application/json")
+        else:
+            return Response(
+                response=json.dumps({"message":"nothing to contemplation"}),
+                status=200,
+                mimetype="application/json"
+            )
+
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message":"can not update the exercise"}),
+            status=500,
+            mimetype="application/json")
+############################################Eliminar ejercicio por id##################################
+@app.route("/SpiritualExercises/<id>",methods=["DELETE"])
+def eliminar_ejercicio_espirirtual(id):
+    try:
+        dbResponse=db.spiritualexercises.delete_one({"_id":ObjectId(id)})
+        for atributos in dir(dbResponse):
+            print("******{}******".format(atributos))
+        return Response(
+            response=json.dumps({"message":"exercise deleted","id":f"{id}"}),
+            status=200,
+            mimetype="application/json"
+        )
+    
+    except Exception as ex:
+        print("************")
+        print(ex)
+        print("************")
+        return Response(
+            response=json.dumps({"message":"can not delete this exercise"}),
+            status=500,
+            mimetype="application/json"
+        )
+################################ ContemplationConsideration######################################
+@app.route('/ContemplationConsideration', methods=['POST'])
+def crear_contemplation():
+    try:
+        print("inicio")
+        contemplacion={
+         'title':request.form["title"],
+         'dayIndex': request.form["dayIndex"],
+         'type': request.form["type"],
+         'creationDate':request.form["creationDate"],
+         'urlConsiderationAudio':request.form["urlConsiderationAudio"],
+         'considerationText':request.form["considerationText"],
+         'idUser':request.form["idUser"]
+        }
+        print("cree el usuario")
+        dbResponse=db.ContemplationConsideration.insert_one(contemplacion)
+        print("entre")
+        print(dbResponse.inserted_id)
+        #for atributos in dir(dbResponse):
+           # print(atributos)
+        
+        return Response(
+            response=json.dumps({"message":"contemplation created","id": "{}".format(dbResponse.inserted_id)}),
+            status=200,
+            mimetype="application/json"
+        )
+        
+    except Exception as ex:
+        print("***********")
+        print(ex)
+        print("***********")
+#########################################################Consultar Contemplation####################################################
+@app.route('/ContemplationConsideration',methods=['GET'])
+def obtener_contemplations():
+    try:
+        contemplations=list(db.ContemplationConsideration.find())
+        for contemplacion in contemplations:
+            contemplacion["_id"]=str(contemplacion["_id"])
+        return Response(
+            response=json.dumps(contemplations),
+            status=500,
+            mimetype="application/json"
+        )
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message":"can not obtain contemplations"}),
+            status=500,
+            mimetype="application/json"
+        )
+####################################### Update contemplations by id#########################################
+@app.route('/ContemplationConsideration/<id>',methods=["PATCH"])
+def actualizar_Contemplation(id):
+    try:
+    
+        dbResponse=db.ContemplationConsideration.update_one(
+            {"_id":ObjectId(id)},
+            {"$set":{'title':request.form["title"],'dayIndex': request.form["dayIndex"],'type': request.form["type"],
+                     'creationDate':request.form["creationDate"],'urlConsiderationAudio':request.form["urlConsiderationAudio"],
+                     'considerationText':request.form["considerationText"],
+                     'idUser':request.form["idUser"]}
+            }
+        )
+        if dbResponse.modified_count==1:
+            return Response(
+                response=json.dumps({"message":"exercise updated"}),
+                status=200,
+                mimetype="application/json")
+        else:
+            return Response(
+                response=json.dumps({"message":"nothing to contemplation"}),
+                status=200,
+                mimetype="application/json"
+            )
+
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message":"can not update the exercise"}),
+            status=500,
+            mimetype="application/json")
+###################################### Eliminar Cotnemplations#######################################
+@app.route('/ContemplationConsideration/<id>',methods=["DELETE"])
+def eliminar_contemplation(id):
+    try:
+        dbResponse=db.ContemplationConsideration.delete_one({'_id':id})
+        return Response(
+                response=json.dumps({"message":"contemplation deleted","id":f"{id}"}),
+                status=200,
+                mimetype="application/json"
+        )
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message":"can not delete the contemplation"}),
+            status=500,
+            mimetype="application/json"
+        )
+
 
 
 

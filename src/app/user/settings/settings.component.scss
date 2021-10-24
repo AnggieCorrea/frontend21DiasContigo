@@ -1,0 +1,28 @@
+*{
+  box-sizing: border-box;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: bold;
+  font-size: smaller;
+  margin: 0px;
+  padding: 0px;
+}
+
+button {
+  padding-top: 1rem;
+  margin-top: 5rem;
+  padding-bottom: 1rem;
+  margin-bottom: 5rem;
+  width: 100%;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background: #fff;
+  border-style: none;
+  border-bottom-style: solid;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: rgb(153, 147, 147);
+}

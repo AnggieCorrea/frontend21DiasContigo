@@ -1,0 +1,84 @@
+<div class="containerCreateAccount">
+  <div class="container-fluid" style="padding-top: 1rem">
+    <div class="row justify-content-center">
+      <div class="card">
+        <h3 class="card-title" style="text-align: center">Registro</h3>
+        <article class="card-body">
+          <label>Nombres:</label>
+          <input
+            type="text"
+            name="name"
+            class="form-control border-dark"
+            placeholder="Pon tus nombres aquí"
+          />
+          <label>Apellidos:</label>
+          <input
+            type="text"
+            name="lastName"
+            class="form-control border-dark"
+            placeholder="Pon tus apellidos aquí "
+          />
+          <label>Correo Electrónico:</label>
+          <input
+            type="email"
+            name="email"
+            class="form-control border-dark"
+            placeholder="Pon tu correo electrónico aquí"
+          />
+          <div>
+            <label class="form-check form-check-inline">
+              <input
+                class="form-check-input border-dark"
+                type="radio"
+                name="gender"
+                value="male"
+              />
+              <span class="form-check-label">Hombre</span>
+            </label>
+            <label class="form-check form-check-inline">
+              <input
+                class="form-check-input border-dark"
+                type="radio"
+                name="gender"
+                value="female"
+              />
+              <span class="form-check-label">Mujer</span>
+            </label>
+          </div>
+          <label>Ciudad:</label>
+          <input
+            type="text"
+            name="city"
+            class="form-control border-dark"
+            placeholder="Pon tu ciudad aqui"
+          />
+          <label>País:</label>
+          <input
+            type="text"
+            name="country"
+            class="form-control border-dark"
+            placeholder="Pon tu ciudad aqui"
+          />
+          <label>Contraseña:</label>
+          <input
+            class="form-control border-dark"
+            type="password"
+            name="password"
+            placeholder="Pon tu contraseña aqui"
+          />
+          <label>Confirma tu contraseña:</label>
+          <input
+            class="form-control border-dark"
+            type="password"
+            name="password"
+            placeholder="Pon tu contraseña aqui"
+          />
+          <div class="buttons">
+            <button class="btn" (click)="createAccount()">Crear cuenta</button>
+            <button class="btn" (click)="return()">Atrás</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>

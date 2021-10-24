@@ -1,0 +1,52 @@
+<body class="mainBody">
+  <app-navbar></app-navbar>
+  <div class="content">
+    <h2>Día 1 | Título Contemplación</h2>
+    <h1>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et soluta
+      aspernatur culpa magni perferendis.
+    </h1>
+    <h1>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. At aperiam eaque
+      expedita distinctio temporibus.
+    </h1>
+    <div class="content">
+      <app-audio-player></app-audio-player>
+
+      <div class="considerationNavButtons" *ngIf="showSpam == true">
+        <h5>
+          Tómate un tiempo para valorar tu experiencia en la contemplación de
+          hoy
+        </h5>
+        <button class="recordNavButton" (click)="showRecorder()">
+          ¡Graba tu experiencia!
+        </button>
+        <button class="writeNavButton" (click)="showTextArea()">
+          ¡Escribe tu experiencia!
+        </button>
+        <button class="skipNavButton" (click)="navContemplationMap()">
+          ¡Lo hare más tarde!
+        </button>
+      </div>
+      <div class="sliderContainer">
+        <div *ngIf="showRec == true">
+          <app-microphone-recorder></app-microphone-recorder>
+        </div>
+        <div *ngIf="showTex == true">
+          <form class="formulario">
+            <textarea
+              rows="8"
+              cols="50"
+              maxlength="700"
+              placeholder="Escribe tu reflexión"
+            ></textarea>
+            <button class="sendButton" (click)="navContemplationMap()">
+              <img src="/assets/saveIcon.png" />
+              Guardar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

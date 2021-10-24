@@ -1,1 +1,14 @@
-<p>audio-player works!</p>
+<div class="audioContainer">
+  <ul>
+    <li
+      class="audioList"
+      *ngFor="let file of files"
+      (click)="openFile(file.url)"
+    >
+      {{ file.name }}
+    </li>
+    <audio *ngIf="this.url != ''" controls id="audio">
+      <source type="audio/mp3" />
+    </audio>
+  </ul>
+</div>

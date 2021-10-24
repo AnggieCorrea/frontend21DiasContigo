@@ -1,1 +1,26 @@
-<p>microphone-recorder works!</p>
+<div class="recordArea">
+  <div class="grayBlob" *ngIf="!recording">
+    <button
+      (click)="Recording()"
+      class="btn btn-primary recordButton"
+      *ngIf="!recording"
+    ></button>
+  </div>
+  <div class="redBlob" *ngIf="recording">
+    <button
+      (click)="Stop()"
+      class="btn btn-danger stopButton"
+      *ngIf="recording"
+    ></button>
+  </div>
+  <div>
+    <div class="clearfix"></div>
+    <audio controls="" *ngIf="url">
+      <source [src]="sanitize(url)" type="audio/mpeg" />
+    </audio>
+  </div>
+  <button class="saveButton" (click)="navContemplationMap()">
+    <img src="/assets/saveIcon.png" />
+    Guardar
+  </button>
+</div>

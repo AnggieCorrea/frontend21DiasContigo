@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+.editSpiritualExercise {
+  width: 100%;
+  min-height: calc(100vh - 40px - 190px);
+  background-size: auto;
+  text-align: center;
+}
+.content {
+  padding-top: 1rem;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+  padding-bottom: 2rem;
+  width: 90%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  background-color: rgb(204, 233, 241);
+  text-align: center;
+}
+
+.principalInformation {
+  display: inline-flex;
+  color: rgb(246, 87, 110);
+}
+
+.information {
+  text-align: center;
+  display: flex;
+}
+
+.colum1 {
+  margin-right: 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.colum2 {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  width: 100px;
+  margin-top: 10px;
+}
+
+input {
+  width: 800px;
+  margin-top: 5px;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+button {
+  background-color: rgb(246, 87, 110);
+  border-radius: 10px;
+  color: white;
+  width: 100px;
+  border: none;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+@media (max-width: 1045px) {
+  input {
+    width: 200px;
+    margin-top: 5px;
+  }
+}

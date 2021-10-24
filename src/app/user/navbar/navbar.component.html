@@ -1,0 +1,44 @@
+<!-- BARRA DE NAVEGACIÓN USUARIO-->
+<header class="barraNavegacion">
+  <input type="checkbox" id="btn-menu" />
+  <label for="btn-menu"
+    ><fa-icon [icon]="faBars" class="icons"></fa-icon
+  ></label>
+
+  <img class="logoIcon" src="/assets/HorizontalLogo.png" />
+
+  <nav class="menu">
+    <ul>
+      <li (click)="goHome()">
+        <fa-icon [icon]="faHome" class="icons"></fa-icon>
+      </li>
+      <li (click)="goContemplations()">
+        <a> Contemplaciones</a>
+      </li>
+      <li (click)="goPauses()">
+        <a> Pausas </a>
+      </li>
+      <li>
+        <fa-icon
+          [icon]="faUser"
+          class="icons"
+          (click)="goProfile()"
+        ></fa-icon>
+      </li>
+      <li>
+        <fa-icon
+          [icon]="faCogs"
+          class="icons"
+          (click)="goConfig()"
+        ></fa-icon>
+      </li>
+      <li>
+        <fa-icon
+          [icon]="faSignOutAlt"
+          class="icons"
+          (click)="signOff()"
+        ></fa-icon>
+      </li>
+    </ul>
+  </nav>
+</header>

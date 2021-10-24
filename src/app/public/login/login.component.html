@@ -1,0 +1,39 @@
+<div class="containerLogin">
+  <div
+    class="container-fluid"
+    style="padding-top: 6rem; padding-bottom: 2.5rem"
+  >
+    <div class="row justify-content-center">
+      <div class="card">
+        <header class="card-header">
+          <img src="/assets/HorizontalLogo.png" class="logo" />
+          <h3>Inicia sesión</h3>
+        </header>
+        <br />
+        <article class="card-body">
+          <label>Correo Electrónico: </label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            placeholder="Correo Electrónico"
+            [(ngModel)]="email"
+          />
+          <label>Contraseña: </label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            placeholder="Contraseña"
+            [(ngModel)]="password"
+          />
+          <br />
+          <div class="buttons">
+            <button class="btn" (click)="checkUser()">Iniciar sesión</button>
+            <button class="btn" (click)="return()">Atrás</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>

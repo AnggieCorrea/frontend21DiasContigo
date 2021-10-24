@@ -1,0 +1,42 @@
+<!-- BARRA DE NAVEGACIÓN ADMINISTRACIÓN-->
+<header class="barraNavegacion">
+  <input type="checkbox" id="btn-menu" />
+  <label for="btn-menu"
+    ><fa-icon [icon]="faBars" class="icons"></fa-icon
+  ></label>
+
+  <img class="logoIcon" src="/assets/HorizontalLogo.png" />
+
+  <nav class="menu">
+    <ul>
+      <li (click)="goHome()">
+        <fa-icon [icon]="faHome" class="icons"></fa-icon>
+      </li>
+      <li (click)="contemplationsAdministration()">
+        <a> Contemplaciones</a>
+      </li>
+      <li (click)="pausesAdministration()">
+        <a> Pausas </a>
+      </li>
+      <li class="submenu">
+        <fa-icon [icon]="faChartLine" class="icons"></fa-icon>
+        <fa-icon [icon]="faCaretDown" class="icons"></fa-icon>
+        <ul class="children">
+          <li (click)="stadisticsMostUsedExercise()">
+            <a>Ejercicio más usado</a>
+          </li>
+          <li (click)="stadisticsMostUsedContemplation()">
+            <a>Tipo reflexión más usado</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <fa-icon
+          [icon]="faSignOutAlt"
+          class="icons"
+          (click)="signOff()"
+        ></fa-icon>
+      </li>
+    </ul>
+  </nav>
+</header>

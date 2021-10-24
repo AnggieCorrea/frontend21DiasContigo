@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<div class="infoProfile">
+  <!-- Sección superior (foto y nickname) -->
+  <div class="infoProfilePhoto">
+    <button class="transparentButton"(click)="snapshot()" *ngIf="!showAvatars">
+      <img class="profilePhoto" [src]="imageSrc" id="perfil"/>
+    </button>
+    <div *ngIf="showAvatars">
+      <div class="avatars">
+        <p>Elige un avatar</p>
+        <div class="showAvatar">
+        <button class="avatar1"  (click)="changeAvatar1()">
+        </button>
+        <button class="avatar2"  (click)="changeAvatar2()">
+        </button>
+        <button class="avatar3"  (click)="changeAvatar3()">
+        </button>
+        <button class="avatar4"  (click)="changeAvatar4()">
+        </button>
+        </div>
+      </div>
+    </div>
+    <div class="profileNickname">
+      <p>Nombre de Usuario</p>
+    </div>
+  </div>
+  <!-- Sección inferior (Datos personales) -->
+  <div class="wrap">
+    <div class="tabSplit">
+      <button class="contemplationTab" (click)="showContemplations()">
+        <p>Mis Contemplaciones</p>
+      </button>
+      <button class="pauseTab" (click)="showPauses()">
+        <p>Mis Pausas</p>
+      </button>
+    </div>
+    <div class="lists">
+      <div *ngIf="showContemplation">
+        <app-contemplation-consideration-list></app-contemplation-consideration-list>
+      </div>
+      <div *ngIf="showPause">
+        <app-pause-consideration-list></app-pause-consideration-list>
+      </div>
+    </div>
+  </div>
+</div>

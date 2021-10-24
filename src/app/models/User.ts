@@ -1,42 +1,61 @@
+import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import { ContemplationConsideration } from './ContemplationConsideration';
 import { PauseConsideration } from './PauseConsideration';
 
 export interface UserInterface {
   idUser: number;
-  userName: string;
-  password: string;
+  name: string;
+  lastName: string;
   email: string;
+  gender: string;
+  city: string;
+  country: string;
+  password: string;
+  urlImage: string;
   role: string;
   listIdsCompletedExercises: number[];
+  pauseConsiderationList: PauseConsideration[];
+  contemplationConsiderationList: ContemplationConsideration[];
 }
 
 export class User implements UserInterface {
   idUser: number;
-  userName: string;
-  password: string;
+  name: string;
+  lastName: string;
   email: string;
+  gender: string;
+  city: string;
+  country: string;
+  password: string;
+  urlImage: string;
   role: string;
   listIdsCompletedExercises: number[];
   pauseConsiderationList: PauseConsideration[];
   contemplationConsiderationList: ContemplationConsideration[];
 
   constructor(
-    idUser: number,
-    userName: string,
-    password: string,
-    /*public urlPicture: string,*/
+    name: string,
+    lastName: string,
     email: string,
+    gender: string,
+    city: string,
+    country: string,
+    password: string,
+    urlImage: string,
     role: string,
-    /*public activeTime : number,*/
     listIdsCompletedExercises: number[],
     pauseConsiderationList: PauseConsideration[],
     contemplationConsiderationList: ContemplationConsideration[]
   ) {
-    this.idUser = idUser;
-    this.userName = userName;
-    this.password = password;
+    this.name = name;
+    this.lastName = lastName;
     this.email = email;
+    this.gender = gender;
+    this.city = city;
+    this.country = country;
+    this.password = password;
     this.role = role;
+    this.urlImage = urlImage;
     this.listIdsCompletedExercises = listIdsCompletedExercises;
     this.pauseConsiderationList = pauseConsiderationList;
     this.contemplationConsiderationList = contemplationConsiderationList;
@@ -46,17 +65,32 @@ export class User implements UserInterface {
   getIdUser(): number {
     return this.idUser;
   }
-  getUserName(): string {
-    return this.userName;
+  getName(): string {
+    return this.name;
   }
-  /* getPassword(): string {
-    return this.password;
-  } */
+  getLastName(): string {
+    return this.name;
+  }
   getEmail(): string {
     return this.email;
   }
+  getGender(): string {
+    return this.gender;
+  }
+  getCity(): string {
+    return this.city;
+  }
+  getCountry(): string {
+    return this.country;
+  }
+  getPassword(): string {
+    return this.password;
+  }
   getRole(): string {
     return this.role;
+  }
+  getUrlImage(): string {
+    return this.urlImage;
   }
   getListIdsCompletedExercises(): number[] {
     return this.listIdsCompletedExercises;
@@ -69,20 +103,32 @@ export class User implements UserInterface {
   }
 
   //sets
-  /* setIdUser(idUser: number) {
-    this.idUser = idUser;
-  } */
-  setUserName(userName: string): void {
-    this.userName = userName;
+  setName(name: string): void {
+    this.name = name;
   }
-  setPassword(password: string): void {
-    this.password = password;
+  setLastName(lastName: string): void {
+    this.lastName = lastName;
   }
   setEmail(email: string): void {
     this.email = email;
   }
+  setGender(gender: string): void {
+    this.gender = gender;
+  }
+  setCity(city: string): void {
+    this.city = city;
+  }
+  setCountry(country: string): void {
+    this.country = country;
+  }
+  setPassword(password: string): void {
+    this.password = password;
+  }
   setRole(role: string): void {
     this.role = role;
+  }
+  setUrlImage(urlImage: string): void {
+    this.urlImage = urlImage;
   }
   setListIdsCompletedExercises(listIdsCompletedExercises: number[]): void {
     this.listIdsCompletedExercises = listIdsCompletedExercises;

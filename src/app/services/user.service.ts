@@ -1,14 +1,32 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ContemplationConsideration } from '../models/ContemplationConsideration';
+//import { ContemplationConsideration } from '../models/ContemplationConsideration';
 import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  usersList: User[];
+  urlBase = '';
+  usersList: User[] = [];
 
+  constructor(private http: HttpClient) {}
+
+  //Métodos
+  public getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.urlBase);
+  }
+
+  public getUserByEmail(email: string): Observable<User> {
+    return this.http.get<User>(this.urlBase + '/getUserByEMail/' + email);
+  }
+
+  public addUser(user: User): Observable<User> {
+    return this.http.post<User>(this.urlBase + '/createUser', user);
+  }
+
+  /*
   constructor() {
     this.usersList = [
       new User(0, 'usuario0', '0000', 'usuario0@user.com', 'admin', [], [], []),
@@ -75,12 +93,11 @@ export class UserService {
       ),
     ];
   }
-
   getUsers(): User[] {
     return this.usersList;
   }
 
   getUserByMail(mail: string): User {
     return this.usersList.find((usuario) => usuario.email === mail);
-  }
+  }*/
 }

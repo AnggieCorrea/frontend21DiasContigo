@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/User';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,9 +9,10 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  public email = '';
-  public password = '';
-  public userFound = true;
+  email = '';
+  password = '';
+  userFound = true;
+  user: User;
 
   constructor(private router: Router, private userService: UserService) {}
 
@@ -21,18 +23,19 @@ export class LoginComponent implements OnInit {
   }
 
   checkUser(): void {
-    const user = this.userService.getUserByMail(this.email);
-    if (user.password !== this.password) {
-      this.userFound = false;
-      return;
-    } else {
-      user.password = '';
-      localStorage.setItem('activeUser', JSON.stringify(user));
-      if (user.role === 'admin') {
-        this.router.navigate(['/homeAdministration']);
+    this.userService.getUserByEmail(this.email).subscribe((userFound: User) => {
+      console.log(userFound);
+      this.user = userFound;
+      if (this.user.getPassword() == this.password) {
+        if (this.user.role === 'admin') {
+          this.router.navigate(['/homeAdministration']);
+        } else if (this.user.role === 'user') {
+          this.router.navigate(['/home']);
+        }
       } else {
-        this.router.navigate(['/home']);
+        this.userFound = false;
+        console.log('Usuario no registrado');
       }
-    }
+    });
   }
 }

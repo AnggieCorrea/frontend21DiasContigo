@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/User';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,15 +9,40 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./create-account.component.scss'],
 })
 export class CreateAccountComponent implements OnInit {
-  constructor(private router: Router /*, private user: UserService*/) {}
+  user: User;
+  name: string = '';
+  lastName: string = '';
+  email: string = '';
+  gender: string = '';
+  city: string = '';
+  country: string = '';
+  password: string = '';
+  urlImage: string = '';
+
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {}
 
-  login(): void {
+  public createAccount(): void {
+    this.user = new User(
+      this.name,
+      this.lastName,
+      this.email,
+      this.gender,
+      this.city,
+      this.country,
+      this.password,
+      '',
+      'user',
+      [],
+      [],
+      []
+    );
+    this.userService.addUser(this.user);
     this.router.navigate(['/login']);
   }
 
-  createAccount(): void {
-    this.router.navigate(['/createAccount']);
+  public return(): void {
+    this.router.navigate(['/login']);
   }
 }

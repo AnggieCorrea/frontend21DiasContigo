@@ -3,8 +3,8 @@ export interface SpiritualExercise {
   type: string;
   dayIndex: number;
   title: string;
-  sentence1: string;
-  sentence2: string;
+  sentenceone: string;
+  sentencetwo: string;
   urlAudio: string;
   urlImage: string;
 }
@@ -14,8 +14,8 @@ export class SpiritualExercise {
   type: string;
   dayIndex: number;
   title: string;
-  sentence1: string;
-  sentence2: string;
+  sentenceone: string;
+  sentencetwo: string;
   urlAudio: string;
   urlImage: string;
 
@@ -24,8 +24,8 @@ export class SpiritualExercise {
     type: string,
     dayIndex: number,
     title: string,
-    sentence1: string,
-    sentence2: string,
+    sentenceone: string,
+    sentencetwo: string,
     /*public numLike: number,*/
     urlAudio: string,
     urlImage: string
@@ -35,8 +35,8 @@ export class SpiritualExercise {
     this.type = type;
     this.dayIndex = dayIndex;
     this.title = title;
-    this.sentence1 = sentence1;
-    this.sentence2 = sentence2;
+    this.sentenceone = sentenceone;
+    this.sentencetwo = sentencetwo;
     this.urlAudio = urlAudio;
     this.urlImage = urlImage;
   }

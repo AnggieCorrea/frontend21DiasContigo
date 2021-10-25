@@ -1,13 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { SpiritualExercise } from '../models/SpiritualExercise';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SpiritualExerciseService {
-  spiritualExerciseList: SpiritualExercise[];
+  urlBase = 'http://127.0.0.1:80';
+  spiritualExerciseList: SpiritualExercise[] = [];
 
-  constructor() {
+  constructor(private http: HttpClient) {}
+
+  /*   constructor() {
     this.spiritualExerciseList = [
       //Contemplaciones
       new SpiritualExercise(
@@ -75,7 +80,7 @@ export class SpiritualExerciseService {
       new SpiritualExercise(17, 'contemplation', 18, '', '', '', '', ''),
       new SpiritualExercise(18, 'contemplation', 19, '', '', '', '', ''),
       new SpiritualExercise(19, 'contemplation', 20, '', '', '', '', ''),
-      new SpiritualExercise(20, 'contemplation', 21, '', '', '', '', ''), */
+      new SpiritualExercise(20, 'contemplation', 21, '', '', '', '', ''), 
       //Pausas
       new SpiritualExercise(
         21,
@@ -142,14 +147,14 @@ export class SpiritualExerciseService {
       new SpiritualExercise(38, 'pause', 18, '', '', '', '', ''),
       new SpiritualExercise(39, 'pause', 19, '', '', '', '', ''),
       new SpiritualExercise(40, 'pause', 20, '', '', '', '', ''),
-      new SpiritualExercise(41, 'pause', 21, '', '', '', '', ''), */
+      new SpiritualExercise(41, 'pause', 21, '', '', '', '', ''), 
     ];
-  }
+  } */
 
   //Métodos
 
-  getSpiritualExercises(): SpiritualExercise[] {
-    return this.spiritualExerciseList;
+  getSpiritualExercises(): Observable<SpiritualExercise[]> {
+    return this.http.get<SpiritualExercise[]>(this.urlBase);
   }
 
   getSpiritualExerciseById(id: number): SpiritualExercise {
@@ -167,7 +172,7 @@ export class SpiritualExerciseService {
     return spiritualExercises1;
   }
 
-  getSpiritualExercisesOfUser(ids: number[]): SpiritualExercise[] {
+  getSpiritualExercisesByUser(ids: number[]): SpiritualExercise[] {
     let spiritualExercises1 = [];
     for (let spiritualExercise of this.spiritualExerciseList) {
       for (let id of ids) {

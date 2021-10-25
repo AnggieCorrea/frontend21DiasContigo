@@ -103,19 +103,24 @@ def crear_usuario():
 @app.route('/usuarios/<id>',methods=["PATCH"])
 def actualizar_usuario(id):
     try:
-        dbResponse=db.usuarios.update_one(
+       
+        dbResponse=db.usuarios.update(
             {"_id":ObjectId(id)},
             {"$set":{
-                'userName': request.form ["userName"],
+                'name': request.form ["name"],
+                'lastName': request.form["lastName"],
                 'password':request.form["password"],
-                'email':request.form["email"],
+                'gender':request.form["gender"],
+                'city':request.form["city"],
+                'country':request.form["country"],
                 'role': request.form["role"],
                 'urlImage':request.form["urlImage"],
-                'listIdsCompletedExercises':request.form['listIdsCompletedExercises'],
-                'pauseConsiderationList':request.form['pauseConsiderationList'],
-                'contemplationConsiderationList':request.form['contemplationConsiderationList']
-            }}
-        )
+                'listIdsCompletedExercises.$.std':request.form.getlist('listIdsCompletedExercises'),
+                'pauseConsiderationList.$.std':request.form.getlist('pauseConsiderationList'),
+                'contemplationConsiderationList.$.std':request.form.getlist('contemplationConsiderationList')
+            }
+            })
+        
         #for atributos in dir(dbResponse):
             #print("**********{}***********".format(atributos))
         if dbResponse.modified_count==1:

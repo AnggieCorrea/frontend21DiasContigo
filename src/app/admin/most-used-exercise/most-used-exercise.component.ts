@@ -93,7 +93,7 @@ export class MostUsedExerciseComponent implements OnInit {
     const users = this.userService.getUsers();
     for (let i in users) {
       const exercisesOfUser =
-        this.spiritualExerciseService.getSpiritualExercisesOfUser(
+        this.spiritualExerciseService.getSpiritualExercisesByUser(
           users[i].getListIdsCompletedExercises()
         );
       for (let j in exercisesOfUser) {

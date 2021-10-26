@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     this.userService.getUserByEmail(this.email).subscribe((userFound: User) => {
       console.log(userFound);
       this.user = userFound;
-      if (this.user.getPassword() == this.password) {
+      if (this.user.password == this.password) {
         if (this.user.role === 'admin') {
           this.router.navigate(['/homeAdministration']);
         } else if (this.user.role === 'user') {
@@ -38,4 +38,28 @@ export class LoginComponent implements OnInit {
       }
     });
   }
+
+  /* checkUser(): void {
+    this.userService.logInUser(this.email, this.password).finally(() => {
+      this.redirect();
+    });
+  }
+
+  redirect(): void {
+    this.userService.getUserByEmail(this.email).subscribe((userFound: User) => {
+      console.log(userFound);
+      this.user = userFound;
+      localStorage.setItem('activeUser', JSON.stringify(this.user));
+      if (this.user.password == this.password) {
+        if (this.user.role === 'admin') {
+          this.router.navigate(['/homeAdministration']);
+        } else if (this.user.role === 'user') {
+          this.router.navigate(['/home']);
+        }
+      } else {
+        this.userFound = false;
+        console.log('Usuario no registrado');
+      }
+    });
+  } */
 }

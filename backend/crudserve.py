@@ -388,6 +388,59 @@ def obtener_ejercicios():
             status=500,
             mimetype="application/json"
         )
+###################################################Obetener ejerccio espiritual por id############################
+@app.route('/SpiritualExercises/<id>',methods=['GET'])
+def obtener_ejercicio_por_id(id):
+    try:
+        ejercicio=db.spiritualexercises.find_one({"_id":ObjectId(id)},{"_id":0})
+        return Response(
+            response=json.dumps(ejercicio),
+            status=200,
+            mimetype="application/json"
+        )
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message":"can not obtain exercises"}),
+            status=500,
+            mimetype="application/json"
+        )
+##################################################Obtener ejercicio espiritual por type ################################
+@app.route('/SpiritualExercises/type=<tipo>',methods=['GET'])
+def obtener_ejercicio_por_tipo(tipo):
+    try:
+        ejercicios=list(db.spiritualexercises.find({"type":tipo},{"_id":0}))
+        
+        return Response(
+            response=json.dumps(ejercicios),
+            status=200,
+            mimetype="application/json"
+        )
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message":"can not obtain exercises"}),
+            status=500,
+            mimetype="application/json"
+        )
+############################################### Objetner ejercicios spirituales de usuario################
+@app.route('/SpiritualExercises/userid=<tipo>',methods=['GET'])
+def obtener_ejercicio_por_tipo(tipo):
+    try:
+        ejercicios=list(db.spiritualexercises.find({"type":tipo},{"_id":0}))
+        
+        return Response(
+            response=json.dumps(ejercicios),
+            status=200,
+            mimetype="application/json"
+        )
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message":"can not obtain exercises"}),
+            status=500,
+            mimetype="application/json"
+        )
 ###################################### Actualizar ejercicio espiritual por id ##########################################
 @app.route('/SpiritualExercises/<id>',methods=["PATCH"])
 def actualizar_ejercicio_espiritual(id):

@@ -1,4 +1,5 @@
 from flask import Flask,Response,request
+from flask_cors import CORS
 from flask.wrappers import Request
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -11,6 +12,7 @@ import dns
 
 ############################CONEXION CON LA BASE DE DATOS#################################
 app=Flask(__name__)
+cors = CORS(app)
 
 try:
     

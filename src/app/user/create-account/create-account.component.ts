@@ -24,16 +24,26 @@ export class CreateAccountComponent implements OnInit {
   ngOnInit(): void {}
 
   public createAccount(): void {
+    var element = <HTMLInputElement>document.getElementById('femaleGender');
+    var isChecked = element.checked;
+    if (isChecked) {
+      this.gender = 'Mujer';
+    }
+    element = <HTMLInputElement>document.getElementById('maleGender');
+    isChecked = element.checked;
+    if (isChecked) {
+      this.gender = 'Hombre';
+    }
     this.user = new User(
       this.name,
       this.lastName,
-      this.email,
-      this.gender,
-      this.city,
-      this.country,
       this.password,
-      '',
+      this.gender,
+      this.country,
+      this.city,
+      this.email,
       'user',
+      '',
       [],
       [],
       []

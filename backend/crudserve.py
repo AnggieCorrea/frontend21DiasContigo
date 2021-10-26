@@ -100,7 +100,7 @@ def crear_usuario():
         print("***********")
 
 ##################################ACTUALIZARUSUARIO####################################################
-@app.route('/usuarios/<id>',methods=["PATCH"])
+'''@app.route('/usuarios/<id>',methods=["PATCH"])
 def actualizar_usuario(id):
     try:
        
@@ -144,7 +144,7 @@ def actualizar_usuario(id):
             response=json.dumps({"message":"can not update the user"}),
             status=500,
             mimetype="application/json"
-        )
+        )'''
 ##################################ELIMINAR USUSARIO###################################################
 @app.route("/usuarios/<id>",methods=["DELETE"])
 def eliminar_usuario(id):

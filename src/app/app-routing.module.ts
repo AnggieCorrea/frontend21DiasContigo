@@ -20,6 +20,8 @@ import { PauseExerciseComponent } from './user/pause-exercise/pause-exercise.com
 import { FooterUserComponent } from './user/footer-user/footer-user.component';
 import { ContemplationConsiderationComponent } from './user/contemplation-consideration/contemplation-consideration.component';
 import { PauseConsiderationComponent } from './user/pause-consideration/pause-consideration.component';
+import { AuthGuard } from './auth.guard';
+import { RoleGuard } from './role.guard';
 
 const routes: Routes = [
   {
@@ -43,6 +45,7 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'createAccount',
@@ -88,6 +91,7 @@ const routes: Routes = [
   {
     path: 'homeAdministration',
     component: HomeAdministrationComponent,
+    canActivate: [AuthGuard, RoleGuard],
   },
   {
     path: 'spiritualExerciseAdministration',

@@ -36,13 +36,13 @@ export class User implements UserInterface {
   constructor(
     name: string,
     lastName: string,
-    email: string,
-    gender: string,
-    city: string,
-    country: string,
     password: string,
-    urlImage: string,
+    gender: string,
+    country: string,
+    city: string,
+    email: string,
     role: string,
+    urlImage: string,
     listIdsCompletedExercises: number[],
     pauseConsiderationList: PauseConsideration[],
     contemplationConsiderationList: ContemplationConsideration[]

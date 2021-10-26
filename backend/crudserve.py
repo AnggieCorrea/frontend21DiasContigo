@@ -2,6 +2,7 @@ from flask import Flask,Response,request
 from flask.wrappers import Request
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from pprint import pprint
 import certifi
 import pymongo
 import json 
@@ -424,10 +425,29 @@ def obtener_ejercicio_por_tipo(tipo):
             mimetype="application/json"
         )
 ############################################### Objetner ejercicios spirituales de usuario################
-@app.route('/SpiritualExercises/userid=<tipo>',methods=['GET'])
-def obtener_ejercicio_por_tipo(tipo):
+@app.route('/SpiritualExercises/userid=<id>',methods=['GET'])
+def obtener_ejercicios_por_userid(id):
     try:
-        ejercicios=list(db.spiritualexercises.find({"type":tipo},{"_id":0}))
+        ejercicios=list(db.spiritualexercises.aggregate([
+            {   
+               "$lookup":
+               {
+                   "from":"usuarios",
+                   "localField":"dayIndex",
+                   "foreignField":"listIdsCompletedExercises",
+                   "as":"listIdsxdayIndex"
+               }
+            },
+            {
+                "$project":{
+                    "_id":0,
+                    "listIdsxdayIndex._id":0 # . es equivlaente apuntero sobre el obejro de la lista
+                }
+            }
+        ]
+        ))
+        for element in ejercicios:
+            pprint(element)
         
         return Response(
             response=json.dumps(ejercicios),

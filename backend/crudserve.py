@@ -31,7 +31,7 @@ def obtener_usuarios():
             usuario["_id"]=str(usuario["_id"])
         return Response(
             response=json.dumps(datos),
-            status=500,
+            status=200,
             mimetype="application/json"
         )
     except Exception as ex:

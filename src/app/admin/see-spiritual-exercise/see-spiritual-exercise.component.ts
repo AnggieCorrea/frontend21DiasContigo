@@ -28,8 +28,15 @@ export class SeeSpiritualExerciseComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.selectedSpiritualExercise =
-      this.spiritualExerciseService.getSpiritualExerciseById(+this.id);
+    console.log(this.id);
+    this.spiritualExerciseService.getSpiritualExerciseById(+this.id).subscribe(
+      (results) => {
+        this.selectedSpiritualExercise = results;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
     this.typeExercise = this.communicationService.typeExercise;
   }
 

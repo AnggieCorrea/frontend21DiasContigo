@@ -1,4 +1,3 @@
-import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import { ContemplationConsideration } from './ContemplationConsideration';
 import { PauseConsideration } from './PauseConsideration';
 

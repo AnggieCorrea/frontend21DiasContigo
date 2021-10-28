@@ -71,18 +71,30 @@ export class MostUsedConsiderationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.spiritualExercises =
-      this.spiritualExerciseService.getSpiritualExercisesByType(
-        this.typeExercise
+    this.spiritualExerciseService
+      .getSpiritualExercisesByType(this.typeExercise)
+      .subscribe(
+        (results) => {
+          this.spiritualExercises = results;
+        },
+        (error) => {
+          console.log(error);
+        }
       );
     this.findTypesContemplationConsideration();
   }
 
   recibiRespuesta(mensaje: string): void {
     this.typeExercise = mensaje;
-    this.spiritualExercises =
-      this.spiritualExerciseService.getSpiritualExercisesByType(
-        this.typeExercise
+    this.spiritualExerciseService
+      .getSpiritualExercisesByType(this.typeExercise)
+      .subscribe(
+        (results) => {
+          this.spiritualExercises = results;
+        },
+        (error) => {
+          console.log(error);
+        }
       );
   }
 

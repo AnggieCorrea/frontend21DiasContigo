@@ -31,29 +31,53 @@ export class SpiritualExercisesAdministrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.typeExercise = this.communicationService.typeExercise;
-    this.spiritualExercises =
-      this.spiritualExerciseService.getSpiritualExercisesByType(
-        this.typeExercise
+    this.spiritualExerciseService
+      .getSpiritualExercisesByType(this.typeExercise)
+      .subscribe(
+        (results) => {
+          this.spiritualExercises = results;
+        },
+        (error) => {
+          console.log(error);
+        }
       );
   }
 
   recibiRespuesta(mensaje: string): void {
     this.typeExercise = mensaje;
-    this.spiritualExercises =
-      this.spiritualExerciseService.getSpiritualExercisesByType(
-        this.typeExercise
+    this.spiritualExerciseService
+      .getSpiritualExercisesByType(this.typeExercise)
+      .subscribe(
+        (results) => {
+          this.spiritualExercises = results;
+        },
+        (error) => {
+          console.log(error);
+        }
       );
   }
 
   seeSpiritualExercise(id: number): void {
-    this.selectedSpiritualExercise =
-      this.spiritualExerciseService.getSpiritualExerciseById(id);
+    this.spiritualExerciseService.getSpiritualExerciseById(id).subscribe(
+      (results) => {
+        this.selectedSpiritualExercise = results;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
     this.router.navigate(['/seeSpiritualExercise/' + id]);
   }
 
   editSpiritualExercise(id: number): void {
-    this.selectedSpiritualExercise =
-      this.spiritualExerciseService.getSpiritualExerciseById(id);
+    this.spiritualExerciseService.getSpiritualExerciseById(id).subscribe(
+      (results) => {
+        this.selectedSpiritualExercise = results;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
     this.router.navigate(['/editSpiritualExercise/' + id]);
   }
 }

@@ -12,7 +12,8 @@ import dns
 
 ############################CONEXION CON LA BASE DE DATOS#################################
 app=Flask(__name__)
-cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 try:
     

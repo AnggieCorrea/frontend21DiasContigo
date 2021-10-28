@@ -3,12 +3,12 @@ from flask_cors import CORS
 from flask.wrappers import Request
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from bson.json_util import dumps as dp
 from pprint import pprint
 import certifi
 import pymongo
 import json 
 import dns
-
 
 ############################CONEXION CON LA BASE DE DATOS#################################
 app=Flask(__name__)
@@ -118,14 +118,14 @@ def actualizar_usuario(id):
                 'country':request.form["country"],
                 'role': request.form["role"],
                 'urlImage':request.form["urlImage"],
+                for element in  
                 'listIdsCompletedExercises.$.std':request.form.getlist('listIdsCompletedExercises'),
                 'pauseConsiderationList.$.std':request.form.getlist('pauseConsiderationList'),
                 'contemplationConsiderationList.$.std':request.form.getlist('contemplationConsiderationList')
             }
             })
         
-        #for atributos in dir(dbResponse):
-            #print("**********{}***********".format(atributos))
+  
         if dbResponse.modified_count==1:
 
             return Response(
@@ -395,12 +395,31 @@ def obtener_ejercicios():
 @app.route('/SpiritualExercises/<id>',methods=['GET'])
 def obtener_ejercicio_por_id(id):
     try:
-        ejercicio=db.spiritualexercises.find_one({"_id":ObjectId(id)},{"_id":0})
+        ejercicio=db.spiritualexercises.find_one({"_id":ObjectId(id)})
+        #print (str(ObjectId(id)))
         return Response(
             response=json.dumps(ejercicio),
             status=200,
             mimetype="application/json"
         )
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message":"can not obtain exercises"}),
+            status=500,
+            mimetype="application/json"
+        )
+#######################################################obtner por dia y tipo##########
+@app.route('/SpiritualExercises/<dia>/<tipo>',methods=['GET'])
+def obtener_ejercicio_por_dia_y_tipo(dia,tipo):
+    try:
+        ejercicio=db.spiritualexercises.find_one({"dayIndex":dia ,"type":tipo})
+        return dp(ejercicio)
+        '''return Response(
+            response=json.dumps(ejercicio),
+            status=200,
+            mimetype="application/json"
+        )'''
     except Exception as ex:
         print(ex)
         return Response(
@@ -615,7 +634,6 @@ def eliminar_contemplation(id):
             status=500,
             mimetype="application/json"
         )
-
 
 
 

@@ -5,13 +5,13 @@
   <div class="tableContainer">
     <table>
       <thead>
-        <th>ID</th>
+        <th>Día</th>
         <th>Título ejercicio espiritual</th>
         <th>Opciones</th>
       </thead>
       <tbody>
         <tr *ngFor="let exercise of spiritualExercises">
-          <td>{{ exercise.idExercise }}</td>
+          <td>{{ exercise.dayIndex }}</td>
           <td>{{ exercise.title }}</td>
           <td class="options">
             <fa-icon

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ContemplationConsideration } from 'src/app/models/ContemplationConsideration';
+import { PauseConsideration } from 'src/app/models/PauseConsideration';
 import { User } from 'src/app/models/User';
 import { UserService } from 'src/app/services/user.service';
 
@@ -9,47 +11,74 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./create-account.component.scss'],
 })
 export class CreateAccountComponent implements OnInit {
-  user: User;
-  name: string = '';
-  lastName: string = '';
-  email: string = '';
-  gender: string = '';
-  city: string = '';
-  country: string = '';
-  password: string = '';
-  urlImage: string = '';
+  listIdsCompletedExercises: number[] = [];
+  pauseConsiderationList: PauseConsideration[] = [];
+  contemplationConsiderationList: ContemplationConsideration[] = [];
+  user: User = new User(
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    'user',
+    '',
+    this.listIdsCompletedExercises,
+    this.pauseConsiderationList,
+    this.contemplationConsiderationList
+  );
 
   constructor(private userService: UserService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.user);
+  }
 
   public createAccount(): void {
+    var gender;
     var element = <HTMLInputElement>document.getElementById('femaleGender');
     var isChecked = element.checked;
     if (isChecked) {
-      this.gender = 'Mujer';
+      gender = 'Mujer';
     }
     element = <HTMLInputElement>document.getElementById('maleGender');
     isChecked = element.checked;
     if (isChecked) {
-      this.gender = 'Hombre';
+      gender = 'Hombre';
     }
-    this.user = new User(
-      this.name,
-      this.lastName,
-      this.password,
-      this.gender,
-      this.country,
-      this.city,
-      this.email,
-      'user',
-      '',
-      [],
-      [],
-      []
+    this.user.setName(
+      (document.getElementById('name') as HTMLInputElement).value
     );
-    this.userService.addUser(this.user);
-    this.router.navigate(['/login']);
+    this.user.setLastName(
+      (document.getElementById('lastName') as HTMLInputElement).value
+    );
+    this.user.setEmail(
+      (document.getElementById('email') as HTMLInputElement).value
+    );
+    this.user.setCity(
+      (document.getElementById('city') as HTMLInputElement).value
+    );
+    this.user.setCountry(
+      (document.getElementById('country') as HTMLInputElement).value
+    );
+    this.user.setPassword(
+      (document.getElementById('city') as HTMLInputElement).value
+    );
+    this.user.setGender(gender);
+
+    console.log(this.user);
+
+    // tslint:disable-next-line: deprecation
+    this.userService.addUser(this.user).subscribe(
+      (result) => {
+        console.log(result);
+        this.router.navigate(['/login']);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   public return(): void {

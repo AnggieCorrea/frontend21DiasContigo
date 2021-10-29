@@ -13,6 +13,7 @@ export class SeeSpiritualExerciseComponent implements OnInit {
   id: string;
   selectedSpiritualExercise: SpiritualExercise;
   typeExercise: string;
+  day: string;
 
   showSpam = true;
   showRec = false;
@@ -29,6 +30,8 @@ export class SeeSpiritualExerciseComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     console.log(this.id);
+    this.day = this.route.snapshot.paramMap.get('dayIndex');
+    console.log(this.day);
     this.spiritualExerciseService.getSpiritualExerciseById(+this.id).subscribe(
       (results) => {
         this.selectedSpiritualExercise = results;

@@ -57,20 +57,33 @@ export class SpiritualExercisesAdministrationComponent implements OnInit {
       );
   }
 
-  seeSpiritualExercise(id: number): void {
-    this.spiritualExerciseService.getSpiritualExerciseById(id).subscribe(
-      (results) => {
-        this.selectedSpiritualExercise = results;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-    this.router.navigate(['/seeSpiritualExercise/' + id]);
+  seeSpiritualExercise(selectedExercise: any): void {
+    console.log('Selected item day: ', selectedExercise.dayIndex);
+    console.log('Selected item day: ', selectedExercise.type);
+    this.spiritualExerciseService
+      .getSpiritualExerciseByDayAndType(
+        selectedExercise.dayIndex,
+        selectedExercise.type
+      )
+      .subscribe(
+        (results) => {
+          this.selectedSpiritualExercise = results;
+          //this.selectedSpiritualExercise = <SpiritualExercise>JSON.parse(results);
+          console.log(results.getDay());
+          /* this.router.navigate([
+            '/seeSpiritualExercise/' +
+              this.selectedSpiritualExercise.getIdExercise(),
+          ]); */
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    //console.log(this.selectedSpiritualExercise.day);
   }
 
-  editSpiritualExercise(id: number): void {
-    this.spiritualExerciseService.getSpiritualExerciseById(id).subscribe(
+  editSpiritualExercise(id: string): void {
+    /* this.spiritualExerciseService.getSpiritualExerciseById(id).subscribe(
       (results) => {
         this.selectedSpiritualExercise = results;
       },
@@ -78,6 +91,6 @@ export class SpiritualExercisesAdministrationComponent implements OnInit {
         console.log(error);
       }
     );
-    this.router.navigate(['/editSpiritualExercise/' + id]);
+    this.router.navigate(['/editSpiritualExercise/' + id]); */
   }
 }

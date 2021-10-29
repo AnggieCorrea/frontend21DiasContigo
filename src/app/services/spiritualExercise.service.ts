@@ -46,14 +46,23 @@ export class SpiritualExerciseService {
     );
   }
 
-  getSpiritualExercisesByUser(ids: number[]): SpiritualExercise[] {
+  getSpiritualExerciseByDayAndType(
+    day: string,
+    type: string
+  ): Observable<SpiritualExercise> {
+    return this.http.get<SpiritualExercise>(
+      `${this.urlBase}/SpiritualExercises/day=${day}&type=${type}`
+    );
+  }
+
+  getSpiritualExercisesByUser(ids: string[]): SpiritualExercise[] {
     let spiritualExercises1 = [];
-    for (let spiritualExercise of this.spiritualExerciseList) {
+    /* for (let spiritualExercise of this.spiritualExerciseList) {
       for (let id of ids) {
         if (spiritualExercise.idExercise == id)
           spiritualExercises1.push(spiritualExercise);
       }
-    }
+    } */
     return spiritualExercises1;
   }
 }

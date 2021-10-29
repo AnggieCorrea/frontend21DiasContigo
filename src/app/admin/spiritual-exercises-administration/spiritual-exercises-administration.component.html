@@ -11,18 +11,18 @@
       </thead>
       <tbody>
         <tr *ngFor="let exercise of spiritualExercises">
-          <td>{{ exercise.dayIndex }}</td>
+          <td>{{ exercise.day }}</td>
           <td>{{ exercise.title }}</td>
           <td class="options">
             <fa-icon
               [icon]="faEye"
               class="icons"
-              (click)="seeSpiritualExercise(exercise.idExercise)"
+              (click)="seeSpiritualExercise(exercise)"
             ></fa-icon>
             <fa-icon
               [icon]="faPencilAlt"
               class="icons"
-              (click)="editSpiritualExercise(exercise.idExercise)"
+              (click)="editSpiritualExercise(exercise._id)"
             ></fa-icon>
             <fa-icon [icon]="faTrashAlt" class="icons"></fa-icon>
           </td>

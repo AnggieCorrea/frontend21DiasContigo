@@ -1,7 +1,7 @@
 export interface SpiritualExercise {
-  idExercise: number;
+  _id: string;
   type: string;
-  dayIndex: number;
+  day: string;
   title: string;
   sentenceOne: string;
   sentenceTwo: string;
@@ -10,9 +10,9 @@ export interface SpiritualExercise {
 }
 
 export class SpiritualExercise {
-  idExercise: number;
+  _id: string;
   type: string;
-  dayIndex: number;
+  day: string;
   title: string;
   sentenceOne: string;
   sentenceTwo: string;
@@ -20,18 +20,18 @@ export class SpiritualExercise {
   urlImage: string;
 
   constructor(
-    idExercise: number,
+    _id: string,
     type: string,
-    dayIndex: number,
+    day: string,
     title: string,
     sentenceOne: string,
     sentenceTwo: string,
     urlAudio: string,
     urlImage: string
   ) {
-    this.idExercise = idExercise;
+    this._id = _id;
     this.type = type;
-    this.dayIndex = dayIndex;
+    this.day = day;
     this.title = title;
     this.sentenceOne = sentenceOne;
     this.sentenceTwo = sentenceTwo;
@@ -40,14 +40,14 @@ export class SpiritualExercise {
   }
 
   //gets
-  getIdExercise(): number {
-    return this.idExercise;
+  getIdExercise(): string {
+    return this._id;
   }
   getType(): string {
     return this.type;
   }
-  getDayIndex(): number {
-    return this.dayIndex;
+  getDay(): string {
+    return this.day;
   }
   getTitle(): string {
     return this.title;
@@ -69,8 +69,8 @@ export class SpiritualExercise {
   setType(type: string): void {
     this.type = type;
   }
-  setDayIndex(dayIndex: number): void {
-    this.dayIndex = dayIndex;
+  setDayIndex(day: string): void {
+    this.day = day;
   }
   setSentenceOne(sentenceOne: string): void {
     this.sentenceOne = sentenceOne;

@@ -41,11 +41,11 @@ export class SeeSpiritualExerciseComponent implements OnInit {
     this.spiritualExerciseService.getSpiritualExerciseById(this.id).subscribe(
       (results) => {
         this.selectedSpiritualExercise = results;
-        this.day = this.selectedSpiritualExercise.day;
+        this.day = this.selectedSpiritualExercise.dayIndex;
         this.title = this.selectedSpiritualExercise.title;
-        this.sentenceOne = this.selectedSpiritualExercise.sentenceOne;
+        this.sentenceOne = this.selectedSpiritualExercise.sentenceone;
         console.log(this.sentenceOne);
-        this.sentenceTwo = this.selectedSpiritualExercise.sentenceTwo;
+        this.sentenceTwo = this.selectedSpiritualExercise.sentencetwo;
         this.urlAudio = this.selectedSpiritualExercise.urlAudio;
         this.urlImage = this.selectedSpiritualExercise.urlImage;
       },

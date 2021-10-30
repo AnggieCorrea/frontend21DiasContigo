@@ -535,18 +535,20 @@ def obtener_ejercicios_por_userid(id):
 ###################################### Actualizar ejercicio espiritual por id ##########################################
 
 
-@app.route('/SpiritualExercises/<id>', methods=["PATCH"])
+@app.route('/SpiritualExercises/update/<id>', methods=["PATCH"])
 def actualizar_ejercicio_espiritual(id):
     try:
 
         dbResponse = db.spiritualexercises.update_one(
             {"_id": ObjectId(id)},
-            {"$set": {"dayIndex": request.form["dayIndex"],
-                      "title": request.form["title"],
-                      "sentenceone": request.form["sentenceone"],
-                      "sentencetwo": request.form["sentencetwo"],
-                      "urlAudio": request.form["urlAudio"],
-                      "urlImage": request.form["urlImage"]}}
+            {"$set": {
+                "_id": ObjectId(request.form["_id"]),
+                "dayIndex": request.form["dayIndex"],
+                "title": request.form["title"],
+                "sentenceone": request.form["sentenceone"],
+                "sentencetwo": request.form["sentencetwo"],
+                "urlAudio": request.form["urlAudio"],
+                "urlImage": request.form["urlImage"]}}
         )
         if dbResponse.modified_count == 1:
             return Response(

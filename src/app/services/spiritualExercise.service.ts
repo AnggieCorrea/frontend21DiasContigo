@@ -40,20 +40,12 @@ export class SpiritualExerciseService {
     );
   }
 
-  addSpiritualExercise(
-    spiritualExercise: SpiritualExercise
-  ): Observable<SpiritualExercise> {
-    return this.http.post<SpiritualExercise>(
-      this.urlBase + '',
-      spiritualExercise
-    );
-  }
-
   updateSpiritualExercise(
+    id: string,
     spiritualExercise: SpiritualExercise
   ): Observable<SpiritualExercise> {
-    return this.http.put<SpiritualExercise>(
-      this.urlBase + '' + spiritualExercise._id,
+    return this.http.patch<SpiritualExercise>(
+      this.urlBase + '/SpiritualExercises/update/' + id,
       spiritualExercise
     );
   }

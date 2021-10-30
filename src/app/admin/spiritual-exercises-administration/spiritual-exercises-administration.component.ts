@@ -37,6 +37,7 @@ export class SpiritualExercisesAdministrationComponent implements OnInit {
       .subscribe(
         (results) => {
           this.spiritualExercises = results;
+          console.log(this.spiritualExercises);
         },
         (error) => {
           console.log(error);

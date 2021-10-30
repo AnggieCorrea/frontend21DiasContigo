@@ -40,6 +40,15 @@ export class SpiritualExerciseService {
     );
   }
 
+  addSpiritualExercise(
+    spiritualExercise: SpiritualExercise
+  ): Observable<SpiritualExercise> {
+    return this.http.post<SpiritualExercise>(
+      this.urlBase + '',
+      spiritualExercise
+    );
+  }
+
   updateSpiritualExercise(
     spiritualExercise: SpiritualExercise
   ): Observable<SpiritualExercise> {
@@ -47,6 +56,10 @@ export class SpiritualExerciseService {
       this.urlBase + '' + spiritualExercise._id,
       spiritualExercise
     );
+  }
+
+  public deleteSpiritualExercise(id: string): Observable<SpiritualExercise> {
+    return this.http.delete<SpiritualExercise>(this.urlBase + '' + id);
   }
 
   getSpiritualExercisesByUser(ids: string[]): SpiritualExercise[] {

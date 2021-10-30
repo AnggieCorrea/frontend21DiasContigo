@@ -436,7 +436,8 @@ def obtener_ejercicios():
 def obtener_ejercicio_por_id(id):
     try:
         ejercicio = db.spiritualexercises.find_one({"_id": ObjectId(id)})
-        #print (str(ObjectId(id)))
+        ejercicio["_id"] = str(ejercicio["_id"])
+        ejercicio["urlImage"] = str(ejercicio["urlImage"])
         return Response(
             response=json.dumps(ejercicio),
             status=200,

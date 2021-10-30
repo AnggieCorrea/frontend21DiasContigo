@@ -10,14 +10,21 @@ import { communicationTypeOfSpiritualExercise } from 'src/app/services/communica
   styleUrls: ['./see-spiritual-exercise.component.scss'],
 })
 export class SeeSpiritualExerciseComponent implements OnInit {
-  id: string;
-  selectedSpiritualExercise: SpiritualExercise;
-  typeExercise: string;
-  day: string;
-
   showSpam = true;
   showRec = false;
   showTex = false;
+
+  typeExercise: string;
+  selectedSpiritualExercise: SpiritualExercise;
+
+  //spiritual exercise data
+  id: string;
+  day: string;
+  title: string;
+  sentenceOne: string;
+  sentenceTwo: string;
+  urlAudio: string;
+  urlImage: string;
 
   @Output() valueResponse: EventEmitter<string> = new EventEmitter();
   constructor(
@@ -29,12 +36,18 @@ export class SeeSpiritualExerciseComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
+
     console.log(this.id);
-    this.day = this.route.snapshot.paramMap.get('dayIndex');
-    console.log(this.day);
-    this.spiritualExerciseService.getSpiritualExerciseById(+this.id).subscribe(
+    this.spiritualExerciseService.getSpiritualExerciseById(this.id).subscribe(
       (results) => {
         this.selectedSpiritualExercise = results;
+        this.day = this.selectedSpiritualExercise.day;
+        this.title = this.selectedSpiritualExercise.title;
+        this.sentenceOne = this.selectedSpiritualExercise.sentenceOne;
+        console.log(this.sentenceOne);
+        this.sentenceTwo = this.selectedSpiritualExercise.sentenceTwo;
+        this.urlAudio = this.selectedSpiritualExercise.urlAudio;
+        this.urlImage = this.selectedSpiritualExercise.urlImage;
       },
       (error) => {
         console.log(error);

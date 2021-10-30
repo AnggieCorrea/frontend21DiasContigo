@@ -15,28 +15,13 @@ export class SpiritualExerciseService {
 
   //Métodos
 
-  private handleError(error: HttpErrorResponse): Observable<any> {
-    console.log(error);
-    return throwError('An error has ocurred');
-  }
-
   getSpiritualExercises(): Observable<SpiritualExercise[]> {
     return this.http.get<SpiritualExercise[]>(this.urlBase);
   }
 
-  /* public getSpiritualExerciseById(id: number): Observable<SpiritualExercise>{
-    return this.http.get<any>(this.urlBase + `/salesReport?page=${page}&size=${size}&order=${order}`);
-  }*/
-
-  /* getSpiritualExerciseById(id: number): SpiritualExercise {
-    return this.spiritualExerciseList.find(
-      (spiritualExercise) => spiritualExercise.idExercise === id
-    );
-  } */
-
-  getSpiritualExerciseById(id: number): Observable<SpiritualExercise> {
+  getSpiritualExerciseById(id: string): Observable<SpiritualExercise> {
     return this.http.get<SpiritualExercise>(
-      this.urlBase + '/SpiritualExercises/' + id
+      `${this.urlBase}/SpiritualExercises/${id}`
     );
   }
 
@@ -52,6 +37,15 @@ export class SpiritualExerciseService {
   ): Observable<SpiritualExercise> {
     return this.http.get<SpiritualExercise>(
       `${this.urlBase}/SpiritualExercises/day=${day}&type=${type}`
+    );
+  }
+
+  updateSpiritualExercise(
+    spiritualExercise: SpiritualExercise
+  ): Observable<SpiritualExercise> {
+    return this.http.put<SpiritualExercise>(
+      this.urlBase + '' + spiritualExercise._id,
+      spiritualExercise
     );
   }
 

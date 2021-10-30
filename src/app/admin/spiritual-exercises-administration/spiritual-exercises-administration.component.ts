@@ -17,6 +17,7 @@ import {
 export class SpiritualExercisesAdministrationComponent implements OnInit {
   typeExercise: string;
   spiritualExercises: SpiritualExercise[];
+
   selectedSpiritualExercise: SpiritualExercise;
 
   faEye = faEye;
@@ -58,8 +59,6 @@ export class SpiritualExercisesAdministrationComponent implements OnInit {
   }
 
   seeSpiritualExercise(selectedExercise: any): void {
-    console.log('Selected item day: ', selectedExercise.dayIndex);
-    console.log('Selected item day: ', selectedExercise.type);
     this.spiritualExerciseService
       .getSpiritualExerciseByDayAndType(
         selectedExercise.dayIndex,
@@ -68,29 +67,34 @@ export class SpiritualExercisesAdministrationComponent implements OnInit {
       .subscribe(
         (results) => {
           this.selectedSpiritualExercise = results;
-          //this.selectedSpiritualExercise = <SpiritualExercise>JSON.parse(results);
-          console.log(results.getDay());
-          /* this.router.navigate([
-            '/seeSpiritualExercise/' +
-              this.selectedSpiritualExercise.getIdExercise(),
-          ]); */
+          console.log(this.selectedSpiritualExercise);
+          this.router.navigate([
+            '/seeSpiritualExercise/' + this.selectedSpiritualExercise._id,
+          ]);
         },
         (error) => {
           console.log(error);
         }
       );
-    //console.log(this.selectedSpiritualExercise.day);
   }
 
-  editSpiritualExercise(id: string): void {
-    /* this.spiritualExerciseService.getSpiritualExerciseById(id).subscribe(
-      (results) => {
-        this.selectedSpiritualExercise = results;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-    this.router.navigate(['/editSpiritualExercise/' + id]); */
+  editSpiritualExercise(selectedExercise: any): void {
+    this.spiritualExerciseService
+      .getSpiritualExerciseByDayAndType(
+        selectedExercise.dayIndex,
+        selectedExercise.type
+      )
+      .subscribe(
+        (results) => {
+          this.selectedSpiritualExercise = results;
+          console.log(this.selectedSpiritualExercise);
+          this.router.navigate([
+            '/editSpiritualExercise/' + this.selectedSpiritualExercise._id,
+          ]);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 }

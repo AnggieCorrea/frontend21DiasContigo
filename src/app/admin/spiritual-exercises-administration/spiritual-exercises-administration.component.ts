@@ -98,4 +98,21 @@ export class SpiritualExercisesAdministrationComponent implements OnInit {
         }
       );
   }
+
+  deleteSpiritualExercise(selectedExercise: any): void {
+    this.spiritualExerciseService
+      .deleteSpiritualExerciseByDayAndType(
+        selectedExercise.dayIndex,
+        selectedExercise.type
+      ).subscribe(
+        (results) => {
+          this.selectedSpiritualExercise = results;
+          console.log(this.selectedSpiritualExercise);
+          this.router.navigate(['/spiritualExerciseAdministration']);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
 }

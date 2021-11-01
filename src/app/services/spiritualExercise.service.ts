@@ -44,14 +44,16 @@ export class SpiritualExerciseService {
     id: string,
     spiritualExercise: SpiritualExercise
   ): Observable<SpiritualExercise> {
-    return this.http.patch<SpiritualExercise>(
+    return this.http.put<SpiritualExercise>(
       this.urlBase + '/SpiritualExercises/update/' + id,
       spiritualExercise
     );
   }
 
-  public deleteSpiritualExercise(id: string): Observable<SpiritualExercise> {
-    return this.http.delete<SpiritualExercise>(this.urlBase + '' + id);
+  public deleteSpiritualExerciseByDayAndType(dayIndex: string, type:string): Observable<SpiritualExercise> {
+    return this.http.delete<SpiritualExercise>(
+      `${this.urlBase}/SpiritualExercises/delete/day=${dayIndex}&type=${type}`
+    );
   }
 
   getSpiritualExercisesByUser(ids: string[]): SpiritualExercise[] {

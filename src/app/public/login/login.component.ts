@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   password = '';
   userFound = true;
   user: User;
+  userF: User;
 
   constructor(private router: Router, private userService: UserService) {}
 
@@ -23,13 +24,14 @@ export class LoginComponent implements OnInit {
   }
 
   checkUser(): void {
-    this.userService.getUserByEmail(this.email).subscribe((userFound: User) => {
-      console.log(userFound);
-      this.user = userFound;
-      if (this.user.password == this.password) {
-        if (this.user.role === 'admin') {
+    this.user = new User("","",this.password,"","","",this.email,"","",[],[],[],[]);
+    this.userService.getUserByEmail(this.user).subscribe((userFound: User) => {
+      this.userF = userFound;
+      if (this.userF.email != "") {
+        console.log(this.userF.role)
+        if (this.userF.role === 'admin') {
           this.router.navigate(['/homeAdministration']);
-        } else if (this.user.role === 'user') {
+        } else if (this.userF.role === 'user') {
           this.router.navigate(['/home']);
         }
       } else {

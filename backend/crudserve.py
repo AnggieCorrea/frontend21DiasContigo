@@ -1,10 +1,11 @@
-from flask import Flask, Response, request
+from flask import Flask, Response, request, jsonify
 from flask_cors import CORS
 from flask.wrappers import Request
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from bson.json_util import dumps as dp
 from pprint import pprint
+from werkzeug.security import generate_password_hash, check_password_hash
 import certifi
 import pymongo
 import json
@@ -48,63 +49,95 @@ def obtener_usuarios():
 ########################################OBTENERUSUARIOPOREMAIL##################################
 
 
-@app.route('/usuarios/<email>', methods=['GET'])
-def obtener_usuario_por_email(email):
+@app.route('/usuarios/login', methods=['POST'])
+def obtener_usuario_por_email():
     try:
-        # datos=db.usuarios.find_one({"_id":ObjectId(id)},{"_id":0})
-        datos = db.usuarios.find_one({"email": email}, {"_id": 0})
+        _json = request.json
+        _email = _json['email']
+        print(_email)
+        _hashed_password = _json['password']
+        print(_hashed_password)
+        datos = db.usuarios.find_one({"email": _email})
         print(datos)
-        # datos["email"]=str(datos["email"])
-        return Response(
-            response=json.dumps(datos),
-            status=200,
-            mimetype="application/json"
-        )
+        if check_password_hash(datos['password'],_hashed_password):
+            resp = dp(datos)
+            return resp
+        else:
+            usuario = {
+                'name': '',
+                'lastName': '',
+                'password': '',
+                'email': '',
+                'gender': '',
+                'city': '',
+                'country': '',
+                'role': '',
+                'urlImage': '',
+                'listIdsCompletedPauses': [],
+                'listIdsCompletedContemplations': [],
+                'pauseConsiderationList': [],
+                'contemplationConsiderationList': []
+            }
+            resp = dp(usuario)
+            return resp
     except Exception as ex:
         print(ex)
-        return Response(
-            response=json.dumps({"message": "can not obtain userses"}),
-            status=500,
-            mimetype="application/json"
-        )
+        message = {
+                'status': 404,
+                'message': 'Not Found '+ request.url  
+            }
+        resp = jsonify(message)
+        return resp
 
 ###############################CREARUSUSARIO####################################################
-
-
 @app.route('/usuarios', methods=['POST'])
 def crear_usuario():
     try:
-        print("inicio")
+        _json = request.json
+        _name = _json['name']
+        _lastName = _json['lastName']
+        _password = _json['password']
+        _email = _json['email']
+        _gender = _json['gender']
+        _city = _json['city']
+        _country = _json['country']
+        _role = _json['role']
+        _urlImage = _json['urlImage']
+        _listIdsCompletedPauses = _json['listIdsCompletedPauses']
+        _listIdsCompletedContemplations = _json['listIdsCompletedContemplations']
+        _pauseConsiderationList = _json['pauseConsiderationList']
+        _contemplationConsiderationList = _json['contemplationConsiderationList']
 
-        usuario = {
-            'name': request.form["name"],
-            'lastName': request.form["lastName"],
-            'password': request.form["password"],
-            'email': request.form["email"],
-            'gender': request.form["gender"],
-            'city': request.form["city"],
-            'country': request.form["country"],
-            'role': request.form["role"],
-            'urlImage': request.form["urlImage"],
-            'listIdsCompletedExercises': request.form.getlist('listIdsCompletedExercises'),
-            'pauseConsiderationList': request.form.getlist('pauseConsiderationList'),
-            'contemplationConsiderationList': request.form.getlist('contemplationConsiderationList')
+        if _name and _lastName and _email and _password and request.method =='POST':
+            _hashed_password = generate_password_hash(_password)
+            usuario = {
+                'name': _name,
+                'lastName': _lastName,
+                'password': _hashed_password,
+                'email': _email,
+                'gender': _gender,
+                'city': _city,
+                'country': _country,
+                'role': _role,
+                'urlImage': _urlImage,
+                'listIdsCompletedPauses': _listIdsCompletedPauses,
+                'listIdsCompletedContemplations': _listIdsCompletedContemplations,
+                'pauseConsiderationList': _pauseConsiderationList,
+                'contemplationConsiderationList': _contemplationConsiderationList
+            }
+            id = db.usuarios.insert(usuario)
+            print("cree el usuario")
+            resp = jsonify("Exito, usuario añadido")
+            resp.status_code = 200
+            return resp
 
-        }
-        print("cree el usuario")
-        dbResponse = db.usuarios.insert_one(usuario)
-        print("entre")
-        print(dbResponse.inserted_id)
-        # for atributos in dir(dbResponse):
-        # print(atributos)
-
-        return Response(
-            response=json.dumps(
-                {"message": "user created", "id": "{}".format(dbResponse.inserted_id)}),
-            status=200,
-            mimetype="application/json"
-        )
-
+        else:
+            message = {
+                'status': 404,
+                'message': 'Not Found '+ request.url  
+            }
+            resp = jsonify(message)
+            return resp
     except Exception as ex:
         print("***********")
         print(ex)
@@ -112,51 +145,66 @@ def crear_usuario():
 
 
 ##################################ACTUALIZARUSUARIO####################################################
-'''@app.route('/usuarios/<id>',methods=["PATCH"])
+@app.route('/usuarios/<id>', methods=['PUT'])
 def actualizar_usuario(id):
     try:
-       
-        dbResponse=db.usuarios.update(
-            {"_id":ObjectId(id)},
-            {"$set":{
-                'name': request.form ["name"],
-                'lastName': request.form["lastName"],
-                'password':request.form["password"],
-                'gender':request.form["gender"],
-                'city':request.form["city"],
-                'country':request.form["country"],
-                'role': request.form["role"],
-                'urlImage':request.form["urlImage"],
-                for element in  
-                'listIdsCompletedExercises.$.std':request.form.getlist('listIdsCompletedExercises'),
-                'pauseConsiderationList.$.std':request.form.getlist('pauseConsiderationList'),
-                'contemplationConsiderationList.$.std':request.form.getlist('contemplationConsiderationList')
-            }
-            })
-        
-  
-        if dbResponse.modified_count==1:
+        _id = id
+        _json = request.json
+        _name = _json['name']
+        _lastName = _json['lastName']
+        _password = _json['password']
+        _email = _json['email']
+        _gender = _json['gender']
+        _city = _json['city']
+        _country = _json['country']
+        _role = _json['role']
+        _urlImage = _json['urlImage']
+        _listIdsCompletedPauses = _json['listIdsCompletedPauses']
+        _listIdsCompletedContemplations = _json['listIdsCompletedContemplations']
+        _pauseConsiderationList = _json['pauseConsiderationList']
+        _contemplationConsiderationList = _json['contemplationConsiderationList']
 
-            return Response(
-                response=json.dumps({"message":"user updated"}),
-                status=200,
-                mimetype="application/json"
+        if _name and _lastName and _email and _password and request.method =='PUT':
+            _hashed_password = generate_password_hash(_password)
+                
+            id = db.usuarios.update_one(
+                {
+                    '_id':ObjectId(_id['$oid']) if '$oid' in _id else ObjectId(_id)
+                },
+                {
+                    '$set':{
+                        'name': _name,
+                        'lastName': _lastName,
+                        'password': _hashed_password,
+                        'email': _email,
+                        'gender': _gender,
+                        'city': _city,
+                        'country': _country,
+                        'role': _role,
+                        'urlImage': _urlImage,
+                        'listIdsCompletedPauses': _listIdsCompletedPauses,
+                        'listIdsCompletedContemplations': _listIdsCompletedContemplations,
+                        'pauseConsiderationList': _pauseConsiderationList,
+                        'contemplationConsiderationList': _contemplationConsiderationList        
+                    }
+                }
             )
+            print("actualice el usuario")
+            resp = jsonify("Exito, usuario actualizado")
+            resp.status_code = 200
+            return resp
+
         else:
-            return Response(
-                response=json.dumps({"message":"nothing to update"}),
-                status=200,
-                mimetype="application/json"
-            )
-
-
+            message = {
+                'status': 404,
+                'message': 'Not Found '+ request.url  
+            }
+            resp = jsonify(message)
+            return resp
     except Exception as ex:
+        print("***********")
         print(ex)
-        return Response(
-            response=json.dumps({"message":"can not update the user"}),
-            status=500,
-            mimetype="application/json"
-        )'''
+        print("***********")
 ##################################ELIMINAR USUSARIO###################################################
 
 
@@ -535,7 +583,7 @@ def obtener_ejercicios_por_userid(id):
 ###################################### Actualizar ejercicio espiritual por id ##########################################
 
 
-@app.route('/SpiritualExercises/update/<id>', methods=["PATCH"])
+@app.route('/SpiritualExercises/update/<id>', methods=["POST"])
 def actualizar_ejercicio_espiritual(id):
     try:
 
@@ -705,4 +753,4 @@ def eliminar_contemplation(id):
 
 
 if __name__ == "__main__":
-    app.run(port=80, debug=True)
+    app.run(port=90, debug=True)

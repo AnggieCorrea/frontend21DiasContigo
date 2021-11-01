@@ -91,7 +91,6 @@ const routes: Routes = [
   {
     path: 'homeAdministration',
     component: HomeAdministrationComponent,
-    canActivate: [AuthGuard, RoleGuard],
   },
   {
     path: 'spiritualExerciseAdministration',

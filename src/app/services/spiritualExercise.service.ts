@@ -8,7 +8,7 @@ import 'rxjs/Rx';
   providedIn: 'root',
 })
 export class SpiritualExerciseService {
-  urlBase = 'http://127.0.0.1:80';
+  urlBase = 'http://127.0.0.1:90';
   spiritualExerciseList: SpiritualExercise[] = [];
 
   constructor(private http: HttpClient) {}

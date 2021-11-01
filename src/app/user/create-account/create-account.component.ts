@@ -11,7 +11,8 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./create-account.component.scss'],
 })
 export class CreateAccountComponent implements OnInit {
-  listIdsCompletedExercises: number[] = [];
+  listIdsCompletedPauses: number[] = [];
+  listIdsCompletedContemplation: number[] = [];
   pauseConsiderationList: PauseConsideration[] = [];
   contemplationConsiderationList: ContemplationConsideration[] = [];
   user: User = new User(
@@ -24,7 +25,8 @@ export class CreateAccountComponent implements OnInit {
     '',
     'user',
     '',
-    this.listIdsCompletedExercises,
+    this.listIdsCompletedPauses,
+    this.listIdsCompletedContemplation,
     this.pauseConsiderationList,
     this.contemplationConsiderationList
   );
@@ -66,7 +68,7 @@ export class CreateAccountComponent implements OnInit {
       (document.getElementById('city') as HTMLInputElement).value
     );
     this.user.setGender(gender);
-
+    
     console.log(this.user);
 
     // tslint:disable-next-line: deprecation

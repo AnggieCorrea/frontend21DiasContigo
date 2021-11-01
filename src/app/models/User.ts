@@ -12,7 +12,8 @@ export interface UserInterface {
   password: string;
   urlImage: string;
   role: string;
-  listIdsCompletedExercises: number[];
+  listIdsCompletedPauses: number[];
+  listIdsCompletedContemplations: number[];
   pauseConsiderationList: PauseConsideration[];
   contemplationConsiderationList: ContemplationConsideration[];
 }
@@ -28,7 +29,8 @@ export class User implements UserInterface {
   password: string;
   urlImage: string;
   role: string;
-  listIdsCompletedExercises: number[];
+  listIdsCompletedPauses: number[];
+  listIdsCompletedContemplations: number[];
   pauseConsiderationList: PauseConsideration[];
   contemplationConsiderationList: ContemplationConsideration[];
 
@@ -42,7 +44,8 @@ export class User implements UserInterface {
     email: string,
     role: string,
     urlImage: string,
-    listIdsCompletedExercises: number[],
+    listIdsCompletedPauses: number[],
+    listIdsCompletedContemplations: number[],
     pauseConsiderationList: PauseConsideration[],
     contemplationConsiderationList: ContemplationConsideration[]
   ) {
@@ -55,7 +58,8 @@ export class User implements UserInterface {
     this.password = password;
     this.role = role;
     this.urlImage = urlImage;
-    this.listIdsCompletedExercises = listIdsCompletedExercises;
+    this.listIdsCompletedPauses= listIdsCompletedPauses;
+    this.listIdsCompletedContemplations= listIdsCompletedContemplations;
     this.pauseConsiderationList = pauseConsiderationList;
     this.contemplationConsiderationList = contemplationConsiderationList;
   }
@@ -91,8 +95,11 @@ export class User implements UserInterface {
   getUrlImage(): string {
     return this.urlImage;
   }
-  getListIdsCompletedExercises(): number[] {
-    return this.listIdsCompletedExercises;
+  getListIdsCompletedPauses(): number[] {
+    return this.listIdsCompletedPauses;
+  }
+  getListIdsCompletedContemplations(): number[] {
+    return this.listIdsCompletedContemplations;
   }
   getPauseConsiderationList(): PauseConsideration[] {
     return this.pauseConsiderationList;
@@ -129,8 +136,11 @@ export class User implements UserInterface {
   setUrlImage(urlImage: string): void {
     this.urlImage = urlImage;
   }
-  setListIdsCompletedExercises(listIdsCompletedExercises: number[]): void {
-    this.listIdsCompletedExercises = listIdsCompletedExercises;
+  setListIdsCompletedPauses(listIdsCompletedExercises: number[]): void {
+    this.listIdsCompletedPauses = listIdsCompletedExercises;
+  }
+  setListIdsCompletedContemplations(listIdsCompletedExercises: number[]): void {
+    this.listIdsCompletedContemplations = listIdsCompletedExercises;
   }
   setPauseConsiderationList(
     pauseConsiderationList: PauseConsideration[]

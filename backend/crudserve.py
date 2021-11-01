@@ -229,102 +229,6 @@ def eliminar_usuario(id):
             status=500,
             mimetype="application/json"
         )
-####################################Reflexiones############################################
-
-
-@app.route('/reflexiones', methods=['POST'])
-def crear_reflexion():
-    try:
-        reflexion = {'titulo': request.form["titulo"],
-                     'descripcion': request.form["descripcion"],
-                     'dia': request.form["dia"],
-                     'url': request.form["url"]
-                     }
-        dbResponse = db.reflexiones.insert_one(reflexion)
-        print(dbResponse.inserted_id)
-        return Response(
-            response=json.dumps(
-                {"message": "reflection created", "id": "{}".format(dbResponse.inserted_id)}),
-            status=200,
-            mimetype="application/json"
-        )
-
-    except Exception as ex:
-        print("***********")
-        print(ex)
-        print("***********")
-
-###########################OBTENERREFELXION######################################################
-
-
-@app.route('/reflexiones', methods=['GET'])
-def obtener_reflexion():
-    try:
-        datos = list(db.reflexiones.find())
-        for reflexion in datos:
-            reflexion["_id"] = str(reflexion["_id"])
-        return Response(
-            response=json.dumps(datos),
-            status=500,
-            mimetype="application/json"
-        )
-    except Exception as ex:
-        print(ex)
-        return Response(
-            response=json.dumps({"message": "can not obtain reflection"}),
-            status=500,
-            mimetype="application/json"
-        )
-#######################################ACTUALIZARREFLEXION#####################################
-
-
-@app.route('/reflexiones/<dia>', methods=['PATCH'])
-def actulizar_reflexion(dia):
-    try:
-        dbResponse = db.reflexiones.update_one(
-            {"dia": dia},
-            {"$set": {"url": request.form["url"]}}
-        )
-        if dbResponse.modified_count == 1:
-
-            return Response(
-                response=json.dumps({"message": "reflection updated"}),
-                status=200,
-                mimetype="application/json"
-            )
-        else:
-            return Response(
-                response=json.dumps({"message": "nothing to update"}),
-                status=200,
-                mimetype="application/json"
-            )
-    except Exception as ex:
-        print(ex)
-        return Response(
-            response=json.dumps({"message": "can not update the reflection"}),
-            status=500,
-            mimetype="application/json"
-        )
-##########################################ELIMINARREFELXION########################################################
-
-
-@app.route('/reflexiones/<dia>', methods=['Delete'])
-def eliminar_reflexion(dia):
-    try:
-        dbResponse = db.reflexiones.delete_one({'dia': dia})
-        return Response(
-            response=json.dumps(
-                {"message": "reflection deleted", "day": f"{dia}"}),
-            status=200,
-            mimetype="application/json"
-        )
-    except Exception as ex:
-        print(ex)
-        return Response(
-            response=json.dumps({"message": "can not update the refelction"}),
-            status=500,
-            mimetype="application/json"
-        )
 ###################################################CONTEMPLACIONES#################################################
 
 
@@ -373,26 +277,41 @@ def obtener_contemplacion():
 #######################################ACTUALIZARCONTEMPLACION###############################################################
 
 
-@app.route('/contemplaciones/<dia>', methods=['PATCH'])
+@app.route('/contemplaciones/<dia>', methods=['PUT'])
 def actulizar_contemplacion(dia):
     try:
+        _json = request.json
+        _title = _json['title']
+        _sentenceone = _json['sentenceone']
+        _sentencetwo = _json['sentencetwo']
+        _urlAudio = _json['urlAudio']
+        _urlImage = _json['urlImage']
+
         dbResponse = db.contemplaciones.update_one(
-            {"dia": dia},
-            {"$set": {"url": request.form["url"]}}
+            {"dayIndex": dia},
+            {"$set": 
+                {
+                    "title": _title,
+                    "sentenceone": _sentenceone,
+                    "sentencetwo": _sentencetwo,
+                    "urlAudio": _urlAudio,
+                    "urlImage": _urlImage
+                }
+            }
         )
         if dbResponse.modified_count == 1:
 
-            return Response(
-                response=json.dumps({"message": "contemplation updated"}),
-                status=200,
-                mimetype="application/json"
-            )
+            resp = jsonify("Exito, usuario actualizado")
+            resp.status_code = 200
+            return resp
+
         else:
-            return Response(
-                response=json.dumps({"message": "nothing to contemplation"}),
-                status=200,
-                mimetype="application/json"
-            )
+            message = {
+                'status': 404,
+                'message': 'Not Found '+ request.url  
+            }
+            resp = jsonify(message)
+            return resp
     except Exception as ex:
         print(ex)
         return Response(
@@ -583,61 +502,88 @@ def obtener_ejercicios_por_userid(id):
 ###################################### Actualizar ejercicio espiritual por id ##########################################
 
 
-@app.route('/SpiritualExercises/update/<id>', methods=["POST"])
+@app.route('/SpiritualExercises/update/<id>', methods=["PUT"])
 def actualizar_ejercicio_espiritual(id):
     try:
+        _id = id
+        _json = request.json
+        _type = _json['type'] 
+        _dayIndex = _json['dayIndex']
+        _title = _json['title']
+        _sentenceone = _json['sentenceone']
+        _sentencetwo = _json['sentencetwo']
+        _urlAudio = _json['urlAudio']
+        _urlImage = _json['urlImage']
 
-        dbResponse = db.spiritualexercises.update_one(
-            {"_id": ObjectId(id)},
-            {"$set": {
-                "_id": ObjectId(request.form["_id"]),
-                "dayIndex": request.form["dayIndex"],
-                "title": request.form["title"],
-                "sentenceone": request.form["sentenceone"],
-                "sentencetwo": request.form["sentencetwo"],
-                "urlAudio": request.form["urlAudio"],
-                "urlImage": request.form["urlImage"]}}
-        )
-        if dbResponse.modified_count == 1:
-            return Response(
-                response=json.dumps({"message": "exercise updated"}),
-                status=200,
-                mimetype="application/json")
-        else:
-            return Response(
-                response=json.dumps({"message": "nothing to contemplation"}),
-                status=200,
-                mimetype="application/json"
+        if _title and _sentenceone and _sentencetwo and _urlAudio and _urlImage and request.method =='PUT':
+            id = db.spiritualexercises.update_one(
+                {
+                        '_id':ObjectId(_id['$oid']) if '$oid' in _id else ObjectId(_id)
+                },
+                {"$set": 
+                    {
+                        'type': _type,
+                        'dayIndex': _dayIndex,
+                        "title": _title,
+                        "sentenceone": _sentenceone,
+                        "sentencetwo": _sentencetwo,
+                        "urlAudio": _urlAudio,
+                        "urlImage": _urlImage
+                    }
+                }
             )
+            resp = jsonify("Exito, usuario actualizado")
+            resp.status_code = 200
+            return resp
 
+        else:
+            message = {
+                'status': 404,
+                'message': 'Not Found '+ request.url  
+            }
+            resp = jsonify(message)
+            return resp
     except Exception as ex:
         print(ex)
-        return Response(
-            response=json.dumps({"message": "can not update the exercise"}),
-            status=500,
-            mimetype="application/json")
-############################################Eliminar ejercicio por id##################################
-
-
-@app.route("/SpiritualExercises/<id>", methods=["DELETE"])
-def eliminar_ejercicio_espirirtual(id):
-    try:
-        dbResponse = db.spiritualexercises.delete_one({"_id": ObjectId(id)})
-        for atributos in dir(dbResponse):
-            print("******{}******".format(atributos))
         return Response(
             response=json.dumps(
-                {"message": "exercise deleted", "id": f"{id}"}),
-            status=200,
+                {"message": "can not update the contemplation"}),
+            status=500,
             mimetype="application/json"
         )
-
+############################################Eliminar ejercicio por id##################################
+@app.route('/SpiritualExercises/delete/day=<day>&type=<type>', methods=["DELETE"])
+def eliminar_ejercicio_espiritual(day,type):
+    try:
+        print(day+' '+type)
+        _day = day
+        _type = type
+        print(_day+' '+_type)
+        id = db.spiritualexercises.update_one(
+            {
+                    'dayIndex':_day,
+                    'type':_type
+            },
+            {"$set": 
+                {
+                    "title": "",
+                    "sentenceone": "",
+                    "sentencetwo": "",
+                    "urlAudio": "",
+                    "urlImage": ""
+                }
+            }
+        )
+        print(id)
+        resp = jsonify("Exito, ejercicio eliminado")
+        print(resp)
+        resp.status_code = 200
+        return resp
     except Exception as ex:
-        print("************")
         print(ex)
-        print("************")
         return Response(
-            response=json.dumps({"message": "can not delete this exercise"}),
+            response=json.dumps(
+                {"message": "can not update the contemplation"}),
             status=500,
             mimetype="application/json"
         )

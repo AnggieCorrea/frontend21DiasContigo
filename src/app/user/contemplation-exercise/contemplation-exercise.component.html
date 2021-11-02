@@ -1,17 +1,24 @@
-<body class="mainBody">
+<body class="mainBody"  [ngStyle]="{'background-image': 'url('+urlImage+')'}">
   <app-navbar></app-navbar>
   <div class="content">
-    <h2>Día 1 | Título Contemplación</h2>
+    <h2>{{dayIndex}} | {{title}}</h2>
     <h1>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et soluta
-      aspernatur culpa magni perferendis.
+      {{sentenceone}}
     </h1>
     <h1>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. At aperiam eaque
-      expedita distinctio temporibus.
+      {{sentencetwo}}
     </h1>
     <div class="content">
-      <app-audio-player></app-audio-player>
+      <div class="audioContainer">
+        <ul>
+          <button class="writeNavButton" (click)="openFile(urlAudio)">
+            Cargar Audio
+          </button>
+          <audio controls id="audio" >
+            <source type="audio/mp3" />
+          </audio>
+        </ul>
+      </div>
 
       <div class="considerationNavButtons" *ngIf="showSpam == true">
         <h5>

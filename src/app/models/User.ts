@@ -1,5 +1,6 @@
 import { ContemplationConsideration } from './ContemplationConsideration';
 import { PauseConsideration } from './PauseConsideration';
+import { SpiritualExercise } from './SpiritualExercise';
 
 export interface UserInterface {
   idUser: number;
@@ -12,8 +13,7 @@ export interface UserInterface {
   password: string;
   urlImage: string;
   role: string;
-  listIdsCompletedPauses: number[];
-  listIdsCompletedContemplations: number[];
+  listCompletedExercises: SpiritualExercise[];
   pauseConsiderationList: PauseConsideration[];
   contemplationConsiderationList: ContemplationConsideration[];
 }
@@ -29,8 +29,7 @@ export class User implements UserInterface {
   password: string;
   urlImage: string;
   role: string;
-  listIdsCompletedPauses: number[];
-  listIdsCompletedContemplations: number[];
+  listCompletedExercises: SpiritualExercise[];
   pauseConsiderationList: PauseConsideration[];
   contemplationConsiderationList: ContemplationConsideration[];
 
@@ -44,8 +43,7 @@ export class User implements UserInterface {
     email: string,
     role: string,
     urlImage: string,
-    listIdsCompletedPauses: number[],
-    listIdsCompletedContemplations: number[],
+    listCompletedExercises: SpiritualExercise[],
     pauseConsiderationList: PauseConsideration[],
     contemplationConsiderationList: ContemplationConsideration[]
   ) {
@@ -58,8 +56,7 @@ export class User implements UserInterface {
     this.password = password;
     this.role = role;
     this.urlImage = urlImage;
-    this.listIdsCompletedPauses= listIdsCompletedPauses;
-    this.listIdsCompletedContemplations= listIdsCompletedContemplations;
+    this.listCompletedExercises= listCompletedExercises;
     this.pauseConsiderationList = pauseConsiderationList;
     this.contemplationConsiderationList = contemplationConsiderationList;
   }
@@ -95,11 +92,8 @@ export class User implements UserInterface {
   getUrlImage(): string {
     return this.urlImage;
   }
-  getListIdsCompletedPauses(): number[] {
-    return this.listIdsCompletedPauses;
-  }
-  getListIdsCompletedContemplations(): number[] {
-    return this.listIdsCompletedContemplations;
+  getListIdsCompletedExercises(): SpiritualExercise[] {
+    return this.listCompletedExercises;
   }
   getPauseConsiderationList(): PauseConsideration[] {
     return this.pauseConsiderationList;
@@ -136,11 +130,8 @@ export class User implements UserInterface {
   setUrlImage(urlImage: string): void {
     this.urlImage = urlImage;
   }
-  setListIdsCompletedPauses(listIdsCompletedExercises: number[]): void {
-    this.listIdsCompletedPauses = listIdsCompletedExercises;
-  }
-  setListIdsCompletedContemplations(listIdsCompletedExercises: number[]): void {
-    this.listIdsCompletedContemplations = listIdsCompletedExercises;
+  setListCompletedExercises(listCompletedExercises: SpiritualExercise[]): void {
+    this.listCompletedExercises = listCompletedExercises;
   }
   setPauseConsiderationList(
     pauseConsiderationList: PauseConsideration[]

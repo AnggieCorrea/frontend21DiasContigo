@@ -54,15 +54,11 @@ def obtener_usuario_por_email():
     try:
         _json = request.json
         _email = _json['email']
-        print(_email)
         _hashed_password = _json['password']
-        print(_hashed_password)
         datos = db.usuarios.find_one({"email": _email})
-        print(datos)
-        if check_password_hash(datos['password'],_hashed_password):
-            resp = dp(datos)
-            return resp
-        else:
+        resp = dp(datos)
+        return resp
+        '''else:
             usuario = {
                 'name': '',
                 'lastName': '',
@@ -73,13 +69,13 @@ def obtener_usuario_por_email():
                 'country': '',
                 'role': '',
                 'urlImage': '',
-                'listIdsCompletedPauses': [],
-                'listIdsCompletedContemplations': [],
+                'listCompletedExercises':[],
                 'pauseConsiderationList': [],
                 'contemplationConsiderationList': []
             }
+            print(usuario)
             resp = dp(usuario)
-            return resp
+            return resp'''
     except Exception as ex:
         print(ex)
         message = {
@@ -103,8 +99,7 @@ def crear_usuario():
         _country = _json['country']
         _role = _json['role']
         _urlImage = _json['urlImage']
-        _listIdsCompletedPauses = _json['listIdsCompletedPauses']
-        _listIdsCompletedContemplations = _json['listIdsCompletedContemplations']
+        _listCompletedExercises = _json['listCompletedExercises']
         _pauseConsiderationList = _json['pauseConsiderationList']
         _contemplationConsiderationList = _json['contemplationConsiderationList']
 
@@ -120,12 +115,12 @@ def crear_usuario():
                 'country': _country,
                 'role': _role,
                 'urlImage': _urlImage,
-                'listIdsCompletedPauses': _listIdsCompletedPauses,
-                'listIdsCompletedContemplations': _listIdsCompletedContemplations,
+                'listCompletedExercises':_listCompletedExercises,
                 'pauseConsiderationList': _pauseConsiderationList,
                 'contemplationConsiderationList': _contemplationConsiderationList
             }
             id = db.usuarios.insert(usuario)
+
             print("cree el usuario")
             resp = jsonify("Exito, usuario añadido")
             resp.status_code = 200
@@ -159,8 +154,7 @@ def actualizar_usuario(id):
         _country = _json['country']
         _role = _json['role']
         _urlImage = _json['urlImage']
-        _listIdsCompletedPauses = _json['listIdsCompletedPauses']
-        _listIdsCompletedContemplations = _json['listIdsCompletedContemplations']
+        _listCompletedExercises = _json['listCompletedExercises']
         _pauseConsiderationList = _json['pauseConsiderationList']
         _contemplationConsiderationList = _json['contemplationConsiderationList']
 
@@ -182,8 +176,7 @@ def actualizar_usuario(id):
                         'country': _country,
                         'role': _role,
                         'urlImage': _urlImage,
-                        'listIdsCompletedPauses': _listIdsCompletedPauses,
-                        'listIdsCompletedContemplations': _listIdsCompletedContemplations,
+                        'listCompletedExercises': _listCompletedExercises,
                         'pauseConsiderationList': _pauseConsiderationList,
                         'contemplationConsiderationList': _contemplationConsiderationList        
                     }
@@ -205,142 +198,7 @@ def actualizar_usuario(id):
         print("***********")
         print(ex)
         print("***********")
-##################################ELIMINAR USUSARIO###################################################
 
-
-@app.route("/usuarios/<id>", methods=["DELETE"])
-def eliminar_usuario(id):
-    try:
-        dbResponse = db.usuarios.delete_one({"_id": ObjectId(id)})
-        for atributos in dir(dbResponse):
-            print("******{}******".format(atributos))
-        return Response(
-            response=json.dumps({"message": "user deleted", "id": f"{id}"}),
-            status=200,
-            mimetype="application/json"
-        )
-
-    except Exception as ex:
-        print("************")
-        print(ex)
-        print("************")
-        return Response(
-            response=json.dumps({"message": "can not delete this user"}),
-            status=500,
-            mimetype="application/json"
-        )
-###################################################CONTEMPLACIONES#################################################
-
-
-@app.route('/contemplaciones', methods=['POST'])
-def crear_contemplacion():
-    try:
-        contemplacion = {'titulo': request.form["titulo"],
-                         'descripcion': request.form["descripcion"],
-                         'dia': request.form["dia"],
-                         'url': request.form["url"]
-                         }
-        dbResponse = db.contemplaciones.insert_one(contemplacion)
-        print(dbResponse.inserted_id)
-        return Response(
-            response=json.dumps(
-                {"message": "reflection created", "id": "{}".format(dbResponse.inserted_id)}),
-            status=200,
-            mimetype="application/json"
-        )
-
-    except Exception as ex:
-        print("***********")
-        print(ex)
-        print("***********")
-#########################################OBTENER CONTEMPLACION#################################################
-
-
-@app.route('/contemplaciones', methods=['GET'])
-def obtener_contemplacion():
-    try:
-        datos = list(db.contemplaciones.find())
-        for reflexion in datos:
-            reflexion["_id"] = str(reflexion["_id"])
-        return Response(
-            response=json.dumps(datos),
-            status=500,
-            mimetype="application/json"
-        )
-    except Exception as ex:
-        print(ex)
-        return Response(
-            response=json.dumps({"message": "can not obtain reflection"}),
-            status=500,
-            mimetype="application/json"
-        )
-#######################################ACTUALIZARCONTEMPLACION###############################################################
-
-
-@app.route('/contemplaciones/<dia>', methods=['PUT'])
-def actulizar_contemplacion(dia):
-    try:
-        _json = request.json
-        _title = _json['title']
-        _sentenceone = _json['sentenceone']
-        _sentencetwo = _json['sentencetwo']
-        _urlAudio = _json['urlAudio']
-        _urlImage = _json['urlImage']
-
-        dbResponse = db.contemplaciones.update_one(
-            {"dayIndex": dia},
-            {"$set": 
-                {
-                    "title": _title,
-                    "sentenceone": _sentenceone,
-                    "sentencetwo": _sentencetwo,
-                    "urlAudio": _urlAudio,
-                    "urlImage": _urlImage
-                }
-            }
-        )
-        if dbResponse.modified_count == 1:
-
-            resp = jsonify("Exito, usuario actualizado")
-            resp.status_code = 200
-            return resp
-
-        else:
-            message = {
-                'status': 404,
-                'message': 'Not Found '+ request.url  
-            }
-            resp = jsonify(message)
-            return resp
-    except Exception as ex:
-        print(ex)
-        return Response(
-            response=json.dumps(
-                {"message": "can not update the contemplation"}),
-            status=500,
-            mimetype="application/json"
-        )
-###############################################ELIMINARCONTEMPLACION######################
-
-
-@app.route('/contemplaciones/<dia>', methods=['Delete'])
-def eliminar_contemplacion(dia):
-    try:
-        dbResponse = db.contemplaciones.delete_one({'dia': dia})
-        return Response(
-            response=json.dumps(
-                {"message": "contemplation deleted", "day": f"{dia}"}),
-            status=200,
-            mimetype="application/json"
-        )
-    except Exception as ex:
-        print(ex)
-        return Response(
-            response=json.dumps(
-                {"message": "can not update the contemplation"}),
-            status=500,
-            mimetype="application/json"
-        )
 ####################################Ejercicios Espirirtuales#####################################################
 
 
@@ -386,7 +244,7 @@ def obtener_ejercicios():
             ejercicio["_id"] = str(ejercicio["_id"])
         return Response(
             response=json.dumps(ejercicios),
-            status=500,
+            status=200,
             mimetype="application/json"
         )
     except Exception as ex:
@@ -403,8 +261,8 @@ def obtener_ejercicios():
 def obtener_ejercicio_por_id(id):
     try:
         ejercicio = db.spiritualexercises.find_one({"_id": ObjectId(id)})
+        print(ejercicio)
         ejercicio["_id"] = str(ejercicio["_id"])
-        ejercicio["urlImage"] = str(ejercicio["urlImage"])
         return Response(
             response=json.dumps(ejercicio),
             status=200,
@@ -587,40 +445,33 @@ def eliminar_ejercicio_espiritual(day,type):
             status=500,
             mimetype="application/json"
         )
-################################ ContemplationConsideration######################################
-
-
-@app.route('/ContemplationConsideration', methods=['POST'])
-def crear_contemplation():
+################################ MapaUsuario ######################################
+@app.route('/user/mapa/<type>', methods=['GET'])
+def obtener_mapa_tipo(type):
     try:
-        print("inicio")
-        contemplacion = {
-            'title': request.form["title"],
-            'dayIndex': request.form["dayIndex"],
-            'type': request.form["type"],
-            'creationDate': request.form["creationDate"],
-            'urlConsiderationAudio': request.form["urlConsiderationAudio"],
-            'considerationText': request.form["considerationText"],
-            'idUser': request.form["idUser"]
-        }
-        print("cree el usuario")
-        dbResponse = db.ContemplationConsideration.insert_one(contemplacion)
-        print("entre")
-        print(dbResponse.inserted_id)
-        # for atributos in dir(dbResponse):
-        # print(atributos)
+        _type = type
 
+        mapas = list(db.Map.find({
+            'type':_type
+        }))
+        for mapa in mapas:
+            mapa["_id"] = str(mapa["_id"])
+        
         return Response(
-            response=json.dumps(
-                {"message": "contemplation created", "id": "{}".format(dbResponse.inserted_id)}),
+            response=json.dumps(mapas),
             status=200,
             mimetype="application/json"
         )
 
     except Exception as ex:
-        print("***********")
         print(ex)
-        print("***********")
+        return Response(
+            response=json.dumps({"message": "can not obtain contemplations"}),
+            status=500,
+            mimetype="application/json"
+        )
+
+
 #########################################################Consultar Contemplation####################################################
 
 
@@ -632,7 +483,7 @@ def obtener_contemplations():
             contemplacion["_id"] = str(contemplacion["_id"])
         return Response(
             response=json.dumps(contemplations),
-            status=500,
+            status=200,
             mimetype="application/json"
         )
     except Exception as ex:
@@ -696,6 +547,26 @@ def eliminar_contemplation(id):
             status=500,
             mimetype="application/json"
         )
+
+################################## GET POSICIONES GENERICAS ###################################
+@app.route('/posiciones', methods=["GET"])
+def obtener_posiciones():
+    try:
+        dbResponse = list(db.genericPositions.find({},{'_id': 0}))
+        return Response(
+            response=json.dumps(dbResponse),
+            status=200,
+            mimetype="application/json"
+        )
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps(
+                {"message": "can not delete the contemplation"}),
+            status=500,
+            mimetype="application/json"
+        )
+
 
 
 if __name__ == "__main__":

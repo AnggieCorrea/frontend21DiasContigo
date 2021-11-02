@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Position } from 'src/app/models/Position';
+import { SpiritualExercise } from 'src/app/models/SpiritualExercise';
 import { ContTileMapService } from 'src/app/services/cont-tile-map.service';
+import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.service';
 
 @Component({
   selector: 'app-contemplation-list',
@@ -8,7 +11,7 @@ import { ContTileMapService } from 'src/app/services/cont-tile-map.service';
   styleUrls: ['./contemplation-list.component.scss'],
 })
 export class ContemplationListComponent implements OnInit {
-  contemplaciones = [
+  /*contemplaciones = [
     {
       nombre: '1',
       completado: 'true',
@@ -157,19 +160,40 @@ export class ContemplationListComponent implements OnInit {
       column: '1',
     },
   ];
-  rows: any[] = [];
+  rows: any[] = [];*/
+  
+  foundContemplation: SpiritualExercise;
+  positions : Position[];
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router /*private contemplationMap: MapService*/,
-    private _contTileMap: ContTileMapService
+    private _spiritualExerciseService: SpiritualExerciseService
   ) {
-    _contTileMap.cargar();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._spiritualExerciseService.getPositions()
+      .subscribe(
+        (result)=>{
+          this.positions=result;
+          console.log(this.positions);       
+        }
+      )
+  }
 
   navSpiritualExcercise(dia: string) {
-    this.router.navigate(['/spiritualExcercise']);
+    console.log(dia);
+    this._spiritualExerciseService.getSpiritualExerciseByDayAndType(dia,"contemplation")
+      .subscribe(
+        (result)=>{
+          this.foundContemplation = result;
+          console.log(this.foundContemplation);
+          this.router.navigate(['/contemplationExercise/'+this.foundContemplation._id]);
+        },
+        (error) => {
+          console.log(error);
+        }
+    )
   }
 }

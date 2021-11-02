@@ -1,235 +1,235 @@
 <app-navbar></app-navbar>
 
 <div class="mainBody">
-  <h1>Mi camino de contemplaciones</h1>
+  <h1>Mi camino de positiones</h1>
   <table class="buttonsContainer">
-    <tr *ngFor="let contemplacion of contemplaciones">
+    <tr *ngFor="let position of positions">
       <td
         *ngIf="
-          contemplacion.deshabilitado == contemplacion.completado &&
-          contemplacion.even == 'top' &&
-          contemplacion.column == '1'
+          position.disable == position.completed &&
+          position.even == 'top' &&
+          position.column == '1'
         "
         class="excerciseButton DesTopButton"
-        (click)="navSpiritualExcercise('dia1')"
+        (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ contemplacion.nombre }}
+        Contemplación {{ position.name }}
       </td>
 
       <td
         *ngIf="
-          contemplacion.deshabilitado == contemplacion.completado &&
-          contemplacion.even == 'mid' &&
-          contemplacion.column == '1'
+          position.disable == position.completed &&
+          position.even == 'mid' &&
+          position.column == '1'
         "
         class="excerciseButton DesMidButton"
-        (click)="navSpiritualExcercise('dia1')"
+        (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ contemplacion.nombre }}
+        Contemplación {{ position.name }}
       </td>
 
       <td
         *ngIf="
-          contemplacion.deshabilitado == contemplacion.completado &&
-          contemplacion.even == 'bot' &&
-          contemplacion.column == '1'
+          position.disable == position.completed &&
+          position.even == 'bot' &&
+          position.column == '1'
         "
         class="excerciseButton DesBotButton"
-        (click)="navSpiritualExcercise('dia1')"
+        (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ contemplacion.nombre }}
+        Contemplación {{ position.name }}
       </td>
 
       <td
         *ngIf="
-          contemplacion.deshabilitado != contemplacion.completado &&
-          contemplacion.deshabilitado == 'true' &&
-          contemplacion.even == 'top' &&
-          contemplacion.column == '1'
+          position.disable != position.completed &&
+          position.disable == 'true' &&
+          position.even == 'top' &&
+          position.column == '1'
         "
         class="excerciseButtonDisable DesTopButton"
-        (click)="navSpiritualExcercise('dia1')"
+        (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ contemplacion.nombre }}
+        Contemplación {{ position.name }}
       </td>
 
       <td
         *ngIf="
-          contemplacion.deshabilitado != contemplacion.completado &&
-          contemplacion.deshabilitado == 'true' &&
-          contemplacion.even == 'mid' &&
-          contemplacion.column == '1'
+          position.disable != position.completed &&
+          position.disable == 'true' &&
+          position.even == 'mid' &&
+          position.column == '1'
         "
         class="excerciseButtonDisable DesMidButton"
-        (click)="navSpiritualExcercise('dia1')"
+        (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ contemplacion.nombre }}
+        Contemplación {{ position.name }}
       </td>
 
       <td
         *ngIf="
-          contemplacion.deshabilitado != contemplacion.completado &&
-          contemplacion.deshabilitado == 'true' &&
-          contemplacion.even == 'bot' &&
-          contemplacion.column == '1'
+          position.disable != position.completed &&
+          position.disable == 'true' &&
+          position.even == 'bot' &&
+          position.column == '1'
         "
         class="excerciseButtonDisable DesBotButton"
-        (click)="navSpiritualExcercise('dia1')"
+        (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ contemplacion.nombre }}
+        Contemplación {{ position.name }}
       </td>
 
       <td
         *ngIf="
-          contemplacion.deshabilitado != contemplacion.completado &&
-          contemplacion.completado == 'true' &&
-          contemplacion.even == 'top' &&
-          contemplacion.column == '1'
+          position.disable != position.completed &&
+          position.completed == 'true' &&
+          position.even == 'top' &&
+          position.column == '1'
         "
         class="excerciseButtonCompleted DesTopButton"
-        (click)="navSpiritualExcercise('dia1')"
+        (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ contemplacion.nombre }}
+        Contemplación {{ position.name }}
       </td>
 
       <td
         *ngIf="
-          contemplacion.deshabilitado != contemplacion.completado &&
-          contemplacion.completado == 'true' &&
-          contemplacion.even == 'mid' &&
-          contemplacion.column == '1'
+          position.disable != position.completed &&
+          position.completed == 'true' &&
+          position.even == 'mid' &&
+          position.column == '1'
         "
         class="excerciseButtonCompleted DesMidButton"
-        (click)="navSpiritualExcercise('dia1')"
+        (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ contemplacion.nombre }}
+        Contemplación {{ position.name }}
       </td>
 
       <td
         *ngIf="
-          contemplacion.deshabilitado != contemplacion.completado &&
-          contemplacion.completado == 'true' &&
-          contemplacion.even == 'bot' &&
-          contemplacion.column == '1'
+          position.disable != position.completed &&
+          position.completed == 'true' &&
+          position.even == 'bot' &&
+          position.column == '1'
         "
         class="excerciseButtonCompleted DesBotButton"
-        (click)="navSpiritualExcercise('dia1')"
+        (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ contemplacion.nombre }}
+        Contemplación {{ position.name }}
       </td>
 
       <td
         *ngIf="
-          contemplacion.deshabilitado == contemplacion.completado &&
-          contemplacion.even == 'top' &&
-          contemplacion.column == '2'
+          position.disable == position.completed &&
+          position.even == 'top' &&
+          position.column == '2'
         "
         class="excerciseButton AscTopButton"
-        (click)="navSpiritualExcercise('dia1')"
+        (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ contemplacion.nombre }}
+        Contemplación {{ position.name }}
       </td>
 
       <td
         *ngIf="
-          contemplacion.deshabilitado == contemplacion.completado &&
-          contemplacion.even == 'mid' &&
-          contemplacion.column == '2'
+          position.disable == position.completed &&
+          position.even == 'mid' &&
+          position.column == '2'
         "
         class="excerciseButton AscMidButton"
-        (click)="navSpiritualExcercise('dia1')"
+        (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ contemplacion.nombre }}
+        Contemplación {{ position.name }}
       </td>
 
       <td
         *ngIf="
-          contemplacion.deshabilitado == contemplacion.completado &&
-          contemplacion.even == 'bot' &&
-          contemplacion.column == '2'
+          position.disable == position.completed &&
+          position.even == 'bot' &&
+          position.column == '2'
         "
         class="excerciseButton AscBotButton"
-        (click)="navSpiritualExcercise('dia1')"
+        (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ contemplacion.nombre }}
+        Contemplación {{ position.name }}
       </td>
 
       <td
         *ngIf="
-          contemplacion.deshabilitado != contemplacion.completado &&
-          contemplacion.deshabilitado == 'true' &&
-          contemplacion.even == 'top' &&
-          contemplacion.column == '2'
+          position.disable != position.completed &&
+          position.disable == 'true' &&
+          position.even == 'top' &&
+          position.column == '2'
         "
         class="excerciseButtonDisable AscTopButton"
-        (click)="navSpiritualExcercise('dia1')"
+        (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ contemplacion.nombre }}
+        Contemplación {{ position.name }}
       </td>
 
       <td
         *ngIf="
-          contemplacion.deshabilitado != contemplacion.completado &&
-          contemplacion.deshabilitado == 'true' &&
-          contemplacion.even == 'mid' &&
-          contemplacion.column == '2'
+          position.disable != position.completed &&
+          position.disable == 'true' &&
+          position.even == 'mid' &&
+          position.column == '2'
         "
         class="excerciseButtonDisable AscMidButton"
-        (click)="navSpiritualExcercise('dia1')"
+        (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ contemplacion.nombre }}
+        Contemplación {{ position.name }}
       </td>
 
       <td
         *ngIf="
-          contemplacion.deshabilitado != contemplacion.completado &&
-          contemplacion.deshabilitado == 'true' &&
-          contemplacion.even == 'bot' &&
-          contemplacion.column == '2'
+          position.disable != position.completed &&
+          position.disable == 'true' &&
+          position.even == 'bot' &&
+          position.column == '2'
         "
         class="excerciseButtonDisable AscBotButton"
-        (click)="navSpiritualExcercise('dia1')"
+        (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ contemplacion.nombre }}
+        Contemplación {{ position.name }}
       </td>
 
       <td
         *ngIf="
-          contemplacion.deshabilitado != contemplacion.completado &&
-          contemplacion.completado == 'true' &&
-          contemplacion.even == 'top' &&
-          contemplacion.column == '2'
+          position.disable != position.completed &&
+          position.completed == 'true' &&
+          position.even == 'top' &&
+          position.column == '2'
         "
         class="excerciseButtonCompleted AscTopButton"
-        (click)="navSpiritualExcercise('dia1')"
+        (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ contemplacion.nombre }}
+        Contemplación {{ position.name }}
       </td>
 
       <td
         *ngIf="
-          contemplacion.deshabilitado != contemplacion.completado &&
-          contemplacion.completado == 'true' &&
-          contemplacion.even == 'mid' &&
-          contemplacion.column == '2'
+          position.disable != position.completed &&
+          position.completed == 'true' &&
+          position.even == 'mid' &&
+          position.column == '2'
         "
         class="excerciseButtonCompleted AscMidButton"
-        (click)="navSpiritualExcercise('dia1')"
+        (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ contemplacion.nombre }}
+        Contemplación {{ position.name }}
       </td>
 
       <td
         *ngIf="
-          contemplacion.deshabilitado != contemplacion.completado &&
-          contemplacion.completado == 'true' &&
-          contemplacion.even == 'bot' &&
-          contemplacion.column == '2'
+          position.disable != position.completed &&
+          position.completed == 'true' &&
+          position.even == 'bot' &&
+          position.column == '2'
         "
         class="excerciseButtonCompleted AscBotButton"
-        (click)="navSpiritualExcercise('dia1')"
+        (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ contemplacion.nombre }}
+        Contemplación {{ position.name }}
       </td>
 
            

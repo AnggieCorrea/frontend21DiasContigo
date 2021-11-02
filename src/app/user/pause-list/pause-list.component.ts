@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Position } from 'src/app/models/Position';
+import { SpiritualExercise } from 'src/app/models/SpiritualExercise';
 import { ContTileMapService } from 'src/app/services/cont-tile-map.service';
+import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.service';
 
 @Component({
   selector: 'app-pause-list',
@@ -8,7 +11,7 @@ import { ContTileMapService } from 'src/app/services/cont-tile-map.service';
   styleUrls: ['./pause-list.component.scss'],
 })
 export class PauseListComponent implements OnInit {
-  pausas = [
+  /*pausas = [
     {
       nombre: '1',
       completado: 'true',
@@ -156,19 +159,41 @@ export class PauseListComponent implements OnInit {
       even: 'bot',
       column: '1',
     },
-  ];
+  ];*/
+
+  positions : Position[];
+  foundPause : SpiritualExercise;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router /*private contemplationMap: MapService*/,
-    private _pauseTileMap: ContTileMapService
+    private _spiritualExerciseService: SpiritualExerciseService
   ) {
-    _pauseTileMap.cargar();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._spiritualExerciseService.getPositions()
+      .subscribe(
+        (result)=>{
+          this.positions=result;
+          console.log(this.positions);       
+        }
+      )
+
+  }
 
   navSpiritualExcercise(dia: string) {
-    this.router.navigate(['/pauseExcercise']);
+    console.log(dia);
+    this._spiritualExerciseService.getSpiritualExerciseByDayAndType(dia,"pause")
+      .subscribe(
+        (result)=>{
+          this.foundPause = result;
+          console.log(this.foundPause);
+          this.router.navigate(['/pauseExercise/'+this.foundPause._id]);
+        },
+        (error) => {
+          console.log(error);
+        }
+    )
   }
 }

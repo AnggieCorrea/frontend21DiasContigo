@@ -6,7 +6,7 @@ import { ContemplationListComponent } from './user/contemplation-list/contemplat
 import { PauseListComponent } from './user/pause-list/pause-list.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { SettingsComponent } from './user/settings/settings.component';
-import { SpiritualExerciseComponent } from './user/spiritual-exercise/spiritual-exercise.component';
+import { ContemplationExerciseComponent} from './user/contemplation-exercise/contemplation-exercise.component';
 import { LandingComponent } from './public/landing/landing.component';
 import { HomeComponent } from './user/home/home.component';
 import { HomeAdministrationComponent } from './admin/home-administration/home-administration.component';
@@ -68,11 +68,11 @@ const routes: Routes = [
     component: SettingsComponent,
   },
   {
-    path: 'spiritualExcercise',
-    component: SpiritualExerciseComponent,
+    path: 'contemplationExercise/:id',
+    component: ContemplationExerciseComponent,
   },
   {
-    path: 'pauseExcercise',
+    path: 'pauseExercise/:id',
     component: PauseExerciseComponent,
   },
   {

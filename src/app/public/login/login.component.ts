@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   checkUser(): void {
-    this.user = new User("","",this.password,"","","",this.email,"","",[],[],[],[]);
+    this.user = new User("","",this.password,"","","",this.email,"","",[],[],[]);
     this.userService.getUserByEmail(this.user).subscribe((userFound: User) => {
       this.userF = userFound;
       if (this.userF.email != "") {

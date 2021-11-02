@@ -1,14 +1,15 @@
-*{
-  box-sizing: border-box;
-  font-family: "Montserrat Alternates", sans-serif;
-  font-weight: bold;
-  font-size: small;
-  margin: 0px;
-  padding: 0px;
-  overflow: auto;
+* {
+    box-sizing: border-box;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: bold;
+    font-size: smaller;
+    margin: 0px;
+    padding: 0px;
+    overflow: auto;
 }
 
 .mainBody {
+  //background: url('/assets/candle.gif');
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -27,23 +28,17 @@ h1 {
 
 h2 {
   color: #247cff;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 h4 {
   color: #a5a5a5;
-  margin-bottom: 0.5rem;
+  margin-bottom: 3rem;
 }
 
 h5 {
   color: #247cff;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-h6 {
-  color: #3a3a3a;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .content {
@@ -64,13 +59,20 @@ h6 {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-.considerationNavButtons{
+.considerationNavButtons {
+  width: 90%;
+  margin-top: 20px;
+  padding-top: 10px;
+  border-radius: 2rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
-.formNavButton {
-  width: 100%;
+.recordNavButton {
+  width: 40%;
   padding-top: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -81,18 +83,7 @@ h6 {
   transition: 0.2s;
 }
 
-.completeNavButton {
-  width: 100%;
-  padding-top: 1rem;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  text-align: center;
-  border-radius: 2rem;
-  border-style: none;
-  transition: 0.2s;
-}
-
-.loadAudio {
+.writeNavButton {
   width: 40%;
   padding-top: 1rem;
   margin-bottom: 1rem;
@@ -103,39 +94,34 @@ h6 {
   transition: 0.2s;
 }
 
-.slider {
-  -webkit-appearance: none; /* Override default CSS styles */
-  appearance: none;
-  width: 100%; /* Full-width */
-  height: 25px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
-  transition: opacity 0.2s;
+.skipNavButton {
+  width: 40%;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  border-radius: 2rem;
+  border-style: none;
+  transition: 0.2s;
 }
 
-/* Mouse-over effects */
-.slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
+.sliderContainer {
+  width: 100%;
+  height: 100%;
+  margin-top: 3rem;
+  background-color: transparent;
+  transition: 2s;
 }
 
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- 
-    (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #4caf50; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-}
-
-.slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #4caf50; /* Green background */
-  cursor: pointer; /* Cursor on hover */
+textarea {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  padding: 1rem;
+  max-width: 100%;
+  line-height: 1.5;
+  border-radius: 1rem;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #999;
 }
 
 .sendButton {
@@ -189,30 +175,14 @@ h6 {
   align-content: center;
 }
 
-.slider-wrapper {
-  display: inline-block;
-  width: 100%;
-  height: 150px;
-  padding: 0;
-  overflow: hidden;
-}
-
-.slider-wrapper input {
-  width: 150px;
-  height: 20px;
-  margin: 0;
-  transform-origin: 75px 75px;
-  transform: rotate(-90deg);
-}
-
 .audioContainer {
   padding: 40px;
   margin-top: 20px;
   padding-top: 10px;
   padding-left: 14rem;
   padding-right: 14rem;
-  width: 90%;
-  height: wrap;
+  width: 100%;
+  height: 100%;
   border-style: none;
   border-color: rgb(128, 128, 128, 0.3);
   border-radius: 2rem;
@@ -364,8 +334,9 @@ input[type="range"]::-ms-fill-upper {
     margin: 0px;
     padding: 0px;
     overflow: auto;
-  }
-  .pauseNavButtons {
+}
+
+  .considerationNavButtons {
     width: 100%;
     margin-top: 20px;
     padding-top: 10px;
@@ -375,8 +346,8 @@ input[type="range"]::-ms-fill-upper {
     align-items: center;
   }
 
-  .formNavButton {
-    width: 100%;
+  .recordNavButton {
+    width: 40%;
     padding-top: 1rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -387,8 +358,19 @@ input[type="range"]::-ms-fill-upper {
     transition: 0.2s;
   }
 
-  .completedNavButton {
-    width: 100%;
+  .writeNavButton {
+    width: 40%;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    border-radius: 2rem;
+    border-style: none;
+    transition: 0.2s;
+  }
+
+  .skipNavButton {
+    width: 40%;
     padding-top: 1rem;
     margin-bottom: 1rem;
     padding-bottom: 1rem;
@@ -402,8 +384,8 @@ input[type="range"]::-ms-fill-upper {
     padding: 40px;
     margin-top: 20px;
     padding-top: 10px;
-    width: 90%;
-    height: wrap;
+    width: 100%;
+    height: 100%;
     border-style: solid;
     border-color: rgb(128, 128, 128, 0.3);
     border-radius: 2rem;

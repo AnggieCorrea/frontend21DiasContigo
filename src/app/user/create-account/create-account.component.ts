@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContemplationConsideration } from 'src/app/models/ContemplationConsideration';
 import { PauseConsideration } from 'src/app/models/PauseConsideration';
+import { SpiritualExercise } from 'src/app/models/SpiritualExercise';
 import { User } from 'src/app/models/User';
 import { UserService } from 'src/app/services/user.service';
 
@@ -11,8 +12,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./create-account.component.scss'],
 })
 export class CreateAccountComponent implements OnInit {
-  listIdsCompletedPauses: number[] = [];
-  listIdsCompletedContemplation: number[] = [];
+  listCompletedExercises: SpiritualExercise[] = [];
   pauseConsiderationList: PauseConsideration[] = [];
   contemplationConsiderationList: ContemplationConsideration[] = [];
   user: User = new User(
@@ -25,8 +25,7 @@ export class CreateAccountComponent implements OnInit {
     '',
     'user',
     '',
-    this.listIdsCompletedPauses,
-    this.listIdsCompletedContemplation,
+    this.listCompletedExercises,
     this.pauseConsiderationList,
     this.contemplationConsiderationList
   );

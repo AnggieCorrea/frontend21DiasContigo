@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { ContemplationListComponent } from './contemplation-list/contemplation-list.component';
 import { PauseListComponent } from './pause-list/pause-list.component';
-import { SpiritualExerciseComponent } from './spiritual-exercise/spiritual-exercise.component';
+import { ContemplationExerciseComponent } from './contemplation-exercise/contemplation-exercise.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SharedComponentsModule } from '../shared-components/shared-components.module';
@@ -22,7 +22,7 @@ import { FooterUserComponent } from './footer-user/footer-user.component';
     NavbarComponent,
     ContemplationListComponent,
     PauseListComponent,
-    SpiritualExerciseComponent,
+    ContemplationExerciseComponent,
     ProfileComponent,
     SettingsComponent,
     PauseConsiderationComponent,
@@ -39,7 +39,7 @@ import { FooterUserComponent } from './footer-user/footer-user.component';
     NavbarComponent,
     ContemplationListComponent,
     PauseListComponent,
-    SpiritualExerciseComponent,
+    ContemplationExerciseComponent,
     ProfileComponent,
     SettingsComponent,
     PauseConsiderationComponent,

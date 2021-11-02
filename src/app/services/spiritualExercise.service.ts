@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { SpiritualExercise } from '../models/SpiritualExercise';
 import 'rxjs/Rx';
+import { Position } from '../models/Position';
 
 @Injectable({
   providedIn: 'root',
@@ -65,5 +66,9 @@ export class SpiritualExerciseService {
       }
     } */
     return spiritualExercises1;
+  }
+
+  getPositions(): Observable<Position[]> {
+    return this.http.get<Position[]>(this.urlBase +'/posiciones');
   }
 }

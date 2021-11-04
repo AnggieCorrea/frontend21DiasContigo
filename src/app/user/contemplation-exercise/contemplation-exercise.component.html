@@ -42,12 +42,13 @@
         <div *ngIf="showTex == true">
           <form class="formulario">
             <textarea
+              id = "areaEscrita"
               rows="8"
               cols="50"
               maxlength="700"
               placeholder="Escribe tu reflexión"
             ></textarea>
-            <button class="sendButton" (click)="navContemplationMap()">
+            <button class="sendButton" (click)="saveTextConsideration()">
               <img src="/assets/saveIcon.png" />
               Guardar
             </button>

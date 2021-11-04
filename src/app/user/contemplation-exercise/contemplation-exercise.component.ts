@@ -2,7 +2,10 @@ import { PathLocationStrategy } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SpiritualExercise } from 'src/app/models/SpiritualExercise';
+import { User } from 'src/app/models/User';
+import { communicationActiveUser } from 'src/app/services/communicationActiveUser.service';
 import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-contemplation-exercise',
@@ -10,7 +13,8 @@ import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.ser
   styleUrls: ['./contemplation-exercise.component.scss'],
 })
 export class ContemplationExerciseComponent implements OnInit {
-  
+  activeUser: string;
+  user: User;
   contemplation: SpiritualExercise;
   id:string;
   dayIndex:string;
@@ -25,8 +29,13 @@ export class ContemplationExerciseComponent implements OnInit {
   showPlay = true;
   showPause = false;
   url = '';
+  type: string;
   audioObj = new Audio();
-  constructor(private router: Router, private _spiritualExerciseService: SpiritualExerciseService, private route: ActivatedRoute) {}
+  constructor(private router: Router,
+    private _spiritualExerciseService: SpiritualExerciseService,
+    private route: ActivatedRoute,
+    private _communicationActiveUser: communicationActiveUser,
+    private _userService: UserService) {}
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -49,6 +58,7 @@ export class ContemplationExerciseComponent implements OnInit {
           console.log(error);
         }
     )
+    this.activeUser = this._communicationActiveUser.userId;
   }
 
   showRecorder() {
@@ -74,9 +84,23 @@ export class ContemplationExerciseComponent implements OnInit {
     player.load();
     player.onended = (event) => {
       this.showSpam = true;
+      this._userService.saveExercise(this.activeUser,this.id).subscribe(
+        (result)=>{
+          console.log(result);
+        },
+        (error) => {
+          console.log(error);
+        }
+    )
     };
+
   }
 
-  
+  saveAudioConsideration() {
+    this.type = 'Audio'
+  }
+  saveTextConsideration() {
+    this.type = 'Text'
+  }
 
 }

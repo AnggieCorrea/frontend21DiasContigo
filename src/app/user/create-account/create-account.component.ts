@@ -23,6 +23,7 @@ export class CreateAccountComponent implements OnInit {
     '',
     '',
     '',
+    '',
     'user',
     '',
     this.listCompletedExercises,

@@ -5,6 +5,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from bson.json_util import dumps as dp
 from pprint import pprint
+from pymongo import database
 from werkzeug.security import generate_password_hash, check_password_hash
 import certifi
 import pymongo
@@ -34,6 +35,12 @@ def obtener_usuarios():
         datos = list(db.usuarios.find())
         for usuario in datos:
             usuario["_id"] = str(usuario["_id"])
+            for exercise in usuario["listCompletedExercises"]:
+                exercise["_id"] = str(exercise["_id"])
+            for pauseCons in usuario["pauseConsiderationList"]:
+                pauseCons["_id"] = str(pauseCons["_id"])
+            for contemCons in usuario["contemplationConsiderationList"]:
+                contemCons["_id"] = str(contemCons["_id"])
         return Response(
             response=json.dumps(datos),
             status=200,
@@ -56,6 +63,13 @@ def obtener_usuario_por_email():
         _email = _json['email']
         _hashed_password = _json['password']
         datos = db.usuarios.find_one({"email": _email})
+        datos["_id"] = str(datos["_id"])
+        for exercise in datos["listCompletedExercises"]:
+            exercise["_id"] = str(exercise["_id"])
+        for pauseCons in datos["pauseConsiderationList"]:
+            pauseCons["_id"] = str(pauseCons["_id"])
+        for contemCons in datos["contemplationConsiderationList"]:
+            contemCons["_id"] = str(contemCons["_id"])
         resp = dp(datos)
         return resp
         '''else:
@@ -90,6 +104,7 @@ def obtener_usuario_por_email():
 def crear_usuario():
     try:
         _json = request.json
+        _id = _json['_id']
         _name = _json['name']
         _lastName = _json['lastName']
         _password = _json['password']
@@ -137,6 +152,42 @@ def crear_usuario():
         print("***********")
         print(ex)
         print("***********")
+
+###############################CREARUSUSARIO####################################################
+@app.route('/usuarios/saveExercise/idUser=<idUser>&idExercise=<idExercise>', methods=['PUT'])
+def save_exercise(idUser,idExercise):
+    try:
+        exercise = db.spiritualexercises.find_one({'_id':ObjectId(idExercise)})
+        existentExercise = db.usuarios.find_one({
+            '_id':ObjectId(idUser),
+            'listCompletedExercises':{
+                 '$in':[exercise]
+                }
+            })
+        if existentExercise and request.method == 'PUT':
+            message = {
+                'status': 404,
+                'message': 'Not Found '+ request.url  
+            }
+            resp = jsonify(message)
+            return resp
+        else:
+            db.usuarios.update_one({
+                '_id':ObjectId(idUser)
+            },{
+                '$push':{
+                    'listCompletedExercises':exercise
+                }
+            })
+            print("añadi el ejercicio")
+            resp = jsonify("Exito, ejercicio añadido a usuario")
+            resp.status_code = 200
+            return resp
+    except Exception as ex:
+        print("***********")
+        print(ex)
+        print("***********")
+
 
 
 ##################################ACTUALIZARUSUARIO####################################################
@@ -254,6 +305,38 @@ def obtener_ejercicios():
             status=500,
             mimetype="application/json"
         )
+
+######################################Obtener ejercicio espirirtual###########################################
+
+
+@app.route('/SpiritualExercises/idUser=<idUser>&type=<type>', methods=['GET'])
+def obtener_ejercicios_user_tipo(idUser,type):
+    try:
+        datos = db.usuarios.find_one(
+                {
+                    '_id':ObjectId(idUser)
+                },
+                {
+                    '_id':0,
+                    'listCompletedExercises':1
+                })
+        print(datos)
+        exerciseList = []
+        for exercise in datos["listCompletedExercises"]:
+            if exercise["type"]==type:
+                exercise["_id"]=str(exercise["_id"])
+                exerciseList.append(exercise)
+        print(exerciseList)    
+        resp = dp(exerciseList)
+        return resp
+        
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message": "can not obtain exercises"}),
+            status=500,
+            mimetype="application/json"
+        )
 ###################################################Obetener ejerccio espiritual por id############################
 
 
@@ -305,45 +388,6 @@ def obtener_ejercicio_por_tipo(tipo):
     try:
         ejercicios = list(db.spiritualexercises.find(
             {"type": tipo}, {"_id": 0}))
-
-        return Response(
-            response=json.dumps(ejercicios),
-            status=200,
-            mimetype="application/json"
-        )
-    except Exception as ex:
-        print(ex)
-        return Response(
-            response=json.dumps({"message": "can not obtain exercises"}),
-            status=500,
-            mimetype="application/json"
-        )
-############################################### Objetner ejercicios spirituales de usuario################
-
-
-@app.route('/SpiritualExercises/userid=<id>', methods=['GET'])
-def obtener_ejercicios_por_userid(id):
-    try:
-        ejercicios = list(db.spiritualexercises.aggregate([
-            {
-                "$lookup":
-                {
-                    "from": "usuarios",
-                    "localField": "dayIndex",
-                    "foreignField": "listIdsCompletedExercises",
-                    "as": "listIdsxdayIndex"
-                }
-            },
-            {
-                "$project": {
-                    "_id": 0,
-                    "listIdsxdayIndex._id": 0  # . es equivlaente apuntero sobre el obejro de la lista
-                }
-            }
-        ]
-        ))
-        for element in ejercicios:
-            pprint(element)
 
         return Response(
             response=json.dumps(ejercicios),
@@ -445,40 +489,11 @@ def eliminar_ejercicio_espiritual(day,type):
             status=500,
             mimetype="application/json"
         )
-################################ MapaUsuario ######################################
-@app.route('/user/mapa/<type>', methods=['GET'])
-def obtener_mapa_tipo(type):
-    try:
-        _type = type
-
-        mapas = list(db.Map.find({
-            'type':_type
-        }))
-        for mapa in mapas:
-            mapa["_id"] = str(mapa["_id"])
-        
-        return Response(
-            response=json.dumps(mapas),
-            status=200,
-            mimetype="application/json"
-        )
-
-    except Exception as ex:
-        print(ex)
-        return Response(
-            response=json.dumps({"message": "can not obtain contemplations"}),
-            status=500,
-            mimetype="application/json"
-        )
-
-
 #########################################################Consultar Contemplation####################################################
-
-
 @app.route('/ContemplationConsideration', methods=['GET'])
 def obtener_contemplations():
     try:
-        contemplations = list(db.ContemplationConsideration.find())
+        contemplations = list(db.contemplationConsideration.find())
         for contemplacion in contemplations:
             contemplacion["_id"] = str(contemplacion["_id"])
         return Response(
@@ -493,6 +508,101 @@ def obtener_contemplations():
             status=500,
             mimetype="application/json"
         )
+#########################################################Consultar Contemplation####################################################
+@app.route('/ContemplationConsideration/idUser=<idUser>', methods=['GET'])
+def obtener_contemplations_usuario(idUser):
+    try:
+        contemplations = list(db.contemplationConsideration.find({"idUser":idUser}))
+        for contemplacion in contemplations:
+            contemplacion["_id"] = str(contemplacion["_id"])
+        return Response(
+            response=json.dumps(contemplations),
+            status=200,
+            mimetype="application/json"
+        )
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message": "can not obtain contemplations"}),
+            status=500,
+            mimetype="application/json"
+        )
+#########################################################Consultar Contemplation####################################################
+@app.route('/ContemplationConsideration/text', methods=['POST'])
+def create_text_contemplation():
+    try:
+        _json = request.json
+        _dayIndex = _json['dayIndex']
+        _type = _json['type']
+        _urlConsiderationAudio = _json['urlConsiderationAudio']
+        _considerationText = _json['considerationText']
+        _idUser = _json['idUser']
+        
+        consideration = {
+                'dayIndex': _dayIndex,
+                'type': _type,
+                'urlConsiderationAudio': "",
+                'considerationText': _considerationText,
+                'idUser': _idUser
+            }
+        id = db.contemplationConsideration.insert(consideration)
+        if id and request.method == 'POST':
+            print("cree la contemplacion")
+            resp = jsonify("Exito, contemplacion añadida")
+            resp.status_code = 200
+            return resp
+        else:
+            message = {
+                'status': 404,
+                'message': 'Not Found '+ request.url  
+            }
+            resp = jsonify(message)
+            return resp
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message": "can not obtain contemplations"}),
+            status=500,
+            mimetype="application/json"
+        )
+#########################################################Consultar Contemplation####################################################
+@app.route('/ContemplationConsideration/audio', methods=['POST'])
+def create_audio_contemplations():
+    try:
+        _json = request.json
+        _dayIndex = _json['dayIndex']
+        _type = _json['type']
+        _urlConsiderationAudio = _json['urlConsiderationAudio']
+        _considerationText = _json['considerationText']
+        _idUser = _json['idUser']
+        
+        consideration = {
+                'dayIndex': _dayIndex,
+                'type': _type,
+                'urlConsiderationAudio': _urlConsiderationAudio,
+                'considerationText': "",
+                'idUser': _idUser
+            }
+        id = db.contemplationConsideration.insert(consideration)
+        if id and request.method == 'POST':
+            print("cree la contemplacion")
+            resp = jsonify("Exito, contemplacion añadida")
+            resp.status_code = 200
+            return resp
+        else:
+            message = {
+                'status': 404,
+                'message': 'Not Found '+ request.url  
+            }
+            resp = jsonify(message)
+            return resp
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message": "can not obtain contemplations"}),
+            status=500,
+            mimetype="application/json"
+        )        
 ####################################### Update contemplations by id#########################################
 
 

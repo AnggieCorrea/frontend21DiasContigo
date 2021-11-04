@@ -5,6 +5,7 @@ import { ContemplationConsideration } from '../models/ContemplationConsideration
   providedIn: 'root',
 })
 export class ContemplationConsiderationService {
+  
   /* contemplationConsiderationList: ContemplationConsideration[]; */
 
   constructor() {

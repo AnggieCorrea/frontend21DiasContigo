@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Position } from 'src/app/models/Position';
 import { SpiritualExercise } from 'src/app/models/SpiritualExercise';
-import { ContTileMapService } from 'src/app/services/cont-tile-map.service';
+import { communicationActiveUser } from 'src/app/services/communicationActiveUser.service';
 import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.service';
 
 @Component({
@@ -162,13 +162,17 @@ export class ContemplationListComponent implements OnInit {
   ];
   rows: any[] = [];*/
   
+  activeUser: string;
+  color: string;
   foundContemplation: SpiritualExercise;
   positions : Position[];
+  completedExercises: SpiritualExercise[];
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router /*private contemplationMap: MapService*/,
-    private _spiritualExerciseService: SpiritualExerciseService
+    private _spiritualExerciseService: SpiritualExerciseService,
+    private _communicationActiveUser: communicationActiveUser,
   ) {
   }
 
@@ -180,6 +184,39 @@ export class ContemplationListComponent implements OnInit {
           console.log(this.positions);       
         }
       )
+    this.activeUser = this._communicationActiveUser.userId;
+    this._spiritualExerciseService.getSpiritualExercisesByUserAndType(this.activeUser,"contemplation")
+      .subscribe(
+        (result)=>{
+          this.completedExercises = result;
+          console.log(this.completedExercises);
+          for(let obj of this.completedExercises){
+            this._spiritualExerciseService.getSpiritualExerciseByDayAndType(obj.dayIndex,"contemplation")
+                .subscribe(
+                  (result2)=>{
+                    this.foundContemplation = result2;
+                    for(let i = 0; i<this.positions.length; i++){
+                      if(obj._id == this.foundContemplation._id){
+                        if(this.positions[i].name == this.foundContemplation.dayIndex){
+                          this.positions[i].completed = 'true';
+                          this.positions[i].disable = 'false';
+                        }
+                      }
+                    }
+
+                  },
+                  (error2) => {
+                    console.log(error2);
+                  }
+              )
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+    
+    console.log(this.activeUser);
   }
 
   navSpiritualExcercise(dia: string) {
@@ -196,4 +233,5 @@ export class ContemplationListComponent implements OnInit {
         }
     )
   }
+
 }

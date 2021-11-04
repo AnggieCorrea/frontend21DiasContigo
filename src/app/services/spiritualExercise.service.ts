@@ -41,6 +41,15 @@ export class SpiritualExerciseService {
     );
   }
 
+  getSpiritualExercisesByUserAndType(
+    userId: string,
+    type: string
+  ): Observable<SpiritualExercise[]> {
+    return this.http.get<SpiritualExercise[]>(
+      `${this.urlBase}/SpiritualExercises/idUser=${userId}&type=${type}`
+    );
+  }
+
   updateSpiritualExercise(
     id: string,
     spiritualExercise: SpiritualExercise

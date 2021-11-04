@@ -3,7 +3,7 @@ import { PauseConsideration } from './PauseConsideration';
 import { SpiritualExercise } from './SpiritualExercise';
 
 export interface UserInterface {
-  idUser: number;
+  _id: string;
   name: string;
   lastName: string;
   email: string;
@@ -19,7 +19,7 @@ export interface UserInterface {
 }
 
 export class User implements UserInterface {
-  idUser: number;
+  _id: string;
   name: string;
   lastName: string;
   email: string;
@@ -34,6 +34,7 @@ export class User implements UserInterface {
   contemplationConsiderationList: ContemplationConsideration[];
 
   constructor(
+    _id:string,
     name: string,
     lastName: string,
     password: string,
@@ -47,6 +48,7 @@ export class User implements UserInterface {
     pauseConsiderationList: PauseConsideration[],
     contemplationConsiderationList: ContemplationConsideration[]
   ) {
+    this._id = _id;
     this.name = name;
     this.lastName = lastName;
     this.email = email;
@@ -62,8 +64,8 @@ export class User implements UserInterface {
   }
 
   //gets
-  getIdUser(): number {
-    return this.idUser;
+  getIdUser(): string {
+    return this._id;
   }
   getName(): string {
     return this.name;

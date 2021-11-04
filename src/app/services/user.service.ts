@@ -24,4 +24,10 @@ export class UserService {
   public addUser(user: User): Observable<User> {
     return this.http.post<User>(this.urlBase + '/usuarios', user);
   }
+
+  public saveExercise(idUser: string, idExercise: string): Observable<User> {
+    return this.http.put<User>(
+      `${this.urlBase}/usuarios/saveExercise/idUser=${idUser}&idExercise=${idExercise}`,null
+    );
+  }
 }

@@ -4,13 +4,36 @@ from flask.wrappers import Request
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from bson.json_util import dumps as dp
-from pprint import pprint
+from pprint import PrettyPrinter, pprint
 from pymongo import database
-from werkzeug.security import generate_password_hash, check_password_hash
 import certifi
 import pymongo
 import json
 import dns
+import hashlib
+import pprint
+from cryptography.fernet import Fernet
+################################ funcion de encriptacion##################################
+key = Fernet.generate_key()
+fernet = Fernet(key)
+encMessage=""
+def encriptacion(password):
+    message=password
+    global encMessage 
+    encMessage = fernet.encrypt(message.encode())
+    return encMessage
+
+###################################### funcion de desencriptacion########################
+
+def desencriptacion(encode):
+    print ('entramos')
+    global encMessage
+    decMessage = fernet.decrypt(encMessage).decode()
+    print('mensaje leido')
+    print("decrypted string: ", decMessage)
+    return decMessage
+
+     
 
 ############################CONEXION CON LA BASE DE DATOS#################################
 app = Flask(__name__)
@@ -101,8 +124,8 @@ def obtener_usuario_por_email():
     except Exception as ex:
         print(ex)
         message = {
-                'status': 404,
-                'message': 'Not Found '+ request.url  
+                'status': 500,
+                'message': 'User Not Found '+ request.url  
             }
         resp = jsonify(message)
         return resp
@@ -127,7 +150,7 @@ def crear_usuario():
         _contemplationConsiderationList = _json['contemplationConsiderationList']
 
         if _name and _lastName and _email and _password and request.method =='POST':
-            _hashed_password = generate_password_hash(_password)
+            _hashed_password = encriptacion(_password)
             usuario = {
                 'name': _name,
                 'lastName': _lastName,
@@ -218,8 +241,7 @@ def actualizar_usuario(id):
         _contemplationConsiderationList = _json['contemplationConsiderationList']
 
         if _name and _lastName and _email and _password and request.method =='PUT':
-            _hashed_password = generate_password_hash(_password)
-                
+            _hashed_password = encriptacion(_password)
             id = db.usuarios.update_one(
                 {
                     '_id':ObjectId(_id['$oid']) if '$oid' in _id else ObjectId(_id)

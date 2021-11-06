@@ -1,62 +1,62 @@
 export interface SpiritualExercise {
-  idExercise: number;
+  _id: string;
   type: string;
-  dayIndex: number;
+  dayIndex: string;
   title: string;
-  sentenceOne: string;
-  sentenceTwo: string;
+  sentenceone: string;
+  sentencetwo: string;
   urlAudio: string;
   urlImage: string;
 }
 
 export class SpiritualExercise {
-  idExercise: number;
+  _id: string;
   type: string;
-  dayIndex: number;
+  dayIndex: string;
   title: string;
-  sentenceOne: string;
-  sentenceTwo: string;
+  sentenceone: string;
+  sentencetwo: string;
   urlAudio: string;
   urlImage: string;
 
   constructor(
-    idExercise: number,
+    _id: string,
     type: string,
-    dayIndex: number,
+    dayIndex: string,
     title: string,
-    sentenceOne: string,
-    sentenceTwo: string,
+    sentenceone: string,
+    sentencetwo: string,
     urlAudio: string,
     urlImage: string
   ) {
-    this.idExercise = idExercise;
+    this._id = _id;
     this.type = type;
     this.dayIndex = dayIndex;
     this.title = title;
-    this.sentenceOne = sentenceOne;
-    this.sentenceTwo = sentenceTwo;
+    this.sentenceone = sentenceone;
+    this.sentencetwo = sentencetwo;
     this.urlAudio = urlAudio;
     this.urlImage = urlImage;
   }
 
   //gets
-  getIdExercise(): number {
-    return this.idExercise;
+  getIdExercise(): string {
+    return this._id;
   }
   getType(): string {
     return this.type;
   }
-  getDayIndex(): number {
+  getDay(): string {
     return this.dayIndex;
   }
   getTitle(): string {
     return this.title;
   }
   getSentenceOne(): string {
-    return this.sentenceOne;
+    return this.sentenceone;
   }
   getSentenceTwo(): string {
-    return this.sentenceTwo;
+    return this.sentencetwo;
   }
   getUrlAudio(): string {
     return this.urlAudio;
@@ -69,14 +69,14 @@ export class SpiritualExercise {
   setType(type: string): void {
     this.type = type;
   }
-  setDayIndex(dayIndex: number): void {
+  setDayIndex(dayIndex: string): void {
     this.dayIndex = dayIndex;
   }
-  setSentenceOne(sentenceOne: string): void {
-    this.sentenceOne = sentenceOne;
+  setSentenceOne(sentenceone: string): void {
+    this.sentenceone = sentenceone;
   }
-  setSentenceTwo(sentenceTwo: string): void {
-    this.sentenceTwo = sentenceTwo;
+  setSentenceTwo(sentencetwo: string): void {
+    this.sentencetwo = sentencetwo;
   }
   setUrlAudio(urlAudio: string): void {
     this.urlAudio = urlAudio;

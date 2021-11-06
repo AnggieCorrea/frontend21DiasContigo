@@ -22,10 +22,10 @@ export class UserService {
     return this.http.post<User>(this.urlBase + '/usuarios/login', user);
   }
 
-  public getUserById(userId: User): Observable<User> {
+  public getUserById(userId: string): Observable<User> {
     console.log(userId);
     return this.http.get<User>(
-      `${this.urlBase}/usuarios/saveExercise/userId=${userId}`
+      `${this.urlBase}/usuarios/userId=${userId}`
     );
   }
 

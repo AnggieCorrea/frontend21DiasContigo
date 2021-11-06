@@ -53,6 +53,32 @@ def obtener_usuarios():
             status=500,
             mimetype="application/json"
         )
+###############################OBTENERUSUSARIO###########################################
+
+
+@app.route('/usuarios/userId=<userId>', methods=['GET'])
+def obtener_usuario_por_Id(userId):
+    try:
+        datos = db.usuarios.find_one({"_id":ObjectId(userId)})
+        datos["_id"] = str(datos["_id"])
+        for exercise in datos["listCompletedExercises"]:
+            exercise["_id"] = str(exercise["_id"])
+        for pauseCons in datos["pauseConsiderationList"]:
+            pauseCons["_id"] = str(pauseCons["_id"])
+        for contemCons in datos["contemplationConsiderationList"]:
+            contemCons["_id"] = str(contemCons["_id"])
+        return Response(
+            response=json.dumps(datos),
+            status=200,
+            mimetype="application/json"
+        )
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message": "can not obtain users"}),
+            status=500,
+            mimetype="application/json"
+        )
 ########################################OBTENERUSUARIOPOREMAIL##################################
 
 
@@ -72,24 +98,6 @@ def obtener_usuario_por_email():
             contemCons["_id"] = str(contemCons["_id"])
         resp = dp(datos)
         return resp
-        '''else:
-            usuario = {
-                'name': '',
-                'lastName': '',
-                'password': '',
-                'email': '',
-                'gender': '',
-                'city': '',
-                'country': '',
-                'role': '',
-                'urlImage': '',
-                'listCompletedExercises':[],
-                'pauseConsiderationList': [],
-                'contemplationConsiderationList': []
-            }
-            print(usuario)
-            resp = dp(usuario)
-            return resp'''
     except Exception as ex:
         print(ex)
         message = {

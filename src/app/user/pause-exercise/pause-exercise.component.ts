@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SpiritualExercise } from 'src/app/models/SpiritualExercise';
+import { ContemplationConsiderationService } from 'src/app/services/contemplationConsideration.service';
 import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-pause-exercise',
@@ -10,6 +12,7 @@ import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.ser
 })
 
 export class PauseExerciseComponent implements OnInit {
+  activeUser: string;
   pause: SpiritualExercise;
   id:string;
   dayIndex:string;
@@ -25,7 +28,12 @@ export class PauseExerciseComponent implements OnInit {
   url = '';
   audioObj = new Audio();
   
-  constructor(private router: Router, private _spiritualExerciseService: SpiritualExerciseService, private route: ActivatedRoute) {}
+  constructor(private router: Router,
+    private _spiritualExerciseService: SpiritualExerciseService, 
+    private route: ActivatedRoute,
+    private _userService: UserService,
+    private _considerationService: ContemplationConsiderationService
+    ) {}
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -71,6 +79,14 @@ export class PauseExerciseComponent implements OnInit {
     player.load();
     player.onended = (event) => {
       this.showSpam = true;
+      this._userService.saveExercise(this.activeUser,this.id).subscribe(
+        (result)=>{
+          console.log(result);
+        },
+        (error) => {
+          console.log(error);
+        }
+    )
     };
   }
 }

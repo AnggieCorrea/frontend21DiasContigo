@@ -1,9 +1,11 @@
 import { PathLocationStrategy } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ContemplationConsideration } from 'src/app/models/ContemplationConsideration';
 import { SpiritualExercise } from 'src/app/models/SpiritualExercise';
 import { User } from 'src/app/models/User';
 import { communicationActiveUser } from 'src/app/services/communicationActiveUser.service';
+import { ContemplationConsiderationService } from 'src/app/services/contemplationConsideration.service';
 import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -16,6 +18,7 @@ export class ContemplationExerciseComponent implements OnInit {
   activeUser: string;
   user: User;
   contemplation: SpiritualExercise;
+  consideration: ContemplationConsideration;
   id:string;
   dayIndex:string;
   title:string;
@@ -35,7 +38,8 @@ export class ContemplationExerciseComponent implements OnInit {
     private _spiritualExerciseService: SpiritualExerciseService,
     private route: ActivatedRoute,
     private _communicationActiveUser: communicationActiveUser,
-    private _userService: UserService) {}
+    private _userService: UserService,
+    private _considerationService: ContemplationConsiderationService) {}
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -99,8 +103,19 @@ export class ContemplationExerciseComponent implements OnInit {
   saveAudioConsideration() {
     this.type = 'Audio'
   }
+  
   saveTextConsideration() {
-    this.type = 'Text'
+    this.consideration = new ContemplationConsideration('',this.dayIndex,'text','',(document.getElementById('areaEscrita') as HTMLInputElement).value,this.activeUser); 
+    console.log(this.consideration);
+    this._considerationService.createContemplationConsideration(this.consideration).subscribe(
+      (result)=>{
+        console.log(result);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );    
+    this.navContemplationMap();
   }
 
 }

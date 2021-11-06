@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
-
 <div class="mainBody">
   <h1>Mi camino de positiones</h1>
+  <br />
   <table class="buttonsContainer">
     <tr *ngFor="let position of positions">
       <td
@@ -10,11 +10,12 @@
           position.even == 'top' &&
           position.column == '1'
         "
-        
         class="excerciseButton DesTopButton"
         (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ position.name }}
+        Contemplación
+        <br />
+        {{ position.name }}
       </td>
 
       <td
@@ -23,11 +24,12 @@
           position.even == 'mid' &&
           position.column == '1'
         "
-        
         class="excerciseButton DesMidButton"
         (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ position.name }}
+        Contemplación
+        <br />
+        {{ position.name }}
       </td>
 
       <td
@@ -36,11 +38,12 @@
           position.even == 'bot' &&
           position.column == '1'
         "
-        
         class="excerciseButton DesBotButton"
         (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ position.name }}
+        Contemplación
+        <br />
+        {{ position.name }}
       </td>
 
       <td
@@ -50,10 +53,11 @@
           position.even == 'top' &&
           position.column == '1'
         "
-        
         class="excerciseButtonDisable DesTopButton"
       >
-        Contemplación {{ position.name }}
+        Contemplación
+        <br />
+        {{ position.name }}
       </td>
 
       <td
@@ -63,10 +67,11 @@
           position.even == 'mid' &&
           position.column == '1'
         "
-        
         class="excerciseButtonDisable DesMidButton"
       >
-        Contemplación {{ position.name }}
+        Contemplación
+        <br />
+        {{ position.name }}
       </td>
 
       <td
@@ -76,10 +81,11 @@
           position.even == 'bot' &&
           position.column == '1'
         "
-        
         class="excerciseButtonDisable DesBotButton"
       >
-        Contemplación {{ position.name }}
+        Contemplación
+        <br />
+        {{ position.name }}
       </td>
 
       <td
@@ -89,11 +95,12 @@
           position.even == 'top' &&
           position.column == '1'
         "
-        
         class="excerciseButtonCompleted DesTopButton"
         (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ position.name }}
+        Contemplación
+        <br />
+        {{ position.name }}
       </td>
 
       <td
@@ -103,11 +110,12 @@
           position.even == 'mid' &&
           position.column == '1'
         "
-        
         class="excerciseButtonCompleted DesMidButton"
         (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ position.name }}
+        Contemplación
+        <br />
+        {{ position.name }}
       </td>
 
       <td
@@ -117,11 +125,12 @@
           position.even == 'bot' &&
           position.column == '1'
         "
-        
         class="excerciseButtonCompleted DesBotButton"
         (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ position.name }}
+        Contemplación
+        <br />
+        {{ position.name }}
       </td>
 
       <td
@@ -130,11 +139,12 @@
           position.even == 'top' &&
           position.column == '2'
         "
-        
         class="excerciseButton AscTopButton"
         (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ position.name }}
+        Contemplación
+        <br />
+        {{ position.name }}
       </td>
 
       <td
@@ -146,7 +156,9 @@
         class="excerciseButton AscMidButton"
         (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ position.name }}
+        Contemplación
+        <br />
+        {{ position.name }}
       </td>
 
       <td
@@ -155,11 +167,12 @@
           position.even == 'bot' &&
           position.column == '2'
         "
-        
         class="excerciseButton AscBotButton"
         (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ position.name }}
+        Contemplación
+        <br />
+        {{ position.name }}
       </td>
 
       <td
@@ -169,10 +182,11 @@
           position.even == 'top' &&
           position.column == '2'
         "
-        
         class="excerciseButtonDisable AscTopButton"
       >
-        Contemplación {{ position.name }}
+        Contemplación
+        <br />
+        {{ position.name }}
       </td>
 
       <td
@@ -182,10 +196,11 @@
           position.even == 'mid' &&
           position.column == '2'
         "
-        
         class="excerciseButtonDisable AscMidButton"
       >
-        Contemplación {{ position.name }}
+        Contemplación
+        <br />
+        {{ position.name }}
       </td>
 
       <td
@@ -195,10 +210,11 @@
           position.even == 'bot' &&
           position.column == '2'
         "
-        
         class="excerciseButtonDisable AscBotButton"
       >
-        Contemplación {{ position.name }}
+        Contemplación
+        <br />
+        {{ position.name }}
       </td>
 
       <td
@@ -208,11 +224,12 @@
           position.even == 'top' &&
           position.column == '2'
         "
-        
         class="excerciseButtonCompleted AscTopButton"
         (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ position.name }}
+        Contemplación
+        <br />
+        {{ position.name }}
       </td>
 
       <td
@@ -222,11 +239,12 @@
           position.even == 'mid' &&
           position.column == '2'
         "
-        
         class="excerciseButtonCompleted AscMidButton"
         (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ position.name }}
+        Contemplación
+        <br />
+        {{ position.name }}
       </td>
 
       <td
@@ -236,14 +254,13 @@
           position.even == 'bot' &&
           position.column == '2'
         "
-        
         class="excerciseButtonCompleted AscBotButton"
         (click)="navSpiritualExcercise(position.name)"
       >
-        Contemplación {{ position.name }}
+        Contemplación
+        <br />
+        {{ position.name }}
       </td>
-
-           
     </tr>
   </table>
 </div>

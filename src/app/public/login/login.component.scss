@@ -2,7 +2,7 @@
   box-sizing: border-box;
   font-family: "Montserrat Alternates", sans-serif;
   font-weight: bold;
-  font-size: smaller;
+  font-size: small;
   margin: 0px;
   padding: 0px;
 }
@@ -78,6 +78,14 @@ input {
 }
 
 @media (max-width: 1045px) {
+  *{
+    box-sizing: border-box;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: bold;
+    font-size: smaller;
+    margin: 0px;
+    padding: 0px;
+  }
   .logo {
     width: 150px;
     height: 30px;

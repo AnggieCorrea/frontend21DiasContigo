@@ -18,7 +18,15 @@ export class UserService {
   }
 
   public getUserByEmail(user: User): Observable<User> {
+    console.log(user);
     return this.http.post<User>(this.urlBase + '/usuarios/login', user);
+  }
+
+  public getUserById(userId: User): Observable<User> {
+    console.log(userId);
+    return this.http.get<User>(
+      `${this.urlBase}/usuarios/saveExercise/userId=${userId}`
+    );
   }
 
   public addUser(user: User): Observable<User> {

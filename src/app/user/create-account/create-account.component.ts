@@ -65,7 +65,7 @@ export class CreateAccountComponent implements OnInit {
       (document.getElementById('country') as HTMLInputElement).value
     );
     this.user.setPassword(
-      (document.getElementById('city') as HTMLInputElement).value
+      (document.getElementById('password') as HTMLInputElement).value
     );
     this.user.setGender(gender);
     

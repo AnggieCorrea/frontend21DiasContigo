@@ -14,7 +14,7 @@ import hashlib
 import pprint
 from cryptography.fernet import Fernet
 ################################ funcion de encriptacion##################################
-key = Fernet.generate_key()
+key = "ttGcMvKwfoUQNekL_UWpW7RfNVyYf5J6EqGEC3tOSys="
 fernet = Fernet(key)
 encMessage=""
 def encriptacion(password):
@@ -84,6 +84,7 @@ def obtener_usuario_por_Id(userId):
     try:
         datos = db.usuarios.find_one({"_id":ObjectId(userId)})
         datos["_id"] = str(datos["_id"])
+        datos["password"]=""
         for exercise in datos["listCompletedExercises"]:
             exercise["_id"] = str(exercise["_id"])
         for pauseCons in datos["pauseConsiderationList"]:
@@ -110,17 +111,27 @@ def obtener_usuario_por_email():
     try:
         _json = request.json
         _email = _json['email']
-        _hashed_password = _json['password']
-        datos = db.usuarios.find_one({"email": _email})
-        datos["_id"] = str(datos["_id"])
-        for exercise in datos["listCompletedExercises"]:
-            exercise["_id"] = str(exercise["_id"])
-        for pauseCons in datos["pauseConsiderationList"]:
-            pauseCons["_id"] = str(pauseCons["_id"])
-        for contemCons in datos["contemplationConsiderationList"]:
-            contemCons["_id"] = str(contemCons["_id"])
-        resp = dp(datos)
-        return resp
+        _password = _json['password']
+        datos = db.usuarios.find_one({"email": _email })
+        hasedpassword=desencriptacion(datos['password'])
+        if  hasedpassword == _password and request.method == "POST":
+            print(datos)
+            datos["_id"] = str(datos["_id"])
+            for exercise in datos["listCompletedExercises"]:
+                exercise["_id"] = str(exercise["_id"])
+            for pauseCons in datos["pauseConsiderationList"]:
+                pauseCons["_id"] = str(pauseCons["_id"])
+            for contemCons in datos["contemplationConsiderationList"]:
+                contemCons["_id"] = str(contemCons["_id"])
+            resp = dp(datos)
+            return resp
+        else:
+            message = {
+                    'status': 401,
+                    'message': 'Contraseña invalida'+ request.url  
+                }
+            resp = jsonify(message)
+            return resp
     except Exception as ex:
         print(ex)
         message = {
@@ -129,7 +140,6 @@ def obtener_usuario_por_email():
             }
         resp = jsonify(message)
         return resp
-
 ###############################CREARUSUSARIO####################################################
 @app.route('/usuarios', methods=['POST'])
 def crear_usuario():
@@ -148,7 +158,8 @@ def crear_usuario():
         _listCompletedExercises = _json['listCompletedExercises']
         _pauseConsiderationList = _json['pauseConsiderationList']
         _contemplationConsiderationList = _json['contemplationConsiderationList']
-
+        print(_email)
+        print(_password)
         if _name and _lastName and _email and _password and request.method =='POST':
             _hashed_password = encriptacion(_password)
             usuario = {
@@ -432,8 +443,6 @@ def obtener_ejercicio_por_tipo(tipo):
             mimetype="application/json"
         )
 ###################################### Actualizar ejercicio espiritual por id ##########################################
-
-
 @app.route('/SpiritualExercises/update/<id>', methods=["PUT"])
 def actualizar_ejercicio_espiritual(id):
     try:

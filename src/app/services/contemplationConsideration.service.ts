@@ -14,63 +14,17 @@ export class ContemplationConsiderationService {
   /* contemplationConsiderationList: ContemplationConsideration[]; */
 
   constructor(private http:HttpClient) {
-    /* this.contemplationConsiderationList = [
-      new ContemplationConsideration(
-        0,
-        'Reflexión de contemplación 1',
-        1,
-        'grabación',
-        new Date('2019-03-01'),
-        '',
-        '',
-        1
-      ),
-      new ContemplationConsideration(
-        1,
-        'Reflexión de contemplación 2',
-        2,
-        'texto',
-        new Date('2019-03-01'),
-        '',
-        '',
-        1
-      ),
-      new ContemplationConsideration(
-        2,
-        'Reflexión de contemplación 3',
-        3,
-        'grabación',
-        new Date('2019-03-01'),
-        '',
-        '',
-        1
-      ),
-      new ContemplationConsideration(
-        3,
-        'Reflexión de contemplación 4',
-        4,
-        'texto',
-        new Date('2019-03-01'),
-        '',
-        '',
-        1
-      ),
-      new ContemplationConsideration(
-        4,
-        'Reflexión de contemplación 5',
-        5,
-        'grabación',
-        new Date('2019-03-01'),
-        '',
-        '',
-        1
-      ),
-    ]; */
   }
 
-  getContemplationConsideration(): Observable<ContemplationConsideration[]> {
+  getContemplationConsideration(userId: string): Observable<ContemplationConsideration[]> {
     return this.http.get<ContemplationConsideration[]>(
-      this.urlBase + '/ContemplationConsideration'
+      `${this.urlBase}/ContemplationConsideration/idUser=${userId}`
+    );
+  }
+
+  getContemplationConsiderationById(contemplationId: string): Observable<ContemplationConsideration> {
+    return this.http.get<ContemplationConsideration>(
+      `${this.urlBase}/ContemplationConsideration/idUser=${contemplationId}`
     );
   }
 

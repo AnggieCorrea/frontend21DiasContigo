@@ -38,6 +38,10 @@
       <div class="sliderContainer">
         <div *ngIf="showRec == true">
           <app-microphone-recorder></app-microphone-recorder>
+          <fa-icon
+                [icon]="faSave"
+                class="icons"
+          ></fa-icon> Guardar
         </div>
         <div *ngIf="showTex == true">
           <form class="formulario">
@@ -49,8 +53,10 @@
               placeholder="Escribe tu reflexión"
             ></textarea>
             <button class="sendButton" (click)="saveTextConsideration()">
-              <img src="/assets/saveIcon.png" />
-              Guardar
+              <fa-icon
+                [icon]="faSave"
+                class="icons"
+              ></fa-icon> Guardar
             </button>
           </form>
         </div>

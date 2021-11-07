@@ -1,13 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ContemplationConsideration } from '../models/ContemplationConsideration';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContemplationConsiderationService {
+
+  urlBase = 'http://127.0.0.1:90';
+
+  
   /* contemplationConsiderationList: ContemplationConsideration[]; */
 
-  constructor() {
+  constructor(private http:HttpClient) {
     /* this.contemplationConsiderationList = [
       new ContemplationConsideration(
         0,
@@ -62,7 +68,21 @@ export class ContemplationConsiderationService {
     ]; */
   }
 
-  /* getContemplationConsideration(): ContemplationConsideration[] {
-    return this.contemplationConsiderationList;
-  } */
+  getContemplationConsideration(): Observable<ContemplationConsideration[]> {
+    return this.http.get<ContemplationConsideration[]>(
+      this.urlBase + '/ContemplationConsideration'
+    );
+  }
+
+  createContemplationConsideration(contemplation: ContemplationConsideration): Observable<ContemplationConsideration>{
+    if(contemplation.type == 'text'){
+      return this.http.post<ContemplationConsideration>(
+        `${this.urlBase}/ContemplationConsideration/text`,contemplation 
+      );
+    }else{
+      return this.http.post<ContemplationConsideration>(
+        `${this.urlBase}/ContemplationConsideration/audio`,contemplation
+      );
+    }
+  }
 }

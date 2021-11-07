@@ -3,10 +3,10 @@
   <h1>Edita aquí el ejercicio espiritual</h1>
   <div class="content">
     <div class="principalInformation">
-      <h3>Día: {{ selectedSpiritualExercise.dayIndex }}</h3>
+      <h3>Día: {{ day }}</h3>
       <h3>
         | Tipo de ejercicio espiritual:
-        {{ selectedSpiritualExercise.type }}
+        {{ typeExercise }}
       </h3>
     </div>
     <div class="information">
@@ -19,35 +19,40 @@
       </div>
       <div class="colum1">
         <input
+          id="newTitle"
           type="text"
           name="title"
-          placeholder="{{ selectedSpiritualExercise.title }}"
+          placeholder="{{ title }}"
         />
         <input
+          id="newSentence1"
           type="text"
           name="sentence1:"
-          placeholder="{{ selectedSpiritualExercise.sentenceOne }}"
+          placeholder="{{ sentenceOne }}"
         />
         <input
+          id="newSentence2"
           type="text"
           name="sentence2:"
-          placeholder="{{ selectedSpiritualExercise.sentenceTwo }}"
+          placeholder="{{ sentenceTwo }}"
         />
         <input
+          id="newUrlImage"
           type="text"
           name="urlImage:"
-          placeholder="{{ selectedSpiritualExercise.urlImage }}"
+          placeholder="{{ urlImage }}"
         />
         <input
+          id="newUrlAudio"
           type="text"
           name="urlAudio:"
-          placeholder="{{ selectedSpiritualExercise.urlAudio }}"
+          placeholder="{{ urlAudio }}"
         />
       </div>
     </div>
     <div class="Buttons">
       <button (click)="returnToSpiritualExercises()">Cancelar</button>
-      <button>Guardar</button>
+      <button (click)="saveSpiritualExercise()">Guardar</button>
     </div>
   </div>
 </div>

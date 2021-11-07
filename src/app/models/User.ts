@@ -1,8 +1,9 @@
 import { ContemplationConsideration } from './ContemplationConsideration';
 import { PauseConsideration } from './PauseConsideration';
+import { SpiritualExercise } from './SpiritualExercise';
 
 export interface UserInterface {
-  idUser: number;
+  _id: string;
   name: string;
   lastName: string;
   email: string;
@@ -12,13 +13,13 @@ export interface UserInterface {
   password: string;
   urlImage: string;
   role: string;
-  listIdsCompletedExercises: number[];
+  listCompletedExercises: SpiritualExercise[];
   pauseConsiderationList: PauseConsideration[];
   contemplationConsiderationList: ContemplationConsideration[];
 }
 
 export class User implements UserInterface {
-  idUser: number;
+  _id: string;
   name: string;
   lastName: string;
   email: string;
@@ -28,11 +29,12 @@ export class User implements UserInterface {
   password: string;
   urlImage: string;
   role: string;
-  listIdsCompletedExercises: number[];
+  listCompletedExercises: SpiritualExercise[];
   pauseConsiderationList: PauseConsideration[];
   contemplationConsiderationList: ContemplationConsideration[];
 
   constructor(
+    _id:string,
     name: string,
     lastName: string,
     password: string,
@@ -42,10 +44,11 @@ export class User implements UserInterface {
     email: string,
     role: string,
     urlImage: string,
-    listIdsCompletedExercises: number[],
+    listCompletedExercises: SpiritualExercise[],
     pauseConsiderationList: PauseConsideration[],
     contemplationConsiderationList: ContemplationConsideration[]
   ) {
+    this._id = _id;
     this.name = name;
     this.lastName = lastName;
     this.email = email;
@@ -55,14 +58,14 @@ export class User implements UserInterface {
     this.password = password;
     this.role = role;
     this.urlImage = urlImage;
-    this.listIdsCompletedExercises = listIdsCompletedExercises;
+    this.listCompletedExercises= listCompletedExercises;
     this.pauseConsiderationList = pauseConsiderationList;
     this.contemplationConsiderationList = contemplationConsiderationList;
   }
 
   //gets
-  getIdUser(): number {
-    return this.idUser;
+  getIdUser(): string {
+    return this._id;
   }
   getName(): string {
     return this.name;
@@ -91,8 +94,8 @@ export class User implements UserInterface {
   getUrlImage(): string {
     return this.urlImage;
   }
-  getListIdsCompletedExercises(): number[] {
-    return this.listIdsCompletedExercises;
+  getListIdsCompletedExercises(): SpiritualExercise[] {
+    return this.listCompletedExercises;
   }
   getPauseConsiderationList(): PauseConsideration[] {
     return this.pauseConsiderationList;
@@ -129,8 +132,8 @@ export class User implements UserInterface {
   setUrlImage(urlImage: string): void {
     this.urlImage = urlImage;
   }
-  setListIdsCompletedExercises(listIdsCompletedExercises: number[]): void {
-    this.listIdsCompletedExercises = listIdsCompletedExercises;
+  setListCompletedExercises(listCompletedExercises: SpiritualExercise[]): void {
+    this.listCompletedExercises = listCompletedExercises;
   }
   setPauseConsiderationList(
     pauseConsiderationList: PauseConsideration[]

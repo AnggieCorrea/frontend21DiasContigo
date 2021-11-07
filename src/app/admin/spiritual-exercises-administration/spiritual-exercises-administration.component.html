@@ -17,14 +17,14 @@
             <fa-icon
               [icon]="faEye"
               class="icons"
-              (click)="seeSpiritualExercise(exercise.idExercise)"
+              (click)="seeSpiritualExercise(exercise)"
             ></fa-icon>
             <fa-icon
               [icon]="faPencilAlt"
               class="icons"
-              (click)="editSpiritualExercise(exercise.idExercise)"
+              (click)="editSpiritualExercise(exercise)"
             ></fa-icon>
-            <fa-icon [icon]="faTrashAlt" class="icons"></fa-icon>
+            <fa-icon [icon]="faTrashAlt" class="icons" (click)="deleteSpiritualExercise(exercise)"></fa-icon>
           </td>
         </tr>
       </tbody>

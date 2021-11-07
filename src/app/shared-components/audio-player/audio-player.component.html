@@ -5,7 +5,7 @@
       *ngFor="let file of files"
       (click)="openFile(file.url)"
     >
-      {{ file.name }}
+      <button></button>{{ file.name }}
     </li>
     <audio *ngIf="this.url != ''" controls id="audio">
       <source type="audio/mp3" />

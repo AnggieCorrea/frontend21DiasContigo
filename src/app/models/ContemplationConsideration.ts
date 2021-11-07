@@ -1,61 +1,47 @@
 export interface ContemplationConsiderationInterface {
-  idContemplationConsideration: number;
-  title: string;
-  dayIndex: number;
+  _id: string;
+  dayIndex: string;
   type: string;
-  creationDate: Date;
   urlConsiderationAudio: string;
   considerationText: string;
-  idUser: number;
+  idUser: string;
 }
 
 export class ContemplationConsideration
   implements ContemplationConsiderationInterface
 {
-  idContemplationConsideration: number;
-  title: string;
-  dayIndex: number;
+  _id: string;
+  dayIndex: string;
   type: string;
-  creationDate: Date;
   urlConsiderationAudio: string;
   considerationText: string;
-  idUser: number;
+  idUser: string;
 
   constructor(
-    idContemplationConsideration: number,
-    title: string,
-    dayIndex: number,
+    _id: string,
+    dayIndex: string,
     type: string,
-    creationDate: Date,
     urlConsiderationAudio: string,
     considerationText: string,
-    idUser: number
+    idUser: string
   ) {
-    this.idContemplationConsideration = idContemplationConsideration;
-    this.title = title;
+    this._id = _id;
     this.dayIndex = dayIndex;
     this.type = type;
-    this.creationDate = creationDate;
     this.urlConsiderationAudio = urlConsiderationAudio;
     this.considerationText = considerationText;
     this.idUser = idUser;
   }
 
   //gets
-  getIdContemplationConsideration(): number {
-    return this.idContemplationConsideration;
+  getId(): string {
+    return this._id;
   }
-  getTitle(): string {
-    return this.title;
-  }
-  getDayIndex(): number {
+  getDayIndex(): string {
     return this.dayIndex;
   }
   getType(): string {
     return this.type;
-  }
-  getCreationDate(): Date {
-    return this.creationDate;
   }
   getUrlConsiderationAudio(): string {
     return this.urlConsiderationAudio;
@@ -63,7 +49,7 @@ export class ContemplationConsideration
   getConsiderationText(): string {
     return this.considerationText;
   }
-  getIdUser(): number {
+  getIdUser(): string {
     return this.idUser;
   }
 
@@ -71,17 +57,11 @@ export class ContemplationConsideration
   /* setIdContemplationConsideration(idContemplationConsideration: number): void {
     this.idContemplationConsideration = idContemplationConsideration;
   } */
-  setTitle(title: string): void {
-    this.title = title;
-  }
-  setDayIndex(dayIndex: number): void {
+  setDayIndex(dayIndex: string): void {
     this.dayIndex = dayIndex;
   }
   setType(type: string): void {
     this.type = type;
-  }
-  setCreationDate(creationDate: Date): void {
-    this.creationDate = creationDate;
   }
   setUrlConsiderationAudio(urlConsiderationAudio: string): void {
     this.urlConsiderationAudio = urlConsiderationAudio;
@@ -89,7 +69,7 @@ export class ContemplationConsideration
   setConsiderationText(considerationText: string): void {
     this.considerationText = considerationText;
   }
-  setIdUser(idUser: number): void {
+  setIdUser(idUser: string): void {
     this.idUser = idUser;
   }
 }

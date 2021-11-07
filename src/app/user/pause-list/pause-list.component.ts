@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Position } from 'src/app/models/Position';
+import { SpiritualExercise } from 'src/app/models/SpiritualExercise';
+import { communicationActiveUser } from 'src/app/services/communicationActiveUser.service';
 import { ContTileMapService } from 'src/app/services/cont-tile-map.service';
+import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.service';
 
 @Component({
   selector: 'app-pause-list',
@@ -8,167 +12,79 @@ import { ContTileMapService } from 'src/app/services/cont-tile-map.service';
   styleUrls: ['./pause-list.component.scss'],
 })
 export class PauseListComponent implements OnInit {
-  pausas = [
-    {
-      nombre: '1',
-      completado: 'true',
-      deshabilitado: 'false',
-      even: 'top',
-      column: '1',
-    },
-    {
-      nombre: '2',
-      completado: 'true',
-      deshabilitado: 'false',
-      even: 'mid',
-      column: '1',
-    },
-    {
-      nombre: '3',
-      completado: 'true',
-      deshabilitado: 'false',
-      even: 'bot',
-      column: '1',
-    },
-    {
-      nombre: '4',
-      completado: 'true',
-      deshabilitado: 'false',
-      even: 'bot',
-      column: '2',
-    },
-    {
-      nombre: '5',
-      completado: 'true',
-      deshabilitado: 'false',
-      even: 'mid',
-      column: '2',
-    },
-    {
-      nombre: '6',
-      completado: 'true',
-      deshabilitado: 'false',
-      even: 'top',
-      column: '2',
-    },
-    {
-      nombre: '7',
-      completado: 'true',
-      deshabilitado: 'false',
-      even: 'top',
-      column: '1',
-    },
-    {
-      nombre: '8',
-      completado: 'true',
-      deshabilitado: 'false',
-      even: 'mid',
-      column: '1',
-    },
-    {
-      nombre: '9',
-      completado: 'false',
-      deshabilitado: 'false',
-      even: 'bot',
-      column: '1',
-    },
-    {
-      nombre: '10',
-      completado: 'false',
-      deshabilitado: 'true',
-      even: 'bot',
-      column: '2',
-    },
-    {
-      nombre: '11',
-      completado: 'false',
-      deshabilitado: 'true',
-      even: 'mid',
-      column: '2',
-    },
-    {
-      nombre: '12',
-      completado: 'false',
-      deshabilitado: 'true',
-      even: 'top',
-      column: '2',
-    },
-    {
-      nombre: '13',
-      completado: 'false',
-      deshabilitado: 'true',
-      even: 'top',
-      column: '1',
-    },
-    {
-      nombre: '14',
-      completado: 'false',
-      deshabilitado: 'true',
-      even: 'mid',
-      column: '1',
-    },
-    {
-      nombre: '15',
-      completado: 'false',
-      deshabilitado: 'true',
-      even: 'bot',
-      column: '1',
-    },
-    {
-      nombre: '16',
-      completado: 'false',
-      deshabilitado: 'true',
-      even: 'bot',
-      column: '2',
-    },
-    {
-      nombre: '17',
-      completado: 'false',
-      deshabilitado: 'true',
-      even: 'mid',
-      column: '2',
-    },
-    {
-      nombre: '18',
-      completado: 'false',
-      deshabilitado: 'true',
-      even: 'top',
-      column: '2',
-    },
-    {
-      nombre: '19',
-      completado: 'false',
-      deshabilitado: 'true',
-      even: 'top',
-      column: '1',
-    },
-    {
-      nombre: '20',
-      completado: 'false',
-      deshabilitado: 'true',
-      even: 'mid',
-      column: '1',
-    },
-    {
-      nombre: '21',
-      completado: 'false',
-      deshabilitado: 'true',
-      even: 'bot',
-      column: '1',
-    },
-  ];
+
+  positions : Position[];
+  foundPause : SpiritualExercise;
+  activeUser: string;
+  color: string;
+  completedExercises: SpiritualExercise[];
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router /*private contemplationMap: MapService*/,
-    private _pauseTileMap: ContTileMapService
+    private _spiritualExerciseService: SpiritualExerciseService,
+    private _communicationActiveUser: communicationActiveUser,
   ) {
-    _pauseTileMap.cargar();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._spiritualExerciseService.getPositions()
+      .subscribe(
+        (result)=>{
+          this.positions=result;
+          console.log(this.positions);       
+        }
+      );
+      this._spiritualExerciseService.getSpiritualExercisesByUserAndType(this.activeUser,"pause")
+      .subscribe(
+        (result)=>{
+          this.completedExercises = result;
+          console.log(this.completedExercises);
+          for(let obj of this.completedExercises){
+            this._spiritualExerciseService.getSpiritualExerciseByDayAndType(obj.dayIndex,"pause")
+                .subscribe(
+                  (result2)=>{
+                    this.foundPause = result2;
+                    for(let i = 0; i<this.positions.length; i++){
+                      if(obj._id == this.foundPause._id){
+                        if(this.positions[i].name == this.foundPause.dayIndex){
+                          this.positions[i].completed = 'true';
+                          this.positions[i].disable = 'false';
+                        }
+                        if(i == this.completedExercises.length){
+                          this.positions[i].completed = 'false';
+                          this.positions[i].disable = 'false';
+                        }
+                      }
+                    }
+
+                  },
+                  (error2) => {
+                    console.log(error2);
+                  }
+              )
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+    
+    console.log(this.activeUser);
+  }
 
   navSpiritualExcercise(dia: string) {
-    this.router.navigate(['/pauseExcercise']);
+    console.log(dia);
+    this._spiritualExerciseService.getSpiritualExerciseByDayAndType(dia,"pause")
+      .subscribe(
+        (result)=>{
+          this.foundPause = result;
+          console.log(this.foundPause);
+          this.router.navigate(['/pauseExercise/'+this.foundPause._id]);
+        },
+        (error) => {
+          console.log(error);
+        }
+    )
   }
 }

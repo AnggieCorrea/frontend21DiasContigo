@@ -2,7 +2,7 @@
 <div
   class="seeSpiritualExercise"
   [ngStyle]="{
-    'background-image': 'url(' + selectedSpiritualExercise.urlImage + ')',
+    'background-image': 'url(' + urlImage + ')',
     'background-size': '100%'
   }"
 >
@@ -10,11 +10,11 @@
     <button (click)="returnToSpiritualExercises()">Atrás</button>
   </div>
   <div class="content">
-    <h1>Día: {{ selectedSpiritualExercise.dayIndex }}</h1>
-    <h1>{{ selectedSpiritualExercise.title }}</h1>
+    <h1>Día: {{ day }}</h1>
+    <h1>{{ title }}</h1>
     <div class="generalContent">
-      <h3>{{ selectedSpiritualExercise.sentenceOne }}</h3>
-      <h3>{{ selectedSpiritualExercise.sentenceTwo }}</h3>
+      <h3>{{ sentenceOne }}</h3>
+      <h3>{{ sentenceTwo }}</h3>
       <div class="contentAudio">
         <app-audio-player></app-audio-player>
       </div>

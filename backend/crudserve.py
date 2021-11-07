@@ -13,27 +13,21 @@ import dns
 import hashlib
 import pprint
 from cryptography.fernet import Fernet
+import codecs
 ################################ funcion de encriptacion##################################
-key = "ttGcMvKwfoUQNekL_UWpW7RfNVyYf5J6EqGEC3tOSys="
-fernet = Fernet(key)
-encMessage=""
+CONST_KEY = Fernet.generate_key()
+FERNET=Fernet(CONST_KEY)
 def encriptacion(password):
-    message=password
-    global encMessage 
-    encMessage = fernet.encrypt(message.encode())
+    encMessage = FERNET.encrypt(bytes(password,'UTF-8'))
     return encMessage
 
 ###################################### funcion de desencriptacion########################
 
-def desencriptacion(encode):
-    print ('entramos')
-    global encMessage
-    decMessage = fernet.decrypt(encMessage).decode()
-    print('mensaje leido')
-    print("decrypted string: ", decMessage)
-    return decMessage
+def desencriptacion(password):
+    print(str(password,'UTF-8'))
+    print(FERNET.decrypt(password).decode('UTF-8'))
+    return FERNET.decrypt(password).decode('UTF-8')
 
-     
 
 ############################CONEXION CON LA BASE DE DATOS#################################
 app = Flask(__name__)
@@ -113,6 +107,7 @@ def obtener_usuario_por_email():
         _email = _json['email']
         _password = _json['password']
         datos = db.usuarios.find_one({"email": _email })
+        print(datos["password"])
         hasedpassword=desencriptacion(datos['password'])
         if  hasedpassword == _password and request.method == "POST":
             print(datos)
@@ -720,3 +715,5 @@ def obtener_posiciones():
 
 if __name__ == "__main__":
     app.run(port=90, debug=True)
+
+

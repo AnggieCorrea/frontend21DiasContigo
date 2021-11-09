@@ -24,7 +24,7 @@ export class ContemplationConsiderationService {
 
   getContemplationConsiderationById(contemplationId: string): Observable<ContemplationConsideration> {
     return this.http.get<ContemplationConsideration>(
-      `${this.urlBase}/ContemplationConsideration/idUser=${contemplationId}`
+      `${this.urlBase}/ContemplationConsideration/contemplationId=${contemplationId}`
     );
   }
 

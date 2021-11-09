@@ -103,39 +103,82 @@ h6 {
   transition: 0.2s;
 }
 
+.emoji {
+  font-size: 64px;
+  text-align: center;
+}
+
+input[type='range'] {
+  display: block;
+  width: 250px;
+  height: 64px;
+}
+
+input[type='range']:focus {
+  outline: none;
+}
+
+input[type='range'],
+input[type='range']::-webkit-slider-runnable-track,
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  background-color: rgb(169, 218, 240);
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgb(255, 132, 132);
+  border-radius: 50%;
+  margin-top: -9px;
+}
+
+input[type=range]::-moz-range-thumb {
+  background-color: rgb(169, 218, 240);
+  width: 15px;
+  height: 15px;
+  border: 3px solid rgb(255, 132, 132);
+  border-radius: 50%;
+}
+
+input[type=range]::-ms-thumb {
+  background-color: rgb(169, 218, 240);
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgb(255, 132, 132);
+  border-radius: 50%;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  background-color: rgb(169, 218, 240);
+  height: 3px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  outline: none;
+}
+
+input[type=range]::-moz-range-track {
+  background-color: rgb(169, 218, 240);
+  height: 3px;
+}
+
+input[type=range]::-ms-track {
+  background-color: rgb(169, 218, 240);
+  height: 3px;
+}
+
+input[type=range]::-ms-fill-lower {
+  background-color: white
+}
+
+input[type=range]::-ms-fill-upper {
+  background-color: black;
+} 
+
 .slider {
-  -webkit-appearance: none; /* Override default CSS styles */
-  appearance: none;
-  width: 100%; /* Full-width */
-  height: 25px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
-  transition: opacity 0.2s;
-}
-
-/* Mouse-over effects */
-.slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
-}
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- 
-    (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #4caf50; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-}
-
-.slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #4caf50; /* Green background */
-  cursor: pointer; /* Cursor on hover */
+  display: flex;
+  justify-content: space-between;
 }
 
 .sendButton {
@@ -149,12 +192,6 @@ h6 {
   border-style: none;
   transition: 0.5s;
   color: white;
-}
-
-.sendButton img {
-  width: 3rem;
-  height: 3rem;
-  margin: 0rem 1rem;
 }
 
 .sendButton:hover,
@@ -205,157 +242,7 @@ h6 {
   transform: rotate(-90deg);
 }
 
-.audioContainer {
-  padding: 40px;
-  margin-top: 20px;
-  padding-top: 10px;
-  padding-left: 14rem;
-  padding-right: 14rem;
-  width: 90%;
-  height: wrap;
-  border-style: none;
-  border-color: rgb(128, 128, 128, 0.3);
-  border-radius: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-.audioControl {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  width: 100%;
-  justify-content: space-around;
-}
-
-.playButton {
-  width: 3rem;
-  height: 3rem;
-  padding-top: 3rem;
-  background-color: transparent;
-  border-style: none;
-  background-image: url(/assets/playButton.png);
-  background-size: 50px;
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: 0.3s;
-}
-
-.playButton:hover {
-  background-color: #888a8d;
-  border-radius: 20px;
-}
-
-.pauseButton {
-  width: 3rem;
-  height: 3rem;
-  padding-top: 1rem;
-  background-color: transparent;
-  border-style: none;
-  background-image: url(/assets/pauseButton.png);
-  background-repeat: no-repeat;
-  background-size: 40px;
-  background-position: center;
-  transition: 0.3s;
-}
-
-.pauseButton:hover {
-  background-color: #888a8d;
-  border-radius: 20px;
-}
-
-.stopButton {
-  width: 3rem;
-  height: 3rem;
-  padding-top: 1rem;
-  background-color: transparent;
-  border-style: none;
-  background-image: url(/assets/stopButton.png);
-  background-repeat: no-repeat;
-  background-size: 40px;
-  background-position: center;
-  transition: 0.3s;
-}
-
-.audioList {
-  list-style: none;
-  font-size: larger;
-  color: rgb(255, 255, 255);
-  transition: 0.3s;
-}
-.audioList:hover {
-  color: #3680ee;
-  cursor: pointer;
-}
-
-.volumeConfig {
-  display: flex;
-}
-
-.volumeConfig span {
-  margin-right: 1rem;
-}
-
-input[type="range"] {
-  display: block;
-  width: 20rem;
-  background-color: transparent;
-}
-input[type="range"]:focus {
-  outline: none;
-}
-input[type="range"],
-input[type="range"]::-webkit-slider-runnable-track,
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-}
-input[type="range"]::-webkit-slider-thumb {
-  background-color: #777;
-  width: 1.2rem;
-  height: 1.2rem;
-  border: 0.2rem solid #333;
-  border-radius: 50%;
-  margin-top: -0.5rem;
-}
-input[type="range"]::-moz-range-thumb {
-  background-color: #777;
-  width: 1.2rem;
-  height: 1.2rem;
-  border: 0.5rem solid #333;
-  border-radius: 50%;
-}
-input[type="range"]::-ms-thumb {
-  background-color: #777;
-  width: 1rem;
-  height: 1rem;
-  border: 0.2rem solid #333;
-  border-radius: 50%;
-}
-input[type="range"]::-webkit-slider-runnable-track {
-  background-color: #777;
-  height: 0.2rem;
-}
-
-input[type="range"]:focus::-webkit-slider-runnable-track {
-  outline: none;
-}
-
-input[type="range"]::-moz-range-track {
-  background-color: #777;
-  height: 0.2rem;
-}
-input[type="range"]::-ms-track {
-  background-color: #777;
-  height: 0.2rem;
-}
-input[type="range"]::-ms-fill-upper {
-  background-color: black;
-}
-
-@media (max-width: 1045px) {
+@media (max-width: 450px) {
   * {
     box-sizing: border-box;
     font-family: "Montserrat Alternates", sans-serif;
@@ -415,123 +302,5 @@ input[type="range"]::-ms-fill-upper {
     background-color: rgba(255, 255, 255, 0.568);
   }
 
-  .audioControl {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    color: rgb(63, 123, 235);
-    width: 100%;
-    justify-content: space-evenly;
-  }
-
-  .playButton {
-    width: 3rem;
-    height: 3rem;
-    background-color: transparent;
-    border-style: none;
-    background-image: url(/assets/playButton.png);
-    background-size: 40px;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: 0.3s;
-  }
-
-  .pauseButton {
-    width: 3rem;
-    height: 3rem;
-    padding-top: 1rem;
-    background-color: transparent;
-    border-style: none;
-    background-image: url(/assets/pauseButton.png);
-    background-size: 40px;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: 0.3s;
-  }
-
-  .stopButton {
-    width: 3rem;
-    height: 3rem;
-    background-color: transparent;
-    border-style: none;
-    background-image: url(/assets/stopButton.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 40px;
-    transition: 0.3s;
-  }
-
-  .audioList {
-    list-style: none;
-    color: rgb(255, 255, 255);
-    transition: 0.3s;
-  }
-  .audioList:hover {
-    color: #3680ee;
-    cursor: pointer;
-  }
-
-  .volumeConfig {
-    display: flex;
-  }
-
-  .volumeConfig span {
-    margin-right: 1rem;
-  }
-
-  input[type="range"] {
-    display: block;
-    width: 3rem;
-    background-color: transparent;
-  }
-  input[type="range"]:focus {
-    outline: none;
-  }
-  input[type="range"],
-  input[type="range"]::-webkit-slider-runnable-track,
-  input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-  }
-  input[type="range"]::-webkit-slider-thumb {
-    background-color: #777;
-    width: 1.2rem;
-    height: 1.2rem;
-    border: 0.2rem solid #333;
-    border-radius: 50%;
-    margin-top: -0.5rem;
-  }
-  input[type="range"]::-moz-range-thumb {
-    background-color: #777;
-    width: 1.2rem;
-    height: 1.2rem;
-    border: 0.5rem solid #333;
-    border-radius: 50%;
-  }
-  input[type="range"]::-ms-thumb {
-    background-color: #777;
-    width: 1rem;
-    height: 1rem;
-    border: 0.2rem solid #333;
-    border-radius: 50%;
-  }
-  input[type="range"]::-webkit-slider-runnable-track {
-    background-color: #777;
-    height: 0.2rem;
-  }
-
-  input[type="range"]:focus::-webkit-slider-runnable-track {
-    outline: none;
-  }
-
-  input[type="range"]::-moz-range-track {
-    background-color: #777;
-    height: 0.2rem;
-  }
-  input[type="range"]::-ms-track {
-    background-color: #777;
-    height: 0.2rem;
-  }
-  input[type="range"]::-ms-fill-upper {
-    background-color: black;
-  }
+  
 }

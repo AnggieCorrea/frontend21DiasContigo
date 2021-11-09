@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Position } from 'src/app/models/Position';
 import { SpiritualExercise } from 'src/app/models/SpiritualExercise';
 import { communicationActiveUser } from 'src/app/services/communicationActiveUser.service';
-import { ContTileMapService } from 'src/app/services/cont-tile-map.service';
 import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.service';
 
 @Component({

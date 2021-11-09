@@ -18,6 +18,9 @@ export class ContemplationConsiderationComponent implements OnInit {
   url:string = "";
   consideration:ContemplationConsideration;
   considerationId:string;
+  type: string;
+  dayIndex:string;
+  textArea:string;
 
   audioObj = new Audio();
   @Output() valueResponse: EventEmitter<Boolean> = new EventEmitter();
@@ -33,8 +36,13 @@ export class ContemplationConsiderationComponent implements OnInit {
       .subscribe((considerationFound: ContemplationConsideration) => {
       this.consideration = considerationFound;
       console.log(this.consideration);
+      this.dayIndex = this.consideration.dayIndex
+      this.type = this.consideration.type
       if (this.consideration.urlConsiderationAudio != "") {
         this.url = this.consideration.urlConsiderationAudio;    
+      }
+      if(this.consideration.considerationText != ""){
+        this.textArea = this.consideration.considerationText
       }
     });
   }

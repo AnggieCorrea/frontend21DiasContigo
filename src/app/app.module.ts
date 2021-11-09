@@ -9,7 +9,7 @@ import { UserModule } from './user/user.module';
 import { SharedComponentsModule } from './shared-components/shared-components.module';
 import { AdminModule } from './admin/admin.module';
 
-import { ContTileMapService } from './services/cont-tile-map.service';
+import { EmojiService } from './services/emoji.service';
 import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
@@ -25,7 +25,7 @@ import { ChartsModule } from 'ng2-charts';
     HttpClientModule,
   ],
   exports: [],
-  providers: [ContTileMapService],
+  providers: [EmojiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

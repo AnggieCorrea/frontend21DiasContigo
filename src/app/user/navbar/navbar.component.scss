@@ -2,7 +2,6 @@
 /* SE APLICA A TODO */
 /*=========================*/
 
-
 * {
   box-sizing: border-box;
   font-family: "Montserrat Alternates", sans-serif;
@@ -13,7 +12,7 @@
 }
 
 header {
-  display:flex;
+  display: flex;
   justify-content: flex-end;
   align-items: center;
   text-align: center;
@@ -130,7 +129,7 @@ header label:hover {
   left: 0;
 }
 
-@media (max-width: 1045px) {
+@media (max-width: 450px) {
   * {
     box-sizing: border-box;
     font-family: "Montserrat Alternates", sans-serif;
@@ -140,7 +139,7 @@ header label:hover {
     padding: 0px;
     overflow: auto;
   }
-  
+
   header label {
     display: flex;
     justify-content: space-between;
@@ -149,7 +148,7 @@ header label:hover {
   .menu {
     position: absolute;
     top: 40px;
-    width:100%;
+    width: 100%;
     height: auto;
     background: rgb(217, 232, 238);
     margin-right: 100%;

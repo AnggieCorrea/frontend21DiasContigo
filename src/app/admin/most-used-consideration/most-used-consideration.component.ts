@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
+import { ContemplationConsideration } from 'src/app/models/ContemplationConsideration';
 import { SpiritualExercise } from 'src/app/models/SpiritualExercise';
 import { User } from 'src/app/models/User';
+import { ContemplationConsiderationService } from 'src/app/services/contemplationConsideration.service';
 import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -15,6 +17,7 @@ export class MostUsedConsiderationComponent implements OnInit {
   typeExercise: string;
   spiritualExercises: SpiritualExercise[];
   usersByTypeExercise: User[];
+  contemplationConsiderations: ContemplationConsideration[];
   totalRecordings = 0;
   totalTexts = 0;
 
@@ -67,7 +70,8 @@ export class MostUsedConsiderationComponent implements OnInit {
 
   constructor(
     private spiritualExerciseService: SpiritualExerciseService,
-    private userService: UserService
+    private userService: UserService,
+    private contemplationConsiderationService: ContemplationConsiderationService
   ) {}
 
   ngOnInit(): void {
@@ -99,18 +103,24 @@ export class MostUsedConsiderationComponent implements OnInit {
   }
 
   findTypesContemplationConsideration(): void {
-    const users = this.userService.getUsers();
-    for (let i in users) {
-      const contemplationConsideration1 =
-        users[i].getContemplationConsiderationList();
-      for (let j in contemplationConsideration1) {
-        if (contemplationConsideration1[j].type == 'recording')
-          this.totalRecordings++;
-        else if (contemplationConsideration1[j].type == 'text')
-          this.totalTexts++;
-      }
-    }
-    this.pieChartData.push(this.totalRecordings);
-    this.pieChartData.push(this.totalTexts);
+    this.contemplationConsiderationService
+      .getContemplationConsideration()
+      .subscribe(
+        (results) => {
+          this.contemplationConsiderations = results;
+          console.log(this.contemplationConsiderations);
+          for (let j in this.contemplationConsiderations) {
+            if (this.contemplationConsiderations[j].type == 'recording')
+              this.totalRecordings++;
+            else if (this.contemplationConsiderations[j].type == 'text')
+              this.totalTexts++;
+          }
+          this.pieChartData.push(this.totalRecordings);
+          this.pieChartData.push(this.totalTexts);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 }

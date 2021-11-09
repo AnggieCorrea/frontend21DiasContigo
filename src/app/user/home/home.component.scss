@@ -1,4 +1,4 @@
-*{
+* {
   box-sizing: border-box;
   font-family: "Montserrat Alternates", sans-serif;
   font-weight: bold;
@@ -97,7 +97,7 @@
   }
 }
 
-@media (max-width: "1045px") {
+@media (max-width: 450px) {
   * {
     box-sizing: border-box;
     font-family: "Montserrat Alternates", sans-serif;
@@ -106,7 +106,7 @@
     margin: 0px;
     padding: 0px;
     overflow: auto;
-}
+  }
   .progress {
     width: 90%;
     height: 60%;

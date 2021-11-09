@@ -1,4 +1,4 @@
-*{
+* {
   box-sizing: border-box;
   font-family: "Montserrat Alternates", sans-serif;
   font-weight: bold;
@@ -64,7 +64,7 @@ h6 {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-.considerationNavButtons{
+.considerationNavButtons {
   display: flex;
   flex-direction: column;
 }
@@ -355,7 +355,7 @@ input[type="range"]::-ms-fill-upper {
   background-color: black;
 }
 
-@media (max-width: 1045px) {
+@media (max-width: 450px) {
   * {
     box-sizing: border-box;
     font-family: "Montserrat Alternates", sans-serif;

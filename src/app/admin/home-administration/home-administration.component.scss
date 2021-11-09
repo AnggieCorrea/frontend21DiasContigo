@@ -110,10 +110,60 @@ h3 {
   text-align: center;
 }
 
-@media (max-width: 1045px) {
+@media (max-width: 1030px) {
   .options {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+  }
+  .buttonContemplationAdministration {
+    width: 330px;
+    height: 230px;
+  }
+  .buttonPauseAdministration {
+    width: 330px;
+    height: 230px;
+  }
+  .buttonStadistics {
+    width: 330px;
+    height: 230px;
+  }
+  .buttonMostUsedExercise {
+    width: 330px;
+    height: 230px;
+  }
+  .buttonMostUsedConsideration {
+    width: 330px;
+    height: 230px;
+  }
+}
+
+@media (max-width: 300px) {
+  .options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .logo {
+    width: 250px;
+    height: 50px;
+  }
+  .buttonContemplationAdministration {
+    width: 260px;
+  }
+  .buttonPauseAdministration {
+    width: 260px;
+  }
+  .buttonStadistics {
+    width: 260px;
+  }
+  .buttonMostUsedExercise {
+    width: 260px;
+  }
+  .buttonMostUsedConsideration {
+    width: 260px;
+  }
+  .letterBackground {
+    width: 80%;
   }
 }

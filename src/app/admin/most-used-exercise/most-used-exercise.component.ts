@@ -14,6 +14,7 @@ import { UserService } from 'src/app/services/user.service';
 export class MostUsedExerciseComponent implements OnInit {
   typeExercise: string;
   spiritualExercises: SpiritualExercise[];
+  users: User[];
   usersByTypeExercise: User[];
   totalContemplations = 0;
   totalPauses = 0;
@@ -101,19 +102,27 @@ export class MostUsedExerciseComponent implements OnInit {
   }
 
   findUsersByTypeExercise(): void {
-    const users = this.userService.getUsers();
-    for (let i in users) {
-      const exercisesOfUser =
-        this.spiritualExerciseService.getSpiritualExercisesByUser(
-          users[i].getListIdsCompletedExercises()
-        );
-      for (let j in exercisesOfUser) {
-        if (exercisesOfUser[j].type == 'contemplation')
-          this.totalContemplations++;
-        else if (exercisesOfUser[j].type == 'pause') this.totalPauses++;
+    this.userService.getUsers().subscribe(
+      (results) => {
+        this.users = results;
+        console.log(this.users);
+        for (let i in this.users) {
+          /* const exercisesOfUser =
+            this.spiritualExerciseService.getSpiritualExercisesByUser(
+              this.users[i].getListIdsCompletedExercises()
+            );
+          for (let j in exercisesOfUser) {
+            if (exercisesOfUser[j].type == 'contemplation')
+              this.totalContemplations++;
+            else if (exercisesOfUser[j].type == 'pause') this.totalPauses++;
+          } */
+        }
+        this.pieChartData.push(this.totalContemplations);
+        this.pieChartData.push(this.totalPauses);
+      },
+      (error) => {
+        console.log(error);
       }
-    }
-    this.pieChartData.push(this.totalContemplations);
-    this.pieChartData.push(this.totalPauses);
+    );
   }
 }

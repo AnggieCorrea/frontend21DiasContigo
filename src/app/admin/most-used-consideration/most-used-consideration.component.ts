@@ -108,9 +108,8 @@ export class MostUsedConsiderationComponent implements OnInit {
       .subscribe(
         (results) => {
           this.contemplationConsiderations = results;
-          console.log(this.contemplationConsiderations);
           for (let j in this.contemplationConsiderations) {
-            if (this.contemplationConsiderations[j].type == 'recording')
+            if (this.contemplationConsiderations[j].type == 'audio')
               this.totalRecordings++;
             else if (this.contemplationConsiderations[j].type == 'text')
               this.totalTexts++;

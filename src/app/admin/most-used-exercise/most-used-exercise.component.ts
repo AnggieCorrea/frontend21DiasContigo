@@ -18,6 +18,7 @@ export class MostUsedExerciseComponent implements OnInit {
   usersByTypeExercise: User[];
   totalContemplations = 0;
   totalPauses = 0;
+  exercises: SpiritualExercise[] = [];
 
   // Trozos del pastel - Etiquetas
   public pieChartLabels: Label[] = [
@@ -75,16 +76,7 @@ export class MostUsedExerciseComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.spiritualExerciseService
-      .getSpiritualExercisesByType(this.typeExercise)
-      .subscribe(
-        (results) => {
-          this.spiritualExercises = results;
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    this.findUsersByTypeExercise();
   }
 
   recibiRespuesta(mensaje: string): void {
@@ -102,20 +94,13 @@ export class MostUsedExerciseComponent implements OnInit {
   }
 
   findUsersByTypeExercise(): void {
-    this.userService.getUsers().subscribe(
-      (results) => {
-        this.users = results;
-        console.log(this.users);
-        for (let i in this.users) {
-          /* const exercisesOfUser =
-            this.spiritualExerciseService.getSpiritualExercisesByUser(
-              this.users[i].getListIdsCompletedExercises()
-            );
-          for (let j in exercisesOfUser) {
-            if (exercisesOfUser[j].type == 'contemplation')
-              this.totalContemplations++;
-            else if (exercisesOfUser[j].type == 'pause') this.totalPauses++;
-          } */
+    this.userService.getExercisesByUser().subscribe(
+      (resul) => {
+        this.exercises = resul;
+        for (let j in this.exercises) {
+          if (this.exercises[j].type == 'contemplation')
+            this.totalContemplations++;
+          else if (this.exercises[j].type == 'pause') this.totalPauses++;
         }
         this.pieChartData.push(this.totalContemplations);
         this.pieChartData.push(this.totalPauses);

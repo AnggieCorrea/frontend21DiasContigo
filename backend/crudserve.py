@@ -14,6 +14,7 @@ import hashlib
 import pprint
 from cryptography.fernet import Fernet
 import codecs
+from messagestomail import enviar_correo
 ################################ funcion de encriptacion##################################
 CONST_KEY = Fernet.generate_key()
 FERNET=Fernet(CONST_KEY)
@@ -51,7 +52,8 @@ def obtener_usuarios():
     try:
         datos = list(db.usuarios.find())
         for usuario in datos:
-            usuario["_id"] = str(usuario["_id"])
+            usuario["_id"] = str( usuario["_id"])
+            usuario["password"] =usuario["password"].decode('UTF-8')
             for exercise in usuario["listCompletedExercises"]:
                 exercise["_id"] = str(exercise["_id"])
             for pauseCons in usuario["pauseConsiderationList"]:
@@ -150,6 +152,7 @@ def crear_usuario():
             print("cree el usuario")
             resp = jsonify("Exito, usuario añadido")
             resp.status_code = 200
+            enviar_correo('luisjaramilloespinos16@gmail.com','dragon1998',usuario["email"])
             return resp
 
         else:

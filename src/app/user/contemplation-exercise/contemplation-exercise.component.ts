@@ -1,5 +1,6 @@
 import { PathLocationStrategy } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { ContemplationConsideration } from 'src/app/models/ContemplationConsideration';
@@ -9,6 +10,9 @@ import { communicationActiveUser } from 'src/app/services/communicationActiveUse
 import { ContemplationConsiderationService } from 'src/app/services/contemplationConsideration.service';
 import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.service';
 import { UserService } from 'src/app/services/user.service';
+declare var $: any;
+import * as RecordRTC from 'recordrtc';
+
 
 @Component({
   selector: 'app-contemplation-exercise',
@@ -36,7 +40,13 @@ export class ContemplationExerciseComponent implements OnInit {
   url = '';
   type: string;
   audioObj = new Audio();
-  constructor(private router: Router,
+  record: any;
+  recording = false;
+  urlRec: any;
+  error: any;
+  
+  constructor(private domSanitizer: DomSanitizer,
+    private router: Router,
     private _spiritualExerciseService: SpiritualExerciseService,
     private route: ActivatedRoute,
     private _communicationActiveUser: communicationActiveUser,
@@ -66,6 +76,55 @@ export class ContemplationExerciseComponent implements OnInit {
     )
     this.activeUser = this._communicationActiveUser.userId;
   }
+
+  /* Functions of recorder */
+  sanitize(url: string) {
+    return this.domSanitizer.bypassSecurityTrustUrl(url);
+  }
+  Recording() {
+    this.recording = true;
+    let mediaConstraints = {
+      video: false,
+      audio: true,
+    };
+    navigator.mediaDevices
+      .getUserMedia(mediaConstraints)
+      .then(this.successCallback.bind(this), this.errorCallback.bind(this));
+  }
+  successCallback(stream: any) {
+    var options = {
+      mimeType: 'audio/mpeg',
+      numberOfAudioChannels: 1,
+      sampleRate: 50000,
+    };
+    //Start Actuall Recording
+    var StereoAudioRecorder = RecordRTC.StereoAudioRecorder;
+    this.record = new StereoAudioRecorder(stream, options);
+    this.record.record();
+  }
+  Stop() {
+    this.recording = false;
+    this.record.stop(this.processRecording.bind(this));
+  }
+  Reset() {
+    this.recording = false;
+  }
+  /**
+   * processRecording Do what ever you want with blob
+   * @param  {any} blob Blog
+   */
+  processRecording(blob: any) {
+    this.urlRec = URL.createObjectURL(blob);
+    console.log('blob', blob);
+    console.log('url', this.url);
+  }
+  /**
+   * Process Error.
+   */
+  errorCallback(erro: any) {
+    this.error = 'Can not play audio in your browser';
+  }
+  /* End functions of recorder */
 
   showRecorder() {
     this.showRec = true;
@@ -103,7 +162,16 @@ export class ContemplationExerciseComponent implements OnInit {
   }
 
   saveAudioConsideration() {
-    this.type = 'Audio'
+    this.consideration = new ContemplationConsideration('',this.dayIndex,'audio',this.urlRec,'',this.activeUser);    
+    console.log(this.consideration);
+    this._considerationService.createContemplationConsideration(this.consideration).subscribe(
+      (result)=>{
+        console.log(result);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );    
   }
   
   saveTextConsideration() {

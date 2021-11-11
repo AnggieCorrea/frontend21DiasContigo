@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { SpiritualExercise } from '../models/SpiritualExercise';
 import 'rxjs/Rx';
 import { Position } from '../models/Position';
+import { ContemplationConsideration } from '../models/ContemplationConsideration';
 
 @Injectable({
   providedIn: 'root',
@@ -80,4 +81,8 @@ export class SpiritualExerciseService {
   getPositions(): Observable<Position[]> {
     return this.http.get<Position[]>(this.urlBase +'/posiciones');
   }
+
+  saveAudio(ContemplationConsideration: ContemplationConsideration): Observable<ContemplationConsideration>{
+    return this.http.put<ContemplationConsideration>(this.urlBase +'/ContemplationConsideration/audio', ContemplationConsideration);
+  }  
 }

@@ -19,7 +19,6 @@ import { FooterAdminComponent } from './admin/footer-admin/footer-admin.componen
 import { PauseExerciseComponent } from './user/pause-exercise/pause-exercise.component';
 import { FooterUserComponent } from './user/footer-user/footer-user.component';
 import { ContemplationConsiderationComponent } from './user/contemplation-consideration/contemplation-consideration.component';
-import { PauseConsiderationComponent } from './user/pause-consideration/pause-consideration.component';
 import { AuthGuard } from './auth.guard';
 import { RoleGuard } from './role.guard';
 
@@ -78,10 +77,6 @@ const routes: Routes = [
   {
     path: 'contemplationConsideration/:id',
     component: ContemplationConsiderationComponent,
-  },
-  {
-    path: 'pauseConsideration/:id',
-    component: PauseConsiderationComponent,
   },
   //admin routing
   {

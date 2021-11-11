@@ -37,11 +37,34 @@
       </div>
       <div class="sliderContainer">
         <div *ngIf="showRec == true">
-          <app-microphone-recorder></app-microphone-recorder>
-          <fa-icon
+          <div class="recordArea">
+            <div class="grayBlob" *ngIf="!recording">
+              <button
+                (click)="Recording()"
+                class="btn btn-primary recordButton"
+                *ngIf="!recording"
+              ></button>
+            </div>
+            <div class="redBlob" *ngIf="recording">
+              <button
+                (click)="Stop()"
+                class="btn btn-danger stopButton"
+                *ngIf="recording"
+              ></button>
+            </div>
+            <div>
+              <div class="clearfix"></div>
+              <audio controls="" *ngIf="urlRec">
+                <source [src]="sanitize(urlRec)" type="audio/mpeg" />
+              </audio>
+            </div>
+            <button class="saveButton" (click)="saveAudioConsideration()">
+              <fa-icon
                 [icon]="faSave"
                 class="icons"
-          ></fa-icon> Guardar
+              ></fa-icon> Guardar
+            </button>
+          </div>
         </div>
         <div *ngIf="showTex == true">
           <form class="formulario">

@@ -373,8 +373,38 @@ def obtener_ejercicios_user_tipo(idUser,type):
             status=500,
             mimetype="application/json"
         )
-###################################################Obetener ejerccio espiritual por id############################
 
+######################################Obtener ejercicio espirirtual###########################################
+
+
+@app.route('/SpiritualExercises/idUser=<idUser>', methods=['GET'])
+def obtener_ejercicios_user(idUser):
+    try:
+        datos = db.usuarios.find_one(
+                {
+                    '_id':ObjectId(idUser)
+                },
+                {
+                    '_id':0,
+                    'listCompletedExercises':1
+                })
+        print(datos)
+        exerciseList = []
+        for exercise in datos["listCompletedExercises"]:
+            exercise["_id"]=str(exercise["_id"])
+            exerciseList.append(exercise)
+        print(exerciseList)    
+        resp = dp(exerciseList)
+        return resp
+        
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message": "can not obtain exercises"}),
+            status=500,
+            mimetype="application/json"
+        )
+###################################################Obetener ejerccio espiritual por id############################
 
 @app.route('/SpiritualExercises/<id>', methods=['GET'])
 def obtener_ejercicio_por_id(id):
@@ -720,18 +750,16 @@ def create_contemplationP():
     try:
         _json = request.json
         _dayIndex = _json['dayIndex']
-        _type = _json['type']
-        _urlConsiderationAudio = _json['urlConsiderationAudio']
-        _considerationText = _json['considerationText']
+        _emoji = _json['emoji']
         _idUser = _json['idUser']
+        print(_json)
         
         consideration = {
                 'dayIndex': _dayIndex,
-                'type': _type,
-                'urlConsiderationAudio': "",
-                'considerationText': _considerationText,
+                'emoji': _emoji,
                 'idUser': _idUser
             }
+        print(consideration)
         id = db.pauseConsideration.insert(consideration)
         if id and request.method == 'POST':
             print("cree la contemplacion")
@@ -752,6 +780,8 @@ def create_contemplationP():
             status=500,
             mimetype="application/json"
         )
+
+
 ################################## GET POSICIONES GENERICAS ###################################
 @app.route('/posiciones', methods=["GET"])
 def obtener_posiciones():

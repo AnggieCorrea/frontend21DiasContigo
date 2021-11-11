@@ -27,6 +27,7 @@ export class PauseListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.activeUser =this._communicationActiveUser.userId,
     this._spiritualExerciseService.getPositions()
       .subscribe(
         (result)=>{

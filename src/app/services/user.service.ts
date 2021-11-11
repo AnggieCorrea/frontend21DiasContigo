@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../models/User';
 import 'rxjs/Rx';
+import { SpiritualExercise } from '../models/SpiritualExercise';
 
 @Injectable({
   providedIn: 'root',
@@ -36,6 +37,12 @@ export class UserService {
   public saveExercise(idUser: string, idExercise: string): Observable<User> {
     return this.http.put<User>(
       `${this.urlBase}/usuarios/saveExercise/idUser=${idUser}&idExercise=${idExercise}`,null
+    );
+  }
+
+  public getExercisesByUser(idUser: string): Observable<SpiritualExercise[]> {
+    return this.http.get<SpiritualExercise[]>(
+      `${this.urlBase}/SpiritualExercises/idUser=${idUser}`
     );
   }
 }

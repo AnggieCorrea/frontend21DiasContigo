@@ -16,6 +16,12 @@ export class ContemplationConsiderationService {
   constructor(private http:HttpClient) {
   }
 
+  getContemplationConsiderations(): Observable<ContemplationConsideration[]> {
+    return this.http.get<ContemplationConsideration[]>(
+      `${this.urlBase}/ContemplationConsideration`
+    );
+  }
+  
   getContemplationConsideration(userId: string): Observable<ContemplationConsideration[]> {
     return this.http.get<ContemplationConsideration[]>(
       `${this.urlBase}/ContemplationConsideration/idUser=${userId}`

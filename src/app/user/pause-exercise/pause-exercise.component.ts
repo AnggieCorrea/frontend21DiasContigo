@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { PauseConsideration } from 'src/app/models/PauseConsideration';
 import { SpiritualExercise } from 'src/app/models/SpiritualExercise';
+import { communicationActiveUser } from 'src/app/services/communicationActiveUser.service';
 import { PauseConsiderationService } from 'src/app/services/pauseConsideration.service';
 import { SpiritualExerciseService } from 'src/app/services/spiritualExercise.service';
 import { UserService } from 'src/app/services/user.service';
@@ -38,11 +39,13 @@ export class PauseExerciseComponent implements OnInit {
     private _spiritualExerciseService: SpiritualExerciseService, 
     private route: ActivatedRoute,
     private _userService: UserService,
-    private _considerationService: PauseConsiderationService
+    private _considerationService: PauseConsiderationService,
+    private _communicationActiveUser: communicationActiveUser
     ) {
     }
 
   ngOnInit(): void {
+    this.activeUser = this._communicationActiveUser.userId,
     this.id = this.route.snapshot.paramMap.get('id');
     console.log(this.id);
     this._spiritualExerciseService.getSpiritualExerciseById(this.id)
@@ -99,13 +102,20 @@ export class PauseExerciseComponent implements OnInit {
 
   emoji(){
     let val = <HTMLInputElement> document.getElementById("rangeInput");
-    let div = document.querySelector('.emoji');
-    let mojis = ['😄','🙂','😐','😑','☹️','😩','😠','😡'];
-    div.textContent = mojis[val.value];
+    let div = <HTMLImageElement> document.querySelector('.emoji');
+    let mojis = ["assets/UwUIcon.png","assets/HappyIcon.png","assets/NeutralIcon.png","assets/SadIcon.png","assets/AngryIcon.png"];
+    div.src = "/"+mojis[val.value];
+    console.log(this.dayIndex);
+    console.log(div.src);
+    console.log(this.activeUser);
   }
 
   savePause(){
-    this.consideration = new PauseConsideration('',this.dayIndex,document.querySelector('.emoji').textContent,this.activeUser); 
+    let val = <HTMLInputElement> document.getElementById("rangeInput");
+    let div = <HTMLImageElement> document.querySelector('.emoji');
+    let mojis = ["assets/UwUIcon.png","assets/HappyIcon.png","assets/NeutralIcon.png","assets/SadIcon.png","assets/AngryIcon.png"];
+    div.src = "/"+mojis[val.value];
+    this.consideration = new PauseConsideration('',this.dayIndex,mojis[val.value],this.activeUser); 
     console.log(this.consideration);
     this._considerationService.createPauseConsideration(this.consideration).subscribe(
       (result)=>{
@@ -115,7 +125,6 @@ export class PauseExerciseComponent implements OnInit {
         console.log(error);
       }
     );    
-    this.navPauseMap();
   }
   
 }

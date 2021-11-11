@@ -33,12 +33,12 @@
           <form class="formulario">
             <h5>¿Cómo te fue hoy?</h5>
             <h6>Elige un sentimiento</h6>
-            <div class="emoji">😄</div>
+            <img class="emoji" src="/assets/UwUIcon.png"/>
             <div class="slider">
-              <input type="range" id="rangeInput" value="0" min="0" max="7" step="1" (change)="emoji()">
+              <input type="range" id="rangeInput" value="0" min="0" max="4" step="1" (change)="emoji()">
             </div>
 
-            <button class="sendButton" (click)="navPauseMap()">
+            <button class="sendButton" (click)="savePause()">
               <fa-icon
                 [icon]="faSave"
                 class="icons"

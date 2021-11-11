@@ -2,7 +2,7 @@
   box-sizing: border-box;
   font-family: "Montserrat Alternates", sans-serif;
   font-weight: bold;
-  font-size: smaller;
+  font-size: small;
   margin: 0px;
   padding: 0px;
   overflow: auto;
@@ -325,7 +325,7 @@ input[type="range"]::-ms-fill-upper {
   background-color: black;
 }
 
-@media (max-width: 1045px) {
+@media (max-width: 450px) {
   * {
     box-sizing: border-box;
     font-family: "Montserrat Alternates", sans-serif;

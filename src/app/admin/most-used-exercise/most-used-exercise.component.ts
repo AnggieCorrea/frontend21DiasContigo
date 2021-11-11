@@ -14,9 +14,11 @@ import { UserService } from 'src/app/services/user.service';
 export class MostUsedExerciseComponent implements OnInit {
   typeExercise: string;
   spiritualExercises: SpiritualExercise[];
+  users: User[];
   usersByTypeExercise: User[];
   totalContemplations = 0;
   totalPauses = 0;
+  exercises: SpiritualExercise[] = [];
 
   // Trozos del pastel - Etiquetas
   public pieChartLabels: Label[] = [
@@ -74,16 +76,7 @@ export class MostUsedExerciseComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.spiritualExerciseService
-      .getSpiritualExercisesByType(this.typeExercise)
-      .subscribe(
-        (results) => {
-          this.spiritualExercises = results;
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    this.findUsersByTypeExercise();
   }
 
   recibiRespuesta(mensaje: string): void {
@@ -101,19 +94,20 @@ export class MostUsedExerciseComponent implements OnInit {
   }
 
   findUsersByTypeExercise(): void {
-    const users = this.userService.getUsers();
-    for (let i in users) {
-      const exercisesOfUser =
-        this.spiritualExerciseService.getSpiritualExercisesByUser(
-          users[i].getListIdsCompletedExercises()
-        );
-      for (let j in exercisesOfUser) {
-        if (exercisesOfUser[j].type == 'contemplation')
-          this.totalContemplations++;
-        else if (exercisesOfUser[j].type == 'pause') this.totalPauses++;
+    this.userService.getExercisesByUser().subscribe(
+      (resul) => {
+        this.exercises = resul;
+        for (let j in this.exercises) {
+          if (this.exercises[j].type == 'contemplation')
+            this.totalContemplations++;
+          else if (this.exercises[j].type == 'pause') this.totalPauses++;
+        }
+        this.pieChartData.push(this.totalContemplations);
+        this.pieChartData.push(this.totalPauses);
+      },
+      (error) => {
+        console.log(error);
       }
-    }
-    this.pieChartData.push(this.totalContemplations);
-    this.pieChartData.push(this.totalPauses);
+    );
   }
 }

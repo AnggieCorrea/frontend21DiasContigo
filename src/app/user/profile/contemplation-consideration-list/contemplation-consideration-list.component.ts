@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ContemplationConsideration } from 'src/app/models/ContemplationConsideration';
 import { CommunicationTypeOfConsiderationContemService } from 'src/app/services/communication-type-of-consideration-contem.service';
+import { communicationActiveUser } from 'src/app/services/communicationActiveUser.service';
+import { communicationConsiderationId } from 'src/app/services/communicationConsiderationId.service';
+import { ContemplationConsiderationService } from 'src/app/services/contemplationConsideration.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-contemplation-consideration-list',
@@ -9,33 +14,28 @@ import { CommunicationTypeOfConsiderationContemService } from 'src/app/services/
 })
 export class ContemplationConsiderationListComponent implements OnInit {
   /* */
-  contemplaciones: any[] = [];
+  contemplaciones: ContemplationConsideration[];
   typeConsideration: string;
-
-  constructor(private router: Router, private communicationServiceConsideration: CommunicationTypeOfConsiderationContemService) {
-    this.contemplaciones = Array.from(Array(21).keys()).map((numeroDia) => {
-      return {
-        nombre: `Día ${numeroDia + 1}`,
-        titulo: `Título`,
-        fecha: `${numeroDia + 1}/sept/2021`,
-      };
-    });
+  activeUser: string;
+  imageSrc:string;
+  constructor(private router: Router,
+    private _communicationActiveUser: communicationActiveUser,
+    private _userService: UserService,
+    private _contemplationConsiderationService: ContemplationConsiderationService,
+    private _communicationConsiderationId: communicationConsiderationId) {
   }
 
   ngOnInit(): void {
-    this.communicationServiceConsideration.sendTypeConsiderationObservable.subscribe((typeConsideration)=>{
-      typeConsideration = this.typeConsideration;
+    this.activeUser = this._communicationActiveUser.userId;
+    this._contemplationConsiderationService.getContemplationConsideration(this.activeUser).subscribe((completedExercises:ContemplationConsideration[]) => {
+      this.contemplaciones = completedExercises;
+      console.log(this.contemplaciones);
     });
   }
 
-  myConsiderationAudio():void{
-    this.communicationServiceConsideration.setTypeConsideration('audio');
-    this.router.navigate(['/contemplationConsideration']);
-  }
-
-  myConsiderationText():void{
-    this.communicationServiceConsideration.setTypeConsideration('texto');
-    this.router.navigate(['/contemplationConsideration']);
+  myConsideration(considerationId:string):void{
+    this._communicationConsiderationId.setconsiderationId(considerationId);
+    this.router.navigate(['/contemplationConsideration/'+considerationId]);
   }
 
 }

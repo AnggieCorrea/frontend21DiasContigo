@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
   showPause = false;
   showAvatars = false;
   activeUser: string;
-  imageSrc="";
+  imageSrc:string;
   userFound: User;
   userF: User;
 
@@ -31,23 +31,15 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeUser = this._communicationActiveUser.userId;
-    /*this._userService.getUserById(this.activeUser).subscribe((userFound: User) => {
+    this._userService.getUserById(this.activeUser).subscribe((userFound: User) => {
       this.userF = userFound;
-      if (this.userF.email != "") {
-        console.log(this.userF.role)
-        if (this.userF.role === 'admin') {
-          this.router.navigate(['/homeAdministration']);
-        } else if (this.userF.role === 'user') {
-          this.router.navigate(['/home']);
-          console.log(this.userF);
-          this._communicationActiveUser.setUserId(this.userF._id);
-        }
-      } else {
-        this.userFound = false;
-        console.log('Usuario no registrado');
+      console.log(this.userF);
+      if (this.userF.urlImage != "") {
+        this.imageSrc = this.userF.urlImage;    
+      }else{
+        this.imageSrc = "/assets/UserIcon-Icons8.png"
       }
-    });*/
-    this.imageSrc="/assets/UserIcon-Icons8.png"
+    });
   }
 
   showContemplations() {

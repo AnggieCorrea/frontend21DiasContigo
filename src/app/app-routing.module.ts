@@ -76,11 +76,11 @@ const routes: Routes = [
     component: PauseExerciseComponent,
   },
   {
-    path: 'contemplationConsideration',
+    path: 'contemplationConsideration/:id',
     component: ContemplationConsiderationComponent,
   },
   {
-    path: 'pauseConsideration',
+    path: 'pauseConsideration/:id',
     component: PauseConsiderationComponent,
   },
   //admin routing

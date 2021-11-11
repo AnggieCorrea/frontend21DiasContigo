@@ -1,4 +1,4 @@
-*{
+* {
   box-sizing: border-box;
   font-family: "Montserrat Alternates", sans-serif;
   font-weight: bold;
@@ -90,10 +90,10 @@ h1 {
   width: 2rem;
 }
 
-@media (max-width: "1045px") {
-  *{
+@media (max-width: 450px) {
+  /*   * {
     font-size: 0.9em;
-  }
+  } */
 
   .traslucidContainer {
     height: 80%;
@@ -108,7 +108,7 @@ h1 {
   .traslucidContainer p {
     margin-bottom: 2rem;
   }
-  
+
   .buttonContainer {
     width: 100%;
     display: flex;
@@ -142,5 +142,4 @@ h1 {
     justify-content: space-around;
     align-items: center;
   }
-
 }

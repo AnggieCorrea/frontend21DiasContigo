@@ -42,7 +42,7 @@ h1 {
   list-style: none;
   position: relative;
   display: flex;
-  padding-bottom: 25%;
+  padding-bottom: 20%;
   left: 50px;
   flex-direction: row;
   justify-items: space-evenly;
@@ -53,11 +53,11 @@ h1 {
 }
 
 .excerciseButton {
-  padding: 1.5rem;
-  //padding-bottom: 1.5rem;
-  margin: 10px;
-  width: 5rem;
-  height: 5rem;
+  //padding: 1.5rem;
+  margin: 5px;
+  width: 7rem;
+  height: 7rem;
+  padding-top: 2.5rem;
   font-size: smaller;
   background-color: rgb(31, 176, 195);
   color: white;
@@ -66,7 +66,6 @@ h1 {
   text-align: center;
   border-radius: 100%;
   border-style: none;
-  transition: 0.2s;
 }
 
 .DesTopButton {
@@ -99,11 +98,12 @@ h1 {
 }
 
 .excerciseButtonDisable {
-  padding: 1.5rem;
+  //padding: 1.5rem;
   //padding-bottom: 1.5rem;
-  margin: 10px;
-  width: 5rem;
-  height: 5rem;
+  margin: 5px;
+  width: 7rem;
+  height: 7rem;
+  padding-top: 2.5rem;
   font-size: smaller;
   background-color: #aedddd;
   color: black;
@@ -112,15 +112,15 @@ h1 {
   text-align: center;
   border-radius: 100%;
   border-style: none;
-  transition: 0.2s;
 }
 
 .excerciseButtonCompleted {
-  padding: 1.5rem;
+  //padding: 1.5rem;
   //padding-bottom: 1.5rem;
-  margin: 10px;
-  width: 5rem;
-  height: 5rem;
+  margin: 5px;
+  width: 7rem;
+  height: 7rem;
+  padding-top: 2.5rem;
   font-size: smaller;
   background-color: #84b6f4;
   color: black;
@@ -129,60 +129,69 @@ h1 {
   text-align: center;
   border-radius: 100%;
   border-style: none;
-  transition: 0.2s;
 }
 
 @media (max-width: 1045px) {
   .buttonsContainer {
     align-items: center;
-    width: 100%;
-    height: 65%;
-    margin-top: 100px;
-    left: 0;
-    bottom: 20%;
+    width: 90%;
+    height: 85%;
+    //margin-top: 100px;
+    left: 20px;
+    //bottom: 20%;
+    padding-bottom: 80%;
     display: flex;
     flex-direction: row;
   }
 
   .excerciseButton {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    //padding-bottom: 1.5rem;
+    margin: 5px;
+    width: 7rem;
+    height: 7rem;
+    padding-top: 2.5rem;
     font-size: smaller;
-    background-color: royalblue;
+    background-color: rgb(31, 176, 195);
     color: white;
     display: flex;
     flex-direction: column;
     text-align: center;
-    border-radius: 2rem;
+    border-radius: 100%;
     border-style: none;
-    transition: 0.2s;
   }
 
   .excerciseButtonDisable {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    //padding-bottom: 1.5rem;
+    margin: 5px;
+    width: 7rem;
+    height: 7rem;
+    padding-top: 2.5rem;
     font-size: smaller;
-    background-color: rgb(150, 150, 150);
+    background-color: #aedddd;
     color: black;
     display: flex;
     flex-direction: column;
     text-align: center;
-    border-radius: 2rem;
+    border-radius: 100%;
     border-style: none;
-    transition: 0.2s;
   }
 
   .excerciseButtonCompleted {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    //padding-bottom: 1.5rem;
+    margin: 5px;
+    width: 7rem;
+    height: 7rem;
+    padding-top: 2.5rem;
     font-size: smaller;
-    background-color: rgb(102, 255, 64);
+    background-color: #84b6f4;
     color: black;
     display: flex;
     flex-direction: column;
     text-align: center;
-    border-radius: 2rem;
+    border-radius: 100%;
     border-style: none;
-    transition: 0.2s;
   }
 }

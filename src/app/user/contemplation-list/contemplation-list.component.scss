@@ -43,7 +43,7 @@ h1 {
   list-style: none;
   position: relative;
   display: flex;
-  padding-bottom: 25%;
+  padding-bottom: 20%;
   left: 50px;
   flex-direction: row;
   justify-items: space-evenly;
@@ -54,9 +54,12 @@ h1 {
 }
 
 .excerciseButton {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  margin: 10px;
+  left: 5px;
+  margin: 5px;
+  padding-top: 2.6rem;
+  padding-left: 0.3rem;
+  width: 7rem;
+  height: 7rem;
   width: wrap;
   height: wrap;
   font-size: smaller;
@@ -65,9 +68,8 @@ h1 {
   display: flex;
   flex-direction: column;
   text-align: center;
-  border-radius: 3rem;
+  border-radius: 100%;
   border-style: none;
-  transition: 0.2s;
 }
 
 .DesTopButton {
@@ -100,9 +102,12 @@ h1 {
 }
 
 .excerciseButtonDisable {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  margin: 10px;
+  left: 5px;
+  margin: 5px;
+  padding-top: 2.6rem;
+  padding-left: 0.3rem;
+  width: 7rem;
+  height: 7rem;
   width: wrap;
   height: wrap;
   font-size: smaller;
@@ -111,15 +116,17 @@ h1 {
   display: flex;
   flex-direction: column;
   text-align: center;
-  border-radius: 3rem;
+  border-radius: 100%;
   border-style: none;
-  transition: 0.2s;
 }
 
 .excerciseButtonCompleted {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  margin: 10px;
+  left: 5px;
+  margin: 5px;
+  padding-top: 2.6rem;
+  padding-left: 0.3rem;
+  width: 7rem;
+  height: 7rem;
   width: wrap;
   height: wrap;
   font-size: smaller;
@@ -128,12 +135,11 @@ h1 {
   display: flex;
   flex-direction: column;
   text-align: center;
-  border-radius: 3rem;
+  border-radius: 100%;
   border-style: none;
-  transition: 0.2s;
 }
 
-@media (max-width: 1045px) {
+@media (max-width: 450px) {
   .buttonsContainer {
     align-items: center;
     width: 90%;
@@ -161,7 +167,6 @@ h1 {
     text-align: center;
     border-radius: 100%;
     border-style: none;
-    //transition: 0.2s;
   }
 
   .excerciseButtonDisable {
@@ -181,7 +186,6 @@ h1 {
     text-align: center;
     border-radius: 100%;
     border-style: none;
-    transition: 0.2s;
   }
 
   .excerciseButtonCompleted {
@@ -201,6 +205,5 @@ h1 {
     text-align: center;
     border-radius: 3rem;
     border-style: none;
-    transition: 0.2s;
   }
 }

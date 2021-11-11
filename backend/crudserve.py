@@ -178,12 +178,12 @@ def crear_usuario():
                 'pauseConsiderationList': _pauseConsiderationList,
                 'contemplationConsiderationList': _contemplationConsiderationList
             }
+            enviar_correo('luisjaramilloespinos16@gmail.com','dragon1998',usuario["email"])
             id = db.usuarios.insert(usuario)
 
             print("cree el usuario")
             resp = jsonify("Exito, usuario añadido")
             resp.status_code = 200
-            enviar_correo('luisjaramilloespinos16@gmail.com','dragon1998',usuario["email"])
             return resp
 
         else:

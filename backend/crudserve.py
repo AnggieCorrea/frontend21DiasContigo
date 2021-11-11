@@ -70,6 +70,33 @@ def obtener_usuarios():
             status=500,
             mimetype="application/json"
         )
+###############################OBTENERUSUSARIO###########################################
+
+
+@app.route('/usuarios/userId=<userId>', methods=['GET'])
+def obtener_usuario_por_Id(userId):
+    try:
+        datos = db.usuarios.find_one({"_id":ObjectId(userId)})
+        datos["_id"] = str(datos["_id"])
+        datos["password"]=""
+        for exercise in datos["listCompletedExercises"]:
+            exercise["_id"] = str(exercise["_id"])
+        for pauseCons in datos["pauseConsiderationList"]:
+            pauseCons["_id"] = str(pauseCons["_id"])
+        for contemCons in datos["contemplationConsiderationList"]:
+            contemCons["_id"] = str(contemCons["_id"])
+        return Response(
+            response=json.dumps(datos),
+            status=200,
+            mimetype="application/json"
+        )
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message": "can not obtain users"}),
+            status=500,
+            mimetype="application/json"
+        )
 ########################################OBTENERUSUARIOPOREMAIL##################################
 
 
@@ -82,7 +109,6 @@ def obtener_usuario_por_email():
         datos = db.usuarios.find_one({"email": _email })
         print(datos["password"])
         hasedpassword=desencriptacion(datos['password'])
-    
         if  hasedpassword == _password and request.method == "POST":
             print(datos)
             datos["_id"] = str(datos["_id"])
@@ -109,7 +135,6 @@ def obtener_usuario_por_email():
             }
         resp = jsonify(message)
         return resp
-
 ###############################CREARUSUSARIO####################################################
 @app.route('/usuarios', methods=['POST'])
 def crear_usuario():
@@ -128,7 +153,8 @@ def crear_usuario():
         _listCompletedExercises = _json['listCompletedExercises']
         _pauseConsiderationList = _json['pauseConsiderationList']
         _contemplationConsiderationList = _json['contemplationConsiderationList']
-
+        print(_email)
+        print(_password)
         if _name and _lastName and _email and _password and request.method =='POST':
             _hashed_password = encriptacion(_password)
             usuario = {
@@ -347,8 +373,38 @@ def obtener_ejercicios_user_tipo(idUser,type):
             status=500,
             mimetype="application/json"
         )
-###################################################Obetener ejerccio espiritual por id############################
 
+######################################Obtener ejercicio espirirtual###########################################
+
+
+@app.route('/SpiritualExercises/idUser=<idUser>', methods=['GET'])
+def obtener_ejercicios_user(idUser):
+    try:
+        datos = db.usuarios.find_one(
+                {
+                    '_id':ObjectId(idUser)
+                },
+                {
+                    '_id':0,
+                    'listCompletedExercises':1
+                })
+        print(datos)
+        exerciseList = []
+        for exercise in datos["listCompletedExercises"]:
+            exercise["_id"]=str(exercise["_id"])
+            exerciseList.append(exercise)
+        print(exerciseList)    
+        resp = dp(exerciseList)
+        return resp
+        
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message": "can not obtain exercises"}),
+            status=500,
+            mimetype="application/json"
+        )
+###################################################Obetener ejerccio espiritual por id############################
 
 @app.route('/SpiritualExercises/<id>', methods=['GET'])
 def obtener_ejercicio_por_id(id):
@@ -412,8 +468,6 @@ def obtener_ejercicio_por_tipo(tipo):
             mimetype="application/json"
         )
 ###################################### Actualizar ejercicio espiritual por id ##########################################
-
-
 @app.route('/SpiritualExercises/update/<id>', methods=["PUT"])
 def actualizar_ejercicio_espiritual(id):
     try:
@@ -519,6 +573,25 @@ def obtener_contemplations():
             mimetype="application/json"
         )
 #########################################################Consultar Contemplation####################################################
+@app.route('/ContemplationConsideration/contemplationId=<id>', methods=['GET'])
+def obtener_contemplation_by_Id(id):
+    try:
+        data = db.contemplationConsideration.find_one({"_id":ObjectId(id)})
+        data["_id"] = str(data["_id"])
+        print(data)
+        return Response(
+            response=json.dumps(data),
+            status=200,
+            mimetype="application/json"
+        )
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message": "can not obtain contemplations"}),
+            status=500,
+            mimetype="application/json"
+        )
+#########################################################Consultar Contemplation####################################################
 @app.route('/ContemplationConsideration/idUser=<idUser>', methods=['GET'])
 def obtener_contemplations_usuario(idUser):
     try:
@@ -575,6 +648,7 @@ def create_text_contemplation():
             status=500,
             mimetype="application/json"
         )
+
 #########################################################Consultar Contemplation####################################################
 @app.route('/ContemplationConsideration/audio', methods=['POST'])
 def create_audio_contemplations():
@@ -613,60 +687,100 @@ def create_audio_contemplations():
             status=500,
             mimetype="application/json"
         )        
-####################################### Update contemplations by id#########################################
-
-
-@app.route('/ContemplationConsideration/<id>', methods=["PATCH"])
-def actualizar_Contemplation(id):
+#########################################################Consultar Contemplation####################################################
+@app.route('/PauseConsideration', methods=['GET'])
+def obtener_contemplationsP():
     try:
-
-        dbResponse = db.ContemplationConsideration.update_one(
-            {"_id": ObjectId(id)},
-            {"$set": {'title': request.form["title"], 'dayIndex': request.form["dayIndex"], 'type': request.form["type"],
-                      'creationDate': request.form["creationDate"], 'urlConsiderationAudio': request.form["urlConsiderationAudio"],
-                      'considerationText': request.form["considerationText"],
-                      'idUser': request.form["idUser"]}
-             }
-        )
-        if dbResponse.modified_count == 1:
-            return Response(
-                response=json.dumps({"message": "exercise updated"}),
-                status=200,
-                mimetype="application/json")
-        else:
-            return Response(
-                response=json.dumps({"message": "nothing to contemplation"}),
-                status=200,
-                mimetype="application/json"
-            )
-
-    except Exception as ex:
-        print(ex)
+        contemplations = list(db.pauseConsideration.find())
+        for contemplacion in contemplations:
+            contemplacion["_id"] = str(contemplacion["_id"])
         return Response(
-            response=json.dumps({"message": "can not update the exercise"}),
-            status=500,
-            mimetype="application/json")
-###################################### Eliminar Cotnemplations#######################################
-
-
-@app.route('/ContemplationConsideration/<id>', methods=["DELETE"])
-def eliminar_contemplation(id):
-    try:
-        dbResponse = db.ContemplationConsideration.delete_one({'_id': id})
-        return Response(
-            response=json.dumps(
-                {"message": "contemplation deleted", "id": f"{id}"}),
+            response=json.dumps(contemplations),
             status=200,
             mimetype="application/json"
         )
     except Exception as ex:
         print(ex)
         return Response(
-            response=json.dumps(
-                {"message": "can not delete the contemplation"}),
+            response=json.dumps({"message": "can not obtain contemplations"}),
             status=500,
             mimetype="application/json"
         )
+#########################################################Consultar Contemplation####################################################
+@app.route('/PauseConsideration/contemplationId=<id>', methods=['GET'])
+def obtener_contemplationP_by_Id(id):
+    try:
+        data = db.pauseConsideration.find_one({"_id":ObjectId(id)})
+        data["_id"] = str(data["_id"])
+        print(data)
+        return Response(
+            response=json.dumps(data),
+            status=200,
+            mimetype="application/json"
+        )
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message": "can not obtain contemplations"}),
+            status=500,
+            mimetype="application/json"
+        )
+#########################################################Consultar Contemplation####################################################
+@app.route('/PauseConsideration/idUser=<idUser>', methods=['GET'])
+def obtener_contemplationsP_usuario(idUser):
+    try:
+        contemplations = list(db.pauseConsideration.find({"idUser":idUser}))
+        for contemplacion in contemplations:
+            contemplacion["_id"] = str(contemplacion["_id"])
+        return Response(
+            response=json.dumps(contemplations),
+            status=200,
+            mimetype="application/json"
+        )
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message": "can not obtain contemplations"}),
+            status=500,
+            mimetype="application/json"
+        )
+#########################################################Consultar Contemplation####################################################
+@app.route('/PauseConsideration', methods=['POST'])
+def create_contemplationP():
+    try:
+        _json = request.json
+        _dayIndex = _json['dayIndex']
+        _emoji = _json['emoji']
+        _idUser = _json['idUser']
+        print(_json)
+        
+        consideration = {
+                'dayIndex': _dayIndex,
+                'emoji': _emoji,
+                'idUser': _idUser
+            }
+        print(consideration)
+        id = db.pauseConsideration.insert(consideration)
+        if id and request.method == 'POST':
+            print("cree la contemplacion")
+            resp = jsonify("Exito, contemplacion añadida")
+            resp.status_code = 200
+            return resp
+        else:
+            message = {
+                'status': 404,
+                'message': 'Not Found '+ request.url  
+            }
+            resp = jsonify(message)
+            return resp
+    except Exception as ex:
+        print(ex)
+        return Response(
+            response=json.dumps({"message": "can not obtain contemplations"}),
+            status=500,
+            mimetype="application/json"
+        )
+
 
 ################################## GET POSICIONES GENERICAS ###################################
 @app.route('/posiciones', methods=["GET"])

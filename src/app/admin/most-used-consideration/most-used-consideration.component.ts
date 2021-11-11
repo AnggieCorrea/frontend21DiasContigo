@@ -104,7 +104,7 @@ export class MostUsedConsiderationComponent implements OnInit {
 
   findTypesContemplationConsideration(): void {
     this.contemplationConsiderationService
-      .getContemplationConsideration()
+      .getContemplationConsiderations()
       .subscribe(
         (results) => {
           this.contemplationConsiderations = results;

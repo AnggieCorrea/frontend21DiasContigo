@@ -1,6 +1,7 @@
 import { PathLocationStrategy } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { ContemplationConsideration } from 'src/app/models/ContemplationConsideration';
 import { SpiritualExercise } from 'src/app/models/SpiritualExercise';
 import { User } from 'src/app/models/User';
@@ -15,6 +16,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./contemplation-exercise.component.scss'],
 })
 export class ContemplationExerciseComponent implements OnInit {
+  faSave = faSave;
   activeUser: string;
   user: User;
   contemplation: SpiritualExercise;

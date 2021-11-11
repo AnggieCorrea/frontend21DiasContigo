@@ -1,9 +1,7 @@
 export interface PauseConsiderationInterface {
   _id: string;
   dayIndex: string;
-  type: string;
-  urlConsiderationAudio: string;
-  considerationText: string;
+  emoji: string;
   idUser: string;
 }
 
@@ -12,24 +10,18 @@ export class PauseConsideration
 {
   _id: string;
   dayIndex: string;
-  type: string;
-  urlConsiderationAudio: string;
-  considerationText: string;
+  emoji: string;
   idUser: string;
 
   constructor(
     _id: string,
     dayIndex: string,
-    type: string,
-    urlConsiderationAudio: string,
-    considerationText: string,
+    emoji: string,
     idUser: string
   ) {
     this._id = _id;
     this.dayIndex = dayIndex;
-    this.type = type;
-    this.urlConsiderationAudio = urlConsiderationAudio;
-    this.considerationText = considerationText;
+    this.emoji = emoji;
     this.idUser = idUser;
   }
 
@@ -40,14 +32,8 @@ export class PauseConsideration
   getDayIndex(): string {
     return this.dayIndex;
   }
-  getType(): string {
-    return this.type;
-  }
-  getUrlConsiderationAudio(): string {
-    return this.urlConsiderationAudio;
-  }
-  getConsiderationText(): string {
-    return this.considerationText;
+  getemoji(): string {
+    return this.emoji;
   }
   getIdUser(): string {
     return this.idUser;
@@ -60,14 +46,8 @@ export class PauseConsideration
   setDayIndex(dayIndex: string): void {
     this.dayIndex = dayIndex;
   }
-  setType(type: string): void {
-    this.type = type;
-  }
-  setUrlConsiderationAudio(urlConsiderationAudio: string): void {
-    this.urlConsiderationAudio = urlConsiderationAudio;
-  }
-  setConsiderationText(considerationText: string): void {
-    this.considerationText = considerationText;
+  setUrlConsiderationAudio(emoji: string): void {
+    this.emoji = emoji;
   }
   setIdUser(idUser: string): void {
     this.idUser = idUser;

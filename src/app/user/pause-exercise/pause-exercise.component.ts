@@ -124,7 +124,8 @@ export class PauseExerciseComponent implements OnInit {
       (error) => {
         console.log(error);
       }
-    );    
+    );
+    this.navPauseMap();    
   }
   
 }

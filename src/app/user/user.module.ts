@@ -7,7 +7,6 @@ import { ContemplationExerciseComponent } from './contemplation-exercise/contemp
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SharedComponentsModule } from '../shared-components/shared-components.module';
-import { PauseConsiderationComponent } from './pause-consideration/pause-consideration.component';
 import { ContemplationConsiderationComponent } from './contemplation-consideration/contemplation-consideration.component';
 import { ContemplationConsiderationListComponent } from './profile/contemplation-consideration-list/contemplation-consideration-list.component';
 import { PauseConsiderationListComponent } from './profile/pause-consideration-list/pause-consideration-list.component';
@@ -25,7 +24,6 @@ import { FooterUserComponent } from './footer-user/footer-user.component';
     ContemplationExerciseComponent,
     ProfileComponent,
     SettingsComponent,
-    PauseConsiderationComponent,
     ContemplationConsiderationComponent,
     ContemplationConsiderationListComponent,
     PauseConsiderationListComponent,
@@ -42,7 +40,6 @@ import { FooterUserComponent } from './footer-user/footer-user.component';
     ContemplationExerciseComponent,
     ProfileComponent,
     SettingsComponent,
-    PauseConsiderationComponent,
     ContemplationConsiderationComponent,
     ContemplationConsiderationListComponent,
     PauseConsiderationListComponent,

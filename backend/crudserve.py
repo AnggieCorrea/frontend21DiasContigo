@@ -52,6 +52,7 @@ def obtener_usuarios():
         datos = list(db.usuarios.find())
         for usuario in datos:
             usuario["_id"] = str(usuario["_id"])
+            usuario["password"] = ""
             for exercise in usuario["listCompletedExercises"]:
                 exercise["_id"] = str(exercise["_id"])
             for pauseCons in usuario["pauseConsiderationList"]:
@@ -377,22 +378,21 @@ def obtener_ejercicios_user_tipo(idUser,type):
 ######################################Obtener ejercicio espirirtual###########################################
 
 
-@app.route('/SpiritualExercises/idUser=<idUser>', methods=['GET'])
-def obtener_ejercicios_user(idUser):
+@app.route('/usuarios/spiritualExercises', methods=['GET'])
+def obtener_ejercicios_user():
     try:
-        datos = db.usuarios.find_one(
-                {
-                    '_id':ObjectId(idUser)
-                },
+        datos = list(db.usuarios.find(
+                {},
                 {
                     '_id':0,
                     'listCompletedExercises':1
-                })
+                }))
         print(datos)
         exerciseList = []
-        for exercise in datos["listCompletedExercises"]:
-            exercise["_id"]=str(exercise["_id"])
-            exerciseList.append(exercise)
+        for usuario in datos: 
+            for exercise in usuario["listCompletedExercises"]:
+                exercise["_id"]=str(exercise["_id"])
+                exerciseList.append(exercise)
         print(exerciseList)    
         resp = dp(exerciseList)
         return resp

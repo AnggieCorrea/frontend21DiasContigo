@@ -10,7 +10,7 @@ def enviar_correo(correo,contraseña,destinatario):
         smtp.ehlo()
 
         smtp.login(correo,contraseña)
-        subject='notification about  register in 21 dias'
-        body='welcome to our new platfrom we are greatfull to count with you as new user'
+        subject='notification about  register , not replay 21diascontigo '
+        body='welcome to our new platform we are greatfull to count with you as new user'
         msg=f'Subject:{subject}\n\n{body}'
         smtp.sendmail(correo,destinatario,msg)

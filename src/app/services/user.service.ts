@@ -15,7 +15,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   public getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.urlBase);
+    return this.http.get<User[]>(`${this.urlBase}/usuarios`);
   }
 
   public getUserByEmail(user: User): Observable<User> {
@@ -25,9 +25,7 @@ export class UserService {
 
   public getUserById(userId: string): Observable<User> {
     console.log(userId);
-    return this.http.get<User>(
-      `${this.urlBase}/usuarios/userId=${userId}`
-    );
+    return this.http.get<User>(`${this.urlBase}/usuarios/userId=${userId}`);
   }
 
   public addUser(user: User): Observable<User> {
@@ -36,13 +34,14 @@ export class UserService {
 
   public saveExercise(idUser: string, idExercise: string): Observable<User> {
     return this.http.put<User>(
-      `${this.urlBase}/usuarios/saveExercise/idUser=${idUser}&idExercise=${idExercise}`,null
+      `${this.urlBase}/usuarios/saveExercise/idUser=${idUser}&idExercise=${idExercise}`,
+      null
     );
   }
 
-  public getExercisesByUser(idUser: string): Observable<SpiritualExercise[]> {
+  public getExercisesByUser(): Observable<SpiritualExercise[]> {
     return this.http.get<SpiritualExercise[]>(
-      `${this.urlBase}/SpiritualExercises/idUser=${idUser}`
+      `${this.urlBase}/usuarios/spiritualExercises`
     );
   }
 }

@@ -6,7 +6,7 @@ import { ContemplationListComponent } from './user/contemplation-list/contemplat
 import { PauseListComponent } from './user/pause-list/pause-list.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { SettingsComponent } from './user/settings/settings.component';
-import { ContemplationExerciseComponent} from './user/contemplation-exercise/contemplation-exercise.component';
+import { ContemplationExerciseComponent } from './user/contemplation-exercise/contemplation-exercise.component';
 import { LandingComponent } from './public/landing/landing.component';
 import { HomeComponent } from './user/home/home.component';
 import { HomeAdministrationComponent } from './admin/home-administration/home-administration.component';
@@ -19,8 +19,6 @@ import { FooterAdminComponent } from './admin/footer-admin/footer-admin.componen
 import { PauseExerciseComponent } from './user/pause-exercise/pause-exercise.component';
 import { FooterUserComponent } from './user/footer-user/footer-user.component';
 import { ContemplationConsiderationComponent } from './user/contemplation-consideration/contemplation-consideration.component';
-import { AuthGuard } from './auth.guard';
-import { RoleGuard } from './role.guard';
 
 const routes: Routes = [
   {
@@ -44,7 +42,6 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    canActivate: [AuthGuard],
   },
   {
     path: 'createAccount',

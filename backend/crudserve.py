@@ -183,7 +183,8 @@ def crear_usuario():
             print("cree el usuario")
             resp = jsonify("Exito, usuario añadido")
             resp.status_code = 200
-            enviar_correo('luisjaramilloespinos16@gmail.com','dragon1998',usuario["email"])
+            enviar_correo('anggiecaro1023@gmail.com',
+                          'carolina1023', usuario["email"])
             return resp
 
         else:

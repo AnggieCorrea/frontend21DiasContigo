@@ -25,7 +25,8 @@ export class SeeSpiritualExerciseComponent implements OnInit {
   sentenceTwo: string;
   urlAudio: string;
   urlImage: string;
-
+  audioObj = new Audio();
+  
   @Output() valueResponse: EventEmitter<string> = new EventEmitter();
   constructor(
     private router: Router,
@@ -74,5 +75,14 @@ export class SeeSpiritualExerciseComponent implements OnInit {
     this.typeExercise = this.communicationService.typeExercise;
     this.valueResponse.emit(this.typeExercise);
     this.router.navigate(['/spiritualExerciseAdministration']);
+  }
+  openFile(url: any) {
+    this.audioObj.src = url;
+    this.audioObj.load();
+    console.log(url);
+    this.urlAudio = url;
+    let player = <HTMLAudioElement>document.getElementById('audio');
+    player.src = url;
+    player.load();
   }
 }

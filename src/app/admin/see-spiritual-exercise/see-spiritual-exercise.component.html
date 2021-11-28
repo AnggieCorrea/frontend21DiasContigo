@@ -16,7 +16,16 @@
       <h3>{{ sentenceOne }}</h3>
       <h3>{{ sentenceTwo }}</h3>
       <div class="contentAudio">
-        <app-audio-player></app-audio-player>
+        <div class="audioContainer">
+          <ul>
+            <button class="writeNavButton" (click)="openFile(urlAudio)">
+              Cargar Audio
+            </button>
+            <audio controls id="audio" >
+              <source type="audio/mp3" />
+            </audio>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

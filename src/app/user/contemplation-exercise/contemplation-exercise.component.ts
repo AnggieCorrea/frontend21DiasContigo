@@ -172,6 +172,7 @@ export class ContemplationExerciseComponent implements OnInit {
         console.log(error);
       }
     );    
+    this.navContemplationMap();
   }
   
   saveTextConsideration() {

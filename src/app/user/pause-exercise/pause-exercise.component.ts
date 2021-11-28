@@ -27,7 +27,7 @@ export class PauseExerciseComponent implements OnInit {
   sentencetwo:string;
   urlImage:string;
   urlAudio:string;
-  showSpam = true;
+  showSpam = false;
   showForm = false;
   showPlay = true;
   showPause = false;
